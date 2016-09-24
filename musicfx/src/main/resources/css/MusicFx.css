@@ -1,0 +1,17 @@
+.leftPane {
+    -fx-background-color: darkblue;
+}
+
+.minimizeBtn, .maximizeBtn, .closeBtn {
+    -fx-fill: darkgreen;
+    -fx-border-color: slateblue;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}
+
+.minimizeBtn:hover{
+}
+
+.minimizeBtn:hover, .maximizeBtn:hover, .closeBtn:hover{
+    -fx-fill: darkblue;
+}

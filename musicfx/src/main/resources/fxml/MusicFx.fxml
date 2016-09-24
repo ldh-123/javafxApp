@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ldh.musicfx.controller.MusicFxController">
+   <left>
+      <VBox fx:id="musicLeftPane" prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER" styleClass="leftPane">
+         <children>
+            <StackPane fx:id="titlePane"/>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="200.0" prefWidth="200.0" vbarPolicy="NEVER" VBox.vgrow="ALWAYS">
+               <content>
+                  <AnchorPane fx:id="navPane" minHeight="0.0" minWidth="0.0" prefHeight="237.0" prefWidth="102.0" />
+               </content>
+            </ScrollPane>
+            <HBox prefHeight="75.0" prefWidth="100.0">
+            </HBox>
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <BorderPane prefHeight="200.0" prefWidth="200.0">
+         <top>
+            <HBox prefHeight="75.0" prefWidth="500.0" alignment="TOP_LEFT">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="103.0" prefWidth="95.0" text="ToggleButton" onAction="#toggleLefPaneAction"/>
+                  <Pane HBox.hgrow="ALWAYS"></Pane>
+                  <HBox alignment="TOP_RIGHT">
+                     <children>
+                        <StackPane prefHeight="30" prefWidth="30">
+                           <children>
+                              <Rectangle width="30" height="30" styleClass="minimizeBtn"></Rectangle>
+                              <Label text="-"/>
+                           </children>
+                        </StackPane>
+                        <StackPane  prefHeight="30" prefWidth="30">
+                           <children>
+                              <Rectangle width="30" height="30" styleClass="maximizeBtn"></Rectangle>
+                              <Label text="[]" />
+                           </children>
+                        </StackPane>
+                        <StackPane>
+                           <children>
+                              <Rectangle width="30" height="30" styleClass="closeBtn"></Rectangle>
+                              <Label text="X"/>
+                           </children>
+                        </StackPane>
+                     </children>
+                  </HBox>
+               </children>
+            </HBox>
+         </top>
+         <bottom>
+            <HBox prefHeight="53.0" prefWidth="500.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox fx:id="musicControlPane" prefHeight="100.0" prefWidth="183.0" />
+                  <Region fx:id="lyricPane" prefHeight="200.0" prefWidth="200.0" />
+                  <HBox fx:id="musicInfoPane" prefHeight="100.0" prefWidth="200.0" />
+               </children>
+            </HBox>
+         </bottom>
+         <right>
+            <ScrollPane hbarPolicy="NEVER" prefHeight="205.0" prefWidth="121.0" BorderPane.alignment="CENTER">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="200.0" prefWidth="194.0" />
+              </content>
+            </ScrollPane>
+         </right>
+         <center>
+            <ScrollPane prefHeight="205.0" prefWidth="344.0" BorderPane.alignment="CENTER">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+              </content>
+            </ScrollPane>
+         </center>
+      </BorderPane>
+   </center>
+</BorderPane>

@@ -1,0 +1,21 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+.project
+.settings
+.classpath
+target
+
+# logs #
+logs
+# idea # 
+.idea
+*.idea
+*.iml
+/bin/*
+
+Servers
+.metadata
