@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<HBox styleClass="topControlPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ldh.musicfx.controller.WindowController">
+    <children>
+        <Pane>
+            <StackPane>
+                <children>
+                    <Rectangle width="30" height="30" styleClass="minimizeBtn" onMouseClicked="#minMusicFx"></Rectangle>
+                    <Label text="-" styleClass="minimizeTxt" mouseTransparent="true"/>
+                </children>
+            </StackPane>
+        </Pane>
+        <Pane>
+            <StackPane>
+                <children>
+                    <Rectangle width="30" height="30" styleClass="maximizeBtn" onMouseClicked="#maxMusicFx"></Rectangle>
+                    <ImageView pickOnBounds="true" preserveRatio="true" styleClass="maximizeTxt" mouseTransparent="true">
+                        <image>
+                            <Image url="@/img/window_max_icon.png" />
+                        </image>
+                    </ImageView>
+                </children>
+            </StackPane>
+        </Pane>
+        <Pane>
+            <StackPane>
+                <children>
+                    <Rectangle width="30" height="30" styleClass="closeBtn" onMouseClicked="#closeMusicFx"></Rectangle>
+                    <Label text="X" styleClass="closeTxt" mouseTransparent="true"/>
+                </children>
+            </StackPane>
+        </Pane>
+    </children>
+</HBox>

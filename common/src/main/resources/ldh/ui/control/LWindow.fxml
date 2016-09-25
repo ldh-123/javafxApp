@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
+
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
+    <top>
+        <HBox fx:id="titlePane" onDragDetected="#startMoveWindow" onMouseClicked="#titleDoubleClick" onMouseDragged="#moveWindow" onMouseReleased="#endMoveWindow" styleClass="title-bar">
+         <children>
+            <StackPane HBox.hgrow="ALWAYS">
+               <children>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label styleClass="title" text="Flat Win" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="20.0" spacing="8.0">
+                     <children>
+                        <HBox fx:id="btnMaximize" alignment="CENTER" onMouseClicked="#maximize" styleClass="max-button" prefWidth="15">
+                           <children>
+                              <ImageView pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@window_max_icon.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <Label onMouseClicked="#minimize" styleClass="min-button" text="_" prefWidth="15" alignment="CENTER"/>
+                        <Label onMouseClicked="#close" styleClass="close-button" text="X" prefWidth="15" alignment="CENTER" />
+                     </children>
+                  </HBox>
+               </children>
+            </StackPane>
+         </children>
+      </HBox>
+    </top>
+    <bottom>
+        <HBox alignment="BOTTOM_CENTER" >
+            <children>
+                <Rectangle fx:id="nEPane" height="5" width="5" styleClass="bottomPane" 
+                  onDragDetected="#startChangeNESize" onMouseDragged="#changeNESize" onMouseEntered="#nEChangeSize" onMouseReleased="#endChangeNESize" /> 
+                
+                <Rectangle fx:id="bottomPane" height="2" styleClass="bottomPane" HBox.hgrow="ALWAYS" 
+                  onDragDetected="#startChangeBottomSize" onMouseDragged="#changeBottomSize" onMouseEntered="#bottomChangeSize" onMouseReleased="#endChangeBottomSize" /> 
+                
+                <Rectangle fx:id="nWPane" height="5" width="5" styleClass="bottomPane" 
+                  onDragDetected="#startChangeNWSize" onMouseDragged="#changeNWSize" onMouseEntered="#nWChangeSize" onMouseReleased="#endChangeNWSize" /> 
+                
+            </children>
+        </HBox>
+   </bottom>
+   <center>
+   </center>
+   <left>
+     <VBox fx:id="leftPane" styleClass="leftPane" prefWidth="2"
+                  onDragDetected="#startChangeLeftSize" onMouseDragged="#changeLeftSize" onMouseEntered="#leftChangeSize" onMouseReleased="#endChangeLeftSize"  /> 
+   </left>
+   <right>
+     <VBox fx:id="rightPane" styleClass="rightPane" prefWidth="2"
+                onDragDetected="#startChangeRightSize" onMouseDragged="#changeRightSize" onMouseEntered="#rightChangeSize" onMouseReleased="#endChangeRightSize"  /> 
+   </right>
+   <effect>
+       <javafx.scene.effect.DropShadow />
+   </effect>
+   <background>
+   </background>
+</fx:root>

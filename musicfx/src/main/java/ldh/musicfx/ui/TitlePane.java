@@ -41,7 +41,7 @@ public class TitlePane extends StackPane {
         this.getChildren().clear();
         if (!newValue) {
             HBox hbox = new HBox();
-            hbox.setPadding(new Insets(10));
+            hbox.setPadding(new Insets(15));
             hbox.setSpacing(10);
             hbox.setAlignment(Pos.CENTER_LEFT);
             Image img = new Image(imgURLStringProperty.get());
@@ -53,7 +53,7 @@ public class TitlePane extends StackPane {
             this.getChildren().add(hbox);
         } else {
             HBox hbox = new HBox();
-            hbox.setPadding(new Insets(10));
+            hbox.setPadding(new Insets(15));
             hbox.setSpacing(10);
             hbox.setAlignment(Pos.CENTER_LEFT);
             Image img = new Image(imgURLStringProperty.get());
@@ -64,7 +64,6 @@ public class TitlePane extends StackPane {
             hbox.getChildren().addAll(imageView);
             this.getChildren().add(hbox);
         }
-
     }
 
     public String getImgURLStringProperty() {

@@ -20,7 +20,7 @@ public class MusicFx extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStageObj = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/MusicFx.fxml"));
-//        primaryStage.initStyle(StageStyle.UNDECORATED);
+        primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.setTitle("Socket Chat : Client version 0.3");
         primaryStage.getIcons().add(new Image(getClass().getClassLoader().getResource("img/music.jpg").toString()));
         Scene mainScene = new Scene(root, 850, 620);

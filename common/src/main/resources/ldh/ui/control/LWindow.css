@@ -1,0 +1,61 @@
+.lwindow{
+    -fx-border-radius:5;
+    -fx-border-color: black;
+    -fx-border-size: 1px;
+    -fx-border-style: solid;
+    -fx-fill: transparent;
+}
+
+.title-bar {
+    -fx-padding: 10px;
+    -fx-background-color: darkgreen;
+ }
+
+.title-bar Label {
+    -fx-text-fill: white;
+}
+
+.title, .close-button, .min-button {
+    -fx-font-family: Arial;
+    -fx-font-weight: 700;
+}
+
+.title {
+    -fx-font-size: 18px;
+}
+
+.close-button, .min-button, .max-button {
+    -fx-font-size: 12px;
+    -fx-padding: 1px;
+    -fx-border-color: darkgreen;  /* "invisible" border */
+    -fx-border-size: 1px;
+    -fx-border-style: solid;
+}
+
+.close-button:hover {
+    /*-fx-padding: 2 3 2 3;*/
+    -fx-background-color:#ff6666;
+}
+
+.min-button:hover, .max-button:hover {
+    /*-fx-padding: 2 3 2 3;*/
+    -fx-background-color: #3333ff;
+}
+
+.tracking-rect {
+    -fx-border-radius:5;
+    -fx-fill: white;
+    -fx-opacity: 0.9;
+    -fx-stroke: darkgray;
+}
+
+.fat-win {
+    -fx-border-radius:5;
+    -fx-border-color: black;
+    -fx-border-size: 1px;
+    -fx-border-style: solid;
+}
+
+.leftPane, .rightPane, .bottomPane, .nEPane, .nWPane{
+    -fx-fill: transparent;
+}
