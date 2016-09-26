@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ldh.ui.control;
+package ldh.fx.ui;
 
 import java.io.IOException;
 import java.net.URL;
@@ -13,17 +13,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import javafx.stage.Popup;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import javafx.stage.Window;
-import ldh.ui.ChangeSizePane;
+import javafx.stage.*;
+import ldh.fx.ChangeSizePane;
 
 /**
  *
@@ -54,9 +52,16 @@ public class LWindow extends BorderPane implements javafx.fxml.Initializable, Ch
     private double lastY = 0.0d;
     private double lastWidth = 0.0d;
     private double lastHeight = 0.0d;
+
+    private Stage owner;
     
-    public LWindow(String title, Node node) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ldh/ui/control/LWindow.fxml"));
+    public LWindow(Stage stage, String title, Node node) {
+        this.owner = stage;
+        Stage newStage = new Stage();
+        newStage.initOwner(stage);
+        newStage.initModality(Modality.WINDOW_MODAL);
+        newStage.initStyle(StageStyle.TRANSPARENT);
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/ldh/fx/ui/LWindow.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
 
@@ -68,6 +73,10 @@ public class LWindow extends BorderPane implements javafx.fxml.Initializable, Ch
         
         setContent(node);
         bottomPane.widthProperty().bind(this.widthProperty().subtract(nEPane.widthProperty()).subtract(nWPane.widthProperty()));
+        Scene scene = new Scene(this, 800, 600);
+        scene.getStylesheets().add("/ldh.fx.css/LWindow.css");
+        newStage.setScene(scene);
+        newStage.show();
     }
     
     @FXML

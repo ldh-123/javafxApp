@@ -1,11 +1,13 @@
 package ldh.musicfx.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import ldh.musicfx.MusicFx;
 
@@ -21,7 +23,7 @@ public class WindowController {
 
     @FXML
     public void minMusicFx(MouseEvent evt) {
-        MusicFx.getPrimaryStage().setIconified(true);
+        minimize();
     }
 
     @FXML
@@ -63,5 +65,23 @@ public class WindowController {
 
         }
         evt.consume();  // don't bubble up to title bar
+    }
+
+    public void minimize() {
+        if (!Platform.isFxApplicationThread()) {// Ensure on correct thread else hangs X under Unbuntu
+            Platform.runLater(new Runnable() {
+                @Override
+                public void run() {
+                    _minimize();
+                }
+            });
+        } else {
+            _minimize();
+        }
+    }
+
+    private void _minimize() {
+        Stage stage = MusicFx.getPrimaryStage();
+        stage.setIconified(true);
     }
 }

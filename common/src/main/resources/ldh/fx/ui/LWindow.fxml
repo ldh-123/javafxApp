@@ -31,7 +31,7 @@
                            <children>
                               <ImageView pickOnBounds="true" preserveRatio="true">
                                  <image>
-                                    <Image url="@window_max_icon.png" />
+                                    <Image url="@../../../ldh.fx.img/window_max_icon.png" />
                                  </image>
                               </ImageView>
                            </children>

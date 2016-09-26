@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ldh.ui.control;
+package ldh.fx.controller;
 
 import javafx.application.Application;
 import static javafx.application.Application.launch;
@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ldh.fx.ui.LWindow;
 
 /**
  *
@@ -20,30 +21,8 @@ public class LWindowTest extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        LWindow window = new LWindow("sadadfa", new Label("sadfafdasfasdfasfasdfsadfasfsafdas"));
-        
-        Scene scene = null;
-//        String osName = System.getProperty("os.name");
-//        if( osName != null && osName.startsWith("Windows") ) {
-//
-//            //
-//            // Windows hack b/c unlike Mac and Linux, UNDECORATED doesn't include a shadow
-//            //
-//            scene = (new WindowsHack()).getShadowScene(window);
-//            stage.initStyle(StageStyle.TRANSPARENT);
-//
-//        } else {
-//            scene = new Scene(window);
-//            stage.initStyle(StageStyle.UNDECORATED);
-//        }
-
-        scene = new Scene(window);
-        stage.initStyle(StageStyle.UNDECORATED);
-
-        scene.getStylesheets().add("/ldh/ui/control/LWindow.css");
-        stage.setTitle("JavaFX and Maven");
-        stage.setScene(scene);
-        stage.show();
+        LWindow window = new LWindow(stage, "sadadfa", new Label("sadfafdasfasdfasfasdfsadfasfsafdas"));
+//        stage.initStyle(StageStyle.TRANSPARENT);
     }
 
     /**
