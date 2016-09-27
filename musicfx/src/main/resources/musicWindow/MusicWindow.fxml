@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.shape.Rectangle?>
+<fx:root type="javafx.scene.layout.AnchorPane" styleClass="lxWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+         xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <BorderPane fx:id="rootPane" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <left>
+            <VBox fx:id="leftPane" prefWidth="60" style="-fx-background-color: #428bca" mouseTransparent="false">
+
+            </VBox>
+         </left>
+         <center>
+            <BorderPane>
+               <top>
+                  <HBox fx:id="titlePane" onDragDetected="#startMoveWindow" onMouseClicked="#titleDoubleClick" onMouseDragged="#moveWindow" onMouseReleased="#endMoveWindow" prefHeight="62" mouseTransparent="false">
+                     <children>
+                        <HBox>
+                           <children>
+                              <StackPane styleClass="toggleLeftBtn" prefWidth="65.0" onMouseClicked="#toggleLefPaneAction">
+                                 <children>
+                                    <Label text="Toggle"/>
+                                 </children>
+                              </StackPane>
+                              <Label fx:id="title"/>
+                           </children>
+                        </HBox>
+                        <Pane HBox.hgrow="ALWAYS"/>
+                        <HBox>
+                           <children>
+                              <Button styleClass="minimizeBtn" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" onAction="#minimizeWindow"></Button>
+                              <Button fx:id="maximizeBtn" styleClass="maximizeBtnFull" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" onAction="#maximizeWindow"></Button>
+                              <Button styleClass="closeBtn" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" onAction="#closeWindow"></Button>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </top>
+               <center>
+                  <StackPane fx:id="contentPane" mouseTransparent="false" />
+               </center>
+            </BorderPane>
+
+         </center>
+      </BorderPane>
+      <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" managed="false"/>
+   </children>
+</fx:root>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import ldh.musicfx.ui.PopupButtonPane?>
+
+<?import javafx.scene.shape.Circle?>
+<fx:root styleClass="settingPane" type="javafx.scene.layout.VBox" prefWidth="200.0"
+         xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox onMouseClicked="#settingItemClick">
+            <children>
+                <Label text="Setting"></Label>
+            </children>
+        </HBox>
+        <HBox onMouseClicked="#settingItemClick">
+            <children>
+                <Label text="Profile"></Label>
+            </children>
+        </HBox>
+        <HBox onMouseClicked="#settingItemClick">
+            <children>
+                <Label text="Notifications"></Label>
+                <Pane HBox.hgrow="ALWAYS"></Pane>
+                <StackPane>
+                    <children>
+                        <Circle radius="12" styleClass="notificationNum"></Circle>
+                        <Label text="8"/>
+                    </children>
+                </StackPane>
+            </children>
+        </HBox>
+        <HBox onMouseClicked="#settingItemClick">
+            <children>
+                <Label text="Help"></Label>
+            </children>
+        </HBox>
+        <Separator/>
+        <HBox onMouseClicked="#settingItemClick">
+            <children>
+                <Label text="Logout"></Label>
+            </children>
+        </HBox>
+    </children>
+</fx:root>

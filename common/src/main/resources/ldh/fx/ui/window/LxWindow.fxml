@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+
+<fx:root type="javafx.scene.layout.AnchorPane" styleClass="lxWindowPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0"
+            xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox fx:id="titlePane" onDragDetected="#startMoveWindow" onMouseClicked="#titleDoubleClick" onMouseDragged="#moveWindow" onMouseReleased="#endMoveWindow" prefHeight="62"
+            AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" mouseTransparent="false">
+         <children>
+            <HBox>
+               <children>
+                  <Label fx:id="title"/>
+               </children>
+            </HBox>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <HBox>
+               <children>
+                  <Button styleClass="minimizeBtn" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" onAction="#minimizeWindow"></Button>
+                  <Button fx:id="maximizeBtn" styleClass="maximizeBtnFull" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" onAction="#maximizeWindow"></Button>
+                  <Button styleClass="closeBtn" mnemonicParsing="false" pickOnBounds="true" prefHeight="30.0" prefWidth="34.0" onAction="#closeWindow"></Button>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <StackPane fx:id="contentPane" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="62.0" mouseTransparent="false" style="-fx-background-color: #3333ff"/>
+      <Button mnemonicParsing="false" prefHeight="20.0" prefWidth="20.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" managed="false"/>
+   </children>
+   <opaqueInsets>
+      <Insets bottom="5.0" left="5.0" right="5.0" />
+   </opaqueInsets>
+</fx:root>

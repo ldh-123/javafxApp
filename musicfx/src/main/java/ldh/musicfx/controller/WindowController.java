@@ -1,7 +1,6 @@
 package ldh.musicfx.controller;
 
 import javafx.application.Platform;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
@@ -9,7 +8,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import ldh.musicfx.MusicFx;
+import ldh.musicfx.MusicFx1;
 
 /**
  * Created by Puhui on 2016/9/25.
@@ -28,7 +27,7 @@ public class WindowController {
 
     @FXML
     public void closeMusicFx(MouseEvent evt) {
-        MusicFx.getPrimaryStage().hide();
+        MusicFx1.getPrimaryStage().hide();
     }
 
     @FXML
@@ -81,7 +80,7 @@ public class WindowController {
     }
 
     private void _minimize() {
-        Stage stage = MusicFx.getPrimaryStage();
+        Stage stage = MusicFx1.getPrimaryStage();
         stage.setIconified(true);
     }
 }

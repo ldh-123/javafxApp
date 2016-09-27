@@ -1,0 +1,49 @@
+.musicFx {
+    -fx-border-radius:5;
+    -fx-border-color: #428bca;
+    -fx-border-size: 1px;
+    -fx-border-style: solid;
+}
+
+.leftPane {
+    -fx-background-color: #428bca;
+}
+
+.navPane {
+    -fx-background-color: thistle;
+}
+
+.topPane {
+    -fx-background-color: linear-gradient(to top right,
+        rgb( 23,240,245) 0.000%,
+        rgb( 5, 5,250) 20.000%,
+        rgb(253, 5,245) 39.990%,
+        rgb(253, 10, 23) 60.010%,
+        rgb(248,250, 23) 80.000%,
+        rgb( 17,233, 17) 100.000%);
+}
+
+.toggleLeftBtn {
+    -fx-fill: transparent;
+}
+
+.toggleLeftBtn:hover {
+    -fx-background-color: linear-gradient(white, darkblue);
+    -fx-border-color: slateblue;
+    -fx-border-size: 1px;
+    -fx-border-style: solid;
+}
+
+.minimizeBtn, .maximizeBtn, .closeBtn {
+    -fx-fill: transparent;
+}
+
+.topControlPane Label {
+    -fx-font-family: Arial;
+    -fx-font-weight: 700;
+    -fx-text-fill: white;
+}
+
+.minimizeBtn:hover, .maximizeBtn:hover, .closeBtn:hover{
+    -fx-fill: darkblue;
+}

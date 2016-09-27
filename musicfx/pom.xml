@@ -11,5 +11,11 @@
 
     <artifactId>musicfx</artifactId>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>ldh.music</groupId>
+            <artifactId>common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
