@@ -19,6 +19,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.stage.Window;
@@ -34,10 +35,16 @@ public class PopupButtonPane extends HBox {
     private Popup popUp;
     private DoubleProperty popPosDoubleProperty = new SimpleDoubleProperty();
     private Timeline timeLine;
-    private BooleanProperty isToggleBooleanProperty;
 
     public PopupButtonPane(BooleanProperty isToggleBooleanProperty) {
-        button = new Button("user");
+        button = new Button();
+        button.getStyleClass().add("userBtn");
+        button.setPrefWidth(50);
+        button.setPrefHeight(50);
+
+        Circle circle = new Circle(25, 25, 25);
+        button.setClip(circle);
+
         settingPane = new SettingPane(this);
         this.getChildren().add(button);
         button.setOnAction(e->showPop(e));
@@ -53,11 +60,10 @@ public class PopupButtonPane extends HBox {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 final Window window = button.getScene().getWindow();
-                double height = settingPane.getHeight();
                 popUp.show(
                         window,
                         window.getX() + button.localToScene(0, 0).getX() + button.getScene().getX() + newValue.doubleValue(),
-                        window.getY() + button.localToScene(0, 0).getY() + button.getScene().getY()  - button.getPrefHeight() - settingPane.getHeight() - 5);
+                        window.getY() + button.localToScene(0, 0).getY() + button.getScene().getY()  - settingPane.getHeight() - 5);
 
             }
         });

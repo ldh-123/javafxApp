@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
@@ -56,6 +57,8 @@ public class WindowController {
             lastY = currentY;
             lastWidth = currentWidth;
             lastHeight = currentHeight;
+
+            ((Button)evt.getTarget()).getScene();
         } else {
             w.setX(lastX);
             w.setY(lastY);

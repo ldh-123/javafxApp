@@ -1,6 +1,15 @@
+.headPane {
+    -fx-spacing: 10;
+}
+
+#title{
+    -fx-padding: 0 0 0 40;
+}
+
 .settingPane {
     -fx-padding: 5 0 5 0;
-    -fx-spacing: 10;
+    -fx-spacing: 5;
+    -fx-background-radius: 5;
     -fx-background-color: white;
     -fx-border-radius: 5;
     -fx-border-color: gray;
@@ -19,4 +28,90 @@
 
 .settingPane .notificationNum {
     -fx-fill: red;
+}
+
+.navPaneContain {
+    -fx-background-color: aquamarine;
+}
+
+.navPane:hover {
+    -fx-background-color: aquamarine;
+}
+
+.navPane-title {
+    -fx-padding: 5;
+    -fx-font-family: TRON;
+    -fx-font-size: 20px;
+}
+
+#navContentPane{
+    -fx-background: rgb(140, 161, 175);
+    /*-fx-background-color: #8ca1af;*/
+}
+
+#navContentPane:focused{
+    -fx-border-style: null;
+    /*-fx-background-color: #8ca1af;*/
+}
+
+#navContentPane TitledPane .title{
+    -fx-padding: 8;
+    -fx-background-radius: 0;
+    -fx-border-style: null;
+    -fx-background-color: rgb(140, 161, 175);
+}
+
+#navContentPane TitledPane .title:hover{
+    -fx-padding: 8;
+    -fx-background-radius: 0;
+    -fx-border-style: null;
+    /*-fx-background-color: #202020;*/
+}
+
+.navPane-popup {
+    -fx-padding: 5 0 5 0;
+    -fx-spacing: 5;
+    -fx-background-radius: 5;
+    -fx-background-color: white;
+    -fx-border-radius: 5;
+    -fx-border-color: gray;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+}
+
+.userBtn {
+    -fx-background-radius: 10;
+    -fx-border-style: null;
+    -fx-background-color: null;
+    -fx-background-image:url("../img/a3.png");
+    -fx-background-repeat:no-repeat;
+    -fx-background-size: 50 50;
+}
+
+.buttonPane {
+    -fx-padding: 10;
+    -fx-spacing: 10;
+    -fx-background-color: #788188;
+}
+
+.rightPane {
+    -fx-background-color: cadetblue;
+}
+
+.rightPane ListView {
+    -fx-background-color: cadetblue
+}
+
+#contentPane {
+    -fx-background-color: #e8eff0;
+    -fx-padding: 5;
+}
+
+.noborder{
+    -fx-padding: 0;
+    -fx-background-insets: 0;
+}
+
+#friendsList {
+
 }

@@ -6,12 +6,12 @@
 
 
 <?import ldh.musicfx.ui.PopupButtonPane?>
-<fx:root type="javafx.scene.layout.VBox" prefWidth="60.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
        <StackPane fx:id="headPane"></StackPane>
-      <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" hbarPolicy="NEVER">
+       <ScrollPane fx:id="navContentPane" prefWidth="100.0" VBox.vgrow="ALWAYS" vbarPolicy="NEVER" hbarPolicy="NEVER" styleClass="noborder">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+
         </content>
       </ScrollPane>
    </children>

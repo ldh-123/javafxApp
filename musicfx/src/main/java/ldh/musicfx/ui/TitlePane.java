@@ -26,6 +26,8 @@ public class TitlePane extends StackPane {
         titleStringProperty.set(title);
         initUI(isToggleProperty.getValue());
         bindIsToggle(isToggleProperty);
+
+        this.setPrefHeight(70);
     }
 
     private void bindIsToggle(BooleanProperty isToggleProperty) {

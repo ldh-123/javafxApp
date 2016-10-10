@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox styleClass="buttonPane" prefHeight="80" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER">
+    <children>
+        <HBox alignment="CENTER">
+            <children>
+                <Button styleClass="backBtn" text="back"></Button>
+                <Button styleClass="runBtn" text="run"></Button>
+                <Button styleClass="nextBtn" text="next"></Button>
+            </children>
+        </HBox>
+        <HBox HBox.hgrow="ALWAYS" alignment="CENTER">
+            <children>
+                <Label text="demo"/>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER">
+            <children>
+                <Label text="00:00"></Label>
+                <Label text="00:00"></Label>
+                <Button styleClass="orderBtn"></Button>
+                <Button styleClass="repeatBtn"></Button>
+            </children>
+        </HBox>
+    </children>
+</HBox>

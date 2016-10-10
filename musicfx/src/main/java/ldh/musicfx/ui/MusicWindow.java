@@ -24,6 +24,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.*;
@@ -49,6 +50,9 @@ public class MusicWindow extends AnchorPane implements Initializable {
     private double initWidth =0;
     private double initHeight = 0;
     private boolean isDragable = false;
+
+    public static  Integer LEFT_PANE_MAX_WIDTH = 200;
+    public static  Integer LEFT_PANE_MIN_WIDTH = 80;
 
     private Scene scene;
     private BoundingBox savedBounds;
@@ -87,6 +91,8 @@ public class MusicWindow extends AnchorPane implements Initializable {
 
         NavPane navPane = new NavPane(isToggleBooleanProperty);
         setNavPane(navPane);
+
+        this.getStyleClass().add("lxWindowPane-radius");
     }
 
     public void addStylesheet(String cssFile) {
@@ -121,20 +127,23 @@ public class MusicWindow extends AnchorPane implements Initializable {
 
     @FXML
     public void toggleLefPaneAction(MouseEvent ae) {
-        double width1 = 200;
-        double width2 = 60;
+        double width1 = LEFT_PANE_MAX_WIDTH;
+        double width2 = LEFT_PANE_MIN_WIDTH;
         if (isToggleBooleanProperty.get()) {
-            width1 = 60;
-            width2 = 200;
+            width1 = LEFT_PANE_MIN_WIDTH;
+            width2 = LEFT_PANE_MAX_WIDTH;
         }
+
+//        Timeline timeline = new Timeline();
+//        final KeyValue kv = new KeyValue(leftPaneWidthDoubleProperty, width1);
+//        final KeyFrame kf = new KeyFrame(Duration.millis(0), kv);
+//        final KeyValue kv2 = new KeyValue(leftPaneWidthDoubleProperty, width2);
+//        final KeyFrame kf2 = new KeyFrame(Duration.millis(500), kv2);
+////        final KeyFrame kf3 = new KeyFrame(Duration.millis(500), e->isToggleBooleanProperty.set(!isToggleBooleanProperty.get()));
+//        timeline.getKeyFrames().addAll(kf, kf2);
+//        timeline.play();
+        leftPaneWidthDoubleProperty.setValue(width2);
         isToggleBooleanProperty.set(!isToggleBooleanProperty.get());
-        Timeline timeline = new Timeline();
-        final KeyValue kv = new KeyValue(leftPaneWidthDoubleProperty, width1);
-        final KeyFrame kf = new KeyFrame(Duration.millis(0), kv);
-        final KeyValue kv2 = new KeyValue(leftPaneWidthDoubleProperty, width2);
-        final KeyFrame kf2 = new KeyFrame(Duration.millis(500), kv2);
-        timeline.getKeyFrames().addAll(kf, kf2);
-        timeline.play();
     }
 
     private void event() {
@@ -358,9 +367,11 @@ public class MusicWindow extends AnchorPane implements Initializable {
         if (newStage.isFullScreen()) {
             maximizeBtn.getStyleClass().remove("maximizeBtnUnFull");
             maximizeBtn.getStyleClass().add("maximizeBtnFull");
+            this.getStyleClass().add("lxWindowPane-radius");
         } else {
             maximizeBtn.getStyleClass().remove("maximizeBtnFull");
             maximizeBtn.getStyleClass().add("maximizeBtnUnFull");
+            this.getStyleClass().remove("lxWindowPane-radius");
         }
         newStage.setFullScreen(!newStage.isFullScreen());
         evt.consume();  // don't bubble up to title bar

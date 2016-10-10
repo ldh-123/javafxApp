@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox styleClass="centerPane" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="CENTER">
+            <children>
+                <Button styleClass="backBtn" text="back"></Button>
+                <Region styleClass="runBtn" HBox.hgrow="ALWAYS"></Region>
+                <Button styleClass="nextBtn" text="next"></Button>
+            </children>
+        </HBox>
+    </children>
+</VBox>

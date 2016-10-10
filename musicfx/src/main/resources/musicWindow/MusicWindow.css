@@ -2,16 +2,21 @@
     -fx-fill: transparent;
     -fx-background-color: transparent;
     -fx-stroke-width: 0;
-    -fx-border-radius: 5;
+    /*-fx-border-radius: 5;*/
     -fx-border-style: solid;
     -fx-border-width: 2;
     -fx-border-color: cornflowerblue;
+}
+
+.lxWindowPane-radius {
+    -fx-border-radius: 5;
 }
 
 #titlePane {
     -fx-background-color: linear-gradient(to right,
         white 0.000%,
         cornflowerblue 100.000%);
+    -fx-pref-height: 70;
 }
 
 .closeBtn{
