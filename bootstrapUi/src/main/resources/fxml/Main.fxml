@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.StatusBar?>
+
+
+<?import org.controlsfx.control.StatusBar?>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/css/Main.css" fx:controller="ldh.common.ui.controller.MainController">
+   <top>
+      <fx:include source="Head.fxml"/>
+   </top>
+   <bottom>
+      <StatusBar/>
+   </bottom>
+   <left>
+      <ScrollPane styleClass="leftScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER">
+         <content>
+            <VBox prefHeight="238.0" prefWidth="116.0" BorderPane.alignment="CENTER" styleClass="leftNav">
+               <children>
+                  <Label text="Overview" onMouseClicked="#addActiveEvent"/>
+                  <Label text="Reports"  onMouseClicked="#addActiveEvent"/>
+                  <Label text="Analytics" onMouseClicked="#addActiveEvent"/>
+                  <Separator prefWidth="200.0" onMouseClicked="#addActiveEvent" />
+                  <Label text="Nav Item" onMouseClicked="#addActiveEvent"/>
+                  <Label text="Nav Item again" onMouseClicked="#addActiveEvent"/>
+                  <Label text="One More nav" onMouseClicked="#addActiveEvent"/>
+                  <Label text="Naother nav item" onMouseClicked="#addActiveEvent"/>
+                  <Separator prefWidth="200.0" />
+                  <Label text="Nav item again" onMouseClicked="#addActiveEvent"/>
+                  <Label text="One more nav" onMouseClicked="#addActiveEvent"/>
+                  <Label text="Another nav item" onMouseClicked="#addActiveEvent"/>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+   </left>
+   <center>
+      <VBox prefHeight="232.0" prefWidth="484.0" BorderPane.alignment="CENTER" styleClass="centerPane">
+         <children>
+            <Label text="Dashboard" styleClass="title1" />
+            <Separator prefWidth="200.0" />
+            <GridPane styleClass="placeholder">
+               <children>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                     <children>
+                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label text="Label" />
+                        <Label text="Something else" styleClass="contentText"/>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                     <children>
+                        <Circle fill="green" radius="80.0" stroke="green" strokeType="INSIDE" />
+                        <Label text="Label" />
+                        <Label text="Something else" styleClass="contentText"/>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
+                     <children>
+                        <Circle fill="DODGERBLUE" radius="80.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label text="Label"/>
+                        <Label text="Something else" styleClass="contentText"/>
+                     </children>
+                  </VBox>
+                  <VBox alignment="TOP_CENTER" prefHeight="200.0" GridPane.columnIndex="3" GridPane.rowIndex="0">
+                     <children>
+                        <Circle fill="green" radius="80.0" stroke="green" strokeType="INSIDE" />
+                        <Label text="Label"/>
+                        <Label text="Something else" styleClass="contentText"/>
+                     </children>
+                  </VBox>
+               </children>
+               <columnConstraints>
+                  <ColumnConstraints percentWidth="25"/>
+                  <ColumnConstraints percentWidth="25"/>
+                  <ColumnConstraints percentWidth="25"/>
+                  <ColumnConstraints percentWidth="25"/>
+               </columnConstraints>
+            </GridPane>
+            <Label text="Label" styleClass="title2"/>
+            <Separator prefWidth="200.0" />
+         </children>
+      </VBox>
+   </center>
+</BorderPane>

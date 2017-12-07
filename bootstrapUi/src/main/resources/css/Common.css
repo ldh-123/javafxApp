@@ -1,0 +1,129 @@
+.root {
+    /*-fx-font-size: 14.0px;*/
+    /*-fx-font-family: "microsoft yahei",Times New Roman;*/
+    /*-fx-graphic-text-gap: 10px;*/
+}
+
+.label {
+    -fx-font-size: 11pt;
+    -fx-font-family: "microsoft yahei",Times New Roman;;
+}
+
+.button {
+    -fx-font-size: 11pt;
+    -fx-font-family: "microsoft yahei",Times New Roman;;
+}
+
+.popup-nav{
+    -fx-background-color: #212529;
+    -fx-min-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.popup-nav Button{
+    -fx-text-fill: white;
+    -fx-min-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+    -fx-font-size: 20px;
+    -fx-padding: 5px 0px 5px 5px;
+    -fx-alignment: center-left;
+    -fx-background-color: transparent;
+}
+
+.popup-nav Button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: darkgreen;
+}
+
+.popup-nav .first-nav {
+    -fx-padding: 8px;
+    -fx-background-color: black;
+}
+
+.popup-nav .child-nav {
+    -fx-padding: 8px 8px 8px 15px;
+}
+
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    -glyph-size: 15px;
+}
+
+.popup-nav .nav-circle {
+    -glyph-name: "CIRCLE_THIN";
+    -icons-color: white;
+    -glyph-size: 15px;
+    -fx-fill: #007d71;
+}
+
+.container{
+    -fx-background-color: white;
+    -fx-border-radius: 3px;
+    -fx-border-width: 1px;
+    -fx-border-color: #cdcdcd transparent transparent transparent, #ffffff transparent transparent transparent;;
+}
+
+.content-container {
+    -fx-padding: 20px;
+    -fx-spacing: 20px;
+    -fx-hgap: 20.0px;
+    -fx-vgap: 20.0px;
+}
+
+.nav-home {
+    -glyph-name: "HOME";
+    -icons-color: white;
+    -glyph-size: 15px;
+    -fx-fill: white;
+}
+
+.nav-user-popup {
+    -fx-background-color: whitesmoke;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+}
+
+.nav-user-popup>Button{
+    -fx-background-color: transparent;
+    -fx-pref-width: 200px;
+    -fx-max-width: 200px;
+    -fx-padding: 8px 5px 8px 20px;
+    -fx-alignment: center-left;
+}
+
+.nav-user-popup>Button:hover{
+    -fx-background-color: gainsboro;
+}
+
+.setting-graphic {
+    -glyph-name: "SETTINGS";
+    -icons-color: black;
+    -glyph-size: 20px;
+    -fx-fill: black;
+}
+
+.profile-graphic {
+    -glyph-name: "USER";
+    -icons-color: black;
+    -glyph-size: 20px;
+    -fx-fill: black;
+}
+
+.logout-graphic {
+    -glyph-name: "LOGOUT";
+    -icons-color: black;
+    -glyph-size: 20px;
+    -fx-fill: black;
+}
+
+.separator {
+    -fx-padding: 2px;
+}
+
+.text-field {
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+}

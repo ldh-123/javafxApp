@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox xmlns:fx="http://javafx.com/fxml" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="header" BorderPane.alignment="CENTER" fx:controller="ldh.common.ui.controller.HeadController">
+    <opaqueInsets>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </opaqueInsets>
+    <children>
+        <Label styleClass="brand" text="Dashboard" />
+        <Button mnemonicParsing="false" text="Home" styleClass="nav-item"/>
+        <Button mnemonicParsing="false" text="Settings" minWidth="100" styleClass="nav-item"/>
+        <Button mnemonicParsing="false" text="Profile" styleClass="nav-item"/>
+        <Button mnemonicParsing="false" text="Help" styleClass="nav-item"/>
+        <Pane prefHeight="100.0" prefWidth="168.0" HBox.hgrow="ALWAYS"/>
+        <TextField prefHeight="23.0" prefWidth="75.0" promptText="Search"/>
+        <Button mnemonicParsing="false" text="Search" styleClass="search" onAction="#searchBtn"/>
+    </children>
+</HBox>
