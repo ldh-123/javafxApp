@@ -54,5 +54,12 @@
             <version>5.0</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.kordamp.bootstrapfx</groupId>
+            <artifactId>bootstrapfx-core</artifactId>
+            <version>0.2.1</version>
+        </dependency>
+
+
     </dependencies>
 </project>

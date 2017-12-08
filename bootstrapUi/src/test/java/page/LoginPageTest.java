@@ -24,11 +24,14 @@ public class LoginPageTest extends Application {
         LoginPage loginPage = new LoginPage(600, 400);
         loginPage.setStage(primaryStage);
         Scene scene = new Scene(loginPage);
+        scene.getStylesheets().addAll("bootstrapfx.css");
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.centerOnScreen();
         primaryStage.show();
         STAGE = primaryStage;
+
+        loginPage.getBoundsInLocal();
     }
 
     public static void main(String[] args) {

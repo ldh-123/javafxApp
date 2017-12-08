@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
 /**
  * Created by xiongfei.lei on 2017/12/8.
  */
-public class LoginPage extends AnchorPane {
+public class LoginPage extends LdhWindow {
 
     @FXML private Rectangle topRectangle;
     @FXML private Rectangle buttomRectangle;
@@ -24,6 +24,7 @@ public class LoginPage extends AnchorPane {
     private Stage STAGE;
 
     public LoginPage(double width, double height) {
+        super();
         this.setPrefHeight(height);this.setMinHeight(height);
         this.setPrefWidth(width);this.setMinWidth(width);
 

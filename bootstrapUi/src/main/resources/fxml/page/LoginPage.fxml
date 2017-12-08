@@ -38,7 +38,7 @@
                     </children>
                 </HBox>
 
-                <Button text="Sign in" MigPane.cc="growx,wrap"/>
+                <Button text="Sign in" MigPane.cc="growx,wrap" styleClass="btn, btn-primary"/>
             </children>
         </MigPane >
     </children>

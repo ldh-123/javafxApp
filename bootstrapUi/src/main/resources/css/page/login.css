@@ -1,5 +1,6 @@
 .root {
     /*-fx-font-size: 15px;*/
+    -fx-font-family: none;
 }
 
 .ldh-window {
