@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml" prefHeight="100.0" prefWidth="200.0" styleClass="ldh-window" stylesheets="@/css/page/login.css">
+    <children>
+        <Rectangle fx:id="topRectangle" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="top-background"/>
+        <Rectangle fx:id="buttomRectangle" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" styleClass="bottom-background"/>
+        <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="ldh-window-control">
+            <children>
+                <Pane HBox.hgrow="ALWAYS"></Pane>
+                <Button text="close" onAction="#closeBtn">
+                    <graphic><FontAwesomeIconView styleClass="window-close-icon"/></graphic>
+                </Button>
+            </children>
+        </HBox>
+        <MigPane fx:id="loginPane" layout="insets 20, gapy 10px" cols="[grow, 100]" styleClass="login-pane" prefWidth="350" prefHeight="300">
+            <children>
+                <Label text="Sign in" MigPane.cc="growx, wrap" styleClass="fild-title, title-center"/>
+                <Separator MigPane.cc="growx, wrap"/>
+                <Label text="USERNAME" MigPane.cc="growx, wrap" styleClass="fild-title"/>
+                <TextField fx:id="emailField" MigPane.cc="growx, wrap" />
+
+                <Label MigPane.cc="wrap"  text="PASSWORD" styleClass="fild-title"/>
+                <PasswordField fx:id="passwordField" MigPane.cc="growx, wrap" />
+
+                <HBox MigPane.cc="growx, wrap" spacing="20">
+                    <children>
+                        <CheckBox>Checkbox</CheckBox>
+                        <Label text="Forgot Password ?" styleClass="form-error-label"/>
+                    </children>
+                </HBox>
+
+                <Button text="Sign in" MigPane.cc="growx,wrap"/>
+            </children>
+        </MigPane >
+    </children>
+</fx:root>

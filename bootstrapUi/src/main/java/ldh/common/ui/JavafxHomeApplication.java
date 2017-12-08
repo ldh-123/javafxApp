@@ -30,27 +30,4 @@ public class JavafxHomeApplication extends Application {
     public static void main(String[] args) {
         launch(args);
     }
-
-    /**
-     * Created by xiongfei.lei on 2017/11/14.
-     */
-    public static class JavafxMainApplication extends Application {
-
-        public void start(Stage primaryStage) throws Exception {
-            Parent node = FXMLLoader.load(JavafxMainApplication.class.getResource("/fxml/Main.fxml"));
-            Scene scene = new Scene(node, 1200, 700);
-            primaryStage.setScene(scene);
-            primaryStage.show();
-            ScrollPane s = new ScrollPane();
-            s.getStyleClass().add("active");
-            TilePane flowPane = new TilePane();
-            flowPane.setPrefColumns(4);
-            GridView gv = new GridView();
-
-        }
-
-        public static void main(String[] args) {
-            launch(args);
-        }
-    }
 }

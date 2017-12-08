@@ -1,0 +1,68 @@
+.root {
+    /*-fx-font-size: 15px;*/
+}
+
+.ldh-window {
+    -fx-border-color: #007d71;
+    -fx-border-radius: 5px;
+}
+
+.ldh-window>.top-background {
+    -fx-background-color: #007d71;
+    -fx-fill: #007d71;
+}
+
+.ldh-window>.bottom-background {
+    -fx-background-color: #e7e7e7;
+    -fx-fill: #e7e7e7;
+}
+
+.ldh-window>.login-pane {
+    -fx-background-color: white;
+}
+
+.ldh-window>.login-pane .fild-title{
+    -fx-font-size: 14px;
+    -fx-font-weight: 100;
+}
+
+.ldh-window>.login-pane>.title-center {
+    -fx-alignment: center;
+    -fx-font-size: 26px;
+}
+
+.ldh-window>.ldh-window-control {
+    -fx-background-color: transparent;
+}
+
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    -glyph-size: 26px;
+}
+
+.ldh-window>.ldh-window-control>.button {
+    -fx-background-color: transparent;
+    -fx-content-display: graphic-only;
+}
+
+.ldh-window>.ldh-window-control>.button:hover {
+    -fx-background-color: blue;
+}
+
+.ldh-window .window-close-icon {
+    -glyph-name: "CLOSE";
+    -icons-color: white;
+    -glyph-size: 22px;
+    -fx-fill: white;
+}
+
+.ldh-window>.login-pane .text-field {
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+}
+
+.ldh-window>.login-pane .button {
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+}

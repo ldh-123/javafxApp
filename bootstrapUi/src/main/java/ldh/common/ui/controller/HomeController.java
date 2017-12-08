@@ -108,6 +108,25 @@ public class HomeController implements Initializable {
                 child.setTooltip(new Tooltip(child.getText()));
             }
         }
+        for (Node node : bigLeftPane.getChildren()) {
+            if (node instanceof TitledPane) {
+                TitledPane titledPane = (TitledPane) node;
+                titledPane.setOnMouseClicked(e->{
+                    expandedOther(titledPane);
+                });
+            }
+        }
+    }
+
+    private void expandedOther(TitledPane titledPane) {
+        for (Node node : bigLeftPane.getChildren()) {
+            if (node instanceof TitledPane) {
+                TitledPane tmp = (TitledPane) node;
+                if (tmp != titledPane && tmp.isExpanded()) {
+                    tmp.setExpanded(false);
+                }
+            }
+        }
     }
 
     private void expandTitlePanes() {
@@ -187,14 +206,12 @@ public class HomeController implements Initializable {
         b.setOnMouseExited(e->{
             double w = b.getScene().getWindow().getX() + b.localToScene(0, 0).getX() + b.getScene().getX() + b.getWidth();
             double h = b.getScene().getWindow().getY() + b.localToScene(0, 0).getY() + b.getScene().getY();
-            System.out.println("x:" + e.getScreenX() + ", Y:" + e.getScreenY() + ", w:" + w + ", h:" + h);
             if (!(e.getScreenX() >= w-5 && e.getScreenX() <= w+5 && e.getScreenY() >= h && e.getScreenY() <= h + b.getHeight() + 10 )) {
                 popup.hide();
             }
         });
 
         popup.showingProperty().addListener((ob, o, n) -> {
-            System.out.println("show:" + n);
             if (n) {
                 b.setStyle("-fx-background-color: #212529");
             } else {
