@@ -40,9 +40,14 @@ public class HomeHeadController implements Initializable {
     }
 
     @FXML public void showUserPopup(ActionEvent e) {
+        double width = userContent.getPrefWidth();
+        if (width < 1) {
+            width = userContent.prefWidth(-1);
+            width = width < 1 ? 200 : width;
+        }
         userPopup.show(head.getScene().getWindow(),
-                head.getScene().getWindow().getX() + userBtn.localToScene(0, 0).getX() + userBtn.getScene().getX() + userBtn.getWidth() - 150 -1,
-                head.getScene().getWindow().getY() + userBtn.localToScene(0, 0).getY() + userBtn.getScene().getY() + userBtn.getHeight());
+                head.getScene().getWindow().getX() + userBtn.localToScene(0, 0).getX() + userBtn.getScene().getX() + userBtn.getWidth() - width -1,
+                head.getScene().getWindow().getY() + userBtn.localToScene(0, 0).getY() + userBtn.getScene().getY() + userBtn.getHeight()+2);
     }
 
     @Override
