@@ -3,6 +3,9 @@ package ldh.common.ui.controller;
 import com.sun.org.apache.bcel.internal.generic.POP;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import javafx.animation.FadeTransition;
+import javafx.animation.SequentialTransition;
+import javafx.animation.Timeline;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -16,6 +19,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Popup;
+import javafx.util.Duration;
 import ldh.common.ui.node.ChartContent;
 import ldh.common.ui.node.FormContent;
 import ldh.common.ui.node.FormContent2;
@@ -52,7 +56,7 @@ public class HomeController implements Initializable {
         } else {
             bigLeftPane.setVisible(true);
             smallLeftPane.setVisible(false);
-            leftPane.setPrefWidth(200);
+            leftPane.setPrefWidth(220);
         }
 
     }
@@ -71,14 +75,11 @@ public class HomeController implements Initializable {
             Object userData = ((Button) parent).getUserData();
             if (userData == null) return;
             if (userData.toString().equals("chart1")) {
-                contentPane.getChildren().clear();
-                contentPane.getChildren().add(new ChartContent());
+                changeContent(new ChartContent());
             } else if (userData.toString().equals("form1")) {
-                contentPane.getChildren().clear();
-                contentPane.getChildren().add(new FormContent());
+                changeContent(new FormContent());
             } else if (userData.toString().equals("form2")) {
-                contentPane.getChildren().clear();
-                contentPane.getChildren().add(new FormContent2());
+                changeContent(new FormContent());
             }
         }
     }
@@ -232,5 +233,24 @@ public class HomeController implements Initializable {
             }
         }
         return resultMap;
+    }
+
+    private void changeContent(Node node) {
+        if (contentPane.getChildren().size() < 1) return;
+        Node oldNode = contentPane.getChildren().get(0);
+        FadeTransition ft = new FadeTransition(Duration.millis(500), oldNode);
+        ft.setFromValue(1.0);
+        ft.setToValue(0.01);
+        ft.setOnFinished(e->{
+            contentPane.getChildren().clear();
+            contentPane.getChildren().add(node);
+        });
+
+        FadeTransition ft2 = new FadeTransition(Duration.millis(800), node);
+        ft2.setFromValue(0.01);
+        ft2.setToValue(1.0);
+        SequentialTransition sequentialTransition=new SequentialTransition(ft,ft2);
+        sequentialTransition.setCycleCount(1);
+        sequentialTransition.play();
     }
 }

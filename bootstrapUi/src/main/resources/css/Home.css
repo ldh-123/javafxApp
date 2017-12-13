@@ -7,6 +7,7 @@
     -fx-animated: true;
     -fx-collapsible: true;
     /*-fx-padding: 8px 0 8px 0px;*/
+
 }
 
 .leftPane TitledPane>.content{
@@ -20,9 +21,9 @@
     -fx-border-color: #212529;
     -fx-border-width: 0 0 0 5px;
     -fx-background-image: url('/img/icon-back-arrow.png');
-    /*-fx-background-size: 12;*/
+    -fx-background-size: 12;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: 190;
+    -fx-background-position: 200;
 }
 
 .leftPane TitledPane .title:hover {
@@ -35,7 +36,7 @@
     -fx-background-image: url('/img/down.png');
     -fx-background-size: 30;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: 170;
+    -fx-background-position: 185;
 }
 
 .leftPane TitledPane .title .arrow-button {
@@ -60,6 +61,7 @@
 
 .leftItem{
     -fx-text-fill: white;
+    -fx-font-size: 14px;
 }
 
 .leftPane Button {

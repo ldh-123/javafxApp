@@ -34,6 +34,14 @@
                   <Label text="Nav item again" onMouseClicked="#addActiveEvent"/>
                   <Label text="One more nav" onMouseClicked="#addActiveEvent"/>
                   <Label text="Another nav item" onMouseClicked="#addActiveEvent"/>
+                  <Separator prefWidth="200.0" />
+                  <Label text="Nav item again" onMouseClicked="#addActiveEvent"/>
+                  <Label text="One more nav" onMouseClicked="#addActiveEvent"/>
+                  <Label text="Another nav item" onMouseClicked="#addActiveEvent"/>
+                  <Separator prefWidth="200.0" />
+                  <Label text="Nav item again" onMouseClicked="#addActiveEvent"/>
+                  <Label text="One more nav" onMouseClicked="#addActiveEvent"/>
+                  <Label text="Another nav item" onMouseClicked="#addActiveEvent"/>
                </children>
             </VBox>
          </content>

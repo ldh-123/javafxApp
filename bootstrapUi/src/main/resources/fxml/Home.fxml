@@ -21,7 +21,7 @@
         <StatusBar/>
     </bottom>
     <left>
-        <ScrollPane fx:id="leftPane" styleClass="leftPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="200">
+        <ScrollPane fx:id="leftPane" styleClass="leftPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="220" vbarPolicy="NEVER">
             <content>
                 <StackPane styleClass="leftBackPane">
                     <children>
@@ -128,7 +128,7 @@
                                     </graphic>
                                     <content>
                                         <VBox>
-                                            <Button text="Level One" onMousePressed="#leftNaveClick" userData="chart1">
+                                            <Button text="Level One" onAction="#leftNaveClick" userData="chart1">
                                                 <graphic><FontAwesomeIconView styleClass="circle-graphic"/></graphic></Button>
                                             <Button text="Level Two">
                                                 <graphic><FontAwesomeIconView styleClass="circle-graphic"/></graphic></Button>
