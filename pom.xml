@@ -16,6 +16,7 @@
         <module>common</module>
         <module>musicfx</module>
         <module>bootstrapUi</module>
+        <module>form</module>
     </modules>
 
     <properties>

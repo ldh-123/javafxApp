@@ -33,7 +33,7 @@
 
                 <HBox MigPane.cc="growx, wrap" spacing="20">
                     <children>
-                        <CheckBox>Checkbox</CheckBox>
+                        <CheckBox>记住密码</CheckBox>
                         <Label text="Forgot Password ?" styleClass="form-error-label"/>
                     </children>
                 </HBox>

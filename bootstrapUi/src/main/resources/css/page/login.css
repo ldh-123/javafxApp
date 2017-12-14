@@ -1,6 +1,11 @@
 .root {
     /*-fx-font-size: 15px;*/
-    -fx-font-family: none;
+    -fx-font-family: inherit;
+}
+
+.label, .check-box, .radio-button {
+    -fx-font-size: 15px;
+    -fx-font-family: "Microsoft YaHei", "Lucida Sans Unicode", "Myriad Pro", "Hiragino Sans GB", "Heiti SC", Verdana, simsun;
 }
 
 .ldh-window {
@@ -48,7 +53,7 @@
 }
 
 .ldh-window>.ldh-window-control>.button:hover {
-    -fx-background-color: blue;
+    -fx-background-color: grey;
 }
 
 .ldh-window .window-close-icon {
