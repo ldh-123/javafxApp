@@ -81,9 +81,10 @@
 }
 
 .nav-user-popup {
-    -fx-background-color: whitesmoke;
+    -fx-background-color: #007d71;
     -fx-pref-width: 200px;
     -fx-max-width: 200px;
+
 }
 
 .nav-user-popup>Button{
@@ -92,6 +93,7 @@
     -fx-max-width: 200px;
     -fx-padding: 8px 5px 8px 20px;
     -fx-alignment: center-left;
+    -fx-text-fill: white;
 }
 
 .nav-user-popup>Button:hover{
@@ -100,23 +102,23 @@
 
 .setting-graphic {
     -glyph-name: "SETTINGS";
-    -icons-color: black;
+    -icons-color: white;
     -glyph-size: 20px;
-    -fx-fill: black;
+    -fx-fill: white;
 }
 
 .profile-graphic {
     -glyph-name: "USER";
-    -icons-color: black;
+    -icons-color: white;
     -glyph-size: 20px;
-    -fx-fill: black;
+    -fx-fill: white;
 }
 
 .logout-graphic {
     -glyph-name: "LOGOUT";
-    -icons-color: black;
+    -icons-color: white;
     -glyph-size: 20px;
-    -fx-fill: black;
+    -fx-fill: white;
 }
 
 .separator {

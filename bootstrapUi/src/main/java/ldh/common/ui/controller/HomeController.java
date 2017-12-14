@@ -110,16 +110,13 @@ public class HomeController implements Initializable {
             }
         }
         for (Node node : bigLeftPane.getChildren()) {
-            if (node instanceof TitledPane) {
-                TitledPane titledPane = (TitledPane) node;
-                titledPane.setOnMouseClicked(e->{
-                    expandedOther(titledPane);
-                });
-            }
+            node.setOnMouseClicked(e->{
+                expandedOther(node);
+            });
         }
     }
 
-    private void expandedOther(TitledPane titledPane) {
+    private void expandedOther(Node titledPane) {
         for (Node node : bigLeftPane.getChildren()) {
             if (node instanceof TitledPane) {
                 TitledPane tmp = (TitledPane) node;
@@ -129,6 +126,7 @@ public class HomeController implements Initializable {
             }
         }
     }
+
 
     private void expandTitlePanes() {
         List<Node> nodes = bigLeftPane.getChildren();
@@ -146,11 +144,9 @@ public class HomeController implements Initializable {
         for (Node node : nodes) {
             if (node instanceof Button) {
                 Button b = (Button) node;
-//                System.out.println("button:" + b.getText());
                 if (titledPaneMap.containsKey(b.getText())) {
                     Popup popup = popupMap.get(b);
                     if (popup == null) {
-                        System.out.println("bbbb:" + b.getText());
                         popup = buildPopup(b, titledPaneMap.get(b.getText()));
                         popupMap.put(b, popup);
                     }
