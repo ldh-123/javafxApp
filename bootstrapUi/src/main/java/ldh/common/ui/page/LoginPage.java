@@ -2,15 +2,13 @@ package ldh.common.ui.page;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import ldh.common.ui.component.LdhWindow;
 import org.tbee.javafx.scene.layout.fxml.MigPane;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
 
 /**
  * Created by xiongfei.lei on 2017/12/8.

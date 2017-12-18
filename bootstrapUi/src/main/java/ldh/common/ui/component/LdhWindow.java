@@ -1,6 +1,7 @@
-package ldh.common.ui.page;
+package ldh.common.ui.component;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Window;
@@ -17,9 +18,7 @@ public class LdhWindow extends AnchorPane {
     private Boolean dragging = false;
 
     public LdhWindow() {
-        this.setOnDragDetected(e->startMoveWindow(e));
-        this.setOnMouseDragged(e->moveWindow(e));
-        this.setOnMouseReleased(e->endMoveWindow(e));
+        buildMovable(this);
     }
 
     @FXML
@@ -52,6 +51,12 @@ public class LdhWindow extends AnchorPane {
             stageY = 0;
             dragging = false;
         }
+    }
+
+    protected void buildMovable(Node node) {
+        node.setOnDragDetected(e->startMoveWindow(e));
+        node.setOnMouseDragged(e->moveWindow(e));
+        node.setOnMouseReleased(e->endMoveWindow(e));
     }
 
 }

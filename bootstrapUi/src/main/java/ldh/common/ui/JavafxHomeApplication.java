@@ -16,6 +16,7 @@ import org.controlsfx.control.GridView;
 public class JavafxHomeApplication extends Application {
 
     public void start(Stage primaryStage) throws Exception {
+        StageUtil.STAGE = primaryStage;
         Parent node = FXMLLoader.load(JavafxHomeApplication.class.getResource("/fxml/Home.fxml"));
         Scene scene = new Scene(node, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/Common.css").toExternalForm());

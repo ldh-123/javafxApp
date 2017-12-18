@@ -7,6 +7,8 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
+import ldh.common.ui.StageUtil;
+import ldh.common.ui.component.LdhDialog;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;
@@ -31,7 +33,6 @@ public class HomeHeadController implements Initializable {
 
     @FXML
     public void tongleLeftPane(ActionEvent e) {
-        System.out.println("search2!!!!!!!!!!!!!");
         homeController.tongleLeftPane();
     }
 
@@ -61,5 +62,14 @@ public class HomeHeadController implements Initializable {
         userPopup = new Popup();
         userPopup.setAutoHide(true);
         userPopup.getContent().add(userContent);
+    }
+
+    @FXML public void profileBtn(ActionEvent actionEvent) {
+        LdhDialog ldhDialog = new LdhDialog("test", 300d, 500d);
+        ldhDialog.show();
+    }
+
+    @FXML public void logoutBtn(ActionEvent actionEvent) {
+        StageUtil.exit();
     }
 }

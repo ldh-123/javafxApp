@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml"
+         prefHeight="400.0" prefWidth="600.0" styleClass="ldh-window" stylesheets="@/component/LdhDialog.css">
+    <HBox fx:id="headPane" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="ldh-window-control">
+        <children>
+            <Label fx:id="title"/>
+            <Pane HBox.hgrow="ALWAYS"></Pane>
+            <Button text="min" onAction="#minBtn">
+                <graphic><FontAwesomeIconView styleClass="window-min-icon"/></graphic>
+            </Button>
+            <Button text="max" onAction="#maxBtn">
+                <graphic><FontAwesomeIconView styleClass="window-max-icon"/></graphic>
+            </Button>
+            <Button text="close" onAction="#closeBtn">
+                <graphic><FontAwesomeIconView styleClass="window-close-icon"/></graphic>
+            </Button>
+        </children>
+    </HBox>
+    <ScrollPane fx:id="contentPane" styleClass="content-pane" AnchorPane.topAnchor="35" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
+
+    </ScrollPane>
+
+</fx:root>

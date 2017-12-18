@@ -1,0 +1,11 @@
+@import "LdhWindow.css";
+
+.ldh-window>.ldh-window-control .label {
+    -fx-text-fill: white;
+    -fx-padding: 0 0 0 10px;
+    -fx-font-size: 20px;
+}
+
+.ldh-window>.content-pane:focused {
+    -fx-background-color: transparent;
+}

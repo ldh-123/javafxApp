@@ -31,8 +31,8 @@
         <VBox fx:id="userContent" styleClass="nav-user-popup">
             <children>
                 <Button text="SETTINGS" onAction="#settingBtn"><graphic><MaterialDesignIconView styleClass="setting-graphic"/></graphic></Button>
-                <Button text="PROFILE"><graphic><FontAwesomeIconView styleClass="profile-graphic"/></graphic></Button>
-                <Button text="LOGOUT"><graphic><MaterialDesignIconView styleClass="logout-graphic"/></graphic></Button>
+                <Button text="PROFILE" onAction="#profileBtn"><graphic><FontAwesomeIconView styleClass="profile-graphic"/></graphic></Button>
+                <Button text="LOGOUT" onAction="#logoutBtn"><graphic><MaterialDesignIconView styleClass="logout-graphic"/></graphic></Button>
             </children>
         </VBox>
     </children>
