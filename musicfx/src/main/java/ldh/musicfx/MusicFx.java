@@ -25,8 +25,6 @@ public class MusicFx extends Application {
     public void start(Stage primaryStage) throws Exception {
         MusicWindow musicWindow = new MusicWindow(primaryStage, "demo");
         musicWindow.addStylesheet(MusicFx.class.getResource("/css/MusicFx.css").toExternalForm());
-
-
         musicWindow.setContent(loadCenterPane());
 //        musicWindow.setNavPane(new NavPane());
         musicWindow.showFadeIn();
