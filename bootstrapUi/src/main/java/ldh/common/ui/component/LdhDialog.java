@@ -13,6 +13,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import ldh.common.ui.StageUtil;
 
 import java.io.IOException;
 
@@ -46,8 +47,10 @@ public class LdhDialog extends LdhResizeWindow {
     public void setModel(boolean isModel) {
         if (isModel) {
             dialogStage.initModality(Modality.APPLICATION_MODAL);
+            dialogStage.initOwner(StageUtil.STAGE);
         } else {
-            dialogStage.initModality(Modality.WINDOW_MODAL);
+            dialogStage.initModality(Modality.NONE);
+            dialogStage.initOwner(StageUtil.STAGE);
         }
     }
 

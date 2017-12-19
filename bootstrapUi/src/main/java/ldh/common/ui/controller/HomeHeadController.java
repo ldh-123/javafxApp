@@ -78,6 +78,7 @@ public class HomeHeadController implements Initializable {
             box.getChildren().add(new Label("asdfasfd"));
         }
         ldhDialog.setContentPane(box);
+        ldhDialog.setModel(false);
         ldhDialog.show();
     }
 

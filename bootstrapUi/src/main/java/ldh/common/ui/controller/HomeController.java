@@ -48,7 +48,6 @@ public class HomeController implements Initializable {
     private Map<Button, Popup> popupMap = new HashMap<>();
 
     public void tongleLeftPane() {
-        System.out.println("tongle!!!!!!!!!!!");
         if (bigLeftPane.isVisible()) {
             bigLeftPane.setVisible(false);
             smallLeftPane.setVisible(true);

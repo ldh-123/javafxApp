@@ -5,7 +5,7 @@
 
 .label, .check-box, .radio-button {
     -fx-font-size: 15px;
-    -fx-font-family: "Microsoft YaHei", "Lucida Sans Unicode", "Myriad Pro", "Hiragino Sans GB", "Heiti SC", Verdana, simsun;
+    -fx-font-family: KaiTi, "Microsoft YaHei", "Lucida Sans Unicode", "Myriad Pro", "Hiragino Sans GB", "Heiti SC", Verdana, simsun;
 }
 
 .ldh-window {
