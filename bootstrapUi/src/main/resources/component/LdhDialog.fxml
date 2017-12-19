@@ -7,26 +7,31 @@
 <?import javafx.scene.layout.*?>
 
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <fx:root type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml"
          prefHeight="400.0" prefWidth="600.0" styleClass="ldh-window" stylesheets="@/component/LdhDialog.css">
     <HBox fx:id="headPane" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="ldh-window-control">
         <children>
-            <Label fx:id="title"/>
-            <Pane HBox.hgrow="ALWAYS"></Pane>
+            <Label fx:id="title">
+                <graphic><MaterialDesignIconView styleClass="window-icon"/></graphic>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" mouseTransparent="true"></Pane>
             <Button text="min" onAction="#minBtn">
-                <graphic><FontAwesomeIconView styleClass="window-min-icon"/></graphic>
+                <graphic><MaterialDesignIconView styleClass="window-min-icon"/></graphic>
             </Button>
-            <Button text="max" onAction="#maxBtn">
-                <graphic><FontAwesomeIconView styleClass="window-max-icon"/></graphic>
+            <Button fx:id="windowMaxBtn" text="max" onAction="#maxBtn">
+                <graphic><MaterialDesignIconView styleClass="window-max-icon"/></graphic>
             </Button>
             <Button text="close" onAction="#closeBtn">
-                <graphic><FontAwesomeIconView styleClass="window-close-icon"/></graphic>
+                <graphic><MaterialDesignIconView styleClass="window-close-icon"/></graphic>
             </Button>
         </children>
     </HBox>
-    <ScrollPane fx:id="contentPane" styleClass="content-pane" AnchorPane.topAnchor="35" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0">
-
+    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="36" AnchorPane.leftAnchor="2" AnchorPane.rightAnchor="2"
+                AnchorPane.bottomAnchor="2">
+        <StackPane fx:id="contentPane" styleClass="content-pane"></StackPane>
     </ScrollPane>
 
 </fx:root>

@@ -23,6 +23,7 @@ public class LoginPage extends LdhWindow {
 
     public LoginPage(double width, double height) {
         super();
+        buildMovable(this);
         this.setPrefHeight(height);this.setMinHeight(height);
         this.setPrefWidth(width);this.setMinWidth(width);
 

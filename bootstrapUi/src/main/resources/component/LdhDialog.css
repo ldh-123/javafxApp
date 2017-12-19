@@ -6,6 +6,20 @@
     -fx-font-size: 20px;
 }
 
-.ldh-window>.content-pane:focused {
+/*.ldh-window>.ldh-window-control .label {*/
+    /*-fx-graphic: url();*/
+/*}*/
+.ldh-window .content-pane {
+    -fx-padding: 5px;
+}
+
+.ldh-window>ScrollPane:focused {
     -fx-background-color: transparent;
+}
+
+.ldh-window>.ldh-window-control .window-icon {
+    -glyph-name: "WINDOWS";
+    -icons-color: white;
+    -glyph-size: 22px;
+    -fx-fill: white;
 }

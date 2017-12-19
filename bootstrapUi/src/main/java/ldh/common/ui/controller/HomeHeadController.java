@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
@@ -36,10 +37,6 @@ public class HomeHeadController implements Initializable {
         homeController.tongleLeftPane();
     }
 
-    @FXML public void settingBtn(ActionEvent e) {
-        System.out.println("setting==================");
-    }
-
     @FXML public void showUserPopup(ActionEvent e) {
         double width = userContent.getPrefWidth();
         if (width < 1) {
@@ -64,8 +61,23 @@ public class HomeHeadController implements Initializable {
         userPopup.getContent().add(userContent);
     }
 
+    @FXML public void settingBtn(ActionEvent e) {
+        LdhDialog ldhDialog = new LdhDialog("test", 500d, 600d);
+        VBox box = new VBox();
+        for (int i=0; i<10; i++) {
+            box.getChildren().add(new Label("asdfasfd"));
+        }
+        ldhDialog.setContentPane(box);
+        ldhDialog.show();
+    }
+
     @FXML public void profileBtn(ActionEvent actionEvent) {
-        LdhDialog ldhDialog = new LdhDialog("test", 300d, 500d);
+        LdhDialog ldhDialog = new LdhDialog("test", 500d, 300d);
+        VBox box = new VBox();
+        for (int i=0; i<10; i++) {
+            box.getChildren().add(new Label("asdfasfd"));
+        }
+        ldhDialog.setContentPane(box);
         ldhDialog.show();
     }
 

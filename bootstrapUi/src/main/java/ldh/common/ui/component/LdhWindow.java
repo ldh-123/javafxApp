@@ -1,9 +1,15 @@
 package ldh.common.ui.component;
 
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Region;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**
@@ -15,10 +21,15 @@ public class LdhWindow extends AnchorPane {
     private double startMoveY = -1;
     private double stageX = -1;
     private double stageY = -1;
-    private Boolean dragging = false;
+    protected Boolean dragging = false;
 
     public LdhWindow() {
-        buildMovable(this);
+//        buildMovable(this);
+    }
+
+    public void setContentPane(Node node) {
+        this.getChildren().clear();
+        this.getChildren().add(node);
     }
 
     @FXML
@@ -53,10 +64,9 @@ public class LdhWindow extends AnchorPane {
         }
     }
 
-    protected void buildMovable(Node node) {
+    protected void buildMovable(Region node) {
         node.setOnDragDetected(e->startMoveWindow(e));
         node.setOnMouseDragged(e->moveWindow(e));
         node.setOnMouseReleased(e->endMoveWindow(e));
     }
-
 }

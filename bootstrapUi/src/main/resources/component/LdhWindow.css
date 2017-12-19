@@ -1,14 +1,21 @@
 .ldh-window {
     -fx-border-color: #007d71;
     -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-background-color: #007d71;
 }
 
-.ldh-window>.content-pane {
-    -fx-background-color: white;
+.ldh-window>ScrollPane {
+    -fx-background-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-background-radius: 5px;
+    -fx-border-color: transparent;
 }
 
 .ldh-window>.ldh-window-control {
     -fx-background-color: #007d71;
+    -fx-min-height: 35px;
+    -fx-pref-height: 35px;
 }
 
 .glyph-icon{
@@ -27,21 +34,28 @@
 }
 
 .ldh-window .window-close-icon {
-    -glyph-name: "CLOSE";
+    -glyph-name: "WINDOW_CLOSE";
     -icons-color: white;
     -glyph-size: 22px;
     -fx-fill: white;
 }
 
-.ldh-window .window-min-icon {
-    -glyph-name: "MINUS_SQUARE";
+.ldh-window>.ldh-window-control .window-min-icon {
+    -glyph-name: "WINDOW_MINIMIZE";
     -icons-color: white;
     -glyph-size: 22px;
     -fx-fill: white;
 }
 
-.ldh-window .window-max-icon {
-    -glyph-name: "WINDOWS";
+.ldh-window>.ldh-window-control .window-max-icon {
+    -glyph-name: "WINDOW_MAXIMIZE";
+    -icons-color: white;
+    -glyph-size: 22px;
+    -fx-fill: white;
+}
+
+.ldh-window>.ldh-window-control .window-restore {
+    -glyph-name: "WINDOW_RESTORE";
     -icons-color: white;
     -glyph-size: 22px;
     -fx-fill: white;
