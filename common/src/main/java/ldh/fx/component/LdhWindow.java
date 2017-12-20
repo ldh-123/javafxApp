@@ -1,15 +1,10 @@
-package ldh.common.ui.component;
+package ldh.fx.component;
 
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Rectangle2D;
-import javafx.scene.Cursor;
 import javafx.scene.Node;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 import javafx.stage.Window;
 
 /**

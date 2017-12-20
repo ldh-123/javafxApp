@@ -5,7 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import ldh.common.ui.component.LdhWindow;
+import ldh.fx.component.LdhWindow;
 import org.tbee.javafx.scene.layout.fxml.MigPane;
 
 import java.io.IOException;

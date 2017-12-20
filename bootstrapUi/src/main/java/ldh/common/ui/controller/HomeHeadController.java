@@ -9,7 +9,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import ldh.common.ui.StageUtil;
-import ldh.common.ui.component.LdhDialog;
+import ldh.fx.component.LdhDialog;
 
 import javax.swing.*;
 import java.awt.event.MouseEvent;

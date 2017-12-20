@@ -1,4 +1,4 @@
-package ldh.common.ui.component;
+package ldh.fx.component;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -7,13 +7,12 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import ldh.common.ui.StageUtil;
+import ldh.fx.StageUtil;
 
 import java.io.IOException;
 

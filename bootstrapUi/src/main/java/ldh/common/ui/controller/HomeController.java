@@ -84,7 +84,6 @@ public class HomeController implements Initializable {
     }
 
     @FXML public void bigLeftPaneClick(MouseEvent e) {
-        System.out.println("bigLeftPaneClick!!!!!!!!");
         smallLeftPane.setVisible(false);
         bigLeftPane.setVisible(true);
         e.consume();

@@ -30,8 +30,6 @@ public class LoginPageTest extends Application {
         primaryStage.centerOnScreen();
         primaryStage.show();
         STAGE = primaryStage;
-
-        loginPage.getBoundsInLocal();
     }
 
     public static void main(String[] args) {

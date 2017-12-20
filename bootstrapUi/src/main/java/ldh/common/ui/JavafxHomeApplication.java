@@ -22,10 +22,6 @@ public class JavafxHomeApplication extends Application {
         scene.getStylesheets().add(this.getClass().getResource("/css/Common.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        BorderPane bp = new BorderPane();
-
-
     }
 
     public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ldh.common.ui.component;
+package ldh.fx.component;
 
 import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
@@ -129,7 +129,7 @@ public class LdhResizeWindow extends LdhWindow {
         double y = mouseEvent.getY();
         Bounds boundsInParent = this.getBoundsInParent();
         if (isRightEdge(x, y, boundsInParent)) {
-            if (y < RESIZE_PADDING + SHADOW_WIDTH) {
+            if (y < RESIZE_PADDING + SHADOW_WIDTH + 10) {
                 setCursor(Cursor.NE_RESIZE);
             } else if (y > boundsInParent.getHeight() - (double) (RESIZE_PADDING + SHADOW_WIDTH)) {
                 setCursor(Cursor.SE_RESIZE);
@@ -137,7 +137,7 @@ public class LdhResizeWindow extends LdhWindow {
                 setCursor(Cursor.E_RESIZE);
             }
         } else if (isLeftEdge(x, y, boundsInParent)) {
-            if (y < RESIZE_PADDING + SHADOW_WIDTH) {
+            if (y < RESIZE_PADDING + SHADOW_WIDTH + 10) {
                 setCursor(Cursor.NW_RESIZE);
             } else if (y > boundsInParent.getHeight() - (double) (RESIZE_PADDING + SHADOW_WIDTH)) {
                 setCursor(Cursor.SW_RESIZE);
@@ -191,7 +191,7 @@ public class LdhResizeWindow extends LdhWindow {
     }
 
     private boolean isTopEdge(double x, double y, Bounds boundsInParent) {
-        if (y >= 0 && y < RESIZE_PADDING + SHADOW_WIDTH) {
+        if (y >= 0 && y < RESIZE_PADDING + SHADOW_WIDTH && x < boundsInParent.getWidth() - 100 && x > 50) {
             return true;
         }
         return false;
