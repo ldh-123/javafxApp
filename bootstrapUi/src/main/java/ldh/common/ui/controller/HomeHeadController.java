@@ -8,7 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
-import ldh.common.ui.StageUtil;
+import ldh.fx.StageUtil;
 import ldh.fx.component.LdhDialog;
 
 import javax.swing.*;

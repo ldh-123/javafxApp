@@ -72,3 +72,7 @@
     -fx-pref-height: 30px;
     -fx-min-height: 30px;
 }
+
+.ldh-window>.login-pane>.separator {
+    -fx-padding: 2px 0px 8px 0px;
+}
