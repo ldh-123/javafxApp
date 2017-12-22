@@ -1,0 +1,19 @@
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    -glyph-size: 15px;
+}
+
+.open-icon{
+    -glyph-name: "FOLDER_OPEN";
+    -icons-color: black;
+    -glyph-size: 18px;
+    -fx-fill: black;
+}
+
+.file-icon{
+    -glyph-name: "FILE";
+    -icons-color: black;
+    -glyph-size: 18px;
+    -fx-fill: black;
+}

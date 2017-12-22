@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import org.controlsfx.control.StatusBar?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="ldh.common.ui.controller.CvsController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <VBox>
+            <children>
+                <MenuBar>
+                    <Menu text="文件">
+                        <graphic><FontAwesomeIconView styleClass="file-icon"/></graphic>
+                        <items>
+                            <MenuItem text="打开" onAction="#open"><graphic><FontAwesomeIconView styleClass="open-icon"/></graphic></MenuItem>
+                        </items>
+                    </Menu>
+                </MenuBar>
+                <ToolBar>
+                    <Button text="打开" onAction="#open"><graphic><FontAwesomeIconView styleClass="open-icon"/></graphic></Button>
+                    <!--<Button text="保存"/>-->
+                </ToolBar>
+            </children>
+        </VBox>
+
+    </top>
+    <bottom>
+        <StatusBar fx:id="statusBar"/>
+    </bottom>
+    <left>
+        <ListView fx:id="listView"></ListView>
+    </left>
+    <center>
+        <TabPane fx:id="tabPane"/>
+    </center>
+</BorderPane>
