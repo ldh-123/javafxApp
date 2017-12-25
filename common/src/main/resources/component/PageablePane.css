@@ -1,0 +1,51 @@
+.firstBtn{
+    content:'\f000';
+}
+
+.preBtn2 {
+    -fx-border-width: 1;
+    -fx-inner-border: null;
+    -fx-outer-border: null;
+}
+
+.preBtn2:hover {
+    -fx-border-color: red;
+    -fx-border-width: 1;
+    -fx-border-radius: 1;
+    -fx-border-insets: 1;
+}
+
+.pageable-pane .first-btn-icon {
+    -glyph-name: "STEP_BACKWARD";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.pageable-pane .before-btn-icon {
+    -glyph-name: "CARET_LEFT";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.pageable-pane .next-btn-icon {
+    -glyph-name: "CARET_RIGHT";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.pageable-pane .last-btn-icon {
+    -glyph-name: "STEP_FORWARD";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.pageable-pane .refresh-btn-icon {
+    -glyph-name: "REFRESH";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
