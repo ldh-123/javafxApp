@@ -25,6 +25,7 @@ import ldh.fx.component.model.GridTableModel;
 import ldh.fx.util.JsonHttpUtil;
 import org.controlsfx.control.MaskerPane;
 import org.controlsfx.control.MasterDetailPane;
+import org.controlsfx.control.spreadsheet.Grid;
 import org.controlsfx.glyphfont.FontAwesome;
 import org.controlsfx.glyphfont.Glyph;
 
@@ -73,6 +74,10 @@ public class GridTable<D> extends StackPane implements LoadData {
 
         this.getChildren().addAll(container, maskerPane);
         this.load(new Pagination(1, 10));
+
+        tableView.getStyleClass().add("table");
+        this.getStyleClass().add("grid-table");
+        this.getStylesheets().add(GridTable.class.getResource("/component/GridTable.css").toExternalForm());
     }
 
     private void buildTableView() {
@@ -105,6 +110,7 @@ public class GridTable<D> extends StackPane implements LoadData {
 
     private ToolBar createToolBar() {
         ToolBar toolBar = new ToolBar();
+        toolBar.getStyleClass().add("table-toolbar");
         createFunctionBtn(toolBar);
         Region region = new Region();
         HBox.setHgrow(region, Priority.ALWAYS);
@@ -194,7 +200,8 @@ public class GridTable<D> extends StackPane implements LoadData {
             parent.setPadding(new Insets(5));
             hbox.getChildren().add(parent);
             parent.prefWidthProperty().bind(hbox.widthProperty());
-            hbox.setPrefHeight(130);
+            hbox.setPrefHeight(parent.prefHeight(-1) <= 0 ? 130 : parent.prefHeight(-1));
+            System.out.println("height:" + parent.prefHeight(-1) + ", " + hbox.getPrefHeight());
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }

@@ -12,18 +12,18 @@
     <children>
         <ComboBox fx:id="pageSizeChoiceBox" prefWidth="100" ></ComboBox>
         <Separator orientation="VERTICAL"/>
-        <Button fx:id="firstBtn" styleClass="firstBtn" onAction="#firstPageAct"><graphic><FontAwesomeIconView styleClass="first-btn-icon"/></graphic></Button>
-        <Button fx:id="preBtn" styleClass="preBtn" onAction="#prePageAct"><graphic><FontAwesomeIconView styleClass="before-btn-icon"/></graphic></Button>
+        <Button fx:id="firstBtn" styleClass="first-btn" onAction="#firstPageAct"><graphic><FontAwesomeIconView styleClass="first-btn-icon"/></graphic></Button>
+        <Button fx:id="preBtn" styleClass="before-btn" onAction="#prePageAct"><graphic><FontAwesomeIconView styleClass="before-btn-icon"/></graphic></Button>
         <Separator orientation="VERTICAL"/>
         <Label text="Page"/>
         <TextField fx:id="currentPageText" text="0" prefWidth="50" onAction="#pageAct"/>
         <Label text="of"/>
         <Label fx:id="totalPageLabel" text="0"/>
         <Separator orientation="VERTICAL"/>
-        <Button fx:id="nextBtn" styleClass="nextBtn" onAction="#nextPageAct"><graphic><FontAwesomeIconView styleClass="next-btn-icon"/></graphic></Button>
-        <Button fx:id="lastBtn" styleClass="lastBtn" onAction="#lastPageAct"><graphic><FontAwesomeIconView styleClass="last-btn-icon"/></graphic></Button>
+        <Button fx:id="nextBtn" styleClass="next-btn" onAction="#nextPageAct"><graphic><FontAwesomeIconView styleClass="next-btn-icon"/></graphic></Button>
+        <Button fx:id="lastBtn" styleClass="last-btn" onAction="#lastPageAct"><graphic><FontAwesomeIconView styleClass="last-btn-icon"/></graphic></Button>
         <Separator orientation="VERTICAL"/>
-        <Button fx:id="refreshBtn" styleClass="preBtn" onAction="#refreshPageAct"><graphic><FontAwesomeIconView styleClass="refresh-btn-icon"/></graphic></Button>
+        <Button fx:id="refreshBtn" styleClass="refresh-btn" onAction="#refreshPageAct"><graphic><FontAwesomeIconView styleClass="refresh-btn-icon"/></graphic></Button>
         <ProgressBar fx:id="progressBar" />
         <Region HBox.hgrow="ALWAYS"/>
         <Label fx:id="paginationInfo" text="Displaying 1 to 2 of 2 items"/>

@@ -1,18 +1,5 @@
-.firstBtn{
-    content:'\f000';
-}
-
-.preBtn2 {
-    -fx-border-width: 1;
-    -fx-inner-border: null;
-    -fx-outer-border: null;
-}
-
-.preBtn2:hover {
-    -fx-border-color: red;
-    -fx-border-width: 1;
-    -fx-border-radius: 1;
-    -fx-border-insets: 1;
+.pageable-pane {
+    /*-fx-border-color: grey;*/
 }
 
 .pageable-pane .first-btn-icon {

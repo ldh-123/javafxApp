@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<HBox styleClass="form_btns" GridPane.rowIndex="5" GridPane.columnSpan="2" alignment="CENTER_RIGHT">
+    <children>
+        <Button text="Cancel" styleClass="form_cancel" />
+        <Button text="Submit" styleClass="form_submit" />
+    </children>
+</HBox>

@@ -38,6 +38,6 @@
         <ListView fx:id="listView"></ListView>
     </left>
     <center>
-        <TabPane fx:id="tabPane"/>
+        <TabPane fx:id="tabPane" styleClass="content-pane"/>
     </center>
 </BorderPane>

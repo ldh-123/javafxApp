@@ -17,8 +17,6 @@
         <module>musicfx</module>
         <module>bootstrapUi</module>
         <module>form</module>
-        <module>component</module>
-        <module>akka</module>
     </modules>
 
     <properties>

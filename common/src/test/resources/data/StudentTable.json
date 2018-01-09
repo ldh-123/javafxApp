@@ -1,0 +1,15 @@
+{
+  "clazz": "ldh.school.Student",
+  "columnModels": [
+      {"property":"name",  "text":"名称"}
+  ],
+  "pageSizes": [5, 10, 20, 50, 100],
+  "defaultPageSize": 10,
+  "pathModels":{
+    "addFxmlPath": {"url":"/form/EditPojoForm.fxml"},
+    "deleteDataUrl": {"url":"/form/EditPojoForm.fxml"},
+    "editFxmlPath": {"url":"/form/EditPojoForm.fxml"},
+    "searchEditPath": {"url":"/form/EditPojoForm.fxml"}
+    }
+
+}

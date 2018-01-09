@@ -21,7 +21,7 @@ public class LoginPageTest extends Application {
     public static Stage STAGE = null;
 
     public void start(Stage primaryStage) throws Exception {
-        LoginPage loginPage = new LoginPage(600, 400);
+        LoginPage loginPage = new LoginPage(400, 500);
         loginPage.setStage(primaryStage);
         Scene scene = new Scene(loginPage);
         scene.getStylesheets().addAll("bootstrapfx.css");

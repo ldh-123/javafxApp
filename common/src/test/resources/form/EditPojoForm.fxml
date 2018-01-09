@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.net.URL?>
+<GridPane styleClass="form" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="203.0" prefWidth="245.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <Label text="title2222" styleClass="form_title" GridPane.columnSpan="2" GridPane.halignment="LEFT"/>
+
+        <Separator styleClass="form_separator" GridPane.rowIndex="1" GridPane.columnSpan="2"/>
+
+        <Label text="天安门你好吗:" styleClass="form_label" GridPane.rowIndex="2">
+            <tooltip><Tooltip text="wwwwwwwwwwwwwwwwwwwwww"/></tooltip>
+        </Label>
+        <TextField styleClass="form_text" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label text="Label-3:" styleClass="form_label" GridPane.rowIndex="3" />
+        <TextField styleClass="form_text" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Label text="Label-4:" styleClass="form_label" GridPane.rowIndex="4" />
+        <TextField styleClass="form_text" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+
+        <fx:include source="FormSubmit.fxml"/>
+    </children>
+    <rowConstraints>
+        <RowConstraints prefHeight="40.0"  valignment="BOTTOM"/>
+        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" />
+        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+        <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" />
+    </rowConstraints>
+    <columnConstraints>
+        <ColumnConstraints prefWidth="150" halignment="RIGHT"/>
+        <ColumnConstraints hgrow="ALWAYS"/>
+    </columnConstraints>
+    <padding>
+        <Insets bottom="5.0" left="10.0" right="20.0" top="5.0" />
+    </padding>
+</GridPane>

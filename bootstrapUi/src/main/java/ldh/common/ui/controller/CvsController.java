@@ -4,6 +4,7 @@ import com.sun.deploy.util.StringUtils;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,6 +23,7 @@ import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.Comparator;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -47,11 +49,19 @@ public class CvsController implements Initializable {
         try {
             if (file == null) return;
             TableView<Object[]> tableView = new TableView();
+            tableView.getStyleClass().add("data-table");
             MaskerPane masker = new MaskerPane();
             Tab tab = new Tab(file.getName());
             tab.setContent(new StackPane(tableView, masker));
             tabPane.getTabs().add(tab);
             tabPane.getSelectionModel().select(tab);
+            tableView.sortPolicyProperty().set(t -> {
+                Comparator<Object[]> comparator = (r1, r2)
+                        -> t.getComparator() == null ? 0 //no column sorted: don't change order
+                        : t.getComparator().compare(r1, r2); //columns are sorted: sort accordingly
+                FXCollections.sort(tableView.getItems(), comparator);
+                return true;
+            });
             loadData(tableView, file, masker);
 
             for (String str : listView.getItems()) {
@@ -134,8 +144,8 @@ public class CvsController implements Initializable {
             }
             i++;
             String[] strs = line.split(",");
-            String[] values = new String[strs.length + 1];
-            values[0] = i+"";
+            Object[] values = new Object[strs.length + 1];
+            values[0] = i;
             System.arraycopy(strs, 0, values, 1, strs.length);
             tableView.getItems().add(values);
         }

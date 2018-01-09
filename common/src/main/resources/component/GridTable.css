@@ -1,0 +1,19 @@
+.grid-table {
+    -fx-border-color: grey;
+}
+
+.grid-table>.table-toolbar {
+    -fx-border-color: grey;
+}
+
+.grid-table .table{
+    -fx-background-color: transparent;
+}
+
+.grid-table .table:focused{
+    -fx-background-color: transparent;
+}
+
+.grid-table .pageable-pane {
+    -fx-border-color: grey transparent transparent transparent;
+}
