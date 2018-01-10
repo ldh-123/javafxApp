@@ -14,7 +14,7 @@ public class TriangleButtonDemo extends Application {
         button.setPadding(new Insets(20));
 
         button.setOnAction((e) -> {
-//            button.setSkin(new AlternativeTriangleButtonSkin(button));
+            button.setSkin(new AlternativeTriangleButtonSkin(button));
 //            button.setSkin(new TriangleButtonSkin(button));
             System.out.println("adfadfasfas");
         });
@@ -25,8 +25,8 @@ public class TriangleButtonDemo extends Application {
         myPane.getChildren().add(button);
         Scene myScene = new Scene(myPane);
 
-        //String stylesheet = getClass().getResource("test.css").toExternalForm();
-        //myScene.getStylesheets().addAll(stylesheet);
+        String stylesheet = getClass().getResource("/css/test.css").toExternalForm();
+        myScene.getStylesheets().addAll(stylesheet);
 
 
         primaryStage.setScene(myScene);

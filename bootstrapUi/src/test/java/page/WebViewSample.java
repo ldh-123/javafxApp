@@ -68,7 +68,7 @@ class Browser extends Region {
     };
     final ImageView selectedImage = new ImageView();
     final Hyperlink[] hpls = new Hyperlink[captions.length];
-//    final Image[] images = new Image[imageFiles.length];
+//    final Image[] image = new Image[imageFiles.length];
     final WebView browser = new WebView();
     final WebEngine webEngine = browser.getEngine();
     final Button toggleHelpTopics = new Button("Toggle Help Topics");
@@ -82,7 +82,7 @@ class Browser extends Region {
         for (int i = 0; i < captions.length; i++) {
             // create hyperlinks
             Hyperlink hpl = hpls[i] = new Hyperlink(captions[i]);
-//            Image image = images[i]
+//            Image image = image[i]
 //                    = new Image(getClass().getResourceAsStream(imageFiles[i]));
 //            hpl.setGraphic(new ImageView(image));
             final String url = urls[i];
