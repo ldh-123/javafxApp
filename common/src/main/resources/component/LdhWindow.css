@@ -1,7 +1,7 @@
 .ldh-window {
     -fx-border-color: #007d71;
-    -fx-border-radius: 5px;
-    -fx-background-radius: 5px;
+    /*-fx-border-radius: 5px;*/
+    /*-fx-background-radius: 5px;*/
     -fx-background-color: #007d71;
 }
 

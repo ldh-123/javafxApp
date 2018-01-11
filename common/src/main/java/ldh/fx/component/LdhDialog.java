@@ -54,6 +54,7 @@ public class LdhDialog extends LdhResizeWindow {
     }
 
     public  void show() {
+        dialogStage.centerOnScreen();
         dialogStage.show();
     }
 
