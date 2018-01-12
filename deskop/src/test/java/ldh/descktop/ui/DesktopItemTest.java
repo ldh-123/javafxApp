@@ -16,6 +16,7 @@ public class DesktopItemTest extends Application {
     public void start(Stage primaryStage) throws Exception {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(DesktopItemTest.class.getResource("/img/win10.png").toExternalForm());
+        DesktopToolbar toolbar = new DesktopToolbar();
         DesktopPane desktop = new DesktopPane();
         desktop.getStyleClass().add("desktop");
 //        desktop.setPadding(new Insets(20));

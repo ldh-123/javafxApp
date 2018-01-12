@@ -18,13 +18,13 @@
                 <graphic><MaterialDesignIconView styleClass="window-icon"/></graphic>
             </Label>
             <Pane HBox.hgrow="ALWAYS" mouseTransparent="true"></Pane>
-            <Button text="min" onAction="#minBtn">
+            <Button text="min" onAction="#min">
                 <graphic><MaterialDesignIconView styleClass="window-min-icon"/></graphic>
             </Button>
-            <Button fx:id="windowMaxBtn" text="max" onAction="#maxBtn">
+            <Button fx:id="windowMaxBtn" text="max" onAction="#max">
                 <graphic><MaterialDesignIconView styleClass="window-max-icon"/></graphic>
             </Button>
-            <Button text="close" onAction="#closeBtn">
+            <Button text="close" onAction="#close">
                 <graphic><MaterialDesignIconView styleClass="window-close-icon"/></graphic>
             </Button>
         </children>

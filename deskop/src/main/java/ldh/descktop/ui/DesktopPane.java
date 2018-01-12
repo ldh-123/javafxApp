@@ -1,6 +1,8 @@
 package ldh.descktop.ui;
 
+import javafx.collections.ListChangeListener;
 import javafx.geometry.Orientation;
+import javafx.scene.Node;
 import javafx.scene.layout.FlowPane;
 
 /**
@@ -12,6 +14,5 @@ public class DesktopPane extends FlowPane {
         this.getStyleClass().add("desktop-pane");
         setOrientation(Orientation.VERTICAL);
     }
-
 
 }

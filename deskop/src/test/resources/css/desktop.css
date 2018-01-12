@@ -31,7 +31,7 @@
 .glyph-icon{
     -fx-text-fill: -icons-color;
     -fx-fill: -icons-color;
-    -glyph-size: 15px;
+    /*-glyph-size: 25px;*/
 }
 
 .desktop-toolbar .window-graphic {
@@ -41,7 +41,7 @@
 }
 
 .desktop-toolbar .browser-graphic {
-    -glyph-name: "IE";
+    -glyph-name: "GOOGLE_CHROME";
     -icons-color: white;
     -glyph-size: 25px;
 }

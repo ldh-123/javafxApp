@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" stylesheets="@/css/Common.css,@/css/FormContent.css">
+    <children>
+        <HBox styleClass="nav-title-pane">
+            <children>
+                <VBox>
+                    <children>
+                        <Label text="Form Components" styleClass="nav-form-label" ><graphic><FontAwesomeIconView styleClass="nav-form"/> </graphic></Label>
+                        <Label text="Bootstrap default form components"/>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="home" styleClass="nav-home-label"><graphic><FontAwesomeIconView styleClass="nav-home"/> </graphic></Label>
+                <Label text="/"/>
+                <Label text="Forms" styleClass="nav-label"/>
+                <Label text="/"/>
+                <Label text="Form Components" onMousePressed="#chartContentClick" styleClass="nav-label"/>
+            </children>
+        </HBox>
+
+        <GridPane styleClass="content-container">
+            <children>
+                <StackPane styleClass="container" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <children>
+                        <VBox>
+                            <children>
+                                <Label styleClass="legend" text="Legend"/>
+                                <Separator styleClass="separator"/>
+                                <MigPane layout="insets 20" cols="[label, pref!][grow, 50::][label, pref!]" styleClass="simple-form">
+                                    <children>
+                                        <Label text="Email" MigPane.cc="spany 1" styleClass="title-label"/>
+                                        <TextField fx:id="emailField" MigPane.cc="growx" />
+                                        <Label MigPane.cc="wrap"  text="sdfafdadfas" styleClass="form-error-label"/>
+
+                                        <Label text="Password" MigPane.cc="spany 1"/>
+                                        <PasswordField fx:id="passwordField" MigPane.cc="growx" />
+                                        <Label MigPane.cc="wrap"  text="sdfafdadfas" styleClass="form-error-label"/>
+
+                                        <CheckBox MigPane.cc="skip 1,growx">Checkbox</CheckBox>
+                                        <Label MigPane.cc="wrap"  text="111" styleClass="form-error-label"/>
+
+                                        <Label text="Textarea" MigPane.cc="spany 1"/>
+                                        <TextArea MigPane.cc="growx"/>
+                                        <Label MigPane.cc="wrap"  text="" styleClass="form-error-label"/>
+
+                                        <Label text="Radios" MigPane.cc="spany 1"/>
+                                        <HBox MigPane.cc="growx" spacing="10">
+                                            <children>
+                                                <RadioButton text="Option one"/>
+                                                <RadioButton text="Option two"/>
+                                            </children>
+                                        </HBox>
+                                        <Label MigPane.cc="wrap"  text="" styleClass="form-error-label"/>
+
+                                        <Label fx:id="Selects" MigPane.cc="spany 1" />
+                                        <ChoiceBox MigPane.cc="growx"/>
+                                        <Label MigPane.cc="wrap"  text="" styleClass="form-error-label"/>
+
+                                        <HBox MigPane.cc="skip 1, growx, wrap" spacing="10">
+                                            <children>
+                                                <Button text="Reset"/>
+                                                <Button text="Submit"/>
+                                            </children>
+                                        </HBox>
+                                    </children>
+                                </MigPane >
+                            </children>
+                        </VBox>
+                    </children>
+                </StackPane>
+                <StackPane styleClass="container" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <children>
+                        <MigPane layout="insets 20" cols="[grow, 100]" rows="[][]5" styleClass="simple-form">
+                            <children>
+                                <Label text="Email" MigPane.cc="growx, wrap" styleClass="title-label"/>
+                                <TextField fx:id="emailField2" MigPane.cc="growx, wrap" />
+                                <Label MigPane.cc="gaptop -10, growx, wrap"  text="eeeee" styleClass="form-error-label"/>
+
+                                <Label text="Password" MigPane.cc="growx, wrap"/>
+                                <PasswordField fx:id="passwordField2" MigPane.cc="growx, wrap" />
+                                <Label MigPane.cc="growx, wrap"  text="" styleClass="form-error-label"/>
+
+                                <Label text="CheckBox" MigPane.cc="growx, wrap"/>
+                                <CheckBox MigPane.cc="span 2, growx, wrap">Checkbox</CheckBox>
+                                <Label MigPane.cc="growx, wrap"  text="" styleClass="form-error-label"/>
+
+                                <Label text="Textarea" MigPane.cc="growx, wrap"/>
+                                <TextArea MigPane.cc="growx, wrap" prefHeight="100" minHeight="100"/>
+                                <Label MigPane.cc="gaptop -10, growx, wrap"  text="" styleClass="form-error-label"/>
+
+                                <Label text="Radios" MigPane.cc="growx, wrap"/>
+                                <RadioButton text="Option one is this" MigPane.cc="growx, wrap"/>
+                                <RadioButton text="Option two can be something else" MigPane.cc="growx, wrap"/>
+
+                                <Label fx:id="Selects2" MigPane.cc="growx, wrap" />
+                                <ChoiceBox MigPane.cc="growx, wrap,gap 0"/>
+                                <Label MigPane.cc="growx, wrap"  text="" styleClass="form-error-label"/>
+
+                                <HBox MigPane.cc="growx, wrap" spacing="10">
+                                    <children>
+                                        <Button text="Reset"/>
+                                        <Button text="Submit"/>
+                                    </children>
+                                </HBox>
+                            </children>
+                        </MigPane >
+                    </children>
+                </StackPane>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+            </columnConstraints>
+        </GridPane>
+    </children>
+</fx:root>

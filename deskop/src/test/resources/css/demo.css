@@ -1,3 +1,44 @@
 .desktop{
     -fx-background-image: url("../img/BowSnow_ZH-CN10193462171_1920x1080.jpg");
 }
+
+.popup-container {
+    -fx-background-color: #2d2d2d;
+    -fx-fill: #2d2d2d;
+    -fx-padding: 10px;
+}
+
+.popup-container .button,.label{
+    -fx-text-fill: white;
+}
+
+.toolbar-button {
+    -fx-background-color: darkgray;
+    -fx-border-color: #cfcfcf;
+    -fx-border-width: 0 0 5px 0;
+    -fx-background-radius: none;
+    -fx-min-height: 50px;
+    -fx-pref-height: 50px;
+    -fx-max-height: 50px;
+}
+
+.toolbar-button:hover {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+}
+
+.toolbar-button-close {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: none;
+}
+
+.toolbar-button-close-graphic {
+    -glyph-name: "CLOSE";
+    -icons-color: white;
+    -glyph-size: 10px;
+}
+
+.content-pane {
+    -fx-spacing: 2px;
+}

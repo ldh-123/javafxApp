@@ -1,5 +1,12 @@
 package ldh.fx.component;
 
+import javafx.beans.InvalidationListener;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
@@ -22,6 +29,8 @@ public class LdhDialog extends LdhResizeWindow {
     @FXML private HBox headPane;
     @FXML private StackPane contentPane;
     @FXML private Button windowMaxBtn;
+    private boolean isHide = false;
+    private ObjectProperty<EventHandler<ActionEvent>> closeRequestHandler = new SimpleObjectProperty<>();
 
     private Stage dialogStage;
 
@@ -36,6 +45,9 @@ public class LdhDialog extends LdhResizeWindow {
         this.setStage(dialogStage);
         buildMovable(headPane);
         buildResizable(this);
+
+        dialogStage.widthProperty().addListener(l->position());
+        dialogStage.heightProperty().addListener(l->position());
     }
 
     public void setContentPane(Node node) {
@@ -53,16 +65,45 @@ public class LdhDialog extends LdhResizeWindow {
         }
     }
 
-    public  void show() {
-        dialogStage.centerOnScreen();
+    public void position() {
+        if (dialogStage.isFullScreen()) return;
+        if (isMoved) return;
+        Stage stage = StageUtil.STAGE;
+        if (stage != null) {
+            if (stage.getWidth() > dialogStage.getWidth()) {
+                dialogStage.setX(stage.getX() + (stage.getWidth()-dialogStage.getWidth())/2);
+            }
+            if (stage.getHeight() > dialogStage.getHeight()) {
+                dialogStage.setY(stage.getY() + (stage.getHeight() - dialogStage.getHeight())/2);
+            }
+        }
+    }
+
+    public void setIsHide(boolean isHide) {
+        this.isHide = isHide;
+    }
+
+    public void show() {
         dialogStage.show();
     }
 
-    @FXML public void minBtn() {
-        dialogStage.setIconified(true);
+    public void setOnCloseRequestHandler(EventHandler<ActionEvent> eventEventHandler) {
+        closeRequestHandler.set(eventEventHandler);
     }
 
-    @FXML public void maxBtn() {
+    public boolean isShowing() {
+        return dialogStage.isShowing();
+    }
+
+    @FXML public void min() {
+        if (isHide) {
+            dialogStage.hide();
+        } else {
+            dialogStage.setIconified(false);
+        }
+    }
+
+    @FXML public void max() {
         if (dialogStage.isFullScreen()) {
             dialogStage.setFullScreen(false);
             windowMaxBtn.getGraphic().getStyleClass().clear();
@@ -74,7 +115,10 @@ public class LdhDialog extends LdhResizeWindow {
         }
     }
 
-    @FXML public void closeBtn() {
+    @FXML public void close() {
+        if (closeRequestHandler.get() != null) {
+            closeRequestHandler.get().handle(new ActionEvent());
+        }
         dialogStage.close();
     }
 

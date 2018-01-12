@@ -1,0 +1,55 @@
+.simple-form {
+    -fx-background-color: white;
+    -fx-spacing: -150px;
+}
+
+.simple-form>.title-label {
+    /*-fx-background-color: #cdcdcd;*/
+}
+
+.simple-form>.control-label {
+    -fx-padding: 1px 0px 0px 0px;
+}
+.simple-form>.control {
+    -fx-padding: 5px 0px 0px 0px;
+}
+.simple-form>.control-error {
+    -fx-padding: 1px 0px 0px 0px;
+}
+
+
+.nav-title-pane {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-alignment: center-left;
+    -fx-spacing: 10px;
+}
+
+.nav-home {
+    -glyph-name: "HOME";
+    -icons-color: black;
+    -glyph-size: 20px;
+    -fx-fill: black;
+}
+
+.nav-form {
+    -glyph-name: "PIE_CHART";
+    -icons-color: black;
+    -glyph-size: 25px;
+    -fx-fill: black;
+}
+
+.nav-form-label {
+    -fx-font-size: 25px;
+}
+
+.legend {
+    -fx-font-size: 25px;
+    -fx-padding: 5px 0px 5px 20px;
+}
+
+.form-error-label {
+    -fx-font-size: 12px;
+    -fx-text-fill: red;
+    -fx-padding: 1px 0px 2px 0px;
+}

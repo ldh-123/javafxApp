@@ -9,20 +9,15 @@ import javafx.geometry.NodeOrientation;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
+import javafx.scene.web.WebView;
+import javafx.stage.WindowEvent;
 import ldh.descktop.util.ThreadToolUtil;
+import ldh.fx.component.LdhDialog;
 import ldh.fx.ui.LPopupButton;
-import org.apache.commons.lang3.time.DateUtils;
-import org.controlsfx.control.GridView;
-import org.controlsfx.control.spreadsheet.Grid;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -30,7 +25,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class DesktopToolbar extends GridPane {
 
-    private LPopupButton windowButton = new LPopupButton(LPopupButton.PopupPos.east_down);
+    private LPopupButton windowButton = new LPopupButton(LPopupButton.PopupPos.up_west);
     private HBox leftPane = new HBox();
     private HBox contentPane = new HBox();
     private HBox rightPane = new HBox();
@@ -41,7 +36,7 @@ public class DesktopToolbar extends GridPane {
         windowGraphic.getStyleClass().add("window-graphic");
         windowButton.setGraphic(windowGraphic);
         windowButton.getStyleClass().add("toolbar-item");
-        windowButton.setPopupNode(new Label("asdfaffdadfasdfasfasdfasfsa"));
+        windowButton.setPopupContentPane(new Label("asdfaffdadfasdfasfasdfasfsa"));
 
         GridPane.setFillHeight(leftPane, true);
         GridPane.setFillHeight(rightPane, true);
@@ -63,14 +58,31 @@ public class DesktopToolbar extends GridPane {
         rightPane.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         rightPane.setAlignment(Pos.CENTER);
         leftPane.setAlignment(Pos.CENTER);
+
+        leftPane.getStyleClass().add("left-pane");
+        rightPane.getStyleClass().add("right-pane");
+        contentPane.getStyleClass().add("content-pane");
         initItem();
+    }
+
+    public Pane getLeftPane() {
+        return leftPane;
+    }
+
+    public Pane getRightPane() {
+        return rightPane;
+    }
+
+    public Pane getContentPane() {
+        return contentPane;
     }
 
     private void initItem() {
 //        addButton(new Icons525View(), "browser-graphic", leftPane);
-        Button browser = addButton(null, "", leftPane);
-        browser.setText("ie");
-        addButton(new MaterialDesignIconView(), "message-graphic", rightPane);
+        Button browser = addButton(new MaterialDesignIconView(), "browser-graphic", leftPane);
+        browser.setOnAction(e->addBrowserDialog());
+        addMessageButton(new MaterialDesignIconView(), "message-graphic", rightPane);
+//        addButton(new MaterialDesignIconView(), "message-graphic", rightPane);
         Label dayLabel = new Label();
         Label timeLabel = new Label();
         dateText(dayLabel, timeLabel);
@@ -106,5 +118,38 @@ public class DesktopToolbar extends GridPane {
         }
         box.getChildren().add(button);
         return button;
+    }
+
+    private Button addMessageButton(GlyphIcon glyphIcon, String icon, HBox box) {
+        LPopupButton messageButton = new LPopupButton(LPopupButton.PopupPos.up_east);
+        messageButton.getStyleClass().add("toolbar-item");
+        if (glyphIcon != null) {
+            glyphIcon.getStyleClass().add(icon);
+            messageButton.setGraphic(glyphIcon);
+        }
+        box.getChildren().add(messageButton);
+        messageButton.setPopupContentPane(new Label("asdfasfasfdasfa"));
+        return messageButton;
+    }
+
+    private void addBrowserDialog() {
+        ToolbarButton toolbarButton = new ToolbarButton(new Button("百度搜索"));
+        LdhDialog ldhDialog = new LdhDialog("百度搜索", 1000d, 600d);
+        ldhDialog.setModel(false);
+        ldhDialog.setIsHide(true);
+        WebView webView = new WebView();
+        ldhDialog.setContentPane(webView);
+        ldhDialog.show();
+        getContentPane().getChildren().add(toolbarButton);
+        ldhDialog.setOnCloseRequestHandler(e->getContentPane().getChildren().remove(toolbarButton));
+        toolbarButton.getButton().setOnAction(e->{
+            if (ldhDialog.isShowing()) {
+                ldhDialog.min();
+            } else {
+                ldhDialog.show();
+            }
+        });
+        toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
+        Platform.runLater(()->webView.getEngine().load("http://www.baidu.com"));
     }
 }

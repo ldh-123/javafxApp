@@ -1,0 +1,9 @@
+.popup-container {
+    -fx-background-color: #2d2d2d;
+    -fx-fill: #2d2d2d;
+    -fx-padding: 10px;
+}
+
+.popup-container .button,.label{
+    -fx-text-fill: white;
+}

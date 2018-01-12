@@ -16,6 +16,8 @@ public class DesktopTest extends Application {
     public void start(Stage primaryStage) throws Exception {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(DesktopTest.class.getResource("/img/win10.png").toExternalForm());
+        DesktopToolbar toolbar = new DesktopToolbar();
+
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
 //        desktop.setPadding(new Insets(20));
@@ -34,9 +36,9 @@ public class DesktopTest extends Application {
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
+        desktopPane.getChildren().add(new DesktopItem(image, "Form表单样式", "form"));
 
-        DesktopToolbar toolbar = new DesktopToolbar();
-        Desktop desktop = new Desktop(toolbar, desktopPane);
+        Desktop desktop = new Desktop(desktopPane, toolbar);
 
         Scene scene = new Scene(desktop, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/desktop.css").toExternalForm());

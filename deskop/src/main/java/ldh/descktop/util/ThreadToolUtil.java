@@ -16,7 +16,6 @@ public class ThreadToolUtil {
     }
 
     public static void close() {
-        System.out.println("close------------------------------");
         scheduledExecutorService.shutdownNow();
     }
 }

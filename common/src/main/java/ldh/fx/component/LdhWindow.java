@@ -17,6 +17,7 @@ public class LdhWindow extends AnchorPane {
     private double stageX = -1;
     private double stageY = -1;
     protected Boolean dragging = false;
+    protected boolean isMoved = false;
 
     public LdhWindow() {
 //        buildMovable(this);
@@ -45,6 +46,7 @@ public class LdhWindow extends AnchorPane {
             Window w = this.getScene().getWindow();
             w.setX(stageX + (endMoveX - startMoveX));
             w.setY(stageY + (endMoveY - startMoveY));
+            isMoved = true;
         }
     }
 

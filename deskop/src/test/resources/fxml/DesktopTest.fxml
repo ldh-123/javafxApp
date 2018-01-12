@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.StatusBar?>
+
+
+<?import org.controlsfx.control.StatusBar?>
+<?import ldh.descktop.ui.Desktop?>
+<?import ldh.descktop.ui.DesktopToolbar?>
+<?import ldh.descktop.ui.DesktopItem?>
+<?import ldh.descktop.ui.DesktopPane?>
+<Desktop maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" stylesheets="@/css/demo.css">
+    <toolbar>
+        <DesktopToolbar></DesktopToolbar>
+    </toolbar>
+    <desktopPane>
+        <DesktopPane>
+            <DesktopItem text="测试" url="http://www.baidu.com"></DesktopItem>
+        </DesktopPane>
+
+    </desktopPane>
+</Desktop>
