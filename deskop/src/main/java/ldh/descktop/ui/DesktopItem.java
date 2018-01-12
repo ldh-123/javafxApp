@@ -98,42 +98,28 @@ public class DesktopItem extends StackPane {
 
     private void openDialog(MouseEvent event) {
         if (event.getClickCount() != 2) return;
+        ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
+        LdhDialog ldhDialog = new LdhDialog(desc, 1000d, 600d);
+        ldhDialog.setModel(false);
+        ldhDialog.setIsHide(true);
+        ldhDialog.show();
+        desktopToolbar.getContentPane().getChildren().add(toolbarButton);
+        ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
+        toolbarButton.getButton().setOnAction(e->{
+            if (ldhDialog.isShowing()) {
+                ldhDialog.min();
+            } else {
+                ldhDialog.show();
+            }
+        });
+        toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
+
         if (url.startsWith("http")) {
-            ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
-            LdhDialog ldhDialog = new LdhDialog(desc, 1000d, 600d);
-            ldhDialog.setModel(false);
-            ldhDialog.setIsHide(true);
             WebView webView = new WebView();
             ldhDialog.setContentPane(webView);
-            ldhDialog.show();
-            desktopToolbar.getContentPane().getChildren().add(toolbarButton);
-            ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
-            toolbarButton.getButton().setOnAction(e->{
-                if (ldhDialog.isShowing()) {
-                    ldhDialog.min();
-                } else {
-                    ldhDialog.show();
-                }
-            });
-            toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
             Platform.runLater(()->webView.getEngine().load(url));
         } else if (url.equals("form")) {
-            ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
-            LdhDialog ldhDialog = new LdhDialog(desc, 1000d, 600d);
-            ldhDialog.setModel(false);
-            ldhDialog.setIsHide(true);
             ldhDialog.setContentPane(new FormContent());
-            ldhDialog.show();
-            desktopToolbar.getContentPane().getChildren().add(toolbarButton);
-            ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
-            toolbarButton.getButton().setOnAction(e->{
-                if (ldhDialog.isShowing()) {
-                    ldhDialog.min();
-                } else {
-                    ldhDialog.show();
-                }
-            });
-            toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
         }
     }
 

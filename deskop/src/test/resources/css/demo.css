@@ -42,3 +42,23 @@
 .content-pane {
     -fx-spacing: 2px;
 }
+
+.desktop-context-menu {
+    -fx-padding: 10px;
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-border-color: #cfcfcf;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-text-fill: black;
+    -fx-font-size: 18px;
+}
+
+.desktop-menu-item {
+    -fx-text-fill: black;
+    -fx-background-color: black;
+}
+
+.desktop-context-menu .menu-item:hover {
+    -fx-background-color: #cfcfcf;
+}
