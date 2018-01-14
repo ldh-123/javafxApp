@@ -56,7 +56,7 @@ public class LPopupButton extends Button {
 
     private void initEvent() {
         popupContentPane.setAlignment(Pos.TOP_LEFT);
-        popupContentPane.getStyleClass().add("popup-container");
+        popupContentPane.getStyleClass().add("popup-pane");
 
         popup.setAutoHide(true);
         popupNodeProperty.addListener((l, o, n)->{

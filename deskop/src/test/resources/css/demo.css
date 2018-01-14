@@ -2,13 +2,13 @@
     -fx-background-image: url("../img/BowSnow_ZH-CN10193462171_1920x1080.jpg");
 }
 
-.popup-container {
+.popup-pane {
     -fx-background-color: #2d2d2d;
     -fx-fill: #2d2d2d;
     -fx-padding: 10px;
 }
 
-.popup-container .button,.label{
+.popup-pane .button,.label{
     -fx-text-fill: white;
 }
 
@@ -54,11 +54,33 @@
     -fx-font-size: 18px;
 }
 
-.desktop-menu-item {
+.desktop-context-menu .menu-item .label,.button{
     -fx-text-fill: black;
-    -fx-background-color: black;
 }
+
+/*.desktop-menu-item {*/
+    /*-fx-text-fill: black;*/
+    /*-fx-background-color: black;*/
+/*}*/
 
 .desktop-context-menu .menu-item:hover {
     -fx-background-color: #cfcfcf;
+}
+
+.screen-full-graphic {
+    -glyph-name: "WINDOW_MAXIMIZE";
+    -icons-color: black;
+    -glyph-size: 25px;
+}
+
+.screen-restore-graphic {
+    -glyph-name: "WINDOW_RESTORE";
+    -icons-color: black;
+    -glyph-size: 25px;
+}
+
+.screen-about-graphic {
+    -glyph-name: "EVENT_NOTE";
+    -icons-color: black;
+    -glyph-size: 25px;
 }

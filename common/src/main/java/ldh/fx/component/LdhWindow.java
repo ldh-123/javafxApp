@@ -28,7 +28,6 @@ public class LdhWindow extends AnchorPane {
         this.getChildren().add(node);
     }
 
-    @FXML
     public void startMoveWindow(MouseEvent evt) {
         startMoveX = evt.getScreenX();
         startMoveY = evt.getScreenY();
@@ -38,7 +37,6 @@ public class LdhWindow extends AnchorPane {
         dragging = true;
     }
 
-    @FXML
     public void moveWindow(MouseEvent evt) {
         if (dragging) {
             double endMoveX = evt.getScreenX();

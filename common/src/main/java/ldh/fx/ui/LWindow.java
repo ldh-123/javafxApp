@@ -54,8 +54,12 @@ public class LWindow extends BorderPane implements javafx.fxml.Initializable, Ch
     private double lastHeight = 0.0d;
 
     private Stage owner;
-    
+
     public LWindow(Stage stage, String title, Node node) {
+        this(stage, title, node, 800, 800);
+    }
+
+    public LWindow(Stage stage, String title, Node node, double width, double height) {
         this.owner = stage;
         Stage newStage = new Stage();
         newStage.initOwner(stage);
@@ -73,7 +77,7 @@ public class LWindow extends BorderPane implements javafx.fxml.Initializable, Ch
         
         setContent(node);
         bottomPane.widthProperty().bind(this.widthProperty().subtract(nEPane.widthProperty()).subtract(nWPane.widthProperty()));
-        Scene scene = new Scene(this, 800, 600);
+        Scene scene = new Scene(this, width, height);
         scene.getStylesheets().add("/ldh.fx.css/LWindow.css");
         newStage.setScene(scene);
         newStage.show();

@@ -29,12 +29,18 @@ public class LdhDialog extends LdhResizeWindow {
     @FXML private HBox headPane;
     @FXML private StackPane contentPane;
     @FXML private Button windowMaxBtn;
+    @FXML private Button windowMinBtn;
+
     private boolean isHide = false;
     private ObjectProperty<EventHandler<ActionEvent>> closeRequestHandler = new SimpleObjectProperty<>();
 
     private Stage dialogStage;
 
     public LdhDialog(String titleStr, Double width, double height) {
+        this(titleStr, width, height, true);
+    }
+
+    public LdhDialog(String titleStr, Double width, double height, boolean isResize) {
         loadFxl();
         title.setText(titleStr);
 
@@ -44,10 +50,20 @@ public class LdhDialog extends LdhResizeWindow {
         dialogStage.setScene(new Scene(this, width, height));
         this.setStage(dialogStage);
         buildMovable(headPane);
-        buildResizable(this);
+        if (isResize) {
+            buildResizable(this);
+        }
 
         dialogStage.widthProperty().addListener(l->position());
         dialogStage.heightProperty().addListener(l->position());
+    }
+
+    public void setWindowMin(boolean isShowing) {
+        windowMinBtn.setVisible(isShowing);
+    }
+
+    public void setWindowMax(boolean isShowing) {
+        windowMaxBtn.setVisible(isShowing);
     }
 
     public void setContentPane(Node node) {

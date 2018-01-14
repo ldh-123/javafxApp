@@ -1,6 +1,8 @@
 package ldh.fx.util;
 
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import ldh.fx.component.LdhDialog;
 
 /**
  * Created by ldh on 2017/2/26.
@@ -13,6 +15,14 @@ public class DialogUtil {
         alert.setHeaderText(info);
         alert.setContentText(null);
         alert.showAndWait();
+    }
+
+    public static void info(String title, String info, double width, double height) {
+        LdhDialog window = new LdhDialog(title, width, height, false);
+        window.setContentPane(new Label(info));
+        window.setWindowMin(false);
+        window.setWindowMax(false);
+        window.show();
     }
 }
 

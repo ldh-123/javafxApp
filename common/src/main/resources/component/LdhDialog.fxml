@@ -18,7 +18,7 @@
                 <graphic><MaterialDesignIconView styleClass="window-icon"/></graphic>
             </Label>
             <Pane HBox.hgrow="ALWAYS" mouseTransparent="true"></Pane>
-            <Button text="min" onAction="#min">
+            <Button text="min" fx:id="windowMinBtn" onAction="#min">
                 <graphic><MaterialDesignIconView styleClass="window-min-icon"/></graphic>
             </Button>
             <Button fx:id="windowMaxBtn" text="max" onAction="#max">
