@@ -58,11 +58,6 @@
     -fx-text-fill: black;
 }
 
-/*.desktop-menu-item {*/
-    /*-fx-text-fill: black;*/
-    /*-fx-background-color: black;*/
-/*}*/
-
 .desktop-context-menu .menu-item:hover {
     -fx-background-color: #cfcfcf;
 }
