@@ -27,13 +27,13 @@ public class LdhResizeWindow extends LdhWindow {
 
     private static Double headHeight = 35d;
 
-    public Stage getStage() {
-        return newStage;
-    }
+//    public Stage getStage() {
+//        return newStage;
+//    }
 
-    public void setStage(Stage stage) {
-        this.newStage = stage;
-    }
+//    public void setStage(Stage stage) {
+//        this.newStage = stage;
+//    }
 
     protected void buildResizable(Region node) {
         node.setOnMouseMoved(e->nodeMove(e));
@@ -49,10 +49,10 @@ public class LdhResizeWindow extends LdhWindow {
     private void nodeClick(MouseEvent mouseEvent) {
         initX = mouseEvent.getScreenX();
         initY = mouseEvent.getScreenY();
-        initWidth = newStage.getScene().getWindow().getWidth();
-        initHeight = newStage.getScene().getWindow().getHeight();
-        initStageX = newStage.getX();
-        initStageY = newStage.getY();
+//        initWidth = newStage.getScene().getWindow().getWidth();
+//        initHeight = newStage.getScene().getWindow().getHeight();
+//        initStageX = newStage.getX();
+//        initStageY = newStage.getY();
         isDragable = true;
         mouseEvent.consume();
     }
@@ -61,9 +61,9 @@ public class LdhResizeWindow extends LdhWindow {
         if (!isDragable) {
             return;
         }
-        if (newStage.isFullScreen()) {
-            return;
-        }
+//        if (newStage.isFullScreen()) {
+//            return;
+//        }
         if (mouseEvent.isStillSincePress()) {
             return;
         }
@@ -119,12 +119,12 @@ public class LdhResizeWindow extends LdhWindow {
 //            setCursor(node, Cursor.DEFAULT);
 //            return; // maximized mode does not support resize
 //        }
-        if (newStage.isFullScreen()) {
-            return;
-        }
-        if (!newStage.isResizable()) {
-            return;
-        }
+//        if (newStage.isFullScreen()) {
+//            return;
+//        }
+//        if (!newStage.isResizable()) {
+//            return;
+//        }
         double x = mouseEvent.getX();
         double y = mouseEvent.getY();
         Bounds boundsInParent = this.getBoundsInParent();
@@ -154,33 +154,35 @@ public class LdhResizeWindow extends LdhWindow {
     }
 
     boolean setStageWidth(Stage stage, double width) {
-        if (width >= stage.getMinWidth()) {
-            stage.getScene().getWindow().setWidth(width);
-            return true;
-        }
+//        if (width >= stage.getMinWidth()) {
+//            stage.getScene().getWindow().setWidth(width);
+//            return true;
+//        }
+        this.setPrefWidth(width);
         return false;
     }
 
     boolean setStageHeight(Stage stage, double height) {
-        if (height >= stage.getMinHeight()) {
-            stage.getScene().getWindow().setHeight(height);
-            return true;
-        }
+//        if (height >= stage.getMinHeight()) {
+//            stage.getScene().getWindow().setHeight(height);
+//            return true;
+//        }
+        this.setPrefHeight(height);
         return false;
     }
 
     void setStageY(Stage stage, double y) {
-        try {
-            ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
-            if (screensForRectangle.size() > 0) {
-                Screen screen = screensForRectangle.get(0);
-                Rectangle2D visualBounds = screen.getVisualBounds();
-                if (y < visualBounds.getHeight() - 30 && y + SHADOW_WIDTH >= visualBounds.getMinY()) {
-                    stage.setY(y);
-                }
-            }
-        } catch (Exception e) {
-        }
+//        try {
+//            ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
+//            if (screensForRectangle.size() > 0) {
+//                Screen screen = screensForRectangle.get(0);
+//                Rectangle2D visualBounds = screen.getVisualBounds();
+//                if (y < visualBounds.getHeight() - 30 && y + SHADOW_WIDTH >= visualBounds.getMinY()) {
+//                    stage.setY(y);
+//                }
+//            }
+//        } catch (Exception e) {
+//        }
     }
 
     private boolean isRightEdge(double x, double y, Bounds boundsInParent) {

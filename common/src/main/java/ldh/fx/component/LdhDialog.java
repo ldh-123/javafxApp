@@ -44,11 +44,11 @@ public class LdhDialog extends LdhResizeWindow {
         loadFxl();
         title.setText(titleStr);
 
-        dialogStage = new Stage(StageStyle.UNDECORATED);
+        dialogStage = new Stage(StageStyle.TRANSPARENT);
         headPane.setAlignment(Pos.CENTER_LEFT);
-        dialogStage.initModality(Modality.APPLICATION_MODAL);
+        dialogStage.initModality(Modality.NONE);
         dialogStage.setScene(new Scene(this, width, height));
-        this.setStage(dialogStage);
+//        this.setStage(dialogStage);
         buildMovable(headPane);
         if (isResize) {
             buildResizable(this);
@@ -105,6 +105,10 @@ public class LdhDialog extends LdhResizeWindow {
 
     public void setOnCloseRequestHandler(EventHandler<ActionEvent> eventEventHandler) {
         closeRequestHandler.set(eventEventHandler);
+    }
+
+    public Stage getNewStage() {
+        return this.newStage;
     }
 
     public boolean isShowing() {

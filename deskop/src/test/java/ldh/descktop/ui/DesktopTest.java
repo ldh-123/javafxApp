@@ -1,10 +1,13 @@
 package ldh.descktop.ui;
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import ldh.descktop.page.AnimationPane;
 import ldh.descktop.page.FormContent;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
@@ -40,6 +43,12 @@ public class DesktopTest extends Application {
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Form表单样式", ()->new FormContent()));
+
+        Label label = new Label("动画面板");
+        FontAwesomeIconView icon = new FontAwesomeIconView();
+        icon.getStyleClass().add("plan-pane-graphic");
+        label.setGraphic(icon);
+        desktopPane.getChildren().add(new DesktopItem(label, ()->new AnimationPane()));
 
         Desktop desktop = new Desktop(desktopPane, toolbar);
 

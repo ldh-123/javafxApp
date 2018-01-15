@@ -79,3 +79,9 @@
     -icons-color: black;
     -glyph-size: 25px;
 }
+
+.plan-pane-graphic {
+    -glyph-name: "PLAY_CIRCLE";
+    -icons-color: black;
+    -glyph-size: 50px;
+}

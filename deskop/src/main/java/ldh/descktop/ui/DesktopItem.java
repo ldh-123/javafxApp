@@ -13,7 +13,10 @@ import javafx.scene.text.TextAlignment;
 import javafx.scene.web.WebView;
 import javafx.stage.WindowEvent;
 import ldh.descktop.page.FormContent;
+import ldh.descktop.transition.BounceInTransition2;
 import ldh.fx.component.LdhDialog;
+import ldh.fx.component.LdhPopupDialog;
+import ldh.descktop.transition.BounceInTransition;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -31,8 +34,12 @@ public class DesktopItem extends StackPane {
     }
 
     public DesktopItem(Label label, DesktopNodeFactory desktopNodeFactory) {
+        this.getStyleClass().add("desktop-item");
         this.label = label;
         this.desktopNodeFactory = desktopNodeFactory;
+
+//        clipImageView(label.getGraphic(), 50, 50);
+        initUi();
     }
 
     public DesktopItem(String text, DesktopNodeFactory desktopNodeFactory) {
@@ -46,12 +53,7 @@ public class DesktopItem extends StackPane {
     public DesktopItem(Image image, String text, DesktopNodeFactory desktopNodeFactory, String desc) {
         this.getStyleClass().add("desktop-item");
         ImageView iv = new ImageView(image);
-        iv.setFitWidth(50);
-        iv.setFitHeight(50);
-        Rectangle clip = new Rectangle(50, 50);
-        clip.setArcWidth(15);
-        clip.setArcHeight(15);
-        iv.setClip(clip);
+        clipImageView(iv, 50, 50);
         label = new Label(text,iv);
         label.setTooltip(new Tooltip(desc));
         this.desktopNodeFactory = desktopNodeFactory;
@@ -88,18 +90,29 @@ public class DesktopItem extends StackPane {
     private void openDialog(MouseEvent event) {
         if (event.getClickCount() != 2) return;
         ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
+        Node newNode = buildNewGraphic(this.getLabel().getGraphic());
+        toolbarButton.getButton().setGraphic(newNode);
+
+        toolbarButton.getButton().getGraphic().setStyle("-glyph-size: 15px;");
+//        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
         LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 1000d, 600d);
-        ldhDialog.setModel(false);
+//        ldhDialog.setModel(false);
         ldhDialog.setIsHide(true);
         ldhDialog.show();
+        ldhDialog.toFront();
+        new BounceInTransition2(ldhDialog.getNewStage()).play();
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
         ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
         toolbarButton.getButton().setOnAction(e->{
-            if (ldhDialog.isShowing()) {
-                ldhDialog.min();
-            } else {
-                ldhDialog.show();
-            }
+//            if (ldhDialog.isShowing()) {
+//                ldhDialog.min();
+//            } else {
+//                ldhDialog.show();
+//                new BounceInTransition(ldhDialog).play();
+//            }
+            ldhDialog.show();
+            new BounceInTransition2(ldhDialog.getNewStage()).play();
+            ldhDialog.toFront();
         });
         toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
 
@@ -110,10 +123,30 @@ public class DesktopItem extends StackPane {
 //        } else if (url.equals("form")) {
 //            ldhDialog.setContentPane(new FormContent());
 //        }
-        ldhDialog.setContentPane(desktopNodeFactory.create());
+        Platform.runLater(()->ldhDialog.setContentPane(desktopNodeFactory.create()));
+
 //        if (node.getRunnable() != null) {
 //            Platform.runLater(node.getRunnable());
 //        }
+    }
+
+    private Node buildNewGraphic(Node graphic) {
+        if (graphic instanceof ImageView) {
+            ImageView imageView = new ImageView();
+            imageView.setImage(((ImageView) graphic).getImage());
+            clipImageView(imageView, 30, 30);
+            return imageView;
+        }
+        return graphic;
+    }
+
+    private void clipImageView(ImageView imageView, double width, double height) {
+        imageView.setFitWidth(width);
+        imageView.setFitHeight(height);
+        Rectangle clip = new Rectangle(width, height);
+        clip.setArcWidth(15);
+        clip.setArcHeight(15);
+        imageView.setClip(clip);
     }
 
 }

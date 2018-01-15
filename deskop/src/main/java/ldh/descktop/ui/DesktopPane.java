@@ -31,7 +31,6 @@ public class DesktopPane extends FlowPane {
     private void initPopupMenu() {
         ContextMenu contextMenu = new ContextMenu();
         contextMenu.setAutoHide(true);
-//        contextMenu.setAutoFix(true);
 
         MenuItem fullScreen = new MenuItem("进入全屏");
         setGraphic(fullScreen, new MaterialDesignIconView(), "screen-full-graphic");

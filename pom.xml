@@ -18,6 +18,8 @@
         <module>bootstrapUi</module>
         <module>form</module>
         <module>deskop</module>
+        <module>springfx</module>
+        <module>fxanimations</module>
     </modules>
 
     <properties>
