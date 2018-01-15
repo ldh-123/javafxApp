@@ -1,1 +1,1 @@
-#musicApp
+#javafxApp
