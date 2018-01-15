@@ -7,9 +7,6 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Window;
 
-/**
- * Created by xiongfei.lei on 2017/12/8.
- */
 public class LdhWindow extends AnchorPane {
 
     private double startMoveX = -1;

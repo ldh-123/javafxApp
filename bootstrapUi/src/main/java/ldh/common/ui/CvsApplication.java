@@ -7,9 +7,6 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ldh.fx.StageUtil;
 
-/**
- * Created by xiongfei.lei on 2017/12/21.
- */
 public class CvsApplication extends Application {
 
     @Override

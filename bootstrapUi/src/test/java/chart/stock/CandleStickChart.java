@@ -25,9 +25,6 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Created by xiongfei.lei on 2017/9/29.
- */
 public class CandleStickChart extends XYChart<String, Number> {
 
     SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");

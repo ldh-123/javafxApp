@@ -6,9 +6,6 @@ import java.io.FileReader;
 import java.net.URL;
 import java.net.URLClassLoader;
 
-/**
- * Created by xiongfei.lei on 2017/12/21.
- */
 public class JarLoaderTest {
 
     public static void main(String[] args) {

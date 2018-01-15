@@ -6,9 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-/**
- * Created by xiongfei.lei on 2017/8/28.
- */
 public class CSSDemoApplication extends Application {
 
     @Override

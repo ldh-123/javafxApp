@@ -19,9 +19,6 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-/**
- * Created by xiongfei.lei on 2017/5/24.
- */
 public class LineChartWithVerticalLine extends Application {
 
     @Override

@@ -9,9 +9,8 @@ import javafx.scene.layout.Region;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 
-public class LdhResizeWindow extends LdhWindow {
+public class LdhResizePopupWindow extends LdhWindow {
 
-    public Stage newStage;
     private static int RESIZE_PADDING = 5;
     private static int SHADOW_WIDTH = 0;
 
@@ -27,14 +26,6 @@ public class LdhResizeWindow extends LdhWindow {
 
     private static Double headHeight = 35d;
 
-    public Stage getStage() {
-        return newStage;
-    }
-
-    public void setStage(Stage stage) {
-        this.newStage = stage;
-    }
-
     protected void buildResizable(Region node) {
         node.setOnMouseMoved(e->nodeMove(e));
         node.setOnMousePressed(e->nodeClick(e));
@@ -49,10 +40,10 @@ public class LdhResizeWindow extends LdhWindow {
     private void nodeClick(MouseEvent mouseEvent) {
         initX = mouseEvent.getScreenX();
         initY = mouseEvent.getScreenY();
-        initWidth = newStage.getScene().getWindow().getWidth();
-        initHeight = newStage.getScene().getWindow().getHeight();
-        initStageX = newStage.getX();
-        initStageY = newStage.getY();
+//        initWidth = newStage.getScene().getWindow().getWidth();
+//        initHeight = newStage.getScene().getWindow().getHeight();
+//        initStageX = newStage.getX();
+//        initStageY = newStage.getY();
         isDragable = true;
         mouseEvent.consume();
     }
@@ -61,9 +52,9 @@ public class LdhResizeWindow extends LdhWindow {
         if (!isDragable) {
             return;
         }
-        if (newStage.isFullScreen()) {
-            return;
-        }
+//        if (newStage.isFullScreen()) {
+//            return;
+//        }
         if (mouseEvent.isStillSincePress()) {
             return;
         }
@@ -72,43 +63,46 @@ public class LdhResizeWindow extends LdhWindow {
 
         Cursor cursor = this.getCursor();
         if (Cursor.E_RESIZE.equals(cursor)) {
-            setStageWidth(newStage, initWidth + deltax);
+            setStageWidth(mouseEvent, initWidth + deltax);
             mouseEvent.consume();
         } else if (Cursor.NE_RESIZE.equals(cursor)) {
-            if (setStageHeight(newStage, initHeight - deltay)) {
-                setStageY(newStage, initStageX + deltay);
+            if (setStageHeight(mouseEvent,initHeight - deltay)) {
+                setStageY(mouseEvent, initStageX + deltay);
             }
-            setStageWidth(newStage, initWidth + deltax);
+            setStageWidth(mouseEvent,initWidth + deltax);
             mouseEvent.consume();
         } else if (Cursor.SE_RESIZE.equals(cursor)) {
-            setStageWidth(newStage, initWidth + deltax);
-            setStageHeight(newStage, initHeight + deltay);
+            setStageWidth(mouseEvent,initWidth + deltax);
+            setStageHeight(mouseEvent, initHeight + deltay);
             mouseEvent.consume();
         } else if (Cursor.S_RESIZE.equals(cursor)) {
-            setStageHeight(newStage, initHeight + deltay);
+            setStageHeight(mouseEvent, initHeight + deltay);
             mouseEvent.consume();
         } else if (Cursor.W_RESIZE.equals(cursor)) {
-            if (setStageWidth(newStage, initWidth - deltax)) {
-                newStage.setX(initStageX + deltax);
+            if (setStageWidth(mouseEvent, initWidth - deltax)) {
+//                newStage.setX(initStageX + deltax);
+                this.setLayoutX(initStageX + deltax);
             }
             mouseEvent.consume();
         } else if (Cursor.SW_RESIZE.equals(cursor)) {
-            if (setStageWidth(newStage, initWidth - deltax)) {
-                newStage.setX(initStageX + deltax);
+            if (setStageWidth(mouseEvent,initWidth - deltax)) {
+//                newStage.setX(initStageX + deltax);
+                this.setLayoutX(initStageX + deltax);
             }
-            setStageHeight(newStage, initHeight + deltay);
+            setStageHeight(mouseEvent,initHeight + deltay);
             mouseEvent.consume();
         } else if (Cursor.NW_RESIZE.equals(cursor)) {
-            if (setStageWidth(newStage, initWidth - deltax)) {
-                newStage.setX(initStageX + deltax);
+            if (setStageWidth(mouseEvent, initWidth - deltax)) {
+//                newStage.setX(initStageX + deltax);
+                this.setLayoutX(initStageX + deltax);
             }
-            if (setStageHeight(newStage, initHeight - deltay)) {
-                setStageY(newStage, initStageY + deltay);
+            if (setStageHeight(mouseEvent, initHeight - deltay)) {
+                setStageY(mouseEvent, initStageY + deltay);
             }
             mouseEvent.consume();
         } else if (Cursor.N_RESIZE.equals(cursor)) {
-            if (setStageHeight(newStage, initHeight - deltay)) {
-                setStageY(newStage, initStageY + deltay);
+            if (setStageHeight(mouseEvent, initHeight - deltay)) {
+                setStageY(mouseEvent, initStageY + deltay);
             }
             mouseEvent.consume();
         }
@@ -153,31 +147,32 @@ public class LdhResizeWindow extends LdhWindow {
         }
     }
 
-    boolean setStageWidth(Stage stage, double width) {
-        if (width >= stage.getMinWidth()) {
-            stage.getScene().getWindow().setWidth(width);
-            return true;
-        }
+    boolean setStageWidth(MouseEvent mouseEvent, double width) {
+//        if (width >= stage.getMinWidth()) {
+//            this.setWidth(width);
+//            return true;
+//        }
+        this.setWidth(width);
         return false;
     }
 
-    boolean setStageHeight(Stage stage, double height) {
-        if (height >= stage.getMinHeight()) {
-            stage.getScene().getWindow().setHeight(height);
-            return true;
-        }
-        this.setPrefHeight(height);
+    boolean setStageHeight(MouseEvent mouseEvent, double height) {
+//        if (height >= stage.getMinHeight()) {
+//            stage.getScene().getWindow().setHeight(height);
+//            return true;
+//        }
+        this.setHeight(height);
         return false;
     }
 
-    void setStageY(Stage stage, double y) {
+    void setStageY(MouseEvent mouseEvent, double y) {
         try {
-            ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(stage.getX(), stage.getY(), stage.getWidth(), stage.getHeight());
+            ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(mouseEvent.getX(), mouseEvent.getY(), this.getWidth(), this.getHeight());
             if (screensForRectangle.size() > 0) {
                 Screen screen = screensForRectangle.get(0);
                 Rectangle2D visualBounds = screen.getVisualBounds();
                 if (y < visualBounds.getHeight() - 30 && y + SHADOW_WIDTH >= visualBounds.getMinY()) {
-                    stage.setY(y);
+                    this.setLayoutY(y);
                 }
             }
         } catch (Exception e) {

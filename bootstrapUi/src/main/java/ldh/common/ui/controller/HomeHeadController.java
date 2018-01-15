@@ -16,9 +16,6 @@ import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by xiongfei.lei on 2017/11/15.
- */
 public class HomeHeadController implements Initializable {
 
     @FXML private VBox userContent;

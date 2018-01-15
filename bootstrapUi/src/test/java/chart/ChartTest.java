@@ -12,9 +12,6 @@ import javafx.stage.Stage;
 
 import java.util.*;
 
-/**
- * Created by xiongfei.lei on 2017/5/23.
- */
 public class ChartTest extends Application {
 
     @Override

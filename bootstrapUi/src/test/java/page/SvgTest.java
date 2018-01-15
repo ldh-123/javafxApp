@@ -8,9 +8,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.SVGPath;
 import javafx.stage.Stage;
 
-/**
- * Created by xiongfei.lei on 2017/9/29.
- */
 public class SvgTest extends Application {
 
     @Override

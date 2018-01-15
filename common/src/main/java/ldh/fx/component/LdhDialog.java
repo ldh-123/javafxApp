@@ -48,7 +48,7 @@ public class LdhDialog extends LdhResizeWindow {
         headPane.setAlignment(Pos.CENTER_LEFT);
         dialogStage.initModality(Modality.NONE);
         dialogStage.setScene(new Scene(this, width, height));
-//        this.setStage(dialogStage);
+        this.setStage(dialogStage);
         buildMovable(headPane);
         if (isResize) {
             buildResizable(this);

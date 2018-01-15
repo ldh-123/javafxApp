@@ -9,9 +9,6 @@ import javafx.scene.layout.VBox;
 
 import java.util.List;
 
-/**
- * Created by xiongfei.lei on 2017/11/15.
- */
 public class HeadController {
 
     @FXML

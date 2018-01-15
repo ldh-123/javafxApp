@@ -14,9 +14,6 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-/**
- * Created by xiongfei.lei on 2017/11/22.
- */
 public class ChartContent extends VBox implements Initializable{
 
     @FXML private LineChart graph;

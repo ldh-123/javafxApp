@@ -8,9 +8,6 @@ import javafx.stage.Stage;
 
 import java.net.URL;
 
-/**
- * Created by xiongfei.lei on 2017/5/26.
- */
 public class MainAppLauncher extends Application {
 
     public static void main(String[] args) {

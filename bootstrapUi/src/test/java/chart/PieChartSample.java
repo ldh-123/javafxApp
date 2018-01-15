@@ -21,9 +21,6 @@ import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-/**
- * Created by xiongfei.lei on 2017/5/19.
- */
 public class PieChartSample extends Application {
 
     @Override public void start(Stage stage) {

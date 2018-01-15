@@ -15,9 +15,6 @@ import javafx.stage.Stage;
 
 import java.util.Random;
 
-/**
- * Created by xiongfei.lei on 2017/5/23.
- */
 public class LineChartValueMarker extends Application {
 
     private Line valueMarker = new Line();

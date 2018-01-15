@@ -9,9 +9,7 @@ import javafx.scene.layout.TilePane;
 import javafx.stage.Stage;
 import org.controlsfx.control.GridView;
 
-/**
- * Created by xiongfei.lei on 2017/11/14.
- */
+
 public class JavafxMainApplication extends Application {
 
     public void start(Stage primaryStage) throws Exception {

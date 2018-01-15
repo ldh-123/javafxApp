@@ -5,9 +5,6 @@ import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-/**
- * Created by xiongfei.lei on 2017/9/29.
- */
 public class ChartTest extends Application {
     @Override
     public void start(Stage primaryStage) {

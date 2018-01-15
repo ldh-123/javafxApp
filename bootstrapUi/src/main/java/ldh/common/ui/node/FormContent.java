@@ -6,9 +6,6 @@ import javafx.scene.layout.VBox;
 
 import java.io.IOException;
 
-/**
- * Created by xiongfei.lei on 2017/11/22.
- */
 public class FormContent extends VBox {
 
     public FormContent() {

@@ -5,9 +5,6 @@ import javafx.util.StringConverter;
 import java.text.DecimalFormat;
 import java.text.ParseException;
 
-/**
- * Created by xiongfei.lei on 2017/9/29.
- */
 public class DecimalAxisFormatter extends StringConverter<Number> {
 
     protected DecimalFormat decimalFormat;

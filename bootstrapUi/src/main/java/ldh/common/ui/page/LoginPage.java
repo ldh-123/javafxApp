@@ -10,9 +10,6 @@ import org.tbee.javafx.scene.layout.fxml.MigPane;
 
 import java.io.IOException;
 
-/**
- * Created by xiongfei.lei on 2017/12/8.
- */
 public class LoginPage extends LdhWindow {
 
     @FXML private Rectangle topRectangle;

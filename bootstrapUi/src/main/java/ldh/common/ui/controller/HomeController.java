@@ -33,9 +33,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
-/**
- * Created by xiongfei.lei on 2017/11/15.
- */
 public class HomeController implements Initializable {
 
     @FXML private HomeHeadController headController;

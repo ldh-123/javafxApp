@@ -21,7 +21,7 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LdhPopupDialog extends LdhResizeWindow {
+public class LdhPopupDialog extends LdhResizePopupWindow {
 
     @FXML private Label title;
     @FXML private HBox headPane;

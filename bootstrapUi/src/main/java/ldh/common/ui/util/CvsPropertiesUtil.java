@@ -4,9 +4,6 @@ import java.io.*;
 import java.util.Date;
 import java.util.Properties;
 
-/**
- * Created by xiongfei.lei on 2017/12/22.
- */
 public class CvsPropertiesUtil {
 
     private static Properties properties = new Properties();

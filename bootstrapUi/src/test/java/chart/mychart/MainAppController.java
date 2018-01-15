@@ -11,9 +11,6 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.function.Function;
 
-/**
- * Created by xiongfei.lei on 2017/5/26.
- */
 public class MainAppController implements Initializable {
     @FXML
     private LineChart<Double, Double> lineGraph;

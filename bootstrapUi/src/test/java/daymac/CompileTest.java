@@ -9,9 +9,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-/**
- * Created by xiongfei.lei on 2017/12/21.
- */
 public class CompileTest {
 
     public static void main(String[] args) throws Exception {

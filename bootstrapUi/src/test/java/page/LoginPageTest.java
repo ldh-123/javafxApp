@@ -13,9 +13,6 @@ import ldh.common.ui.JavafxMainApplication;
 import ldh.common.ui.page.LoginPage;
 import org.controlsfx.control.GridView;
 
-/**
- * Created by xiongfei.lei on 2017/12/8.
- */
 public class LoginPageTest extends Application {
 
     public static Stage STAGE = null;

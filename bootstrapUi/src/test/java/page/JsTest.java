@@ -11,9 +11,6 @@ import java.io.FileReader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
-/**
- * Created by xiongfei.lei on 2017/12/20.
- */
 public class JsTest extends Application {
 
     public static void main(String[] args) throws Exception {

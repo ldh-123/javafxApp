@@ -4,9 +4,6 @@ import javafx.scene.chart.XYChart;
 
 import java.util.function.Function;
 
-/**
- * Created by xiongfei.lei on 2017/5/26.
- */
 public class MyGraph {
     private XYChart<Double, Double> graph;
     private double range;

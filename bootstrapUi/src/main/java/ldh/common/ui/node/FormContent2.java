@@ -19,9 +19,6 @@ import java.util.ResourceBundle;
 
 import static org.controlsfx.control.decoration.Decorator.addDecoration;
 
-/**
- * Created by xiongfei.lei on 2017/11/22.
- */
 public class FormContent2 extends VBox implements Initializable{
 
     ValidationSupport validationSupport = null;
