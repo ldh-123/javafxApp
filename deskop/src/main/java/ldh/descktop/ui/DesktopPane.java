@@ -57,7 +57,7 @@ public class DesktopPane extends FlowPane {
         });
         this.setOnMousePressed(e->{
             if (e.getButton() == MouseButton.SECONDARY)
-                contextMenu.show(DesktopPane.this, e.getScreenX(), e.getScreenY());
+                contextMenu.show(DesktopPane.this.getScene().getWindow(), e.getScreenX(), e.getScreenY());
         });
     }
 

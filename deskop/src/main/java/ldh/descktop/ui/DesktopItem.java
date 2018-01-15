@@ -1,6 +1,7 @@
 package ldh.descktop.ui;
 
 import javafx.application.Platform;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -20,32 +21,40 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class DesktopItem extends StackPane {
 
-    private Image image;
-    private String text;
-    private String desc;
-    private String url;
     private DesktopToolbar desktopToolbar;
     private Label label;
+    private DesktopNodeFactory desktopNodeFactory;
 
     public DesktopItem() {
         this.getStyleClass().add("desktop-item");
         initUi();
     }
 
-    public DesktopItem(String text, String url) {
-        this(null, text, url, text);
+    public DesktopItem(Label label, DesktopNodeFactory desktopNodeFactory) {
+        this.label = label;
+        this.desktopNodeFactory = desktopNodeFactory;
     }
 
-    public DesktopItem(Image image, String text, String url) {
-        this(image, text, url, text);
+    public DesktopItem(String text, DesktopNodeFactory desktopNodeFactory) {
+        this(null, text, desktopNodeFactory, text);
     }
 
-    public DesktopItem(Image image, String text, String url, String desc) {
+    public DesktopItem(Image image, String text, DesktopNodeFactory desktopNodeFactory) {
+        this(image, text, desktopNodeFactory, text);
+    }
+
+    public DesktopItem(Image image, String text, DesktopNodeFactory desktopNodeFactory, String desc) {
         this.getStyleClass().add("desktop-item");
-        this.image = image;
-        this.text = text;
-        this.url = url;
-        this.desc = desc;
+        ImageView iv = new ImageView(image);
+        iv.setFitWidth(50);
+        iv.setFitHeight(50);
+        Rectangle clip = new Rectangle(50, 50);
+        clip.setArcWidth(15);
+        clip.setArcHeight(15);
+        iv.setClip(clip);
+        label = new Label(text,iv);
+        label.setTooltip(new Tooltip(desc));
+        this.desktopNodeFactory = desktopNodeFactory;
 
         initUi();
     }
@@ -55,15 +64,7 @@ public class DesktopItem extends StackPane {
     }
 
     public String getText() {
-        return StringUtils.isEmpty(getLabel().getText()) ? (text == null ? "" : text) : label.getText();
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getUrl() {
-        return url == null ? "" : url;
+        return StringUtils.isEmpty(getLabel().getText()) ? "" : label.getText();
     }
 
     public Label getLabel() {
@@ -78,18 +79,6 @@ public class DesktopItem extends StackPane {
     }
 
     private void initUi() {
-        label = new Label(getText());
-        if (image != null) {
-            ImageView iv = new ImageView(image);
-            iv.setFitWidth(50);
-            iv.setFitHeight(50);
-            Rectangle clip = new Rectangle(50, 50);
-            clip.setArcWidth(15);
-            clip.setArcHeight(15);
-            iv.setClip(clip);
-            label.setGraphic(iv);
-        }
-
         label.getStyleClass().add("item-content");
         label.setTooltip(new Tooltip(getText()));
         label.setOnMouseClicked(e->openDialog(e));
@@ -99,7 +88,7 @@ public class DesktopItem extends StackPane {
     private void openDialog(MouseEvent event) {
         if (event.getClickCount() != 2) return;
         ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
-        LdhDialog ldhDialog = new LdhDialog(desc, 1000d, 600d);
+        LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 1000d, 600d);
         ldhDialog.setModel(false);
         ldhDialog.setIsHide(true);
         ldhDialog.show();
@@ -114,13 +103,17 @@ public class DesktopItem extends StackPane {
         });
         toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
 
-        if (url.startsWith("http")) {
-            WebView webView = new WebView();
-            ldhDialog.setContentPane(webView);
-            Platform.runLater(()->webView.getEngine().load(url));
-        } else if (url.equals("form")) {
-            ldhDialog.setContentPane(new FormContent());
-        }
+//        if (url.startsWith("http")) {
+//            WebView webView = new WebView();
+//            ldhDialog.setContentPane(webView);
+//            Platform.runLater(()->webView.getEngine().load(url));
+//        } else if (url.equals("form")) {
+//            ldhDialog.setContentPane(new FormContent());
+//        }
+        ldhDialog.setContentPane(desktopNodeFactory.create());
+//        if (node.getRunnable() != null) {
+//            Platform.runLater(node.getRunnable());
+//        }
     }
 
 }

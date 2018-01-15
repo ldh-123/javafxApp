@@ -3,7 +3,9 @@ package ldh.descktop.ui;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import ldh.descktop.page.FormContent;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
 
@@ -16,27 +18,28 @@ public class DesktopTest extends Application {
     public void start(Stage primaryStage) throws Exception {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(DesktopTest.class.getResource("/img/win10.png").toExternalForm());
+        DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
         DesktopToolbar toolbar = new DesktopToolbar();
 
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
 //        desktop.setPadding(new Insets(20));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", "http://www.baidu.com"));
-        desktopPane.getChildren().add(new DesktopItem(image, "Form表单样式", "form"));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(image, "Form表单样式", ()->new FormContent()));
 
         Desktop desktop = new Desktop(desktopPane, toolbar);
 
