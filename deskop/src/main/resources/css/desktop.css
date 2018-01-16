@@ -1,0 +1,92 @@
+.desktop-toolbar {
+    -fx-padding: 0 5px 0 5px;
+    -fx-background-color: black;
+    -fx-min-height: 50px;
+    -fx-pref-height: 50px;
+    -fx-max-height: 50px;
+}
+
+.desktop-toolbar .toolbar-item {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: none;
+    -fx-min-height: 50px;
+    -fx-pref-height: 50px;
+    -fx-max-height: 50px;
+}
+
+.desktop-toolbar .toolbar-item:hover {
+    -fx-background-color: #cfcfcf;
+    -fx-border-color: transparent;
+    -fx-background-radius: none;
+}
+
+.desktop-toolbar .toolbar-item .label {
+    -fx-text-fill: white;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    /*-glyph-size: 25px;*/
+}
+
+.desktop-toolbar .window-graphic {
+    -glyph-name: "WINDOWS";
+    -icons-color: white;
+    -glyph-size: 25px;
+}
+
+.desktop-toolbar .browser-graphic {
+    -glyph-name: "GOOGLE_CHROME";
+    -icons-color: white;
+    -glyph-size: 25px;
+}
+
+.desktop-toolbar .message-graphic {
+    -glyph-name: "MESSAGE_PROCESSING";
+    -icons-color: white;
+    -glyph-size: 25px;
+}
+
+.desktop-toolbar .date-graphic {
+    -glyph-name: "WINDOWS";
+    -icons-color: white;
+    -glyph-size: 25px;
+}
+
+.desktop-pane {
+    -fx-padding: 10px;
+    -fx-hgap: 10px;
+    -fx-vgap: 20px;
+}
+
+.desktop-item {
+    -fx-background-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-border-radius: 5px;
+    -fx-text-alignment: center;
+    -fx-border-insets: 5px;
+}
+
+.desktop-item .item-content {
+    -fx-border-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-content-display: top;
+    -fx-spacing: 5px;
+    -fx-text-fill: white;
+}
+
+.desktop-item:hover {
+    -fx-border-color: transparent;
+    -fx-border-width: 1px;
+    -fx-border-radius: 5px;
+    -fx-background-color: #e2e2e2;
+    -fx-background-radius: 5px;
+    -fx-cursor: hand;
+}
