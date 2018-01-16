@@ -13,7 +13,10 @@ public class BounceInTransition2 extends CachedTimelineTransition2 {
         super(
                 node,
                 new Timeline(
-                        new KeyFrame(Duration.millis(0), (e)->{node.setWidth(node.getWidth()/2);}
+                        new KeyFrame(Duration.millis(0), (e)->{
+                            node.setWidth(node.getWidth()/2);
+                            System.out.println("wwww:" + node.getWidth());
+                        }
                         ),
                         new KeyFrame(Duration.millis(1000), (e)->{node.setWidth(1000);}
                         )

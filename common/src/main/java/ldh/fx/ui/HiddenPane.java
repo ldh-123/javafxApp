@@ -62,9 +62,11 @@ public class HiddenPane extends StackPane {
         });
 
         this.setOnMouseEntered(e->{
+            System.out.println("enter=-===============");
             if (hiddenNode != null) {
                 isShowing = false;
                 hiddenNode.setVisible(true);
+                translateTransition.stop();
                 translateTransition.setFromX(this.getWidth());
                 translateTransition.setToX(0);
                 translateTransition.play();
@@ -92,7 +94,7 @@ public class HiddenPane extends StackPane {
         translateTransition.setNode(hiddenNode);
         translateTransition.setFromX(-this.getWidth());
         translateTransition.setToX(0);
-        translateTransition.setDuration(Duration.valueOf("400ms"));
+        translateTransition.setDuration(Duration.valueOf("300ms"));
         translateTransition.setOnFinished(e->{
             if (isShowing) {
                 hiddenNode.setVisible(false);

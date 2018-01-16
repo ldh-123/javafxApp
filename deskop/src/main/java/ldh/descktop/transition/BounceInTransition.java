@@ -16,7 +16,9 @@ public class BounceInTransition extends CachedTimelineTransition {
                 node,
                 new Timeline(
                         new KeyFrame(Duration.millis(0), (e)->{},
-                                new KeyValue(node.opacityProperty(), 0, WEB_EASE)
+                                new KeyValue(node.opacityProperty(), 0, WEB_EASE),
+                                new KeyValue(node.scaleXProperty(), 0.3, WEB_EASE),
+                                new KeyValue(node.scaleYProperty(), 0.3, WEB_EASE)
                         ),
                         new KeyFrame(Duration.millis(1000),
                                 new KeyValue(node.scaleXProperty(), 1, WEB_EASE),

@@ -93,7 +93,7 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
         Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
         double x = (rectangle2D.getWidth() - this.getPrefWidth())/2;
         double y = (rectangle2D.getHeight() - this.getPrefHeight())/2;
-        this.toFront();
+        popup.hide();
         popup.show(StageUtil.STAGE, 100, 100);
         logger.log(Level.INFO, "dialog x:" + x + ", y:" + y + ", w:" + this.getWidth() + ", h:" + this.getHeight());
     }

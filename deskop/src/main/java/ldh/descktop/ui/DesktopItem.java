@@ -96,19 +96,22 @@ public class DesktopItem extends StackPane {
         toolbarButton.getButton().setGraphic(newNode);
         toolbarButton.getButton().getGraphic().setStyle("-glyph-size: 15px;");
 
-//        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
-        LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 1000d, 600d);
-        ldhDialog.setModel(false);
+        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
+//        LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 1000d, 600d);
+//        ldhDialog.setModel(false);
         ldhDialog.setIsHide(true);
         ldhDialog.show();
+        new BounceInTransition(ldhDialog).play();
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
         ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
         toolbarButton.getButton().setOnAction(e->{
-            if (ldhDialog.isShowing()) {
-                ldhDialog.min();
-            } else {
-                ldhDialog.show();
-            }
+//            if (ldhDialog.isShowing()) {
+//                ldhDialog.min();
+//            } else {
+//                ldhDialog.show();
+//            }
+            ldhDialog.show();
+            new BounceInTransition(ldhDialog).play();
         });
         toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
 
