@@ -7,7 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Window;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class LdhWindow extends AnchorPane {
+
+    private Logger logger = Logger.getLogger(LdhWindow.class.getName());
 
     private double startMoveX = -1;
     private double startMoveY = -1;
@@ -15,6 +20,8 @@ public class LdhWindow extends AnchorPane {
     private double stageY = -1;
     protected Boolean dragging = false;
     protected boolean isMoved = false;
+
+    protected Double layoutX = 0d, layoutY = 0d;
 
     public LdhWindow() {
 //        buildMovable(this);
@@ -43,6 +50,8 @@ public class LdhWindow extends AnchorPane {
             w.setY(stageY + (endMoveY - startMoveY));
             isMoved = true;
         }
+        layoutX = this.getScene().getWindow().getX();
+        layoutY = this.getScene().getWindow().getY();
     }
 
     @FXML
@@ -54,6 +63,8 @@ public class LdhWindow extends AnchorPane {
             stageY = 0;
             dragging = false;
         }
+        layoutX = this.getScene().getWindow().getX();
+        layoutY = this.getScene().getWindow().getY();
     }
 
     protected void buildMovable(Region node) {

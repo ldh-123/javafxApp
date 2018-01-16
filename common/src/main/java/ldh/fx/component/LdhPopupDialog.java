@@ -2,6 +2,7 @@ package ldh.fx.component;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -23,15 +24,16 @@ import java.util.logging.Logger;
 
 public class LdhPopupDialog extends LdhResizePopupWindow {
 
+    private Logger logger = Logger.getLogger(LdhPopupDialog.class.getName());
+
     @FXML private Label title;
     @FXML private HBox headPane;
     @FXML private StackPane contentPane;
     @FXML private Button windowMaxBtn;
     @FXML private Button windowMinBtn;
 
-    private Logger logger = Logger.getLogger(LdhPopupDialog.class.getName());
+    private double windowWidth, windowHeight;
 
-    private boolean isHide = false;
     private ObjectProperty<EventHandler<ActionEvent>> closeRequestHandler = new SimpleObjectProperty<>();
 
     private Popup popup = new Popup();
@@ -52,9 +54,10 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
             buildResizable(this);
         }
 
-        this.widthProperty().addListener(l->position());
-        this.heightProperty().addListener(l->position());
+//        this.widthProperty().addListener(l->position());
+//        this.heightProperty().addListener(l->position());
         popup.getContent().add(this);
+        layoutX = 100d; layoutY = 100d;
     }
 
     public void setWindowMin(boolean isShowing) {
@@ -71,31 +74,26 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
     }
 
     public void position() {
-//        if (dialogStage.isFullScreen()) return;
-//        if (isMoved) return;
-//        Stage stage = StageUtil.STAGE;
-//        if (stage != null) {
-//            if (stage.getWidth() > dialogStage.getWidth()) {
-//                dialogStage.setX(stage.getX() + (stage.getWidth()-dialogStage.getWidth())/2);
-//            }
-//            if (stage.getHeight() > dialogStage.getHeight()) {
-//                dialogStage.setY(stage.getY() + (stage.getHeight() - dialogStage.getHeight())/2);
-//            }
-//        }
-    }
-
-    public void setIsHide(boolean isHide) {
-        this.isHide = isHide;
+        if (layoutX > 0) return;
+        Stage stage = StageUtil.STAGE;
+        if (stage != null) {
+            if (stage.getWidth() > this.getWidth()) {
+                this.getScene().getWindow().setX(stage.getX() + (stage.getWidth()-this.getWidth())/2);
+            }
+            if (stage.getHeight() > this.getHeight()) {
+                this.getScene().getWindow().setX(stage.getY() + (stage.getHeight() - this.getHeight())/2);
+            }
+        } else {
+            this.getScene().getWindow().centerOnScreen();
+        }
+        layoutX = this.getScene().getWindow().getX();
+        layoutY = this.getScene().getWindow().getY();
     }
 
     public void show() {
-//        dialogStage.show();
-        Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
-        double x = (rectangle2D.getWidth() - this.getPrefWidth())/2;
-        double y = (rectangle2D.getHeight() - this.getPrefHeight())/2;
         popup.hide();
-        popup.show(StageUtil.STAGE, 100, 100);
-        logger.log(Level.INFO, "dialog x:" + x + ", y:" + y + ", w:" + this.getWidth() + ", h:" + this.getHeight());
+        popup.show(StageUtil.STAGE, layoutX, layoutY);
+        System.out.println("show: x:" + layoutX + ", y:" + layoutY);
     }
 
     public void setOnCloseRequestHandler(EventHandler<ActionEvent> eventEventHandler) {
@@ -107,26 +105,31 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
     }
 
     @FXML public void min() {
-        if (isHide) {
-            popup.hide();
-        } else {
-            popup.hide();
-        }
+        layoutX = this.getScene().getWindow().getX();
+        layoutY = this.getScene().getWindow().getY();
+        popup.hide();
     }
 
     @FXML public void max() {
-//        if (popup.isFullScreen()) {
-//            dialogStage.setFullScreen(false);
-//            windowMaxBtn.getGraphic().getStyleClass().clear();
-//            windowMaxBtn.getGraphic().getStyleClass().add("window-max-icon");
-//        } else {
-//            dialogStage.setFullScreen(true);
-//            windowMaxBtn.getGraphic().getStyleClass().clear();
-//            windowMaxBtn.getGraphic().getStyleClass().add("window-restore");
-//        }
+        Window window = this.getScene().getWindow();
         Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
-        this.setPrefSize(rectangle2D.getWidth(), rectangle2D.getHeight());
-        popup.show(StageUtil.STAGE, 0, 0);
+        ObservableList<Screen> screens = Screen.getScreensForRectangle(window.getX(), window.getY(), window.getWidth(), window.getHeight());
+        if (screens != null && screens.size() > 0) {
+            Screen screen = screens.get(0);
+            rectangle2D = screen.getVisualBounds();
+        }
+        if (Math.abs(window.getWidth() - rectangle2D.getWidth()) < 0.001) {
+            this.setPrefSize(windowWidth, windowHeight);
+            popup.hide();
+            popup.show(StageUtil.STAGE, layoutX, layoutY);
+        } else {
+            windowWidth = window.getWidth();
+            windowHeight = window.getHeight();
+            layoutX = window.getX();
+            layoutY = window.getY();
+            this.setPrefSize(rectangle2D.getWidth(), rectangle2D.getHeight());
+            popup.show(StageUtil.STAGE, rectangle2D.getMinX(), rectangle2D.getMinY());
+        }
     }
 
     @FXML public void close() {

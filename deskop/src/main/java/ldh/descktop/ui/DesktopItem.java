@@ -1,6 +1,5 @@
 package ldh.descktop.ui;
 
-import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Platform;
 import javafx.scene.Node;
@@ -9,14 +8,8 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
-import javafx.scene.text.TextAlignment;
-import javafx.scene.web.WebView;
 import javafx.stage.WindowEvent;
-import ldh.descktop.page.FormContent;
-import ldh.descktop.transition.BounceInTransition2;
-import ldh.fx.component.LdhDialog;
 import ldh.fx.component.LdhPopupDialog;
 import ldh.descktop.transition.BounceInTransition;
 import org.apache.commons.lang3.StringUtils;
@@ -97,19 +90,11 @@ public class DesktopItem extends StackPane {
         toolbarButton.getButton().getGraphic().setStyle("-glyph-size: 15px;");
 
         LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
-//        LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 1000d, 600d);
-//        ldhDialog.setModel(false);
-        ldhDialog.setIsHide(true);
         ldhDialog.show();
         new BounceInTransition(ldhDialog).play();
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
         ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
         toolbarButton.getButton().setOnAction(e->{
-//            if (ldhDialog.isShowing()) {
-//                ldhDialog.min();
-//            } else {
-//                ldhDialog.show();
-//            }
             ldhDialog.show();
             new BounceInTransition(ldhDialog).play();
         });

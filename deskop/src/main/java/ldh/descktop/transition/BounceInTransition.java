@@ -17,12 +17,13 @@ public class BounceInTransition extends CachedTimelineTransition {
                 new Timeline(
                         new KeyFrame(Duration.millis(0), (e)->{},
                                 new KeyValue(node.opacityProperty(), 0, WEB_EASE),
-                                new KeyValue(node.scaleXProperty(), 0.3, WEB_EASE),
-                                new KeyValue(node.scaleYProperty(), 0.3, WEB_EASE)
+                                new KeyValue(node.scaleXProperty(), 0.6, WEB_EASE),
+                                new KeyValue(node.scaleYProperty(), 0.6, WEB_EASE)
                         ),
-                        new KeyFrame(Duration.millis(1000),
+                        new KeyFrame(Duration.millis(800),(e)->{System.out.println("xxx:" + node.getScene().getWindow().getX());},
                                 new KeyValue(node.scaleXProperty(), 1, WEB_EASE),
                                 new KeyValue(node.scaleYProperty(), 1, WEB_EASE)
+
                         )
                 ),
                 false
