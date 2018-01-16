@@ -28,7 +28,6 @@ public class CvsPropertiesUtil {
 
     private static String getFilePath() {
         String dir = System.getProperty("user.dir");
-        System.out.println("user dir:" + dir);
         return dir + "/config.properties";
     }
 

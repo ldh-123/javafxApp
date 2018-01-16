@@ -17,9 +17,9 @@
     -fx-border-color: #cfcfcf;
     -fx-border-width: 0 0 5px 0;
     -fx-background-radius: none;
-    -fx-min-height: 50px;
-    -fx-pref-height: 50px;
-    -fx-max-height: 50px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
 }
 
 .toolbar-button:hover {

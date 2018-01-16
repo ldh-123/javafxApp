@@ -28,6 +28,5 @@ public class MainController {
 
     @FXML
     public void searchBtn(ActionEvent e) {
-        System.out.println("search!!!!!!!!!!!!!");
     }
 }

@@ -17,11 +17,6 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import javafx.util.Callback;
 
-/**
- * Just some simple tests. I didn't want to use a testing framework for this.
- * 
- * @author Marco Jakob
- */
 public class DialogsTest extends Application {
 
 	@Override

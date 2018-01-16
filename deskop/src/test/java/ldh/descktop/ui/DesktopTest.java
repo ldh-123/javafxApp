@@ -58,7 +58,6 @@ public class DesktopTest extends Application {
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
         primaryStage.setOnCloseRequest(e->{
-            System.out.println("exit=======================");
             ThreadToolUtil.close();
         });
         primaryStage.show();

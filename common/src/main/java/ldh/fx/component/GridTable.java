@@ -201,7 +201,6 @@ public class GridTable<D> extends StackPane implements LoadData {
             hbox.getChildren().add(parent);
             parent.prefWidthProperty().bind(hbox.widthProperty());
             hbox.setPrefHeight(parent.prefHeight(-1) <= 0 ? 130 : parent.prefHeight(-1));
-            System.out.println("height:" + parent.prefHeight(-1) + ", " + hbox.getPrefHeight());
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }

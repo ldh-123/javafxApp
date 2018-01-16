@@ -85,8 +85,6 @@ public class PieChart2Sample extends Application {
             }
 
             double radius = maxX - minX;
-            System.out.println("cos:" + cos);
-            System.out.println("sin" + sin);
             TranslateTransitionBuilder.create()
                     .toX((radius * ANIMATION_DISTANCE) * cos)
                     .toY((radius * ANIMATION_DISTANCE) * (-sin))

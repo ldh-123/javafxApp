@@ -140,7 +140,6 @@ public class LPopupButton extends Button {
             double maxHeight = snapSize(r.maxHeight(0));
             double h = snapSize(Math.min(Math.max(prefHeight, minHeight), Math.max(minHeight, maxHeight)));
 
-            System.out.println("height:" + h);
             double prefWidth = snapSize(r.prefWidth(h));
             double minWidth = snapSize(r.minWidth(h));
             double maxWidth = snapSize(r.maxWidth(h));

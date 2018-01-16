@@ -1,5 +1,7 @@
 package ldh.descktop.ui;
 
+import de.jensd.fx.glyphs.GlyphIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.*;
@@ -92,42 +94,25 @@ public class DesktopItem extends StackPane {
         ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
         Node newNode = buildNewGraphic(this.getLabel().getGraphic());
         toolbarButton.getButton().setGraphic(newNode);
-
         toolbarButton.getButton().getGraphic().setStyle("-glyph-size: 15px;");
+
 //        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
         LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 1000d, 600d);
-//        ldhDialog.setModel(false);
+        ldhDialog.setModel(false);
         ldhDialog.setIsHide(true);
         ldhDialog.show();
-        ldhDialog.toFront();
-        new BounceInTransition2(ldhDialog.getNewStage()).play();
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
         ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
         toolbarButton.getButton().setOnAction(e->{
-//            if (ldhDialog.isShowing()) {
-//                ldhDialog.min();
-//            } else {
-//                ldhDialog.show();
-//                new BounceInTransition(ldhDialog).play();
-//            }
-            ldhDialog.show();
-            new BounceInTransition2(ldhDialog.getNewStage()).play();
-            ldhDialog.toFront();
+            if (ldhDialog.isShowing()) {
+                ldhDialog.min();
+            } else {
+                ldhDialog.show();
+            }
         });
         toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
 
-//        if (url.startsWith("http")) {
-//            WebView webView = new WebView();
-//            ldhDialog.setContentPane(webView);
-//            Platform.runLater(()->webView.getEngine().load(url));
-//        } else if (url.equals("form")) {
-//            ldhDialog.setContentPane(new FormContent());
-//        }
         Platform.runLater(()->ldhDialog.setContentPane(desktopNodeFactory.create()));
-
-//        if (node.getRunnable() != null) {
-//            Platform.runLater(node.getRunnable());
-//        }
     }
 
     private Node buildNewGraphic(Node graphic) {
@@ -136,6 +121,12 @@ public class DesktopItem extends StackPane {
             imageView.setImage(((ImageView) graphic).getImage());
             clipImageView(imageView, 30, 30);
             return imageView;
+        } else if (graphic instanceof FontAwesomeIconView) {
+            FontAwesomeIconView glyphIcon = (FontAwesomeIconView) graphic;
+            FontAwesomeIconView newGlyphIcon = new FontAwesomeIconView();
+            newGlyphIcon.setGlyphName(glyphIcon.getGlyphName());
+            newGlyphIcon.setGlyphSize(25);
+            return newGlyphIcon;
         }
         return graphic;
     }
