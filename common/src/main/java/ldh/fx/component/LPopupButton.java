@@ -1,5 +1,6 @@
-package ldh.fx.ui;
+package ldh.fx.component;
 
+import javafx.animation.*;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.geometry.*;
@@ -7,12 +8,19 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
+import javafx.util.Duration;
+import ldh.fxanimations.BounceInLeftTransition;
+import ldh.fxanimations.BounceInRightTransition;
+import ldh.fxanimations.BounceInTransition;
 
 /**
  * Created by ldh on 2018/1/11.
  */
 public class LPopupButton extends Button {
+
+    protected static final Interpolator WEB_EASE = Interpolator.SPLINE(0.25, 0.1, 0.25, 1);
 
     public static double popupHeight = 200;
     public static double popupWidth = 300;
@@ -23,9 +31,7 @@ public class LPopupButton extends Button {
     private StackPane popupContentPane = new StackPane();
 
     public LPopupButton(PopupPos popupPos) {
-        this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
-        this.popupPos = popupPos;
-        initEvent();
+        this("", popupPos);
     }
 
     public LPopupButton(String text, PopupPos popupPos) {
@@ -33,6 +39,7 @@ public class LPopupButton extends Button {
         this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
         this.popupPos = popupPos;
         initEvent();
+
     }
 
     public LPopupButton(String text, Region graphic, PopupPos popupPos) {
@@ -65,6 +72,7 @@ public class LPopupButton extends Button {
             popup.getContent().add(popupContentPane);
         });
         popupContentPane.heightProperty().addListener(l->show());
+        popupContentPane.widthProperty().addListener(l->show());
         this.setOnAction(e->{
             show();
         });
@@ -76,9 +84,29 @@ public class LPopupButton extends Button {
         double anchorX = clacAnchorX();
         double anchorY = clacAnchorY();
 //        popup.show(this.getScene().getWindow(), snapPosition(p.getX()), snapPosition(p.getY()));
-            popup.show(this.getScene().getWindow(), anchorX, anchorY);
+//        popupContentPane.setVisible(false);
+        popup.show(this.getScene().getWindow(), anchorX, anchorY);
+        animation();
         popup.requestFocus();
 //        sizePopup();
+    }
+
+    private void animation() {
+        Node node = popupContentPane;
+        Timeline timeline = new Timeline(
+                new KeyFrame(Duration.millis(0),
+                        new KeyValue(node.visibleProperty(), true),
+                        new KeyValue(node.opacityProperty(), 0, WEB_EASE),
+                        new KeyValue(node.scaleXProperty(), 0.6, WEB_EASE),
+                        new KeyValue(node.scaleYProperty(), 0.6, WEB_EASE)
+                ),
+                new KeyFrame(Duration.millis(100),
+                        new KeyValue(node.scaleXProperty(), 1, WEB_EASE),
+                        new KeyValue(node.scaleYProperty(), 1, WEB_EASE)
+
+                )
+        );
+        timeline.play();
     }
 
     private double clacAnchorX() {

@@ -1,4 +1,4 @@
-package ldh.fx.ui;
+package ldh.fx.component;
 
 import com.sun.javafx.geom.Vec2d;
 import javafx.animation.TranslateTransition;
@@ -17,7 +17,7 @@ import java.util.List;
 /**
  * Created by ldh on 2018/1/16.
  */
-public class HiddenPane extends StackPane {
+public class LHiddenPane extends StackPane {
 
     private Node showingNode;
     private Node hiddenNode;
@@ -25,12 +25,12 @@ public class HiddenPane extends StackPane {
     private TranslateTransition translateTransition;
     private boolean isShowing = true;
 
-    public HiddenPane() {
+    public LHiddenPane() {
         super();
         event();
     }
 
-    public HiddenPane(Node... children) {
+    public LHiddenPane(Node... children) {
         super(children);
 
         if (children.length > 0) {
@@ -62,7 +62,6 @@ public class HiddenPane extends StackPane {
         });
 
         this.setOnMouseEntered(e->{
-            System.out.println("enter=-===============");
             if (hiddenNode != null) {
                 isShowing = false;
                 hiddenNode.setVisible(true);

@@ -17,6 +17,7 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.*;
 import ldh.fx.StageUtil;
+import ldh.fx.transition.BounceInTransition;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -54,10 +55,26 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
             buildResizable(this);
         }
 
-//        this.widthProperty().addListener(l->position());
-//        this.heightProperty().addListener(l->position());
         popup.getContent().add(this);
-        layoutX = 100d; layoutY = 100d;
+
+        popup.showingProperty().addListener((l, o, n)->{
+            if (n) {
+                if (layoutX < 0.1 || layoutY < 0.1) {
+                    if (StageUtil.STAGE != null) {
+                        Window window = StageUtil.STAGE.getScene().getWindow();
+                        Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
+                        ObservableList<Screen> screens = Screen.getScreensForRectangle(window.getX(), window.getY(), window.getWidth(), window.getHeight());
+                        if (screens != null && screens.size() > 0) {
+                            Screen screen = screens.get(0);
+                            rectangle2D = screen.getVisualBounds();
+                        }
+                        layoutX = rectangle2D.getMinX() + (rectangle2D.getWidth() - this.getWidth())/2;
+                        layoutY = rectangle2D.getMinY() + (rectangle2D.getHeight() - this.getHeight())/2;
+                        popup.show(StageUtil.STAGE, layoutX, layoutY);
+                    }
+                }
+            }
+        });
     }
 
     public void setWindowMin(boolean isShowing) {
@@ -73,27 +90,10 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
         contentPane.getChildren().add(node);
     }
 
-    public void position() {
-        if (layoutX > 0) return;
-        Stage stage = StageUtil.STAGE;
-        if (stage != null) {
-            if (stage.getWidth() > this.getWidth()) {
-                this.getScene().getWindow().setX(stage.getX() + (stage.getWidth()-this.getWidth())/2);
-            }
-            if (stage.getHeight() > this.getHeight()) {
-                this.getScene().getWindow().setX(stage.getY() + (stage.getHeight() - this.getHeight())/2);
-            }
-        } else {
-            this.getScene().getWindow().centerOnScreen();
-        }
-        layoutX = this.getScene().getWindow().getX();
-        layoutY = this.getScene().getWindow().getY();
-    }
-
     public void show() {
         popup.hide();
+        new BounceInTransition(this).play();
         popup.show(StageUtil.STAGE, layoutX, layoutY);
-        System.out.println("show: x:" + layoutX + ", y:" + layoutY);
     }
 
     public void setOnCloseRequestHandler(EventHandler<ActionEvent> eventEventHandler) {

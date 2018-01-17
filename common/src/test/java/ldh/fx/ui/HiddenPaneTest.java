@@ -5,7 +5,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import ldh.fx.component.LdhDialog;
+import ldh.fx.component.LHiddenPane;
 
 /**
  * Created by ldh on 2018/1/16.
@@ -26,8 +26,8 @@ public class HiddenPaneTest extends Application {
         borderPane2.setCenter(new Label("center2"));
         borderPane2.setLeft(new Label("left2"));
 
-        HiddenPane hiddenPane = new HiddenPane(borderPane, borderPane2);
-//        HiddenPane hiddenPane = new HiddenPane();
+        LHiddenPane hiddenPane = new LHiddenPane(borderPane, borderPane2);
+//        LHiddenPane hiddenPane = new LHiddenPane();
 //        hiddenPane.getChildren().addAll(borderPane, borderPane2);
         hiddenPane.getChildren().add(borderPane);
         hiddenPane.getChildren().add(borderPane2);

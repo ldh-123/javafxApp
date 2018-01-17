@@ -2,7 +2,6 @@ package ldh.descktop.ui;
 
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import de.jensd.fx.glyphs.icons525.Icons525View;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.application.Platform;
 import javafx.geometry.NodeOrientation;
@@ -14,7 +13,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.WindowEvent;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.component.LdhDialog;
-import ldh.fx.ui.LPopupButton;
+import ldh.fx.component.LPopupButton;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

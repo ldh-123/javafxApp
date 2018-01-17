@@ -91,12 +91,11 @@ public class DesktopItem extends StackPane {
 
         LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
         ldhDialog.show();
-        new BounceInTransition(ldhDialog).play();
+
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
         ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
         toolbarButton.getButton().setOnAction(e->{
             ldhDialog.show();
-            new BounceInTransition(ldhDialog).play();
         });
         toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
 
