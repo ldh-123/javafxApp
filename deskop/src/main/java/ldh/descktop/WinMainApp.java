@@ -1,4 +1,4 @@
-package ldh.descktop.ui;
+package ldh.descktop;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Application;
@@ -9,23 +9,23 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import ldh.descktop.page.AnimationPane;
 import ldh.descktop.page.FormContent;
+import ldh.descktop.ui.*;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
 
 /**
- * Created by ldh on 2018/1/11.
+ * Created by ldh on 2018/1/16.
  */
-public class DesktopTest extends Application {
+public class WinMainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
         StageUtil.STAGE = primaryStage;
-        Image image = new Image(DesktopTest.class.getResource("/img/win10.png").toExternalForm());
+        Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
         DesktopToolbar toolbar = new DesktopToolbar();
 
         DesktopPane desktopPane = new DesktopPane();
-        desktopPane.getStyleClass().add("desktop");
 //        desktop.setPadding(new Insets(20));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));

@@ -38,7 +38,7 @@ public class DesktopItemTest extends Application {
 
         Scene scene = new Scene(desktop, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/desktop.css").toExternalForm());
-        scene.getStylesheets().add(this.getClass().getResource("/css/demo.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
         System.out.println("show=======================");

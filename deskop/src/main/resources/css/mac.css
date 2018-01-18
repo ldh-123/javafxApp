@@ -1,0 +1,171 @@
+.desktop{
+    -fx-background-image: url("../images/mac.jpg");
+    -fx-background-repeat: no-repeat;
+    /*-fx-background-size: 900 506;*/
+    -fx-background-position: center;
+    /*-fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);*/
+}
+
+.popup-pane {
+    -fx-background-color: #2d2d2d;
+    -fx-fill: #2d2d2d;
+    -fx-padding: 10px;
+}
+
+.popup-pane .button,.label{
+    -fx-text-fill: white;
+}
+
+.toolbar-button {
+    -fx-background-color: darkgray;
+    -fx-border-color: #cfcfcf;
+    -fx-border-width: 0 0 5px 0;
+    -fx-background-radius: none;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
+}
+
+.toolbar-button:hover {
+    -fx-background-color: #2d2d2d;
+    -fx-text-fill: white;
+}
+
+.toolbar-button-close {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: none;
+}
+
+.toolbar-button-close-graphic {
+    -glyph-name: "CLOSE";
+    -icons-color: white;
+    -glyph-size: 10px;
+}
+
+.content-pane {
+    -fx-spacing: 2px;
+}
+
+.desktop-context-menu {
+    -fx-padding: 10px;
+    -fx-background-color: white;
+    -fx-background-radius: 12px;
+    -fx-border-color: #cfcfcf;
+    -fx-border-width: 1px;
+    -fx-border-radius: 12px;
+    -fx-text-fill: black;
+    -fx-font-size: 18px;
+}
+
+.desktop-context-menu .menu-item .label,.button{
+    -fx-text-fill: black;
+}
+
+.desktop-context-menu .menu-item:hover {
+    -fx-background-color: #cfcfcf;
+}
+
+.screen-full-graphic {
+    -glyph-name: "WINDOW_MAXIMIZE";
+    -icons-color: black;
+    -glyph-size: 25px;
+}
+
+.screen-restore-graphic {
+    -glyph-name: "WINDOW_RESTORE";
+    -icons-color: black;
+    -glyph-size: 25px;
+}
+
+.screen-about-graphic {
+    -glyph-name: "EVENT_NOTE";
+    -icons-color: black;
+    -glyph-size: 25px;
+}
+
+.plan-pane-graphic {
+    -glyph-name: "PLAY_CIRCLE";
+    -icons-color: black;
+    -glyph-size: 50px;
+}
+
+.desktop-nav-container {
+    -fx-background-color: transparent;
+    -fx-fill: transparent;
+    -fx-padding: 0 0 10 0;
+    -fx-pref-height: 100;
+    -fx-min-height: 100;
+}
+
+.desktop-nav {
+    -fx-background-color: rgba(255,255,255,0.45);
+    -fx-background-radius: 5px;
+    -fx-border-width: 1;
+    -fx-border-radius: 5px;
+    -fx-padding: 5 -5 5 -5;
+    -fx-spacing: -15px;
+    -fx-pref-height: 70;
+    -fx-min-height: 70;
+    -fx-max-height: 70;
+}
+
+.desktop-nav-item .button {
+    -fx-content-display: graphic-only;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+.finder {
+    -fx-graphic: url("../images/mac/finder.png");
+}
+.computer {
+    -fx-graphic: url("../images/mac/computer.png");
+}
+.gamecenter {
+    -fx-graphic: url("../images/mac/gamecenter.png");
+}
+.icloud {
+    -fx-graphic: url("../images/mac/icloud.png");
+}
+.prefapp {
+    -fx-graphic: url("../images/mac/prefapp.png");
+}
+.trashicon {
+    -fx-graphic: url("../images/mac/trashicon.png");
+}
+.appstore {
+    -fx-graphic: url("../images/mac/appstore.png");
+}
+.iTunes {
+    -fx-graphic: url("../images/mac/iTunes.png");
+}
+.imusic {
+    -fx-graphic: url("../images/mac/imusic.png");
+}
+.preview {
+    -fx-graphic: url("../images/mac/preview.png");
+}
+.mail {
+    -fx-graphic: url("../images/mac/mail.png");
+}
+.notes {
+    -fx-graphic: url("../images/mac/notes.png");
+}
+.messages {
+    -fx-graphic: url("../images/mac/messages.png");
+}
+.maps {
+    -fx-graphic: url("../images/mac/maps.png");
+}
+.ibooks {
+    -fx-graphic: url("../images/mac/ibooks.png");
+}
+.facetime {
+    -fx-graphic: url("../images/mac/facetime.png");
+}
+.launchpad {
+    -fx-graphic: url("../images/mac/launchpad.png");
+}
