@@ -58,15 +58,19 @@ public class DesktopNav extends HBox {
                             Label label = new Label(button.getText());
                             popup.getContent().add(label);
                             stackPane.setOnMouseExited(e->{
-                                button.setScaleX(1.0);
-                                button.setScaleY(1.0);
-                                button.setTranslateY(0);
                                 popup.hide();
+                                animationButton(button, 0.8d,0.8d, 0d);
+                                Button preButton = getPreButton(button);
+                                Button nextButton = getNextButton(button);
+                                animationButton(preButton, 0.8d,0.8d, 0d);
+                                animationButton(nextButton, 0.8d,0.8d, 0d);
                             });
                             stackPane.setOnMouseEntered(e->{
-                                button.setScaleX(1.3);
-                                button.setScaleY(1.3);
-                                button.setTranslateY(-30);
+                                animationButton(button, 1.3d, 1.3d, -30d);
+                                Button preButton = getPreButton(button);
+                                Button nextButton = getNextButton(button);
+                                animationButton(preButton ,1.2d,1.2d, -10d);
+                                animationButton(nextButton ,1.2d,1.2d, -10d);
                                 double anchorX = NodeUtil.anchorX(button) + button.getWidth()/2 - label.getWidth()/2 -1;
                                 double anchorY = NodeUtil.anchorY(button) - 5;
                                 popup.show(button.getScene().getWindow(), anchorX, anchorY);
@@ -76,5 +80,43 @@ public class DesktopNav extends HBox {
                 }
             }
         });
+    }
+
+    private void animationButton(Button button, double scaleX, double scaleY, double transalteY) {
+        if (button == null) return;
+        System.out.println("text:" + button.getText() + ",x:" + scaleX);
+        button.setScaleX(scaleX);
+        button.setScaleY(scaleY);
+        button.setTranslateY(transalteY);
+    }
+
+    private Button getPreButton(Button button) {
+        for (int i=0; i<this.getChildren().size(); i++) {
+            DesktopNavItem stackPane = (DesktopNavItem) getChildren().get(i);
+            Button button2 = (Button) stackPane.getChildren().get(0);
+            if (button2 == button) {
+                if (i == 0) {
+                    return null;
+                }
+                DesktopNavItem stackPane2 = (DesktopNavItem) getChildren().get(i-1);
+                return (Button) stackPane2.getChildren().get(0);
+            }
+        }
+        return null;
+    }
+
+    private Button getNextButton(Button button) {
+        for (int i=0; i<this.getChildren().size(); i++) {
+            DesktopNavItem stackPane = (DesktopNavItem) getChildren().get(i);
+            Button button2 = (Button) stackPane.getChildren().get(0);
+            if (button2 == button) {
+                if (i == this.getChildren().size()-1) {
+                    return null;
+                }
+                DesktopNavItem stackPane2 = (DesktopNavItem) getChildren().get(i+1);
+                return (Button) stackPane2.getChildren().get(0);
+            }
+        }
+        return null;
     }
 }
