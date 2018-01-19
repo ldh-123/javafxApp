@@ -43,27 +43,19 @@ public class MacDesktopToolbar extends DesktopToolbar {
         Button browser = addButton(new MaterialDesignIconView(), "browser-graphic", getLeftPane());
         browser.setOnAction(e->addBrowserDialog());
         addMessageButton(new MaterialDesignIconView(), "message-graphic", getRightPane());
-        Label dayLabel = new Label();
-        Label timeLabel = new Label();
-        dateText(dayLabel, timeLabel);
-        VBox dateBox = new VBox();
-        dateBox.setAlignment(Pos.CENTER);
-        dateBox.getChildren().addAll(timeLabel, dayLabel);
-        dateBox.setSpacing(2);
-        dateBox.getStyleClass().add("toolbar-item");
-        getRightPane().getChildren().add(dateBox);
+        Label datetimeLabel = new Label();
+        datetimeLabel.getStyleClass().add("toolbar-item");
+        datetimeLabel(datetimeLabel);
+        getRightPane().getChildren().add(datetimeLabel);
     }
 
-    private void dateText(Label dayLabel, Label timeLabel) {
+    private void datetimeLabel(Label datetimeLabel) {
         Runnable runnable = () -> {
             Date date = new Date();
-            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy年MM月dd日 EEEE HH:mm");
             String day = dateFormat.format(date);
-            dateFormat = new SimpleDateFormat("HH:mm");
-            String time = dateFormat.format(date);
             Platform.runLater(() -> {
-                dayLabel.setText(day);
-                timeLabel.setText(time);
+                datetimeLabel.setText(day);
             });
         };
         ThreadToolUtil.scheduleAtFixedRate(runnable, 40, TimeUnit.SECONDS);

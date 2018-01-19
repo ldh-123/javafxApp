@@ -60,6 +60,7 @@ public class MacMainApp extends Application {
         Scene scene = new Scene(desktop, 1300, 650);
         scene.setFill(null);
         scene.getStylesheets().add(this.getClass().getResource("/css/mac.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("/css/mac-dialog.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
         primaryStage.setOnCloseRequest(e->{

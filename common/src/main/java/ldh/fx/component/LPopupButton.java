@@ -22,9 +22,6 @@ public class LPopupButton extends Button {
 
     protected static final Interpolator WEB_EASE = Interpolator.SPLINE(0.25, 0.1, 0.25, 1);
 
-    public static double popupHeight = 200;
-    public static double popupWidth = 300;
-
     private ObjectProperty<Node> popupNodeProperty = new SimpleObjectProperty<>();
     private Popup popup = new Popup();
     private PopupPos popupPos;
@@ -39,7 +36,6 @@ public class LPopupButton extends Button {
         this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
         this.popupPos = popupPos;
         initEvent();
-
     }
 
     public LPopupButton(String text, Region graphic, PopupPos popupPos) {

@@ -1,5 +1,5 @@
 .desktop{
-    -fx-background-image: url("../images/BowSnow_ZH-CN10193462171_1920x1080.jpg");
+    -fx-background-image: url("../images/bg3.jpg");
     -fx-background-repeat: stretch;
     /*-fx-background-size: 900 506;*/
     -fx-background-position: center center;
@@ -9,9 +9,9 @@
 .desktop-toolbar {
     -fx-padding: 0 5px 0 5px;
     -fx-background-color: black;
-    -fx-min-height: 50px;
-    -fx-pref-height: 50px;
-    -fx-max-height: 50px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
 }
 
 .desktop-toolbar .toolbar-item {
@@ -19,13 +19,13 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-background-radius: none;
-    -fx-min-height: 50px;
-    -fx-pref-height: 50px;
-    -fx-max-height: 50px;
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
 }
 
 .desktop-toolbar .toolbar-item:hover {
-    -fx-background-color: #cfcfcf;
+    -fx-background-color: rgba(106, 105, 100, 0.71);
     -fx-border-color: transparent;
     -fx-background-radius: none;
 }
@@ -94,7 +94,7 @@
     -fx-border-color: transparent;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
-    -fx-background-color: #e2e2e2;
+    -fx-background-color: rgba(255, 255, 255, 0.11);
     -fx-background-radius: 5px;
     -fx-cursor: hand;
 }
@@ -105,8 +105,17 @@
     -fx-padding: 10px;
 }
 
-.popup-pane .button,.label{
+.popup-pane> .button{
     -fx-text-fill: white;
+}
+.popup-pane> .label{
+    -fx-text-fill: white;
+}
+
+.toolbar-button-container {
+    -fx-min-height: 40px;
+    -fx-pref-height: 40px;
+    -fx-max-height: 40px;
 }
 
 .toolbar-button {
@@ -114,9 +123,6 @@
     -fx-border-color: #cfcfcf;
     -fx-border-width: 0 0 5px 0;
     -fx-background-radius: none;
-    -fx-min-height: 40px;
-    -fx-pref-height: 40px;
-    -fx-max-height: 40px;
 }
 
 .toolbar-button:hover {
@@ -134,6 +140,10 @@
     -glyph-name: "CLOSE";
     -icons-color: white;
     -glyph-size: 10px;
+}
+
+.desktop-button-min-graphic {
+    -glyph-size: 15px;
 }
 
 .content-pane {
@@ -179,6 +189,6 @@
 
 .plan-pane-graphic {
     -glyph-name: "PLAY_CIRCLE";
-    -icons-color: black;
+    -icons-color: white;
     -glyph-size: 50px;
 }

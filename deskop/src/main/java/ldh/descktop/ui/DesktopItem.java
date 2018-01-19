@@ -32,8 +32,6 @@ public class DesktopItem extends StackPane {
         this.getStyleClass().add("desktop-item");
         this.label = label;
         this.desktopNodeFactory = desktopNodeFactory;
-
-//        clipImageView(label.getGraphic(), 50, 50);
         initUi();
     }
 
@@ -87,9 +85,9 @@ public class DesktopItem extends StackPane {
         ToolbarButton toolbarButton = new ToolbarButton(new Button(getText()));
         Node newNode = buildNewGraphic(this.getLabel().getGraphic());
         toolbarButton.getButton().setGraphic(newNode);
-        toolbarButton.getButton().getGraphic().setStyle("-glyph-size: 15px;");
+        toolbarButton.getButton().getGraphic().getStyleClass().add("desktop-button-min-graphic");
 
-        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 1000d, 600d);
+        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 800d, 500d);
         ldhDialog.show();
 
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
@@ -106,13 +104,15 @@ public class DesktopItem extends StackPane {
         if (graphic instanceof ImageView) {
             ImageView imageView = new ImageView();
             imageView.setImage(((ImageView) graphic).getImage());
-            clipImageView(imageView, 30, 30);
+            double width = 20d, height = 20d;
+            imageView.setFitHeight(width); imageView.setFitWidth(width);
+//            clipImageView(imageView, width, height);
             return imageView;
         } else if (graphic instanceof FontAwesomeIconView) {
             FontAwesomeIconView glyphIcon = (FontAwesomeIconView) graphic;
             FontAwesomeIconView newGlyphIcon = new FontAwesomeIconView();
             newGlyphIcon.setGlyphName(glyphIcon.getGlyphName());
-            newGlyphIcon.setGlyphSize(25);
+            newGlyphIcon.setGlyphSize(28);
             return newGlyphIcon;
         }
         return graphic;

@@ -8,30 +8,30 @@
 
 .desktop-toolbar {
     -fx-padding: 0 5px 0 5px;
-    -fx-background-color: black;
-    -fx-min-height: 50px;
-    -fx-pref-height: 50px;
-    -fx-max-height: 50px;
+    -fx-background-color: rgba(255, 255, 255, 0.75);
+    -fx-min-height: 30px;
+    -fx-pref-height: 30px;
+    -fx-max-height: 30px;
 }
 
 .desktop-toolbar .toolbar-item {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-background-radius: none;
-    -fx-min-height: 50px;
-    -fx-pref-height: 50px;
-    -fx-max-height: 50px;
+    -fx-min-height: 30px;
+    -fx-pref-height: 30px;
+    -fx-max-height: 30px;
 }
 
 .desktop-toolbar .toolbar-item:hover {
-    -fx-background-color: #cfcfcf;
+    -fx-background-color: rgba(49,156,241,0.71);
     -fx-border-color: transparent;
     -fx-background-radius: none;
 }
 
 .desktop-toolbar .toolbar-item .label {
-    -fx-text-fill: white;
+    -fx-text-fill: black;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
 }
@@ -39,31 +39,31 @@
 .glyph-icon{
     -fx-text-fill: -icons-color;
     -fx-fill: -icons-color;
-    /*-glyph-size: 25px;*/
+    -glyph-size: 18px;
 }
 
 .desktop-toolbar .mac-graphic {
     -glyph-name: "APPLE";
-    -icons-color: white;
-    -glyph-size: 25px;
+    -icons-color: black;
+    -glyph-size: 18px;
 }
 
 .desktop-toolbar .browser-graphic {
     -glyph-name: "GOOGLE_CHROME";
-    -icons-color: white;
-    -glyph-size: 25px;
+    -icons-color: black;
+    -glyph-size: 18px;
 }
 
 .desktop-toolbar .message-graphic {
     -glyph-name: "MESSAGE_PROCESSING";
-    -icons-color: white;
-    -glyph-size: 25px;
+    -icons-color: black;
+    -glyph-size: 18px;
 }
 
 .desktop-toolbar .date-graphic {
     -glyph-name: "WINDOWS";
-    -icons-color: white;
-    -glyph-size: 25px;
+    -icons-color: black;
+    -glyph-size: 18px;
 }
 
 .desktop-pane {
@@ -94,33 +94,36 @@
     -fx-border-color: transparent;
     -fx-border-width: 1px;
     -fx-border-radius: 5px;
-    -fx-background-color: #e2e2e2;
+    -fx-background-color: rgba(255, 255, 255, 0.75);
     -fx-background-radius: 5px;
     -fx-cursor: hand;
 }
 
 .popup-pane {
-    -fx-background-color: #2d2d2d;
-    -fx-fill: #2d2d2d;
+    -fx-background-color: rgba(255,255,255,0.75);
     -fx-padding: 10px;
 }
 
-.popup-pane .button,.label{
+.popup-pane .button{
+    -fx-text-fill: white;
+}
+.popup-pane .label{
     -fx-text-fill: white;
 }
 
+.toolbar-button-container {
+    -fx-min-height: 30px;
+    -fx-pref-height: 30px;
+    -fx-max-height: 30px;
+}
+
 .toolbar-button {
-    -fx-background-color: darkgray;
-    -fx-border-color: #cfcfcf;
-    -fx-border-width: 0 0 5px 0;
+    -fx-background-color: transparent;
     -fx-background-radius: none;
-    -fx-min-height: 40px;
-    -fx-pref-height: 40px;
-    -fx-max-height: 40px;
 }
 
 .toolbar-button:hover {
-    -fx-background-color: #2d2d2d;
+    -fx-background-color: rgba(49,156,241,0.71);
     -fx-text-fill: white;
 }
 
@@ -179,7 +182,7 @@
 
 .plan-pane-graphic {
     -glyph-name: "PLAY_CIRCLE";
-    -icons-color: black;
+    -icons-color: white;
     -glyph-size: 50px;
 }
 

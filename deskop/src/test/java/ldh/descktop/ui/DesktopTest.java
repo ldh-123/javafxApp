@@ -53,7 +53,6 @@ public class DesktopTest extends Application {
         WinDesktop desktop = new WinDesktop(desktopPane, toolbar);
 
         Scene scene = new Scene(desktop, 1200, 700);
-        scene.getStylesheets().add(this.getClass().getResource("/css/desktop.css").toExternalForm());
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
