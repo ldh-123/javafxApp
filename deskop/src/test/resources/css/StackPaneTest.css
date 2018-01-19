@@ -1,0 +1,28 @@
+.toolbar-button-container {
+    -fx-min-height: 30px;
+    -fx-pref-height: 30px;
+    -fx-max-height: 30px;
+}
+
+.toolbar-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: none;
+}
+
+.toolbar-button:hover {
+    -fx-background-color: rgba(49,156,241,0.71);
+    -fx-text-fill: white;
+}
+
+.toolbar-button-close {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: none;
+    -fx-padding: -1 -1 0 0;
+}
+
+.toolbar-button-close-graphic {
+    -glyph-name: "CLOSE";
+    -icons-color: white;
+    -glyph-size: 10px;
+}

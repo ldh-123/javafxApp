@@ -131,6 +131,7 @@
     -fx-background-color: transparent;
     -fx-border-color: transparent;
     -fx-background-radius: none;
+    -fx-padding: -1 -1 0 0;
 }
 
 .toolbar-button-close-graphic {

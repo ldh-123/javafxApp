@@ -1,4 +1,4 @@
-package ldh.descktop.ui;
+package ldh.descktop.test;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
