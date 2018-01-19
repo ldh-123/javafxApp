@@ -38,7 +38,7 @@ public class NodeUtil {
     }
 
     public static Double anchorX(Region node) {
-        double anchorX = node.getScene().getWindow().getX() + node.localToScene(0, 0).getX() + node.getScene().getX() - 1;
+        double anchorX = node.getScene().getWindow().getX() + node.localToScene(0, 0).getX() + node.getScene().getX();
         return anchorX;
     }
 

@@ -9,8 +9,8 @@
 <?import org.controlsfx.control.StatusBar?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <BorderPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="ldh.common.ui.controller.CvsController"
+            xmlns:fx="http://javafx.com/fxml" stylesheets="@/css/Cvs.css"
+            fx:controller="ldh.descktop.controller.CvsController"
             prefHeight="400.0" prefWidth="600.0">
     <top>
         <VBox>

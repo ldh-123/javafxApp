@@ -181,12 +181,6 @@
     -glyph-size: 25px;
 }
 
-.plan-pane-graphic {
-    -glyph-name: "PLAY_CIRCLE";
-    -icons-color: white;
-    -glyph-size: 50px;
-}
-
 .desktop-nav-container {
     -fx-background-color: transparent;
     -fx-fill: transparent;
@@ -222,6 +216,10 @@
     -fx-border-color: transparent;
     /*-fx-scale-x: 0.8;*/
     /*-fx-scale-y: 0.8;*/
+}
+
+.popup-text {
+    -fx-text-fill: white;
 }
 
 .finder {
@@ -274,4 +272,16 @@
 }
 .launchpad {
     -fx-graphic: url("../images/mac/launchpad.png");
+}
+
+.plan-pane-graphic {
+    -glyph-name: "PLAY_CIRCLE";
+    -icons-color: white;
+    -glyph-size: 50px;
+}
+
+.cvs-graphic{
+    -glyph-name: "FILE_EXCEL_ALT";
+    -icons-color: white;
+    -glyph-size: 50px;
 }

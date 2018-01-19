@@ -36,7 +36,7 @@ public class CvsController implements Initializable {
     @FXML public void open() {
         fileChooser.setTitle("打开CVS文件");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("打开CVS文件", "*.csv"));
-        File file = fileChooser.showOpenDialog(StageUtil.STAGE);
+        File file = fileChooser.showOpenDialog(tabPane.getScene().getWindow());
         openFile(file);
     }
 

@@ -100,7 +100,15 @@ public class LdhDialog extends LdhResizeWindow {
     }
 
     public void show() {
-        dialogStage.show();
+        if (dialogStage.isShowing()) {
+            dialogStage.hide();
+            return;
+        }
+        if (dialogStage.isIconified()) {
+            dialogStage.setIconified(false);
+        } else {
+            dialogStage.show();
+        }
     }
 
     public void setOnCloseRequestHandler(EventHandler<ActionEvent> eventEventHandler) {
@@ -119,7 +127,7 @@ public class LdhDialog extends LdhResizeWindow {
         if (isHide) {
             dialogStage.hide();
         } else {
-            dialogStage.setIconified(false);
+            dialogStage.setIconified(true);
         }
     }
 

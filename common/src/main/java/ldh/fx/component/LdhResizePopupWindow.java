@@ -40,10 +40,10 @@ public class LdhResizePopupWindow extends LdhWindow {
     private void nodeClick(MouseEvent mouseEvent) {
         initX = mouseEvent.getScreenX();
         initY = mouseEvent.getScreenY();
-//        initWidth = newStage.getScene().getWindow().getWidth();
-//        initHeight = newStage.getScene().getWindow().getHeight();
-//        initStageX = newStage.getX();
-//        initStageY = newStage.getY();
+        initWidth = this.getWidth();
+        initHeight = this.getHeight();
+        initStageX = this.getLayoutX();
+        initStageY = this.getLayoutY();
         isDragable = true;
         mouseEvent.consume();
     }
@@ -55,9 +55,9 @@ public class LdhResizePopupWindow extends LdhWindow {
 //        if (newStage.isFullScreen()) {
 //            return;
 //        }
-        if (mouseEvent.isStillSincePress()) {
-            return;
-        }
+//        if (mouseEvent.isStillSincePress()) {
+//            return;
+//        }
         double deltax = mouseEvent.getScreenX() - initX;
         double deltay = mouseEvent.getScreenY() - initY;
 
@@ -109,16 +109,6 @@ public class LdhResizePopupWindow extends LdhWindow {
     }
 
     private void nodeMove(MouseEvent mouseEvent) {
-//        if (maximized) {
-//            setCursor(node, Cursor.DEFAULT);
-//            return; // maximized mode does not support resize
-//        }
-//        if (newStage.isFullScreen()) {
-//            return;
-//        }
-//        if (!newStage.isResizable()) {
-//            return;
-//        }
         double x = mouseEvent.getX();
         double y = mouseEvent.getY();
         Bounds boundsInParent = this.getBoundsInParent();
@@ -153,6 +143,7 @@ public class LdhResizePopupWindow extends LdhWindow {
 //            return true;
 //        }
         this.setWidth(width);
+        this.setPrefWidth(width);
         return false;
     }
 
@@ -162,6 +153,7 @@ public class LdhResizePopupWindow extends LdhWindow {
 //            return true;
 //        }
         this.setHeight(height);
+        setPrefHeight(height);
         return false;
     }
 

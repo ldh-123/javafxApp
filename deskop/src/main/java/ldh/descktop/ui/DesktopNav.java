@@ -56,6 +56,7 @@ public class DesktopNav extends HBox {
                             Button button = (Button) stackPane.getChildren().get(0);
                             Popup popup = new Popup();
                             Label label = new Label(button.getText());
+                            label.getStyleClass().add("popup-text");
                             popup.getContent().add(label);
                             stackPane.setOnMouseExited(e->{
                                 popup.hide();
@@ -66,7 +67,7 @@ public class DesktopNav extends HBox {
                                 animationButton(nextButton, 1d,1d, 1d);
                             });
                             stackPane.setOnMouseEntered(e->{
-                                animationButton(button, 1.3d, 1.3d, -30d);
+                                animationButton(button, 1.2d, 1.2d, -30d);
                                 Button preButton = getPreButton(button);
                                 Button nextButton = getNextButton(button);
                                 animationButton(preButton ,1.1d,1.1d, -10d);

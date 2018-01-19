@@ -10,6 +10,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.WindowEvent;
+import ldh.fx.component.LdhDialog;
 import ldh.fx.component.LdhPopupDialog;
 import ldh.descktop.transition.BounceInTransition;
 import org.apache.commons.lang3.StringUtils;
@@ -88,6 +89,8 @@ public class DesktopItem extends StackPane {
         toolbarButton.getButton().getGraphic().getStyleClass().add("desktop-button-min-graphic");
 
         LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 800d, 500d);
+//        LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
+//        ldhDialog.setIsHide(true);
         ldhDialog.show();
 
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);

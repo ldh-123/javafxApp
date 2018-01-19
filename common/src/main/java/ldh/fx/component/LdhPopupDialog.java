@@ -91,7 +91,10 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
     }
 
     public void show() {
-        popup.hide();
+        if (popup.isShowing()) {
+            popup.hide();
+            return;
+        }
         new BounceInTransition(this).play();
         popup.show(StageUtil.STAGE, layoutX, layoutY);
     }

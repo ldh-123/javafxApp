@@ -193,3 +193,7 @@
     -icons-color: white;
     -glyph-size: 50px;
 }
+
+.popup-text {
+    -fx-text-fill: white;
+}

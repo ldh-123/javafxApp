@@ -10,7 +10,7 @@
     /*-fx-graphic: url();*/
 /*}*/
 .ldh-window .content-pane {
-    -fx-padding: 5px;
+    -fx-padding: 0px;
 }
 
 .ldh-window>ScrollPane:focused {
