@@ -22,7 +22,7 @@ public class DesktopTest extends Application {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(DesktopTest.class.getResource("/img/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
-        DesktopToolbar toolbar = new DesktopToolbar();
+        DesktopToolbar toolbar = new WinDesktopToolbar();
 
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");

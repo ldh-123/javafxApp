@@ -59,18 +59,18 @@ public class DesktopNav extends HBox {
                             popup.getContent().add(label);
                             stackPane.setOnMouseExited(e->{
                                 popup.hide();
-                                animationButton(button, 0.8d,0.8d, 0d);
+                                animationButton(button, 1d,1d, 1d);
                                 Button preButton = getPreButton(button);
                                 Button nextButton = getNextButton(button);
-                                animationButton(preButton, 0.8d,0.8d, 0d);
-                                animationButton(nextButton, 0.8d,0.8d, 0d);
+                                animationButton(preButton, 1d,1d, 1d);
+                                animationButton(nextButton, 1d,1d, 1d);
                             });
                             stackPane.setOnMouseEntered(e->{
                                 animationButton(button, 1.3d, 1.3d, -30d);
                                 Button preButton = getPreButton(button);
                                 Button nextButton = getNextButton(button);
-                                animationButton(preButton ,1.2d,1.2d, -10d);
-                                animationButton(nextButton ,1.2d,1.2d, -10d);
+                                animationButton(preButton ,1.1d,1.1d, -10d);
+                                animationButton(nextButton ,1.1d,1.1d, -10d);
                                 double anchorX = NodeUtil.anchorX(button) + button.getWidth()/2 - label.getWidth()/2 -1;
                                 double anchorY = NodeUtil.anchorY(button) - 5;
                                 popup.show(button.getScene().getWindow(), anchorX, anchorY);
@@ -84,7 +84,6 @@ public class DesktopNav extends HBox {
 
     private void animationButton(Button button, double scaleX, double scaleY, double transalteY) {
         if (button == null) return;
-        System.out.println("text:" + button.getText() + ",x:" + scaleX);
         button.setScaleX(scaleX);
         button.setScaleY(scaleY);
         button.setTranslateY(transalteY);

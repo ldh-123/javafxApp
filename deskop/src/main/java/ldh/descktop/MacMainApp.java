@@ -25,7 +25,7 @@ public class MacMainApp extends Application {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
-        DesktopToolbar toolbar = new DesktopToolbar();
+        DesktopToolbar toolbar = new MacDesktopToolbar();
 
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
@@ -57,9 +57,8 @@ public class MacMainApp extends Application {
 
         MacDesktop desktop = new MacDesktop(desktopPane, toolbar, desktopNav);
 
-        Scene scene = new Scene(desktop, 1200, 700);
+        Scene scene = new Scene(desktop, 1300, 650);
         scene.setFill(null);
-        scene.getStylesheets().add(this.getClass().getResource("/css/desktop.css").toExternalForm());
         scene.getStylesheets().add(this.getClass().getResource("/css/mac.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");

@@ -23,7 +23,7 @@ public class WinMainApp extends Application {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
-        DesktopToolbar toolbar = new DesktopToolbar();
+        DesktopToolbar toolbar = new WinDesktopToolbar();
 
         DesktopPane desktopPane = new DesktopPane();
 //        desktop.setPadding(new Insets(20));
@@ -53,7 +53,6 @@ public class WinMainApp extends Application {
         WinDesktop desktop = new WinDesktop(desktopPane, toolbar);
 
         Scene scene = new Scene(desktop, 1200, 700);
-        scene.getStylesheets().add(this.getClass().getResource("/css/desktop.css").toExternalForm());
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");

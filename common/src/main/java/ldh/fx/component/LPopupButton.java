@@ -83,12 +83,9 @@ public class LPopupButton extends Button {
         Point2D p = getPrefPopupPosition();
         double anchorX = clacAnchorX();
         double anchorY = clacAnchorY();
-//        popup.show(this.getScene().getWindow(), snapPosition(p.getX()), snapPosition(p.getY()));
-//        popupContentPane.setVisible(false);
         popup.show(this.getScene().getWindow(), anchorX, anchorY);
         animation();
         popup.requestFocus();
-//        sizePopup();
     }
 
     private void animation() {
@@ -112,13 +109,13 @@ public class LPopupButton extends Button {
     private double clacAnchorX() {
         double anchorX = this.getScene().getWindow().getX() + this.localToScene(0, 0).getX() + this.getScene().getX() - 1;
         if (popupPos == PopupPos.down_east) {
-            anchorX = anchorX + this.getHeight();
+            anchorX = anchorX  - this.popupContentWidth();
         } else if (popupPos == PopupPos.down_west) {
-            anchorX = anchorX + this.getHeight();
+            // nothing
         } else if (popupPos == PopupPos.up_east) {
             anchorX = anchorX - this.popupContentWidth();
         } else if (popupPos == PopupPos.up_west) {
-            // not nothing
+//            anchorX = anchorX - this.popupContentWidth();
         }
         return anchorX;
     }
@@ -126,13 +123,13 @@ public class LPopupButton extends Button {
     private double clacAnchorY() {
         double anchorY = this.getScene().getWindow().getY() + this.localToScene(0, 0).getY() + this.getScene().getY();
         if (popupPos == PopupPos.down_east) {
-            anchorY = anchorY + this.getHeight();
+            anchorY = anchorY + this.getHeight() + 1;
         } else if (popupPos == PopupPos.down_west) {
-            anchorY = anchorY + this.getHeight();
+            anchorY = anchorY + this.getHeight() + 1;
         } else if (popupPos == PopupPos.up_east) {
-            anchorY = anchorY - this.popupContentHeight();
+            anchorY = anchorY - this.popupContentHeight() - 1;
         } else if (popupPos == PopupPos.up_west) {
-            anchorY = anchorY - this.popupContentHeight();
+            anchorY = anchorY - this.popupContentHeight() - 1;
         }
         return anchorY;
     }
@@ -159,10 +156,8 @@ public class LPopupButton extends Button {
         final Node popupContent = popupContentPane;
 
         if (popupContent instanceof Region) {
-            // snap to pixel
             final Region r = (Region) popupContent;
 
-            // 0 is used here for the width due to RT-46097
             double prefHeight = snapSize(r.prefHeight(0));
             double minHeight = snapSize(r.minHeight(0));
             double maxHeight = snapSize(r.maxHeight(0));

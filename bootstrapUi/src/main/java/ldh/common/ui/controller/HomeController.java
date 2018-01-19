@@ -1,6 +1,5 @@
 package ldh.common.ui.controller;
 
-import com.sun.org.apache.bcel.internal.generic.POP;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.FadeTransition;
@@ -22,11 +21,7 @@ import javafx.stage.Popup;
 import javafx.util.Duration;
 import ldh.common.ui.node.ChartContent;
 import ldh.common.ui.node.FormContent;
-import ldh.common.ui.node.FormContent2;
-import org.kordamp.ikonli.javafx.FontIcon;
 
-import javax.swing.*;
-import javax.xml.bind.annotation.XmlAnyAttribute;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;

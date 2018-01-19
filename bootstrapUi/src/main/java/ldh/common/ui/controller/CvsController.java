@@ -1,6 +1,5 @@
 package ldh.common.ui.controller;
 
-import com.sun.deploy.util.StringUtils;
 import javafx.application.Platform;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
