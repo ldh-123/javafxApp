@@ -29,8 +29,8 @@
             </Button>
         </children>
     </HBox>
-    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="36" AnchorPane.leftAnchor="2" AnchorPane.rightAnchor="2"
-                AnchorPane.bottomAnchor="2">
+    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="36" AnchorPane.leftAnchor="3" AnchorPane.rightAnchor="3"
+                AnchorPane.bottomAnchor="3">
         <StackPane fx:id="contentPane" styleClass="content-pane"></StackPane>
     </ScrollPane>
 

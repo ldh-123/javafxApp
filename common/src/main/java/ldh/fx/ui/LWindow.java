@@ -56,7 +56,7 @@ public class LWindow extends BorderPane implements javafx.fxml.Initializable, Ch
     private Stage owner;
 
     public LWindow(Stage stage, String title, Node node) {
-        this(stage, title, node, 800, 800);
+        this(stage, title, node, 800, 500);
     }
 
     public LWindow(Stage stage, String title, Node node, double width, double height) {

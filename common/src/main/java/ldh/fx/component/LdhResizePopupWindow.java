@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class LdhResizePopupWindow extends LdhWindow {
 
-    private static int RESIZE_PADDING = 5;
+    private static int RESIZE_PADDING = 4;
     private static int SHADOW_WIDTH = 0;
 
     private double initX = -1;
@@ -52,12 +52,6 @@ public class LdhResizePopupWindow extends LdhWindow {
         if (!isDragable) {
             return;
         }
-//        if (newStage.isFullScreen()) {
-//            return;
-//        }
-//        if (mouseEvent.isStillSincePress()) {
-//            return;
-//        }
         double deltax = mouseEvent.getScreenX() - initX;
         double deltay = mouseEvent.getScreenY() - initY;
 
@@ -102,7 +96,7 @@ public class LdhResizePopupWindow extends LdhWindow {
             mouseEvent.consume();
         } else if (Cursor.N_RESIZE.equals(cursor)) {
             if (setStageHeight(mouseEvent, initHeight - deltay)) {
-                setStageY(mouseEvent, initStageY + deltay);
+                setStageY(mouseEvent, initStageY - deltay);
             }
             mouseEvent.consume();
         }
@@ -120,17 +114,20 @@ public class LdhResizePopupWindow extends LdhWindow {
             } else {
                 setCursor(Cursor.E_RESIZE);
             }
-        } else if (isLeftEdge(x, y, boundsInParent)) {
-            if (y < RESIZE_PADDING + SHADOW_WIDTH + 10) {
-                setCursor(Cursor.NW_RESIZE);
-            } else if (y > boundsInParent.getHeight() - (double) (RESIZE_PADDING + SHADOW_WIDTH)) {
-                setCursor(Cursor.SW_RESIZE);
-            } else {
-                setCursor(Cursor.W_RESIZE);
-            }
-        } else if (isTopEdge(x, y, boundsInParent)) {
-            setCursor(Cursor.N_RESIZE);
-        } else if (isBottomEdge(x, y, boundsInParent)) {
+        }
+//        else if (isLeftEdge(x, y, boundsInParent)) {
+//            if (y < RESIZE_PADDING + SHADOW_WIDTH + 10) {
+//                setCursor(Cursor.NW_RESIZE);
+//            } else if (y > boundsInParent.getHeight() - (double) (RESIZE_PADDING + SHADOW_WIDTH)) {
+//                setCursor(Cursor.SW_RESIZE);
+//            } else {
+//                setCursor(Cursor.W_RESIZE);
+//            }
+//        }
+//        else if (isTopEdge(x, y, boundsInParent)) {
+//            setCursor(Cursor.N_RESIZE);
+//        }
+        else if (isBottomEdge(x, y, boundsInParent)) {
             setCursor(Cursor.S_RESIZE);
         } else {
             setCursor(Cursor.DEFAULT);
@@ -144,7 +141,7 @@ public class LdhResizePopupWindow extends LdhWindow {
 //        }
         this.setWidth(width);
         this.setPrefWidth(width);
-        return false;
+        return true;
     }
 
     boolean setStageHeight(MouseEvent mouseEvent, double height) {
@@ -154,21 +151,22 @@ public class LdhResizePopupWindow extends LdhWindow {
 //        }
         this.setHeight(height);
         setPrefHeight(height);
-        return false;
+        return true;
     }
 
     void setStageY(MouseEvent mouseEvent, double y) {
-        try {
-            ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(mouseEvent.getX(), mouseEvent.getY(), this.getWidth(), this.getHeight());
-            if (screensForRectangle.size() > 0) {
-                Screen screen = screensForRectangle.get(0);
-                Rectangle2D visualBounds = screen.getVisualBounds();
-                if (y < visualBounds.getHeight() - 30 && y + SHADOW_WIDTH >= visualBounds.getMinY()) {
-                    this.setLayoutY(y);
-                }
-            }
-        } catch (Exception e) {
-        }
+//        try {
+//            ObservableList<Screen> screensForRectangle = Screen.getScreensForRectangle(mouseEvent.getX(), mouseEvent.getY(), this.getWidth(), this.getHeight());
+//            if (screensForRectangle.size() > 0) {
+//                Screen screen = screensForRectangle.get(0);
+//                Rectangle2D visualBounds = screen.getVisualBounds();
+//                if (y < visualBounds.getHeight() - 30 && y + SHADOW_WIDTH >= visualBounds.getMinY()) {
+//                    this.setLayoutY(y);
+//                }
+//            }
+//        } catch (Exception e) {
+//        }
+        this.setLayoutY(y);
     }
 
     private boolean isRightEdge(double x, double y, Bounds boundsInParent) {
@@ -193,7 +191,7 @@ public class LdhResizePopupWindow extends LdhWindow {
     }
 
     private boolean isLeftEdge(double x, double y, Bounds boundsInParent) {
-        if (x >= 0 && x < RESIZE_PADDING + SHADOW_WIDTH && y > headHeight + this.getPadding().getLeft()) {
+        if (x >= 0 && x < RESIZE_PADDING + SHADOW_WIDTH && y > headHeight + this.getPadding().getTop()) {
             return true;
         }
         return false;

@@ -10,6 +10,8 @@ import javafx.stage.Stage;
 import ldh.descktop.page.AnimationPane;
 import ldh.descktop.page.FormContent;
 import ldh.descktop.ui.*;
+import ldh.descktop.util.PageUtil;
+import ldh.descktop.util.RegionUtil;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
 
@@ -28,7 +30,7 @@ public class WinMainApp extends Application {
         DesktopPane desktopPane = new DesktopPane();
 //        desktop.setPadding(new Insets(20));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("CVS浏览器", new FontAwesomeIconView(), "cvs-graphic"), ()-> PageUtil.load("/fxml/Cvs.fxml")));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));

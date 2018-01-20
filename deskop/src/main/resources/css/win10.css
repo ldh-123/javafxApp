@@ -197,3 +197,9 @@
 .popup-text {
     -fx-text-fill: white;
 }
+
+.cvs-graphic{
+    -glyph-name: "FILE_EXCEL_ALT";
+    -icons-color: white;
+    -glyph-size: 50px;
+}

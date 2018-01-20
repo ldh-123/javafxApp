@@ -16,6 +16,7 @@ import ldh.descktop.util.PageUtil;
 import ldh.descktop.util.RegionUtil;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
+import ldh.fx.util.DialogUtil;
 
 /**
  * Created by ldh on 2018/1/18.
@@ -105,6 +106,7 @@ public class MacMainApp extends Application {
         Button button = new Button(text);
         button.getStyleClass().add(style);
         desktopNav.getChildren().add(new DesktopNavItem(button));
+        button.setOnAction(e-> DialogUtil.modelInfo("demo", text, 300, 300));
         return button;
     }
 

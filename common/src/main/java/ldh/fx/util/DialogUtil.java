@@ -24,5 +24,14 @@ public class DialogUtil {
         window.setWindowMax(false);
         window.show();
     }
+
+    public static void modelInfo(String title, String info, double width, double height) {
+        LdhDialog window = new LdhDialog(title, width, height, false);
+        window.setContentPane(new Label(info));
+        window.setWindowMin(false);
+        window.setWindowMax(false);
+        window.setModel(true);
+        window.show();
+    }
 }
 
