@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 import ldh.descktop.page.AnimationPane;
 import ldh.descktop.page.FormContent;
 import ldh.descktop.ui.*;
-import ldh.descktop.util.PageUtil;
-import ldh.descktop.util.RegionUtil;
+import ldh.fx.ui.util.PageUtil;
+import ldh.fx.ui.util.RegionUtil;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
 

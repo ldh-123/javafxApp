@@ -1,4 +1,4 @@
-package ldh.descktop.util;
+package ldh.fx.ui.util;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

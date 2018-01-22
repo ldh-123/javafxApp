@@ -1,4 +1,4 @@
-package ldh.descktop.util;
+package ldh.fx.ui.util;
 
 import de.jensd.fx.glyphs.GlyphIcon;
 import javafx.scene.control.Button;

@@ -1,7 +1,11 @@
-package ldh.descktop.util;
+package ldh.fx.ui.util;
 
+import javafx.collections.ObservableList;
+import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.layout.Region;
+import javafx.stage.Screen;
+import javafx.stage.Window;
 import ldh.fx.component.LPopupButton;
 
 /**
@@ -45,5 +49,16 @@ public class NodeUtil {
     public static Double anchorY(Region node) {
         double anchorY = node.getScene().getWindow().getY() + node.localToScene(0, 0).getY() + node.getScene().getY();
         return anchorY;
+    }
+
+    public static Rectangle2D getVisualBound(Node node) {
+        Window window = node.getScene().getWindow();
+        Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
+        ObservableList<Screen> screens = Screen.getScreensForRectangle(window.getX(), window.getY(), window.getWidth(), window.getHeight());
+        if (screens != null && screens.size() > 0) {
+            Screen screen = screens.get(0);
+            rectangle2D = screen.getVisualBounds();
+        }
+        return rectangle2D;
     }
 }

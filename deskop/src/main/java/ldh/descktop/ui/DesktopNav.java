@@ -5,12 +5,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.Tooltip;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Popup;
-import ldh.descktop.util.NodeUtil;
-import ldh.fx.component.LPopupButton;
+import ldh.fx.ui.util.NodeUtil;
 
 /**
  * Created by ldh on 2018/1/18.

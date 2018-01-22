@@ -18,6 +18,7 @@ import javafx.scene.layout.StackPane;
 import javafx.stage.*;
 import ldh.fx.StageUtil;
 import ldh.fx.transition.BounceInTransition;
+import ldh.fx.ui.util.NodeUtil;
 
 import java.io.IOException;
 import java.util.logging.Level;
@@ -97,6 +98,7 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
         }
         new BounceInTransition(this).play();
         popup.show(StageUtil.STAGE, layoutX, layoutY);
+        System.out.println("show, x:" + layoutX + ", y:" + layoutY);
     }
 
     public void setOnCloseRequestHandler(EventHandler<ActionEvent> eventEventHandler) {
@@ -108,19 +110,15 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
     }
 
     @FXML public void min() {
-        layoutX = this.getScene().getWindow().getX();
-        layoutY = this.getScene().getWindow().getY();
+        Rectangle2D rectangle2D = NodeUtil.getVisualBound(this);
+        layoutX = rectangle2D.getMinX();
+        layoutY = rectangle2D.getMinY();
         popup.hide();
     }
 
     @FXML public void max() {
         Window window = this.getScene().getWindow();
-        Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
-        ObservableList<Screen> screens = Screen.getScreensForRectangle(window.getX(), window.getY(), window.getWidth(), window.getHeight());
-        if (screens != null && screens.size() > 0) {
-            Screen screen = screens.get(0);
-            rectangle2D = screen.getVisualBounds();
-        }
+        Rectangle2D rectangle2D = NodeUtil.getVisualBound(this);
         if (Math.abs(window.getWidth() - rectangle2D.getWidth()) < 0.001) {
             this.setPrefSize(windowWidth, windowHeight);
             popup.hide();
