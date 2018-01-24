@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" stylesheets="@/css/Common.css,@/css/page/ChartContent.css">
+    <children>
+        <HBox styleClass="nav-title-pane">
+            <children>
+                <VBox>
+                    <children>
+                        <Label text="Charts" styleClass="nav-chart-label" ><graphic><FontAwesomeIconView styleClass="nav-chart"/> </graphic></Label>
+                        <Label text="Various type of charts for your project"/>
+                    </children>
+                </VBox>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label text="home" styleClass="nav-home-label"><graphic><FontAwesomeIconView styleClass="nav-home"/> </graphic></Label>
+                <Label text="/"/>
+                <Label text="Charts" onMousePressed="#chartContentClick" styleClass="nav-label"/>
+            </children>
+        </HBox>
+
+        <GridPane styleClass="content-container">
+            <children>
+                <StackPane styleClass="container" GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <children>
+                        <LineChart fx:id="graph" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+                <StackPane styleClass="container" GridPane.rowIndex="0" GridPane.columnIndex="1">
+                    <children>
+                        <LineChart fx:id="graph2" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+
+                <StackPane styleClass="container" GridPane.rowIndex="1" GridPane.columnIndex="0">
+                    <children>
+                        <LineChart fx:id="graph11" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+                <StackPane styleClass="container" GridPane.rowIndex="1" GridPane.columnIndex="1">
+                    <children>
+                        <LineChart fx:id="graph12" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+
+                <StackPane styleClass="container" GridPane.rowIndex="2" GridPane.columnIndex="0">
+                    <children>
+                        <LineChart fx:id="graph21" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+                <StackPane styleClass="container" GridPane.rowIndex="2" GridPane.columnIndex="1">
+                    <children>
+                        <LineChart fx:id="graph22" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+
+                <StackPane styleClass="container" GridPane.rowIndex="3" GridPane.columnIndex="0">
+                    <children>
+                        <LineChart fx:id="graph31" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+                <StackPane styleClass="container" GridPane.rowIndex="3" GridPane.columnIndex="1">
+                    <children>
+                        <LineChart fx:id="graph32" >
+                            <xAxis><NumberAxis label="Values for X-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></xAxis>
+                            <yAxis><NumberAxis label="Values for Y-Axis" lowerBound="0" upperBound="3" tickUnit="1"/></yAxis>
+                        </LineChart>
+                    </children>
+                </StackPane>
+            </children>
+            <columnConstraints>
+                <ColumnConstraints percentWidth="50"/>
+                <ColumnConstraints percentWidth="50"/>
+            </columnConstraints>
+        </GridPane>
+    </children>
+</fx:root>

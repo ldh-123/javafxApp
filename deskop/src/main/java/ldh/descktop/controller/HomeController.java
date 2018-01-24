@@ -1,28 +1,24 @@
-package ldh.common.ui.controller;
+package ldh.descktop.controller;
 
-import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.animation.FadeTransition;
 import javafx.animation.SequentialTransition;
-import javafx.animation.Timeline;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TitledPane;
+import javafx.scene.control.Tooltip;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.Popup;
 import javafx.util.Duration;
-import ldh.common.ui.node.ChartContent;
-import ldh.common.ui.node.FormContent;
-import ldh.common.ui.node.FormContent2;
+import ldh.descktop.page.ChartContent;
+import ldh.descktop.page.FormContent;
 
 import java.net.URL;
 import java.util.HashMap;
@@ -72,7 +68,7 @@ public class HomeController implements Initializable {
             } else if (userData.toString().equals("form1")) {
                 changeContent(new FormContent());
             } else if (userData.toString().equals("form2")) {
-                changeContent(new FormContent2());
+                changeContent(new FormContent());
             }
         }
     }
@@ -232,12 +228,6 @@ public class HomeController implements Initializable {
         ft.setOnFinished(e->{
             contentPane.getChildren().clear();
             contentPane.getChildren().add(node);
-            contentPane.requestLayout();
-            this.contentPane.getScene().getWindow().setWidth(this.contentPane.getScene().getWindow().getWidth() + 0.0001);
-//            AnchorPane.setTopAnchor(node, 0d);
-//            AnchorPane.setBottomAnchor(node, 0d);
-//            AnchorPane.setRightAnchor(node, 0d);
-//            AnchorPane.setLeftAnchor(node, 0d);
         });
 
         FadeTransition ft2 = new FadeTransition(Duration.millis(800), node);

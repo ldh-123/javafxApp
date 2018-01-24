@@ -31,7 +31,7 @@
     </HBox>
     <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="36" AnchorPane.leftAnchor="3" AnchorPane.rightAnchor="3"
                 AnchorPane.bottomAnchor="3">
-        <StackPane fx:id="contentPane" styleClass="content-pane"></StackPane>
+        <AnchorPane fx:id="contentPane" styleClass="content-pane"></AnchorPane>
     </ScrollPane>
 
 </fx:root>

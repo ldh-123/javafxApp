@@ -3,6 +3,7 @@ package ldh.fx.ui;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.scene.Scene;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ldh.fx.component.CrudGridTable;
@@ -16,6 +17,8 @@ public class TableTest  extends Application {
     public void start(Stage primaryStage) throws Exception {
         GridTableModel gridTableModel = JsonParse.parseTableModel(TableTest.class.getResourceAsStream("/data/StudentTable.json"));
         CrudGridTable crudGridTable = new CrudGridTable(gridTableModel);
+
+        ListView l = new ListView();
 
         VBox vbox = new VBox(crudGridTable);
         vbox.setPadding(new Insets(20));

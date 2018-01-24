@@ -8,12 +8,11 @@
 <?import javafx.scene.layout.*?>
 <?import org.controlsfx.control.StatusBar?>
 
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.web.WebView?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1"
-            stylesheets="@/css/Home.css" fx:controller="ldh.common.ui.controller.HomeController">
+            stylesheets="@/css/Home.css" fx:controller="ldh.descktop.controller.HomeController">
     <top>
         <fx:include source="HomeHead.fxml" fx:id="head"/>
     </top>

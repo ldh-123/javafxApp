@@ -1,0 +1,47 @@
+.nav-title-pane {
+    -fx-background-color: white;
+    -fx-padding: 20px;
+    -fx-alignment: center-left;
+    -fx-spacing: 10px;
+}
+
+.nav-home {
+    -glyph-name: "HOME";
+    -icons-color: black;
+    -glyph-size: 20px;
+    -fx-fill: black;
+}
+
+.nav-home-label {
+    -fx-content-display: graphic-only;
+}
+
+.nav-chart {
+    -glyph-name: "PIE_CHART";
+    -icons-color: black;
+    -glyph-size: 25px;
+    -fx-fill: black;
+}
+
+.nav-chart-label {
+    /*-fx-content-display: graphic-only;*/
+    -fx-font-size: 25px;
+}
+
+.nav-label {
+    -fx-text-fill: #007d71;
+    -fx-border-width: 1px;
+    -fx-border-color: transparent;
+    -fx-border-style: dashed;
+}
+
+.nav-label:hover {
+    -fx-border-width: 1px;
+    -fx-border-color: #007d71;
+    -fx-border-style: dashed;
+}
+
+.container {
+    -fx-pref-height: 300px;
+    -fx-min-height: 300px;
+}

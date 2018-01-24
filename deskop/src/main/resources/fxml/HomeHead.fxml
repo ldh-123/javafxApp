@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<HBox fx:id="head" xmlns:fx="http://javafx.com/fxml" alignment="CENTER_LEFT" prefHeight="50.0" prefWidth="200.0" styleClass="header" BorderPane.alignment="CENTER" stylesheets="@/css/Head.css" fx:controller="ldh.descktop.controller.HomeHeadController">
+    <opaqueInsets>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </opaqueInsets>
+    <children>
+        <Label styleClass="brand" text="Vali" prefWidth="220" minWidth="220"/>
+        <Button styleClass="nav" onAction="#tongleLeftPane">
+            <graphic>
+                <FontAwesomeIconView styleClass="nav-icon"/>
+            </graphic>
+        </Button>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button mnemonicParsing="false" text="" styleClass="nav"><graphic><FontAwesomeIconView styleClass="nav-bell"/></graphic></Button>
+        <Button fx:id="userBtn" styleClass="nav" onAction="#showUserPopup">
+            <graphic>
+                <FontAwesomeIconView styleClass="nav-user"/>
+            </graphic>
+        </Button>
+        <VBox fx:id="userContent" styleClass="nav-user-popup">
+            <children>
+                <Button text="SETTINGS" onAction="#settingBtn"><graphic><MaterialDesignIconView styleClass="setting-graphic"/></graphic></Button>
+                <Button text="PROFILE" onAction="#profileBtn"><graphic><FontAwesomeIconView styleClass="profile-graphic"/></graphic></Button>
+                <Button text="LOGOUT" onAction="#logoutBtn"><graphic><MaterialDesignIconView styleClass="logout-graphic"/></graphic></Button>
+            </children>
+        </VBox>
+    </children>
+</HBox>
+

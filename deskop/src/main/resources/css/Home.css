@@ -1,0 +1,193 @@
+.leftPane{
+    -fx-background-color: #333333;
+}
+
+.leftPane TitledPane {
+    -fx-background-color: transparent;
+    -fx-animated: true;
+    -fx-collapsible: true;
+    /*-fx-padding: 8px 0 8px 0px;*/
+
+}
+
+.leftPane TitledPane>.content{
+    -fx-border-color: none;
+    -fx-padding: -10px;
+}
+
+.leftPane TitledPane .title {
+    -fx-background-color: #212529;
+    -fx-padding: 11 20 11 11;
+    -fx-border-color: #212529;
+    -fx-border-width: 0 0 0 5px;
+    -fx-background-image: url('/images/icon-back-arrow.png');
+    -fx-background-size: 12;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 200;
+}
+
+.leftPane TitledPane .title:hover {
+    -fx-background-color: darkgreen;
+    -fx-border-color: red;
+    -fx-border-width: 0 0 0 5px;
+}
+
+.leftPane TitledPane:expanded>.title {
+    -fx-background-image: url('/images/down.png');
+    -fx-background-size: 30;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: 185;
+}
+
+.leftPane TitledPane .title .arrow-button {
+    -fx-background-color: red;
+    -fx-content-display: left;
+    visibility: hidden;
+    -fx-min-width: 1px;
+    -fx-max-width: 1px;
+    -fx-pref-width: 1px;
+    -fx-padding: 0;
+}
+
+.leftPane TitledPane .title .arrow {
+    -fx-background-color: darkgreen;
+    -fx-opacity: hidden;
+    -fx-content-display: right;
+}
+
+.leftPane VBox{
+    -fx-background-color: #212529;
+}
+
+.leftItem{
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+}
+
+.leftPane Button {
+    -fx-text-fill: white;
+    /*-fx-pref-height: 30px;*/
+    -fx-min-width: 220px;
+    -fx-max-width: 220px;
+    -fx-pref-width: 219px;
+    -fx-padding: 11 10 11 11;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 5px;
+    -fx-alignment: center-left;
+}
+
+.leftPane Button:hover {
+    -fx-background-color: darkgreen;
+    -fx-padding: 11 0 11 11;
+    -fx-border-color: red;
+    -fx-border-width: 0 0 0 5px;
+}
+
+.small-icon {
+    -glyph-name: "NAVICON";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+    -fx-padding: 5 5 5 10;
+}
+
+#smallLeftPane Button {
+    -fx-min-width: 50px;
+    -fx-pref-width: 50px;
+    -fx-max-width: 50px;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-border-width: 0 0 0 5px;
+    -fx-content-display: graphic-only;
+    -fx-padding: 11 0 11 10;
+}
+
+#smallLeftPane Button:hover {
+    -fx-min-width: 50px;
+    -fx-pref-width: 50px;
+    -fx-max-width: 50px;
+    -fx-background-color: black;
+    -fx-border-color: red;
+    -fx-border-width: 0 0 0 5;
+}
+
+#contentPane {
+    -fx-background-color: #E5E5E5;
+}
+
+.test {
+    -fx-background-image: url('/images/rr.png');
+}
+
+.nav-title {
+    -fx-padding: 20 0 20 0;
+    -fx-graphic: url('/images/48.jpg');
+}
+
+.nav-title:hover {
+    -fx-padding: 20 0 20 0;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.nav-title-small {
+    -fx-padding: 20 0 20 -10;
+    -fx-graphic: url('/img/48.jpg');
+}
+
+.dashboard-graphic{
+    -glyph-name: "DASHBOARD";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.chart-graphic{
+    -glyph-name: "PIE_CHART";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.ui-graphic {
+    -glyph-name: "TELEVISION_GUIDE";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.circle-graphic {
+    -glyph-name: "CIRCLE_ALT";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: #007d71;
+}
+
+.pencil-graphic{
+    -glyph-name: "PENCIL_SQUARE_ALT";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.table-graphic{
+    -glyph-name: "TABLE";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.note-graphic{
+    -glyph-name: "STICKY_NOTE";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}
+
+.menu-graphic{
+    -glyph-name: "MENU";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}

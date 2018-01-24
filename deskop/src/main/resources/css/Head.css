@@ -1,0 +1,76 @@
+.header .label {
+    -fx-text-fill: white;
+}
+
+.header {
+    -fx-background-color: #009688 ;
+    -fx-spacing: 0px;
+    -fx-padding: 0 10px 0 0;
+}
+
+.header>.brand {
+    -fx-pref-width: 200px;
+    -fx-pref-height: 50px;
+    -fx-alignment: center;
+    -fx-background-color: #007d71;
+    -fx-font-size: 26;
+    -fx-font-family: "Niconne";
+}
+
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    -glyph-size: 26px;
+}
+
+.glyph-icon:hover{
+    -fx-effect:  dropshadow(three-pass-box, rgba(0,0,0,0.2), 4, 0, 0, 0);
+}
+
+.nav-icon {
+    -glyph-name: "NAVICON";
+    -icons-color: white;
+    -glyph-size: 26px;
+    -fx-fill: white;
+}
+
+.nav {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.nav:hover {
+    -fx-background-color:#007d71;
+    -fx-pref-height: 48px;
+}
+
+
+.nav-icon:hover {
+    -glyph-name: "NAVICON";
+    -icons-color: white;
+    -glyph-size: 26px;
+    -fx-fill: white;
+    -fx-background-color: red;
+}
+
+.nav-bell {
+    -glyph-name: "BELL_ALT";
+    -icons-color: white;
+    -glyph-size: 26px;
+    -fx-fill: white;
+}
+
+.nav-bell:hover {
+    -fx-background-color: darkgreen;
+}
+
+.nav-user {
+    -glyph-name: "USER";
+    -icons-color: white;
+    -glyph-size: 26px;
+    -fx-fill: white;
+}
+
+.nav-user:hover {
+    -fx-background-color: darkgreen;
+}

@@ -10,7 +10,7 @@ public class FormContent extends VBox {
 
     public FormContent() {
         try{
-            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/fxml/FormContent.fxml"));
+            FXMLLoader fxmlloader = new FXMLLoader(getClass().getResource("/fxml/page/FormContent.fxml"));
             fxmlloader.setRoot(this);
             fxmlloader.setController(this);
             fxmlloader.load();

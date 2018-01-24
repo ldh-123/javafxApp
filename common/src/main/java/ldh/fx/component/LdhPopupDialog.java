@@ -13,7 +13,9 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.stage.*;
 import ldh.fx.StageUtil;
@@ -30,7 +32,7 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
 
     @FXML private Label title;
     @FXML private HBox headPane;
-    @FXML private StackPane contentPane;
+    @FXML private AnchorPane contentPane;
     @FXML private Button windowMaxBtn;
     @FXML private Button windowMinBtn;
 
@@ -89,6 +91,10 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
     public void setContentPane(Node node) {
         contentPane.getChildren().clear();
         contentPane.getChildren().add(node);
+        AnchorPane.setTopAnchor(node, 0d);
+        AnchorPane.setBottomAnchor(node, 0d);
+        AnchorPane.setLeftAnchor(node, 0d);
+        AnchorPane.setRightAnchor(node, 0d);
     }
 
     public void show() {

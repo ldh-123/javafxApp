@@ -29,7 +29,7 @@ public class WinMainApp extends Application {
 
         DesktopPane desktopPane = new DesktopPane();
 //        desktop.setPadding(new Insets(20));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Home后台", new FontAwesomeIconView(), "home-graphic"), ()-> PageUtil.load("/fxml/Home.fxml")));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("CVS浏览器", new FontAwesomeIconView(), "cvs-graphic"), ()-> PageUtil.load("/fxml/Cvs.fxml")));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
