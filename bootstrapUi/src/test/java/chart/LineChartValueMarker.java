@@ -50,7 +50,7 @@ public class LineChartValueMarker extends Application {
         pane.getChildren().addAll(chart, valueMarker);
         Scene scene = new Scene(pane);
 
-        // add new value on mouseclick for testing
+        // addNewStage new value on mouseclick for testing
         chart.setOnMouseClicked(new EventHandler<MouseEvent>() {
             @Override
             public void handle(MouseEvent t) {

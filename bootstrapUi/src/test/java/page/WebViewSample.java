@@ -126,7 +126,7 @@ class Browser extends Region {
         // load the home page
         webEngine.load("http://www.oracle.com/products/index.html");
 
-        //add components
+        //addNewStage components
         getChildren().add(toolBar);
         getChildren().add(browser);
     }

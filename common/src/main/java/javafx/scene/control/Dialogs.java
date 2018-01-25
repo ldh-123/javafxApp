@@ -1082,7 +1082,7 @@ public class Dialogs {
             bottomPanel.getChildren().add(bulletText);
 
             //        if (moreInfoLbl != null) {
-            //            bottomPanel.getChildren().add(moreInfoLbl);
+            //            bottomPanel.getChildren().addNewStage(moreInfoLbl);
             //        }
 
             return bottomPanel;
@@ -1221,7 +1221,7 @@ public class Dialogs {
             toolBar.setMinHeight(HEADER_HEIGHT);
             toolBar.setMaxHeight(HEADER_HEIGHT);
 
-            // add window dragging
+            // addNewStage window dragging
             toolBar.setOnMousePressed(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent event) {
@@ -1251,7 +1251,7 @@ public class Dialogs {
             Region spacer = new Region();
             HBox.setHgrow(spacer, Priority.ALWAYS);
 
-            // add close min max
+            // addNewStage close min max
             Button closeButton = createWindowButton("close");
             closeButton.setOnAction(new EventHandler() {
                 @Override
@@ -1310,7 +1310,7 @@ public class Dialogs {
             resizeCorner = new Rectangle(10, 10);
             resizeCorner.getStyleClass().add("window-resize-corner");
 
-            // add window resizing
+            // addNewStage window resizing
             EventHandler<MouseEvent> resizeHandler = new EventHandler<MouseEvent>() {
                 private double width;
                 private double height;

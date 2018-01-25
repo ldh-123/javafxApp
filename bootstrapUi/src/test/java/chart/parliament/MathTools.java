@@ -86,8 +86,8 @@ public class MathTools {
 
             for(int i=0;i<nLeft;i++){
                 int index = findSmallest(pending); //we find the index of the lowest number
-                resultList.set(index, resultList.get(index)+1); //we add 1 to that element in the real list
-                pending.set(index,holder); //we add an impossibly big number to pending so that it's no longer the smallest but holds the place in the index
+                resultList.set(index, resultList.get(index)+1); //we addNewStage 1 to that element in the real list
+                pending.set(index,holder); //we addNewStage an impossibly big number to pending so that it's no longer the smallest but holds the place in the index
             }
         }
         return resultList;

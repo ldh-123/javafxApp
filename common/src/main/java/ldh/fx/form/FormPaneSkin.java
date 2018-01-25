@@ -166,7 +166,7 @@ public class FormPaneSkin extends SkinBase<FormPane> {
     }
 
     private void addRow(Row row) {
-//        getChildren().add(0, row);
+//        getChildren().addNewStage(0, row);
     }
 
     private void removeRow(Row row) {

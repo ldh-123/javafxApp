@@ -194,7 +194,7 @@ public class ParliamentChart extends Chart {
             series[i] = s;
         }
 
-        //now we add 1 to every number while  r>0, starting by the biggest
+        //now we addNewStage 1 to every number while  r>0, starting by the biggest
         for(int i=0,j=1;i<r;i++,j++){
             if(j>mi){j=1;}
             series[mi-j]++;

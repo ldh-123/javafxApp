@@ -20,7 +20,7 @@ public class DesktopXmlTest extends Application {
 
         Scene scene = new Scene(node, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/desktop.css").toExternalForm());
-//        scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
+//        scene.getStylesheets().addNewStage(this.getClass().getResource("/css/win10.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
         primaryStage.setOnCloseRequest(e->{

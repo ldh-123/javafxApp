@@ -1,7 +1,6 @@
 package ldh.descktop.ui;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import javafx.application.Platform;
 import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -9,10 +8,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
+import ldh.fx.StageUtil;
 import ldh.fx.component.LdhDialog;
 import ldh.fx.component.LdhPopupDialog;
-import ldh.descktop.transition.BounceInTransition;
+import ldh.fx.util.DialogUtil;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -87,20 +88,46 @@ public class DesktopItem extends StackPane {
         Node newNode = buildNewGraphic(this.getLabel().getGraphic());
         toolbarButton.getButton().setGraphic(newNode);
         toolbarButton.getButton().getGraphic().getStyleClass().add("desktop-button-min-graphic");
-
-        LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 800d, 500d);
-//        LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
-//        ldhDialog.setIsHide(true);
-        ldhDialog.show();
-
         desktopToolbar.getContentPane().getChildren().add(toolbarButton);
-        ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
-        toolbarButton.getButton().setOnAction(e->{
-            ldhDialog.show();
-        });
-        toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
 
-        Platform.runLater(()->ldhDialog.setContentPane(desktopNodeFactory.create()));
+        Object obj = desktopNodeFactory.create();
+        if (desktopNodeFactory.isNode(obj)) {
+
+
+            LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 800d, 500d);
+//            LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
+//            ldhDialog.setIsHide(true);
+            ldhDialog.show();
+
+            ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
+            toolbarButton.getButton().setOnAction(e->{
+                ldhDialog.show();
+            });
+
+            toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
+
+            ldhDialog.setContentPane((Node) obj);
+        } else if (desktopNodeFactory.isStage(obj)) {
+            Stage stage = (Stage) obj;
+            stage.show();
+            stage.requestFocus();
+            StageUtil.putNewStage(stage, (Void)->{desktopToolbar.getContentPane().getChildren().remove(toolbarButton); return null;});
+            toolbarButton.getButton().setOnAction(e->{
+                if (stage.isShowing()) {
+                    stage.setIconified(false);
+                } else {
+                    stage.setIconified(true);
+                }
+            });
+
+            toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{
+                StageUtil.closeNewStage(stage);
+                desktopToolbar.getContentPane().getChildren().remove(toolbarButton);
+                e.consume();
+            });
+        } else {
+            DialogUtil.modelInfo("error", "desktopNodeFactory create oldy node and stage", 300, 200);
+        }
     }
 
     private Node buildNewGraphic(Node graphic) {

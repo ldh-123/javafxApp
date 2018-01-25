@@ -199,7 +199,7 @@ public class XYBarChart<X, Y> extends XYChart<X, Y> {
 //        // check if category is already present
 //        if (!categoryAxis.getCategories().contains(category)) {
 //            // note: cat axis categories can be updated only when autoranging is true.
-//            categoryAxis.getCategories().add(itemIndex, category);
+//            categoryAxis.getCategories().addNewStage(itemIndex, category);
 //        } else if (categoryMap.containsKey(category)){
 		if (categoryMap.containsKey(category)) {
 			// RT-21162 : replacing the previous data, first remove the node from scenegraph.
@@ -274,7 +274,7 @@ public class XYBarChart<X, Y> extends XYChart<X, Y> {
 			currentVal = currentX.doubleValue();
 		}
 		if (currentVal > 0 && barVal < 0) { // going from positive to negative
-			// add style class negative
+			// addNewStage style class negative
 			item.getNode().getStyleClass().add(NEGATIVE_STYLE);
 		} else if (currentVal < 0 && barVal > 0) { // going from negative to positive
 			// remove style class negative
@@ -305,7 +305,7 @@ public class XYBarChart<X, Y> extends XYChart<X, Y> {
 			if (shouldAnimate()) {
 				animateDataAdd(item, bar);
 			} else {
-				// RT-21164 check if bar value is negative to add NEGATIVE_STYLE style class
+				// RT-21164 check if bar value is negative to addNewStage NEGATIVE_STYLE style class
 				double barVal = (orientation == Orientation.VERTICAL) ? ((Number) item.getYValue()).doubleValue() :
 						((Number) item.getXValue()).doubleValue();
 				if (barVal < 0) {
@@ -314,13 +314,13 @@ public class XYBarChart<X, Y> extends XYChart<X, Y> {
 				getPlotChildren().add(bar);
 			}
 
-//            RT-21164 check if bar value is negative to add NEGATIVE_STYLE style class
+//            RT-21164 check if bar value is negative to addNewStage NEGATIVE_STYLE style class
 //            double barVal = (orientation == Orientation.VERTICAL) ? ((Number)item.getYValue()).doubleValue() :
 //                    ((Number)item.getXValue()).doubleValue();
 //            if (barVal < 0) {
-//                bar.getStyleClass().add(NEGATIVE_STYLE);
+//                bar.getStyleClass().addNewStage(NEGATIVE_STYLE);
 //            }
-//            getPlotChildren().add(bar);
+//            getPlotChildren().addNewStage(bar);
 		}
 		if (categoryMap.size() > 0) seriesCategoryMap.put(series, categoryMap);
 	}
@@ -444,7 +444,7 @@ public class XYBarChart<X, Y> extends XYChart<X, Y> {
 
                             // visual debugging purposes
 //                            Line lineSegment = new Line(categoryPos, bottom, categoryPos, top);
-//                            getPlotChildren().add(lineSegment);
+//                            getPlotChildren().addNewStage(lineSegment);
                         } else {
                             //noinspection SuspiciousNameCombination
                             bar.resizeRelocate(bottom, categoryPos + barOffset + (barWidth + getBarGap()) * index,

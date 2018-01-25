@@ -33,6 +33,7 @@ public class LdhDialog extends LdhResizeWindow {
     @FXML private Button windowMinBtn;
 
     private boolean isHide = false;
+    private boolean isFirstShow = true;
     private ObjectProperty<EventHandler<ActionEvent>> closeRequestHandler = new SimpleObjectProperty<>();
 
     private Stage dialogStage;
@@ -47,6 +48,7 @@ public class LdhDialog extends LdhResizeWindow {
 
         dialogStage = new Stage(StageStyle.TRANSPARENT);
         headPane.setAlignment(Pos.CENTER_LEFT);
+        dialogStage.initOwner(StageUtil.STAGE);
         dialogStage.initModality(Modality.NONE);
         Scene scene = new Scene(this, width, height);
         scene.setFill(null);
@@ -107,14 +109,23 @@ public class LdhDialog extends LdhResizeWindow {
     }
 
     public void show() {
-        if (dialogStage.isShowing()) {
-            dialogStage.hide();
-            return;
-        }
-        if (dialogStage.isIconified()) {
-            dialogStage.setIconified(false);
-        } else {
+        if (isFirstShow && !isHide) {
             dialogStage.show();
+            isFirstShow = false;
+        }
+        if (isHide) {
+            if (dialogStage.isShowing()) {
+                dialogStage.hide();
+                return;
+            } else {
+                dialogStage.show();
+            }
+        } else {
+            if (dialogStage.isIconified()) {
+                dialogStage.setIconified(false);
+            } else {
+                dialogStage.setIconified(true);
+            }
         }
     }
 
@@ -134,7 +145,7 @@ public class LdhDialog extends LdhResizeWindow {
         if (isHide) {
             dialogStage.hide();
         } else {
-            dialogStage.setIconified(true);
+            dialogStage.setIconified(false);
         }
     }
 

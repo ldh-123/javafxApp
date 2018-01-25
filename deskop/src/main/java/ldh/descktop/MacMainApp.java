@@ -3,10 +3,12 @@ package ldh.descktop;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.application.Application;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Region;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import ldh.descktop.page.AnimationPane;
@@ -21,11 +23,10 @@ import ldh.fx.util.DialogUtil;
 /**
  * Created by ldh on 2018/1/18.
  */
-public class MacMainApp extends Application {
+public class MacMainApp extends AbstractMainApp {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        StageUtil.STAGE = primaryStage;
+    public void start() throws Exception {
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
         DesktopToolbar toolbar = new MacDesktopToolbar();
@@ -33,7 +34,17 @@ public class MacMainApp extends Application {
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
 //        desktop.setPadding(new Insets(20));
-        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Home后台", new FontAwesomeIconView(), "home-graphic"), ()-> PageUtil.load("/fxml/Home.fxml")));
+        DesktopNodeFactory stageFactory = () ->{
+            Region parent = PageUtil.load("/fxml/Home.fxml");
+            Stage stage = new Stage();
+//            stage.initOwner(StageUtil.STAGE);
+            Scene scene = new Scene(parent, 1200, 700);
+            RegionUtil.sizeRegionWhenSceneChange(parent, scene);
+            scene.getStylesheets().add(this.getClass().getResource("/css/Common.css").toExternalForm());
+            stage.setScene(scene);
+            return stage;
+        };
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Home后台", new FontAwesomeIconView(), "home-graphic"), stageFactory));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("CVS浏览器", new FontAwesomeIconView(), "cvs-graphic"), ()-> PageUtil.load("/fxml/Cvs.fxml")));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
@@ -64,12 +75,9 @@ public class MacMainApp extends Application {
         scene.setFill(null);
         scene.getStylesheets().add(this.getClass().getResource("/css/mac.css").toExternalForm());
         scene.getStylesheets().add(this.getClass().getResource("/css/mac-dialog.css").toExternalForm());
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("demo");
-        primaryStage.setOnCloseRequest(e->{
-            ThreadToolUtil.close();
-        });
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.setTitle("demo");
+        stage.show();
     }
 
     private DesktopNav buildDesktopDav() {
@@ -92,22 +100,6 @@ public class MacMainApp extends Application {
         createButton(desktopNav, "facetime", "facetime");
         createButton(desktopNav, "launchpad","launchpad");
         return desktopNav;
-    }
-
-    private Button createButton(DesktopNav desktopNav, String text, GlyphIcon glyphIcon, String style) {
-        Button button = new Button(text);
-        glyphIcon.getStyleClass().add(style);
-        button.setGraphic(glyphIcon);
-        desktopNav.getChildren().add(new DesktopNavItem(button));
-        return button;
-    }
-
-    private Button createButton(DesktopNav desktopNav, String text, String style) {
-        Button button = new Button(text);
-        button.getStyleClass().add(style);
-        desktopNav.getChildren().add(new DesktopNavItem(button));
-        button.setOnAction(e-> DialogUtil.modelInfo("demo", text, 300, 300));
-        return button;
     }
 
     public static void main(String[] args) {

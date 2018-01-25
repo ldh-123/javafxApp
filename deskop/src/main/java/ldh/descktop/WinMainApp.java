@@ -58,9 +58,6 @@ public class WinMainApp extends Application {
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
-        primaryStage.setOnCloseRequest(e->{
-            ThreadToolUtil.close();
-        });
         primaryStage.show();
     }
 

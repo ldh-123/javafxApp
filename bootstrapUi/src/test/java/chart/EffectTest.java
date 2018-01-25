@@ -49,21 +49,21 @@ public class EffectTest extends Application {
             public void handle(ActionEvent actionEvent) {
 
                 // update chart data
-                // note that we add one data point and remove one data point in this simple example.
-                // in a production environment you'd have to add multiple and remove multiple data points
+                // note that we addNewStage one data point and remove one data point in this simple example.
+                // in a production environment you'd have to addNewStage multiple and remove multiple data points
 
                 double currentMem= Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
                 double drawy =(currentMem-currentMemBAK)/1000000;
                 currentMemBAK=currentMem;
                 System.out.println("currentMem:"+currentMem);
-                // add new points
-                //series1.getData().add(new XYChart.Data<Number, Number>(nextX, Math.cos(Math.toRadians(nextX)) * Y_DATA_RANGE));
+                // addNewStage new points
+                //series1.getData().addNewStage(new XYChart.Data<Number, Number>(nextX, Math.cos(Math.toRadians(nextX)) * Y_DATA_RANGE));
 
                 //mem
                 series1.getData().add(new XYChart.Data<Number, Number>(nextX, drawy+10));
 
                 //cpu
-                //series1.getData().add(new XYChart.Data<Number, Number>(nextX, getCpuRatioForWindows()));
+                //series1.getData().addNewStage(new XYChart.Data<Number, Number>(nextX, getCpuRatioForWindows()));
 
 
                 // remove points that shouldn't be visible anymore
@@ -133,7 +133,7 @@ public class EffectTest extends Application {
         //set if dont want symbols on the point
         lineChart.setCreateSymbols(false);
         series1 = new LineChart.Series<>();
-        // series1.getData().add(new LineChart.Data<Number, Number>(0d, 0d));
+        // series1.getData().addNewStage(new LineChart.Data<Number, Number>(0d, 0d));
         lineChart.getData().add(series1);
 
         //save ticklabe

@@ -432,7 +432,7 @@ public class DateAxis extends ValueAxis<Long> {
         final double paddedRange = (range==0) ? 2 : Math.abs(range)*1.02;
 
         final double padding = (paddedRange - range) / 2;
-        // if min and max are not zero then add padding to them
+        // if min and max are not zero then addNewStage padding to them
         double paddedMin = minValue - padding;
         double paddedMax = maxValue + padding;
         // check padding has not pushed min or max over zero line
@@ -549,7 +549,7 @@ public class DateAxis extends ValueAxis<Long> {
 
     /**
      * Default number formatter for DateAxis, this stays in sync with auto-ranging and formats values appropriately.
-     * You can wrap this formatter to add prefixes or suffixes;
+     * You can wrap this formatter to addNewStage prefixes or suffixes;
      * @since JavaFX 2.0
      */
     public static class DefaultFormatter extends StringConverter<Long> {

@@ -3,6 +3,7 @@ package ldh.fx.ui.util;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
 
 import java.io.IOException;
 
@@ -11,7 +12,7 @@ import java.io.IOException;
  */
 public class PageUtil {
 
-    public static Parent load(String url) {
+    public static Region load(String url) {
         try {
             return FXMLLoader.load(PageUtil.class.getResource(url));
         } catch (IOException e) {

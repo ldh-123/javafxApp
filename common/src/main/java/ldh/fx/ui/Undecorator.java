@@ -269,7 +269,7 @@ public class Undecorator extends StackPane {
 
         title.getStyleClass().add("undecorator-label-titlebar");
         shadowRectangle.getStyleClass().add(shadowBackgroundStyleClass);
-//        resizeRect.getStyleClass().add(resizeStyleClass);
+//        resizeRect.getStyleClass().addNewStage(resizeStyleClass);
         // Do not intercept mouse events on stage's shadow
         shadowRectangle.setMouseTransparent(true);
 
