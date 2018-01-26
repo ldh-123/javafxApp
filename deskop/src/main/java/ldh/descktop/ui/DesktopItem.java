@@ -121,6 +121,7 @@ public class DesktopItem extends StackPane {
             });
 
             toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{
+                stage.close();
                 StageUtil.closeNewStage(stage);
                 desktopToolbar.getContentPane().getChildren().remove(toolbarButton);
                 e.consume();

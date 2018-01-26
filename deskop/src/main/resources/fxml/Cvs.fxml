@@ -34,10 +34,10 @@
     <bottom>
         <StatusBar fx:id="statusBar"/>
     </bottom>
-    <left>
-        <ListView fx:id="listView"></ListView>
-    </left>
     <center>
-        <TabPane fx:id="tabPane" styleClass="content-pane"/>
+        <SplitPane orientation="HORIZONTAL">
+            <ListView fx:id="listView" prefWidth="100" SplitPane.resizableWithParent="false"></ListView>
+            <TabPane fx:id="tabPane" styleClass="content-pane"/>
+        </SplitPane>
     </center>
 </BorderPane>

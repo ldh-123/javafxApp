@@ -199,13 +199,19 @@
 }
 
 .cvs-graphic{
-    -glyph-name: "FILE_EXCEL_ALT";
+    -glyph-name: "ALIGN_JUSTIFY";
     -icons-color: white;
     -glyph-size: 50px;
 }
 
 .home-graphic {
     -glyph-name: "TACHOMETER";
+    -icons-color: white;
+    -glyph-size: 50px;
+}
+
+.form-graphic {
+    -glyph-name: "ALIGN_JUSTIFY";
     -icons-color: white;
     -glyph-size: 50px;
 }

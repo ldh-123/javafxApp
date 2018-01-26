@@ -292,3 +292,8 @@
     -glyph-size: 50px;
 }
 
+.form-graphic {
+    -glyph-name: "ALIGN_JUSTIFY";
+    -icons-color: white;
+    -glyph-size: 50px;
+}

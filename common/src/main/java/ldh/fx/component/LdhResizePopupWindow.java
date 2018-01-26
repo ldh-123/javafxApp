@@ -11,7 +11,7 @@ import javafx.stage.Stage;
 
 public class LdhResizePopupWindow extends LdhWindow {
 
-    private static int RESIZE_PADDING = 4;
+    private static int RESIZE_PADDING = 3;
     private static int SHADOW_WIDTH = 0;
 
     private double initX = -1;

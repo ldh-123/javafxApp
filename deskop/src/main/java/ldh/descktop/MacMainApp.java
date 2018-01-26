@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import ldh.descktop.page.AnimationPane;
 import ldh.descktop.page.FormContent;
 import ldh.descktop.ui.*;
+import ldh.fx.ui.util.NodeUtil;
 import ldh.fx.ui.util.PageUtil;
 import ldh.fx.ui.util.RegionUtil;
 import ldh.descktop.util.ThreadToolUtil;
@@ -46,26 +47,9 @@ public class MacMainApp extends AbstractMainApp {
         };
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Home后台", new FontAwesomeIconView(), "home-graphic"), stageFactory));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("CVS浏览器", new FontAwesomeIconView(), "cvs-graphic"), ()-> PageUtil.load("/fxml/Cvs.fxml")));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Form表单样式", ()->new FormContent()));
-
-        Label label = new Label("动画面板");
-        FontAwesomeIconView icon = new FontAwesomeIconView();
-        icon.getStyleClass().add("plan-pane-graphic");
-        label.setGraphic(icon);
-        desktopPane.getChildren().add(new DesktopItem(label, ()->new AnimationPane()));
+        desktopPane.getChildren().add(new DesktopItem(image, "百度搜索", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Form表单样式", new FontAwesomeIconView(), "form-graphic"), ()->new FormContent()));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("动画面板", new FontAwesomeIconView(), "plan-pane-graphic"), ()->new AnimationPane()));
 
         DesktopNav desktopNav = buildDesktopDav();
 
@@ -75,6 +59,7 @@ public class MacMainApp extends AbstractMainApp {
         scene.setFill(null);
         scene.getStylesheets().add(this.getClass().getResource("/css/mac.css").toExternalForm());
         scene.getStylesheets().add(this.getClass().getResource("/css/mac-dialog.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("bootstrap.css").toExternalForm());
         stage.setScene(scene);
         stage.setTitle("demo");
         stage.show();

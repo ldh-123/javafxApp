@@ -18,11 +18,10 @@ import ldh.fx.StageUtil;
 /**
  * Created by ldh on 2018/1/16.
  */
-public class WinMainApp extends Application {
+public class WinMainApp extends AbstractMainApp {
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
-        StageUtil.STAGE = primaryStage;
+    public void start() throws Exception {
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
         DesktopToolbar toolbar = new WinDesktopToolbar();
@@ -31,34 +30,17 @@ public class WinMainApp extends Application {
 //        desktop.setPadding(new Insets(20));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Home后台", new FontAwesomeIconView(), "home-graphic"), ()-> PageUtil.load("/fxml/Home.fxml")));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("CVS浏览器", new FontAwesomeIconView(), "cvs-graphic"), ()-> PageUtil.load("/fxml/Cvs.fxml")));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Win10-UI官网", nodeFactory));
-        desktopPane.getChildren().add(new DesktopItem(image, "Form表单样式", ()->new FormContent()));
-
-        Label label = new Label("动画面板");
-        FontAwesomeIconView icon = new FontAwesomeIconView();
-        icon.getStyleClass().add("plan-pane-graphic");
-        label.setGraphic(icon);
-        desktopPane.getChildren().add(new DesktopItem(label, ()->new AnimationPane()));
+        desktopPane.getChildren().add(new DesktopItem(image, "百度搜索", nodeFactory));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Form表单样式", new FontAwesomeIconView(), "form-graphic"), ()->new FormContent()));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("动画面板", new FontAwesomeIconView(), "plan-pane-graphic"), ()->new AnimationPane()));
 
         WinDesktop desktop = new WinDesktop(desktopPane, toolbar);
 
         Scene scene = new Scene(desktop, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
-        primaryStage.setScene(scene);
-        primaryStage.setTitle("demo");
-        primaryStage.show();
+        stage.setScene(scene);
+        stage.setTitle("demo");
+        stage.show();
     }
 
     public static void main(String[] args) {
