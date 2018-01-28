@@ -54,6 +54,10 @@
             <artifactId>miglayout-javafx</artifactId>
             <version>5.0</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.kordamp.bootstrapfx</groupId>
+            <artifactId>bootstrapfx-core</artifactId>
+            <version>0.2.2</version>
+        </dependency>
     </dependencies>
 </project>
