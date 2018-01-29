@@ -59,7 +59,7 @@ public class MacMainApp extends AbstractMainApp {
         scene.setFill(null);
         scene.getStylesheets().add(this.getClass().getResource("/css/mac.css").toExternalForm());
         scene.getStylesheets().add(this.getClass().getResource("/css/mac-dialog.css").toExternalForm());
-//        scene.getStylesheets().add(this.getClass().getResource("bootstrap.css").toExternalForm());
+//        scene.getStylesheets().add("bootstrapfx.css");
         stage.setScene(scene);
         stage.setTitle("Mac桌面");
         stage.show();
