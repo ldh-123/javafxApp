@@ -62,12 +62,13 @@ public class Row implements EventTarget, Styleable {
     }
 
     public void setNodes(Node ...nodess) {
-        nodes.clear();
+        if (nodess == null) return;
+//        nodes.clear();
         nodes.addAll(nodess);
     }
 
-    public final List<Node> getNodes() {
-        return nodes == null ? null : nodes.subList(0, nodes.size()-1);
+    public final ObservableList<Node> getNodes() {
+        return nodes;
     }
 
     public final ObservableList<Node> nodesProperty() {

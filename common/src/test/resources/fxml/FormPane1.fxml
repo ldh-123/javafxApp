@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import ldh.fx.form.FormPane?>
+<?import ldh.fx.form.Row?>
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            prefHeight="400.0" prefWidth="800.0">
+    <FormPane AnchorPane.bottomAnchor="0" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.leftAnchor="0">
+        <rows>
+            <Row>
+                <nodes>
+                    <Label text="label"/>
+                    <TextField text="user"/>
+                    <Label text="error"/>
+                </nodes>
+            </Row>
+            <Row>
+                <nodes>
+                    <Label text="label2"/>
+                    <TextField text="user2"/>
+                    <Label text="error2"/>
+                </nodes>
+            </Row>
+        </rows>
+    </FormPane>
+
+
+</AnchorPane>
