@@ -54,10 +54,11 @@ public class LWindowBody extends BorderPane {
             stageMovable = new StageMovable(this);
         }
 
-        buildEastEdgeResizable();
+//        buildEastEdgeResizable();
         buildSouthEdgeResizable();
         buildWestEdgeResizable();
-        buildSeBugleResizable();
+        seBuglePane.setVisible(false);
+//        buildSeBugleResizable();
         buildSwBugleResizable();
     }
 
