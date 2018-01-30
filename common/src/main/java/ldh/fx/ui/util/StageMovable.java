@@ -32,6 +32,8 @@ public class StageMovable {
         movablePane.setOnDragDetected(e->startMoveWindow(e));
     }
     public void startMoveWindow(MouseEvent evt) {
+        if (evt.getX() < 3 || evt.getX() > movablePane.getScene().getWindow().getWidth() - 3
+                || evt.getY() > movablePane.getScene().getWindow().getHeight() - 3) return;
         startMoveX = evt.getScreenX();
         startMoveY = evt.getScreenY();
         dragging = true;

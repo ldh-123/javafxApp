@@ -8,7 +8,7 @@
     <top>
     </top>
     <bottom>
-        <HBox alignment="BOTTOM_CENTER" >
+        <HBox alignment="BOTTOM_CENTER" style="-fx-background-color: green" mouseTransparent="false">
             <children>
                 <Button fx:id="seBuglePane" prefWidth="5" prefHeight="5" styleClass="se-bugle-pane"/>
                 <HBox fx:id="southEdgePane" prefHeight="3" minHeight="3" maxHeight="3" styleClass="south-edage-pane" HBox.hgrow="ALWAYS"/>
@@ -19,10 +19,10 @@
     <center>
     </center>
     <left>
-        <VBox fx:id="eastEdgePane" styleClass="east-edge-pane" prefWidth="3" minWidth="3" maxWidth="3"/>
+        <VBox fx:id="eastEdgePane" styleClass="east-edge-pane" prefWidth="4" minWidth="4" maxWidth="4" style="-fx-background-color: green"/>
     </left>
     <right>
-        <VBox fx:id="westEdgePane" styleClass="west-edge-pane" prefWidth="3"  minWidth="3" maxWidth="3"/>
+        <VBox fx:id="westEdgePane" styleClass="west-edge-pane" prefWidth="4"  minWidth="4" maxWidth="4" style="-fx-background-color: green"/>
     </right>
     <effect>
         <javafx.scene.effect.DropShadow />
