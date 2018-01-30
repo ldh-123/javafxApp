@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<?import javafx.scene.control.Button?>
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
+    <top>
+    </top>
+    <bottom>
+        <HBox alignment="BOTTOM_CENTER" >
+            <children>
+                <Button fx:id="seBuglePane" prefWidth="5" prefHeight="5" styleClass="se-bugle-pane"/>
+                <HBox fx:id="southEdgePane" prefHeight="3" minHeight="3" maxHeight="3" styleClass="south-edage-pane" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="swBuglePane" prefWidth="5" prefHeight="5" styleClass="sw-bugle-pane"/>
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+    </center>
+    <left>
+        <VBox fx:id="eastEdgePane" styleClass="east-edge-pane" prefWidth="3" minWidth="3" maxWidth="3"/>
+    </left>
+    <right>
+        <VBox fx:id="westEdgePane" styleClass="west-edge-pane" prefWidth="3"  minWidth="3" maxWidth="3"/>
+    </right>
+    <effect>
+        <javafx.scene.effect.DropShadow />
+    </effect>
+    <background>
+    </background>
+</fx:root>

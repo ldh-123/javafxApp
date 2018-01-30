@@ -10,23 +10,19 @@ import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.StackPane;
 import javafx.stage.*;
 import ldh.fx.StageUtil;
 import ldh.fx.transition.BounceInTransition;
 import ldh.fx.ui.util.NodeUtil;
 
 import java.io.IOException;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LdhPopupDialog extends LdhResizePopupWindow {
+public class LdhPopupDialog extends LdhWindow {
 
     private Logger logger = Logger.getLogger(LdhPopupDialog.class.getName());
 
@@ -35,6 +31,13 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
     @FXML private AnchorPane contentPane;
     @FXML private Button windowMaxBtn;
     @FXML private Button windowMinBtn;
+
+    private double lastX = 0.0d;
+    private double lastY = 0.0d;
+    private double lastWidth = 0.0d;
+    private double lastHeight = 0.0d;
+    private double layoutX = 0.0d;
+    private double layoutY = 0.0d;
 
     private double windowWidth, windowHeight;
 
@@ -53,10 +56,10 @@ public class LdhPopupDialog extends LdhResizePopupWindow {
         headPane.setAlignment(Pos.CENTER_LEFT);
         this.setPrefSize(width, height);
 //        this.setMinSize(width, height);
-        buildMovable(headPane);
-        if (isResize) {
-            buildResizable(this);
-        }
+//        buildMovable(headPane);
+//        if (isResize) {
+//            buildResizable(this);
+//        }
 
         popup.getContent().add(this);
 

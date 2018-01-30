@@ -24,13 +24,16 @@ import ldh.fx.StageUtil;
 
 import java.io.IOException;
 
-public class LdhDialog extends LdhResizeWindow {
+public class LdhDialog extends LdhWindow {
 
     @FXML private Label title;
     @FXML private HBox headPane;
     @FXML private AnchorPane contentPane;
     @FXML private Button windowMaxBtn;
     @FXML private Button windowMinBtn;
+
+    private boolean isMoved = false;
+    private Stage newStage;
 
     private boolean isHide = false;
     private boolean isFirstShow = true;
@@ -53,11 +56,11 @@ public class LdhDialog extends LdhResizeWindow {
         Scene scene = new Scene(this, width, height);
         scene.setFill(null);
         dialogStage.setScene(scene);
-        this.setStage(dialogStage);
-        buildMovable(headPane);
-        if (isResize) {
-            buildResizable(this);
-        }
+//        this.setStage(dialogStage);
+//        buildMovable(headPane);
+//        if (isResize) {
+//            buildResizable(this);
+//        }
 
         dialogStage.widthProperty().addListener(l->position());
         dialogStage.heightProperty().addListener(l->position());

@@ -1,75 +1,71 @@
 package ldh.fx.component;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleBooleanProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Rectangle2D;
+import javafx.scene.Cursor;
 import javafx.scene.Node;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Region;
-import javafx.stage.Window;
+import javafx.scene.layout.*;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.*;
+import ldh.fx.ui.util.StageResizable;
 
+import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LdhWindow extends AnchorPane {
+public class LdhWindow extends LWindowBody {
 
-    private Logger logger = Logger.getLogger(LdhWindow.class.getName());
+    protected Stage newStage;
+    protected Popup popup;
+    private Stage parentStage;
 
-    private double startMoveX = -1;
-    private double startMoveY = -1;
-    private double stageX = -1;
-    private double stageY = -1;
-    protected Boolean dragging = false;
-    protected boolean isMoved = false;
+    private BooleanProperty modelProperty = new SimpleBooleanProperty(false);
 
-    protected Double layoutX = 0d, layoutY = 0d;
+    public LdhWindow(Stage stage, boolean isModel) {
+        super();
+        parentStage = stage;
+        modelProperty.set(isModel);
+        if (isModel()) {
+            newStage = new Stage();
+            newStage.initOwner(stage);
+            newStage.initModality(Modality.APPLICATION_MODAL);
+            newStage.initStyle(StageStyle.UNDECORATED);
+            Scene scene = new Scene(this, 800, 600);
+            newStage.setScene(scene);
+        } else {
+            popup = new Popup();
+            popup.setAutoHide(false);
+            popup.getContent().clear();
+            popup.getContent().add(this);
+        }
+    }
+
+    public LdhWindow(Stage stage) {
+        this(stage, true);
+    }
 
     public LdhWindow() {
-//        buildMovable(this);
+        this(null, false);
     }
 
-    public void setContentPane(Node node) {
-        this.getChildren().clear();
-        this.getChildren().add(node);
+    public boolean isModel() {
+        return modelProperty.get();
     }
 
-    public void startMoveWindow(MouseEvent evt) {
-        startMoveX = evt.getScreenX();
-        startMoveY = evt.getScreenY();
-        Window w = this.getScene().getWindow();
-        stageX = w.getX();
-        stageY = w.getY();
-        dragging = true;
-    }
-
-    public void moveWindow(MouseEvent evt) {
-        if (dragging) {
-            double endMoveX = evt.getScreenX();
-            double endMoveY = evt.getScreenY();
-            Window w = this.getScene().getWindow();
-            w.setX(stageX + (endMoveX - startMoveX));
-            w.setY(stageY + (endMoveY - startMoveY));
-            isMoved = true;
+    public void show() {
+        if (modelProperty.get()) {
+            newStage.show();
+        } else {
+            popup.show(parentStage);
         }
-        layoutX = this.getScene().getWindow().getX();
-        layoutY = this.getScene().getWindow().getY();
-    }
-
-    @FXML
-    public void endMoveWindow(MouseEvent evt) {
-        if (dragging) {
-            startMoveX = 0;
-            startMoveY = 0;
-            stageX = 0;
-            stageY = 0;
-            dragging = false;
-        }
-        layoutX = this.getScene().getWindow().getX();
-        layoutY = this.getScene().getWindow().getY();
-    }
-
-    protected void buildMovable(Region node) {
-        node.setOnDragDetected(e->startMoveWindow(e));
-        node.setOnMouseDragged(e->moveWindow(e));
-        node.setOnMouseReleased(e->endMoveWindow(e));
     }
 }
