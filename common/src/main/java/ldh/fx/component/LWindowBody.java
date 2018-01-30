@@ -13,6 +13,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import ldh.fx.ui.util.RegionResizable;
 import ldh.fx.ui.util.Resizable;
+import ldh.fx.ui.util.StageMovable;
 import ldh.fx.ui.util.StageResizable;
 
 import java.io.IOException;
@@ -33,6 +34,7 @@ public class LWindowBody extends BorderPane {
     @FXML protected Button swBuglePane;
 
     private Resizable resizable;
+    private StageMovable stageMovable;
 
     private ObjectProperty<Node> contentPaneProperty = new SimpleObjectProperty<>();
 
@@ -46,8 +48,10 @@ public class LWindowBody extends BorderPane {
     public void buildResizable(Object obj) {
         if (obj instanceof Stage) {
             resizable = new StageResizable(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
+            stageMovable = new StageMovable(this);
         } else if (obj instanceof Region) {
             resizable = new RegionResizable((Region)obj, eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
+            stageMovable = new StageMovable(this);
         }
 
         buildEastEdgeResizable();

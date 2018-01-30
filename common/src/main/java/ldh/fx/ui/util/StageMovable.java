@@ -22,6 +22,7 @@ public class StageMovable {
 
     public StageMovable(Region movablePane) {
         this.movablePane = movablePane;
+        buildMovable();
     }
 
     private void buildMovable() {
