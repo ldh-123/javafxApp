@@ -22,6 +22,7 @@ public class LdhWindowTest extends Application {
 //        Scene scene = new Scene(lWindow, 1200, 600);
 //        primaryStage.setScene(scene);
 //        primaryStage.show();
+        lWindow.getScene().getStylesheets().add(LdhWindowTest.class.getResource("/component/LDialog.css").toExternalForm());
         lWindow.show();
     }
 

@@ -41,7 +41,7 @@ public class StageMovable {
         moveTrackingRect = new Rectangle();
         moveTrackingRect.setWidth(movablePane.getScene().getWindow().getWidth());
         moveTrackingRect.setHeight(movablePane.getScene().getWindow().getHeight());
-        moveTrackingRect.getStyleClass().add( "tracking-rect" );
+        moveTrackingRect.getStyleClass().add("tracking-rect");
 
         moveTrackingPopup = new Popup();
         moveTrackingPopup.getContent().add(moveTrackingRect);

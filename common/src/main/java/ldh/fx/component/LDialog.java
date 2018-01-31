@@ -1,18 +1,16 @@
 package ldh.fx.component;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Rectangle2D;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.Window;
-import ldh.fx.ui.window.LxWindow;
+import ldh.fx.ui.util.NodeUtil;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,6 +26,8 @@ public class LDialog extends LdhWindow implements Initializable {
     private double lastY = 0.0d;
     private double lastWidth = 0.0d;
     private double lastHeight = 0.0d;
+
+    private boolean isMax = false;
 
     public LDialog() {
         super();
@@ -52,8 +52,30 @@ public class LDialog extends LdhWindow implements Initializable {
 
     @FXML
     public void maximize(MouseEvent evt) {
-        Node n = (Node)evt.getSource();
-        Window w = n.getScene().getWindow();
+        if (isModel()) {
+            stageMax(evt);
+        } else {
+            popupMax();
+        }
+    }
+
+    @FXML
+    public void minimize(MouseEvent evt) {
+        if (isModel()) {
+            Stage stage = (Stage)((Label)evt.getSource()).getScene().getWindow();
+            stage.setIconified(true);
+        } else {
+            popup.hide();
+        }
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        buildMovable();
+    }
+
+    private void stageMax(MouseEvent evt) {
+        Window w = this.getScene().getWindow();
         double currentX = w.getX();
         double currentY = w.getY();
         double currentWidth = w.getWidth();
@@ -86,15 +108,24 @@ public class LDialog extends LdhWindow implements Initializable {
         evt.consume();  // don't bubble up to title bar
     }
 
-    @FXML
-    public void minimize(MouseEvent evt) {
-        Stage stage = (Stage)((Label)evt.getSource()).getScene().getWindow();
-        stage.setIconified(true);
-
-    }
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        buildMovable();
+    private void popupMax() {
+        Window window = this.getScene().getWindow();
+        Rectangle2D rectangle2D = NodeUtil.getVisualBound(this);
+        if (isMax) {
+            this.setPrefSize(lastWidth, lastHeight);
+            popup.hide();
+            popup.show(parentStage, lastX, lastY);
+//            this.setEffect(new DropShadow());
+            isMax = false;
+        } else {
+            lastWidth = window.getWidth();
+            lastHeight = window.getHeight();
+            lastX = window.getX();
+            lastY = window.getY();
+            this.setPrefSize(rectangle2D.getWidth(), rectangle2D.getHeight());
+            popup.show(parentStage, rectangle2D.getMinX(), rectangle2D.getMinY());
+            isMax = true;
+//            this.setEffect(null);
+        }
     }
 }

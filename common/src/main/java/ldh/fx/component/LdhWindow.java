@@ -26,7 +26,7 @@ public class LdhWindow extends LWindowBody {
 
     protected Stage newStage;
     protected Popup popup;
-    private Stage parentStage;
+    protected Stage parentStage;
 
     private BooleanProperty modelProperty = new SimpleBooleanProperty(false);
 
@@ -42,8 +42,9 @@ public class LdhWindow extends LWindowBody {
             newStage = new Stage();
             newStage.initOwner(stage);
             newStage.initModality(Modality.APPLICATION_MODAL);
-            newStage.initStyle(StageStyle.UNDECORATED);
+            newStage.initStyle(StageStyle.TRANSPARENT);
             Scene scene = new Scene(this, 800, 600);
+            scene.setFill(null);
             newStage.setScene(scene);
         } else {
             popup = new Popup();
