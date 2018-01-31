@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<fx:root type="ldh.fx.component.LdhWindow" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
+    <top>
+        <HBox fx:id="headPane" styleClass="head-pane">
+            <children>
+                <StackPane HBox.hgrow="ALWAYS">
+                    <children>
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Label styleClass="title" text="Flat Win" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="20.0" spacing="8.0">
+                            <children>
+                                <HBox fx:id="btnMaximize" alignment="CENTER" onMouseClicked="#maximize" styleClass="max-button" prefWidth="15">
+                                    <children>
+                                        <ImageView pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../ldh.fx.img/window_max_icon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <Label onMouseClicked="#minimize" styleClass="min-button" text="_" prefWidth="15" alignment="CENTER"/>
+                                <Label onMouseClicked="#close" styleClass="close-button" text="X" prefWidth="15" alignment="CENTER" />
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </children>
+        </HBox>
+    </top>
+</fx:root>

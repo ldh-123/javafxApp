@@ -74,6 +74,7 @@ public class StageMovable {
                 moveTrackingPopup.hide();
                 moveTrackingPopup = null;
             }
+            System.out.println("x:" + w.getX() + ", y:" + w.getY());
         }
         resetMoveOperation();
     }

@@ -27,6 +27,4 @@
     <effect>
         <javafx.scene.effect.DropShadow />
     </effect>
-    <background>
-    </background>
 </fx:root>

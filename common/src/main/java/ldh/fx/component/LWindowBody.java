@@ -39,7 +39,7 @@ public class LWindowBody extends BorderPane {
     private ObjectProperty<Node> contentPaneProperty = new SimpleObjectProperty<>();
 
     public LWindowBody() {
-        loadFx();
+        loadFx("/component/LWindow.fxml");
         contentPaneProperty.addListener((l, o, n)->{
             this.setCenter(n);
         });
@@ -48,17 +48,27 @@ public class LWindowBody extends BorderPane {
     public void buildResizable(Object obj) {
         if (obj instanceof Stage) {
             resizable = new StageResizable(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
-            stageMovable = new StageMovable(this);
+
+            buildEastEdgeResizable();
+            buildSouthEdgeResizable();
+            buildWestEdgeResizable();
+            buildSeBugleResizable();
+            buildSwBugleResizable();
         } else if (obj instanceof Region) {
             resizable = new RegionResizable((Region)obj, eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
-            stageMovable = new StageMovable(this);
-        }
 
-        buildEastEdgeResizable();
-        buildSouthEdgeResizable();
-        buildWestEdgeResizable();
-        buildSeBugleResizable();
-        buildSwBugleResizable();
+//            buildEastEdgeResizable();
+            buildSouthEdgeResizable();
+            buildWestEdgeResizable();
+//            buildSeBugleResizable();
+            buildSwBugleResizable();
+//            eastEdgePane.setVisible(false);
+            seBuglePane.setVisible(false);
+        }
+    }
+
+    public void buildMovable(Region region) {
+        stageMovable = new StageMovable(region);
     }
 
     public void buildEastEdgeResizable() {
@@ -89,8 +99,8 @@ public class LWindowBody extends BorderPane {
         return contentPaneProperty.get();
     }
 
-    private void loadFx() {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/component/LWindow.fxml"));
+    protected void loadFx(String fxmlPath) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         try {

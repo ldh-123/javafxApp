@@ -30,8 +30,12 @@ public class LdhWindow extends LWindowBody {
 
     private BooleanProperty modelProperty = new SimpleBooleanProperty(false);
 
-    public LdhWindow(Stage stage, boolean isModel) {
+    public LdhWindow() {
         super();
+        buildMovable();
+    }
+
+    public void initModel(Stage stage, boolean isModel) {
         parentStage = stage;
         modelProperty.set(isModel);
         if (isModel()) {
@@ -47,14 +51,19 @@ public class LdhWindow extends LWindowBody {
             popup.getContent().clear();
             popup.getContent().add(this);
         }
+        buildResizable();
     }
 
-    public LdhWindow(Stage stage) {
-        this(stage, true);
+    public void buildResizable() {
+        if (isModel()) {
+            buildResizable(newStage);
+        } else {
+            buildResizable(this);
+        }
     }
 
-    public LdhWindow() {
-        this(null, false);
+    public void buildMovable() {
+        buildMovable(this);
     }
 
     public boolean isModel() {

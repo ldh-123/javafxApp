@@ -1,21 +1,19 @@
 package ldh.fx.ui;
 
 import javafx.application.Application;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import ldh.fx.component.LDialog;
 import ldh.fx.component.LdhWindow;
-import ldh.fx.ui.util.PageUtil;
 
 /**
- * Created by ldh on 2018/1/30.
+ * Created by ldh on 2018/1/31.
  */
-public class LdhWindowTest extends Application {
+public class LDialogTest extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LdhWindow lWindow = new LdhWindow();
+        LDialog lWindow = new LDialog();
         lWindow.initModel(primaryStage, true);
 //        lWindow.buildResizable(primaryStage);
         lWindow.setContentPane(new Label("sadfasdfasdfas"));

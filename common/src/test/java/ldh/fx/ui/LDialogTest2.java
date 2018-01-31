@@ -5,18 +5,18 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import ldh.fx.component.LdhWindow;
+import ldh.fx.component.LDialog;
 
 /**
- * Created by ldh on 2018/1/30.
+ * Created by ldh on 2018/1/31.
  */
-public class LdhWindowTest2 extends Application {
+public class LDialogTest2 extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LdhWindow lWindow = new LdhWindow();
+        LDialog lWindow = new LDialog();
         lWindow.initModel(primaryStage, false);
-//        lWindow.buildResizable(lWindow);
+//        lWindow.buildResizable(primaryStage);
         lWindow.setPrefSize(600, 400);
         lWindow.setContentPane(new Label("sadfasdfasdfas"));
         lWindow.setStyle("-fx-background-color: grey");
