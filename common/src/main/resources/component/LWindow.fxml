@@ -4,29 +4,29 @@
 <?import javafx.scene.shape.*?>
 
 <?import javafx.scene.control.Button?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
 <fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
     <top>
     </top>
-    <bottom>
-        <HBox alignment="BOTTOM_CENTER" style="-fx-background-color: green" mouseTransparent="false">
-            <children>
-                <Button fx:id="seBuglePane" prefWidth="5" prefHeight="5" styleClass="se-bugle-pane"/>
-                <HBox fx:id="southEdgePane" prefHeight="3" minHeight="3" maxHeight="3" styleClass="south-edage-pane" HBox.hgrow="ALWAYS"/>
-                <Button fx:id="swBuglePane" prefWidth="5" prefHeight="5" styleClass="sw-bugle-pane"/>
-            </children>
-        </HBox>
-    </bottom>
     <center>
     </center>
     <left>
-        <VBox fx:id="eastEdgePane" styleClass="east-edge-pane" prefWidth="4" minWidth="4" maxWidth="4" style="-fx-background-color: green"/>
+        <VBox fx:id="eastEdgePane" styleClass="east-edge-pane" prefWidth="3" minWidth="3" maxWidth="3"/>
     </left>
     <right>
-        <VBox fx:id="westEdgePane" styleClass="west-edge-pane" prefWidth="4"  minWidth="4" maxWidth="4" style="-fx-background-color: green"/>
+        <VBox fx:id="westEdgePane" styleClass="west-edge-pane" prefWidth="3"  minWidth="3" maxWidth="3"/>
     </right>
-    <effect>
-        <javafx.scene.effect.DropShadow />
-    </effect>
-    <background>
-    </background>
+    <bottom>
+        <HBox alignment="BOTTOM_CENTER" styleClass="south-edge-container">
+            <children>
+                <Button fx:id="seBuglePane" prefWidth="3" minWidth="3" maxWidth="3" prefHeight="3" minHeight="3" maxHeight="3" styleClass="se-bugle-pane"/>
+                <HBox fx:id="southEdgePane" prefHeight="3" minHeight="3" maxHeight="3" styleClass="south-edge-pane" HBox.hgrow="ALWAYS"/>
+                <Button fx:id="swBuglePane" prefWidth="3" minWidth="3" maxWidth="3" prefHeight="3" minHeight="3" maxHeight="3" styleClass="sw-bugle-pane"/>
+            </children>
+        </HBox>
+    </bottom>
+    <!--<effect>-->
+        <!--<javafx.scene.effect.DropShadow />-->
+    <!--</effect>-->
 </fx:root>

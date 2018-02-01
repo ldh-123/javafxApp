@@ -8,7 +8,7 @@
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import org.tbee.javafx.scene.layout.fxml.MigPane?>
-<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" stylesheets="@/css/Common.css,@/css/page/FormContent.css, @/bootstrap.css">
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" stylesheets="@/css/Common.css,@/css/page/FormContent.css">
     <children>
         <HBox styleClass="nav-title-pane">
             <children>

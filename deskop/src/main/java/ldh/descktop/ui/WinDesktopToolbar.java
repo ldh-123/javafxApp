@@ -13,8 +13,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.WindowEvent;
 import ldh.descktop.util.ThreadToolUtil;
+import ldh.fx.StageUtil;
+import ldh.fx.component.DialogModel;
+import ldh.fx.component.LDialog;
 import ldh.fx.component.LPopupButton;
-import ldh.fx.component.LdhDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -27,8 +29,8 @@ public class WinDesktopToolbar extends DesktopToolbar {
 
     private LPopupButton windowButton = null;
 
-    public WinDesktopToolbar() {
-        super();
+    public WinDesktopToolbar(DesktopPane desktopPane) {
+        super(desktopPane);
     }
 
     protected void initItem() {
@@ -38,6 +40,9 @@ public class WinDesktopToolbar extends DesktopToolbar {
         windowButton.setGraphic(windowGraphic);
         windowButton.getStyleClass().add("toolbar-item");
         windowButton.setPopupContentPane(new Label("asdfaffdadfasdfasfasdfasfsa"));
+        windowButton.getPopup().showingProperty().addListener((l, o, n)->{
+            animation(n);
+        });
 
         this.getLeftPane().getChildren().add(0, windowButton);
 
@@ -81,14 +86,17 @@ public class WinDesktopToolbar extends DesktopToolbar {
         }
         box.getChildren().add(messageButton);
         messageButton.setPopupContentPane(new Label("asdfasfasfdasfa"));
+        messageButton.getPopup().showingProperty().addListener((l, o, n)->{
+            animation(n);
+        });
         return messageButton;
     }
 
     private void addBrowserDialog() {
         ToolbarButton toolbarButton = new ToolbarButton(new Button("百度搜索"));
-        LdhDialog ldhDialog = new LdhDialog("百度搜索", 1000d, 600d);
-        ldhDialog.setModel(false);
-        ldhDialog.setIsHide(true);
+        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "百度搜索", 1000d, 600d, DialogModel.Application_model);
+//        ldhDialog.setModel(false);
+//        ldhDialog.setIsHide(true);
         WebView webView = new WebView();
         ldhDialog.setContentPane(webView);
         ldhDialog.show();
@@ -96,7 +104,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
         ldhDialog.setOnCloseRequestHandler(e->getContentPane().getChildren().remove(toolbarButton));
         toolbarButton.getButton().setOnAction(e->{
             if (ldhDialog.isShowing()) {
-                ldhDialog.min();
+//                ldhDialog.min();
             } else {
                 ldhDialog.show();
             }

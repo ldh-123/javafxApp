@@ -27,7 +27,7 @@
                         </HBox>
                         <HBox alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="20.0" spacing="8.0">
                             <children>
-                                <HBox fx:id="btnMaximize" alignment="CENTER" onMouseClicked="#maximize" styleClass="max-button" prefWidth="15">
+                                <HBox fx:id="btnMaximize" alignment="CENTER" onMouseClicked="#max" styleClass="max-button" prefWidth="15">
                                     <children>
                                         <ImageView pickOnBounds="true" preserveRatio="true">
                                             <image>
@@ -36,7 +36,7 @@
                                         </ImageView>
                                     </children>
                                 </HBox>
-                                <Label onMouseClicked="#minimize" styleClass="min-button" text="_" prefWidth="15" alignment="CENTER"/>
+                                <Label onMouseClicked="#min" styleClass="min-button" text="_" prefWidth="15" alignment="CENTER"/>
                                 <Label onMouseClicked="#close" styleClass="close-button" text="X" prefWidth="15" alignment="CENTER" />
                             </children>
                         </HBox>

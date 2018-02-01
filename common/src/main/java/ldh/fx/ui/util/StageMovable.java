@@ -31,6 +31,7 @@ public class StageMovable {
         movablePane.setOnMouseReleased(e->endMoveWindow(e));
         movablePane.setOnDragDetected(e->startMoveWindow(e));
     }
+
     public void startMoveWindow(MouseEvent evt) {
         if (evt.getX() < 3 || evt.getX() > movablePane.getScene().getWindow().getWidth() - 3
                 || evt.getY() > movablePane.getScene().getWindow().getHeight() - 3) return;
@@ -41,7 +42,7 @@ public class StageMovable {
         moveTrackingRect = new Rectangle();
         moveTrackingRect.setWidth(movablePane.getScene().getWindow().getWidth());
         moveTrackingRect.setHeight(movablePane.getScene().getWindow().getHeight());
-        moveTrackingRect.getStyleClass().add( "tracking-rect" );
+        moveTrackingRect.getStyleClass().add("tracking-rect");
 
         moveTrackingPopup = new Popup();
         moveTrackingPopup.getContent().add(moveTrackingRect);

@@ -9,7 +9,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Popup;
 import ldh.fx.StageUtil;
-import ldh.fx.component.LdhDialog;
+import ldh.fx.component.DialogModel;
+import ldh.fx.component.LDialog;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -57,7 +58,7 @@ public class HomeHeadController implements Initializable {
     }
 
     @FXML public void settingBtn(ActionEvent e) {
-        LdhDialog ldhDialog = new LdhDialog("test", 500d, 600d);
+        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "test", 500d, 600d, DialogModel.Normal);
         VBox box = new VBox();
         for (int i=0; i<10; i++) {
             box.getChildren().add(new Label("asdfasfd"));
@@ -67,13 +68,13 @@ public class HomeHeadController implements Initializable {
     }
 
     @FXML public void profileBtn(ActionEvent actionEvent) {
-        LdhDialog ldhDialog = new LdhDialog("test", 500d, 300d);
+        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "test", 500d, 300d, DialogModel.Normal);
         VBox box = new VBox();
         for (int i=0; i<10; i++) {
             box.getChildren().add(new Label("asdfasfd"));
         }
         ldhDialog.setContentPane(box);
-        ldhDialog.setModel(false);
+//        ldhDialog.setModel(false);
         ldhDialog.show();
     }
 

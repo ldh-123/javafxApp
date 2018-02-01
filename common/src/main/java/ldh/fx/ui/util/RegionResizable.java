@@ -33,7 +33,6 @@ public class RegionResizable extends Resizable{
             double changeW = endMoveX - this.startMoveX;
             double changeH = endMoveY - this.startMoveY;
 
-            System.out.println("changeW:" + changeW + ", lastX:" + lastX + ", lastWidth:" + lastWidth);
             region.setLayoutX(lastX + changeW);
             region.setPrefWidth(lastWidth - changeW);
         }
@@ -146,7 +145,6 @@ public class RegionResizable extends Resizable{
         lastWidth = region.getWidth();
         lastX = region.getLayoutX();
         lastY = region.getLayoutY();
-        System.out.println("press:" + startMoveX + ", lastX:" + lastX + ", lastWidth:" + lastWidth);
         evt.consume();
     }
 

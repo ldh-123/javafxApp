@@ -74,6 +74,10 @@ public class LPopupButton extends Button {
         });
     }
 
+    public Popup getPopup() {
+        return popup;
+    }
+
     private void show() {
         sizePopup();
         Point2D p = getPrefPopupPosition();
