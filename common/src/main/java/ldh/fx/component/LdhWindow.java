@@ -16,32 +16,40 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.*;
+import ldh.fx.transition.BounceInTransition;
 import ldh.fx.ui.util.StageResizable;
 
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class LdhWindow extends LWindowBody {
+public class LWindow extends LWindowBody {
 
     protected Stage newStage;
     protected Popup popup;
     protected Stage parentStage;
 
-    private BooleanProperty modelProperty = new SimpleBooleanProperty(false);
+    private ObjectProperty<DialogModel> modelProperty = new SimpleObjectProperty(DialogModel.Normal);
+    protected BooleanProperty isMinProperty = new SimpleBooleanProperty(false);
 
-    public LdhWindow() {
+    public LWindow() {
         super();
         buildMovable();
     }
 
-    public void initModel(Stage stage, boolean isModel) {
+    public void initDialogModel(Stage stage) {
+        initDialogModel(stage, DialogModel.Normal);
+    }
+
+    public void initDialogModel(Stage stage, DialogModel dialogModel) {
         parentStage = stage;
-        modelProperty.set(isModel);
-        if (isModel()) {
+        modelProperty.set(dialogModel);
+        if (dialogModel != DialogModel.Normal) {
             newStage = new Stage();
-            newStage.initOwner(stage);
-            newStage.initModality(Modality.APPLICATION_MODAL);
+            if (dialogModel == DialogModel.Application_model) {
+                newStage.initOwner(stage);
+                newStage.initModality(Modality.APPLICATION_MODAL);
+            }
             newStage.initStyle(StageStyle.TRANSPARENT);
             Scene scene = new Scene(this, 800, 600);
             scene.setFill(null);
@@ -68,13 +76,19 @@ public class LdhWindow extends LWindowBody {
     }
 
     public boolean isModel() {
-        return modelProperty.get();
+        return modelProperty.get() != DialogModel.Normal;
     }
 
     public void show() {
-        if (modelProperty.get()) {
+        if (isModel()) {
             newStage.show();
+            isMinProperty.set(false);
         } else {
+            if (popup.isShowing()) {
+                popup.hide();
+                return;
+            }
+            new BounceInTransition(this).play();
             popup.show(parentStage);
         }
     }
