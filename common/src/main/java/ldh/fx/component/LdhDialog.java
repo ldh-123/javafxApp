@@ -24,7 +24,7 @@ import ldh.fx.StageUtil;
 
 import java.io.IOException;
 
-public class LdhDialog extends LdhWindow {
+public class LdhDialog extends LWindow {
 
     @FXML private Label title;
     @FXML private HBox headPane;

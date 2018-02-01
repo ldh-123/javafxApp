@@ -6,6 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
@@ -22,9 +23,9 @@ import java.util.logging.Logger;
 /**
  * Created by ldh on 2018/1/30.
  */
-public class LWindowBody extends BorderPane {
+public class LWindowBase extends BorderPane {
 
-    private Logger logger = Logger.getLogger(LdhWindow.class.getName());
+    private Logger logger = Logger.getLogger(LWindowBase.class.getName());
 
     @FXML
     protected VBox eastEdgePane;
@@ -35,13 +36,18 @@ public class LWindowBody extends BorderPane {
 
     private Resizable resizable;
     private StageMovable stageMovable;
+    private ScrollPane scrollPane = new ScrollPane();
 
-    private ObjectProperty<Node> contentPaneProperty = new SimpleObjectProperty<>();
+    private ObjectProperty<Region> contentPaneProperty = new SimpleObjectProperty<>();
 
-    public LWindowBody() {
+    public LWindowBase() {
         loadFx("/component/LWindow.fxml");
+        this.setCenter(scrollPane);
+        scrollPane.setFitToHeight(true);
+        scrollPane.setFitToWidth(true);
+        scrollPane.getStyleClass().add("content-container");
         contentPaneProperty.addListener((l, o, n)->{
-            this.setCenter(n);
+            scrollPane.setContent(n);
         });
     }
 
@@ -87,11 +93,11 @@ public class LWindowBody extends BorderPane {
         resizable.buildSwBugleResizable();
     }
 
-    public ObjectProperty<Node> contentPaneProperty() {
+    public ObjectProperty<Region> contentPaneProperty() {
         return contentPaneProperty;
     }
 
-    public void setContentPane(Node node) {
+    public void setContentPane(Region node) {
         contentPaneProperty.set(node);
     }
 
@@ -109,60 +115,4 @@ public class LWindowBody extends BorderPane {
             throw new RuntimeException(exception);
         }
     }
-
-//    @FXML
-//    public void close(MouseEvent evt) {
-//        ((Label)evt.getSource()).getScene().getWindow().hide();
-//    }
-//
-//    public void maxDoubleClick(MouseEvent evt) {
-//        if (evt.getClickCount() != 2) return;
-//        maximize(evt);
-//    }
-//
-//    @FXML
-//    public void maximize(MouseEvent evt) {
-//        Node n = (Node)evt.getSource();
-//        Window w = n.getScene().getWindow();
-//        double currentX = w.getX();
-//        double currentY = w.getY();
-//        double currentWidth = w.getWidth();
-//        double currentHeight = w.getHeight();
-//
-//        Screen screen = Screen.getPrimary();
-//        Rectangle2D bounds = screen.getVisualBounds();
-//
-//        if( currentX != bounds.getMinX() &&
-//                currentY != bounds.getMinY() &&
-//                currentWidth != bounds.getWidth() &&
-//                currentHeight != bounds.getHeight() ) {  // if not maximized
-//
-//            w.setX(bounds.getMinX());
-//            w.setY(bounds.getMinY());
-//            w.setWidth(bounds.getWidth());
-//            w.setHeight(bounds.getHeight());
-//
-//            lastX = currentX;  // save old dimensions
-//            lastY = currentY;
-//            lastWidth = currentWidth;
-//            lastHeight = currentHeight;
-//        } else {
-//            w.setX(lastX);
-//            w.setY(lastY);
-//            w.setWidth(lastWidth);
-//            w.setHeight(lastHeight);
-//
-//        }
-//        evt.consume();  // don't bubble up to title bar
-//    }
-//
-//    @FXML
-//    public void minimize(MouseEvent evt) {
-//        Stage stage = (Stage)((Label)evt.getSource()).getScene().getWindow();
-//        stage.setIconified(true);
-//    }
-//
-//    public void setContent(Node node) {
-//        this.setCenter(node);
-//    }
 }

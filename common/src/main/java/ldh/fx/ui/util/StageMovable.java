@@ -31,6 +31,7 @@ public class StageMovable {
         movablePane.setOnMouseReleased(e->endMoveWindow(e));
         movablePane.setOnDragDetected(e->startMoveWindow(e));
     }
+
     public void startMoveWindow(MouseEvent evt) {
         if (evt.getX() < 3 || evt.getX() > movablePane.getScene().getWindow().getWidth() - 3
                 || evt.getY() > movablePane.getScene().getWindow().getHeight() - 3) return;
@@ -74,7 +75,6 @@ public class StageMovable {
                 moveTrackingPopup.hide();
                 moveTrackingPopup = null;
             }
-            System.out.println("x:" + w.getX() + ", y:" + w.getY());
         }
         resetMoveOperation();
     }

@@ -5,7 +5,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import ldh.fx.component.LdhWindow;
+import ldh.fx.component.DialogModel;
 import ldh.fx.ui.util.PageUtil;
 
 /**
@@ -15,8 +15,8 @@ public class LdhWindowTest extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LdhWindow lWindow = new LdhWindow();
-        lWindow.initModel(primaryStage, true);
+        ldh.fx.component.LWindow lWindow = new ldh.fx.component.LWindow();
+        lWindow.initDialogModel(primaryStage, DialogModel.Stand_alone);
 //        lWindow.buildResizable(primaryStage);
         lWindow.setContentPane(new Label("sadfasdfasdfas"));
 //        Scene scene = new Scene(lWindow, 1200, 600);

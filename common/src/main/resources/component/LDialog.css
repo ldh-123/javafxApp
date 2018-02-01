@@ -1,6 +1,6 @@
 .lwindow {
-    -fx-border-width: 1;
-    -fx-border-color: grey;
+    -fx-border-width: 0 1 1 1;
+    -fx-border-color: #007d71;
     -fx-border-radius: 4;
     -fx-background-color: white;
     -fx-background-radius: 4;
@@ -11,11 +11,11 @@
 }
 
 .lwindow .east-edge-pane {
-    -fx-background-color: grey;
+    -fx-background-color: transparent;
 }
 
 .lwindow .west-edge-pane {
-    -fx-background-color: grey;
+    -fx-background-color: transparent;
 }
 
 .lwindow .sw-bugle-pane {
@@ -39,17 +39,17 @@
 }
 
 .lwindow .south-edge-container {
-    -fx-background-color: grey;
+    -fx-background-color: transparent;
     /*-fx-border-color: grey;*/
     /*-fx-border-radius: 0 0 0 0;*/
     /*-fx-border-width: 0 3 3 3;*/
 }
 
 .lwindow .head-pane {
-    -fx-background-color: darkslategray;
-    -fx-padding: 0 5 0 5;
-    -fx-border-color: grey;
-    -fx-border-radius: 4;
+    -fx-background-color: #007d71;
+    -fx-padding: 1 5 0 5;
+    -fx-border-color: #007d71;
+    -fx-border-radius: 4 4 0 0;
     -fx-border-width: 1 0 0 0;
 }
 
@@ -66,6 +66,8 @@
 
 .tracking-rect {
     -fx-fill: grey;
+    -fx-arc-height: 4;
+    -fx-arc-width: 4;
 }
 
 .lwindow .window-graphic {
@@ -90,4 +92,35 @@
     -glyph-name: "WINDOW_CLOSE";
     -icons-color: white;
     -glyph-size: 20px;
+}
+
+.lwindow .max-button {
+    -fx-padding: 5 5 5 5;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.lwindow .max-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.11);
+}
+
+.lwindow .min-button {
+    -fx-padding: 5 5 5 5;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.lwindow .min-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.11);
+}
+
+.lwindow .close-button {
+    -fx-padding: 5 5 5 5;
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+.lwindow .close-button:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.11);
+}
+
+.lwindow .content-container {
+    /*-fx-background-color: transparent;*/
 }

@@ -3,8 +3,8 @@ package ldh.fx.ui;
 import javafx.application.Application;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import ldh.fx.component.LDialog;
-import ldh.fx.component.LdhWindow;
+import ldh.fx.component.DialogModel;
+import ldh.fx.component.LDialogBase;
 
 /**
  * Created by ldh on 2018/1/31.
@@ -13,8 +13,8 @@ public class LDialogTest extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        LDialog lWindow = new LDialog();
-        lWindow.initModel(primaryStage, true);
+        LDialogBase lWindow = new LDialogBase();
+        lWindow.initDialogModel(primaryStage, DialogModel.Stand_alone);
 //        lWindow.buildResizable(primaryStage);
         lWindow.setContentPane(new Label("sadfasdfasdfas"));
 //        Scene scene = new Scene(lWindow, 1200, 600);

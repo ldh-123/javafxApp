@@ -8,26 +8,26 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
-<fx:root type="ldh.fx.component.LdhWindow" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root type="ldh.fx.component.LWindowBase" xmlns:fx="http://javafx.com/fxml/1">
     <top>
-        <HBox fx:id="headPane" styleClass="head-pane" prefHeight="30">
+        <HBox fx:id="headPane" styleClass="head-pane" prefHeight="30" onMouseClicked="#headDoubleClick">
             <children>
                 <HBox HBox.hgrow="ALWAYS">
                     <children>
-                        <Label styleClass="title" text="Flat Win" HBox.hgrow="ALWAYS">
+                        <Label fx:id="titleLabel" styleClass="title" text="Flat Win" HBox.hgrow="ALWAYS">
                             <graphic><MaterialDesignIconView styleClass="window-graphic"/></graphic>
                         </Label>
                     </children>
                 </HBox>
-                <Label onMouseClicked="#maximize" styleClass="max-button" text="m" prefWidth="15" alignment="CENTER" contentDisplay="GRAPHIC_ONLY">
-                    <graphic><MaterialDesignIconView styleClass="window-max-graphic"/></graphic>
-                </Label>
-                <Label onMouseClicked="#minimize" styleClass="min-button" text="_" prefWidth="15" alignment="CENTER" contentDisplay="GRAPHIC_ONLY">
+                <Button fx:id="minButton" onAction="#minimize" styleClass="min-button" text="_" alignment="CENTER" contentDisplay="GRAPHIC_ONLY">
                     <graphic><MaterialDesignIconView styleClass="window-min-graphic"/></graphic>
-                </Label>
-                <Label onMouseClicked="#close" styleClass="close-button" text="X" prefWidth="15" alignment="CENTER" contentDisplay="GRAPHIC_ONLY">
+                </Button>
+                <Button fx:id="maxButton" onAction="#maximize" styleClass="max-button" text="m" alignment="CENTER" contentDisplay="GRAPHIC_ONLY">
+                    <graphic><MaterialDesignIconView styleClass="window-max-graphic"/></graphic>
+                </Button>
+                <Button fx:id="closeButton" onAction="#close" styleClass="close-button" text="X" alignment="CENTER" contentDisplay="GRAPHIC_ONLY">
                     <graphic><MaterialDesignIconView styleClass="window-close-graphic"/></graphic>
-                </Label>
+                </Button>
             </children>
         </HBox>
     </top>
