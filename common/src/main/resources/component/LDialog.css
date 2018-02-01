@@ -11,15 +11,15 @@
 }
 
 .lwindow .east-edge-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: #007d71;
 }
 
 .lwindow .west-edge-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: #007d71;
 }
 
 .lwindow .sw-bugle-pane {
-    -fx-background-color: transparent;
+    -fx-background-color: #007d71;
     -fx-border-color: grey;
     -fx-border-radius: 4;
     -fx-border-width: 0 1 1 0;
@@ -29,8 +29,8 @@
 }
 
 .lwindow .se-bugle-pane {
-    -fx-background-color: transparent;
-    -fx-border-color: grey;
+    -fx-background-color: #007d71;
+    -fx-border-color: #007d71;
     -fx-border-radius: 4;
     -fx-border-width: 0 1 1 0;
     -fx-content-display: graphic-only;
@@ -39,7 +39,7 @@
 }
 
 .lwindow .south-edge-container {
-    -fx-background-color: transparent;
+    -fx-background-color: #007d71;
     /*-fx-border-color: grey;*/
     /*-fx-border-radius: 0 0 0 0;*/
     /*-fx-border-width: 0 3 3 3;*/

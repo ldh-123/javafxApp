@@ -36,7 +36,7 @@ public class LWindow extends LWindowBase {
                 newStage.initModality(Modality.APPLICATION_MODAL);
             }
             newStage.initStyle(StageStyle.TRANSPARENT);
-            Scene scene = new Scene(this, 800, 600);
+            Scene scene = new Scene(this);
             scene.setFill(null);
             newStage.setScene(scene);
         } else {

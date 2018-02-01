@@ -61,8 +61,20 @@ public class LDialogBase extends LWindow implements Initializable {
         buildMovable(headPane);
     }
 
+    public boolean isShowing() {
+        if (isModel()) {
+           return newStage.isShowing();
+        } else {
+            return popup.isShowing();
+        }
+    }
+
     public void close() {
         this.getScene().getWindow().hide();
+    }
+
+    public void min() {
+        close();
     }
 
     public void isShowingMaxButton(boolean isShowingMaxButton) {

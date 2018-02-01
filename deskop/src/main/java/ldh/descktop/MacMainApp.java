@@ -30,7 +30,7 @@ public class MacMainApp extends AbstractMainApp {
     public void start() throws Exception {
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
-        DesktopToolbar toolbar = new MacDesktopToolbar();
+
 
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
@@ -53,6 +53,7 @@ public class MacMainApp extends AbstractMainApp {
 
         DesktopNav desktopNav = buildDesktopDav();
 
+        DesktopToolbar toolbar = new MacDesktopToolbar(desktopPane);
         MacDesktop desktop = new MacDesktop(desktopPane, toolbar, desktopNav);
 
         Scene scene = new Scene(desktop, 1300, 650);

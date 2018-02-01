@@ -5,6 +5,7 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.BorderPane;
@@ -38,7 +39,7 @@ public class LWindowBase extends BorderPane {
     private StageMovable stageMovable;
     private ScrollPane scrollPane = new ScrollPane();
 
-    private ObjectProperty<Region> contentPaneProperty = new SimpleObjectProperty<>();
+    private ObjectProperty<Node> contentPaneProperty = new SimpleObjectProperty<>();
 
     public LWindowBase() {
         loadFx("/component/LWindow.fxml");
@@ -93,11 +94,11 @@ public class LWindowBase extends BorderPane {
         resizable.buildSwBugleResizable();
     }
 
-    public ObjectProperty<Region> contentPaneProperty() {
+    public ObjectProperty<Node> contentPaneProperty() {
         return contentPaneProperty;
     }
 
-    public void setContentPane(Region node) {
+    public void setContentPane(Node node) {
         contentPaneProperty.set(node);
     }
 

@@ -42,7 +42,7 @@ public abstract class AbstractMainApp extends Application {
         Button button = new Button(text);
         button.getStyleClass().add(style);
         desktopNav.getChildren().add(new DesktopNavItem(button));
-        button.setOnAction(e-> DialogUtil.modelInfo("demo", text, 300, 300));
+        button.setOnAction(e-> DialogUtil.modelInfo("demo", text, 200, 100));
         return button;
     }
 }

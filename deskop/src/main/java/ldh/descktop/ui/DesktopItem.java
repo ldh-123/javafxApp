@@ -109,7 +109,7 @@ public class DesktopItem extends StackPane {
                 ldhDialog.close();e.consume();
             });
 
-            ldhDialog.setContentPane((Region) obj);
+            ldhDialog.setContentPane((Node) obj);
         } else if (desktopNodeFactory.isStage(obj)) {
             Stage stage = (Stage) obj;
             stage.show();
