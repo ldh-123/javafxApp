@@ -3,18 +3,20 @@ package ldh.common.ui.page;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import javafx.scene.layout.VBox;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import ldh.fx.component.LdhWindow;
-import org.tbee.javafx.scene.layout.fxml.MigPane;
 
 import java.io.IOException;
 
 public class LoginPage extends LdhWindow {
 
-    @FXML private Rectangle topRectangle;
-    @FXML private Rectangle buttomRectangle;
-    @FXML private MigPane  loginPane;
+    @FXML private Region topRectangle;
+    @FXML private Region buttomRectangle;
+    @FXML private GridPane loginPane;
 
     private Stage STAGE;
 
@@ -25,10 +27,10 @@ public class LoginPage extends LdhWindow {
         this.setPrefWidth(width);this.setMinWidth(width);
 
         loadFxl();
-        topRectangle.setWidth(width);
-        topRectangle.setHeight(height/2-1);
-        buttomRectangle.setWidth(width);
-        buttomRectangle.setHeight(height/2-1);
+//        topRectangle.setWidth(width-3);
+//        topRectangle.setHeight(height/2-1);
+//        buttomRectangle.setWidth(width-3);
+//        buttomRectangle.setHeight(height/2-2);
 
         AnchorPane.setBottomAnchor(topRectangle, height/2);
         AnchorPane.setTopAnchor(buttomRectangle, height/2);

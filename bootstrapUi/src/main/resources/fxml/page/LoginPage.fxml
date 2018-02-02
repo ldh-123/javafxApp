@@ -9,10 +9,11 @@
 
 <?import org.tbee.javafx.scene.layout.fxml.MigPane?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml" prefHeight="100.0" prefWidth="200.0" styleClass="ldh-window" stylesheets="@/css/page/login.css">
+<?import javafx.scene.effect.DropShadow?>
+<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml" prefHeight="380.0" prefWidth="400.0" styleClass="ldh-window" stylesheets="@/css/page/login.css">
     <children>
-        <Rectangle fx:id="topRectangle" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="top-background"/>
-        <Rectangle fx:id="buttomRectangle" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" styleClass="bottom-background"/>
+        <Region fx:id="topRectangle" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="top-background"/>
+        <Region fx:id="buttomRectangle" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" styleClass="bottom-background"/>
         <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="ldh-window-control">
             <children>
                 <Pane HBox.hgrow="ALWAYS"></Pane>
@@ -21,25 +22,30 @@
                 </Button>
             </children>
         </HBox>
-        <MigPane fx:id="loginPane" layout="insets 20, gapy 10px" cols="[grow, 100]" styleClass="login-pane" prefWidth="350" prefHeight="300">
+        <GridPane fx:id="loginPane" styleClass="login-pane" prefWidth="350" prefHeight="300" alignment="CENTER" >
             <children>
-                <Label text="Sign in" MigPane.cc="growx, wrap" styleClass="fild-title, title-center"/>
-                <Separator MigPane.cc="growx, wrap"/>
-                <Label text="USERNAME" MigPane.cc="growx, wrap" styleClass="fild-title"/>
-                <TextField fx:id="emailField" MigPane.cc="growx, wrap" />
+                <Label text="Sign in" styleClass="fild-title, title-center" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <Separator GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label text="USERNAME" styleClass="fild-title" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="emailField" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
 
-                <Label MigPane.cc="wrap"  text="PASSWORD" styleClass="fild-title"/>
-                <PasswordField fx:id="passwordField" MigPane.cc="growx, wrap" />
+                <Label text="PASSWORD" styleClass="fild-title" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+                <PasswordField fx:id="passwordField" GridPane.rowIndex="5" GridPane.columnIndex="0"/>
 
-                <HBox MigPane.cc="growx, wrap" spacing="20">
+                <HBox spacing="20" GridPane.rowIndex="6" GridPane.columnIndex="0">
                     <children>
                         <CheckBox>记住密码</CheckBox>
                         <Label text="Forgot Password ?" styleClass="form-error-label"/>
                     </children>
                 </HBox>
-
-                <Button text="Sign in" MigPane.cc="growx,wrap" styleClass="btn, btn-primary"/>
+                <Button text="Sign in" styleClass="btn, btn-primary" GridPane.rowIndex="7" GridPane.columnIndex="0"/>
             </children>
-        </MigPane >
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES"/>
+            </columnConstraints>
+        </GridPane >
     </children>
+    <effect>
+        <DropShadow/>
+    </effect>
 </fx:root>

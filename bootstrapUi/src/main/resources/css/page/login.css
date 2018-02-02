@@ -11,20 +11,30 @@
 .ldh-window {
     -fx-border-color: #007d71;
     -fx-border-radius: 5px;
+    -fx-background-color: transparent;
+    -fx-background-radius: 5;
 }
 
 .ldh-window>.top-background {
     -fx-background-color: #007d71;
     -fx-fill: #007d71;
+    -fx-arc-height: 5;
+    -fx-arc-width: 5;
 }
 
 .ldh-window>.bottom-background {
     -fx-background-color: #e7e7e7;
     -fx-fill: #e7e7e7;
+    -fx-arc-height: 5;
+    -fx-arc-width: 5;
 }
 
-.ldh-window>.login-pane {
+.ldh-window .login-pane {
     -fx-background-color: white;
+    -fx-border-radius: 4;
+    -fx-background-radius: 4px;
+    -fx-vgap: 10;
+    -fx-padding: 0 10 0 10;
 }
 
 .ldh-window>.login-pane .fild-title{
@@ -76,3 +86,8 @@
 .ldh-window>.login-pane>.separator {
     -fx-padding: 2px 0px 8px 0px;
 }
+
+/*.ldh-window .login-pane {*/
+    /*-fx-border-radius: 4;*/
+    /*-fx-background-color: 4;*/
+/*}*/
