@@ -9,8 +9,8 @@
 
 <?import org.tbee.javafx.scene.layout.fxml.MigPane?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml" prefHeight="100.0" prefWidth="200.0" styleClass="ldh-window" stylesheets="@/css/page/login.css">
-    <children>
+<fx:root type="ldh.fx.component.LWindowBase" xmlns:fx="http://javafx.com/fxml" prefHeight="100.0" prefWidth="200.0" styleClass="ldh-window" stylesheets="@/css/page/login.css">
+    <contentPane>
         <Rectangle fx:id="topRectangle" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="top-background"/>
         <Rectangle fx:id="buttomRectangle" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" styleClass="bottom-background"/>
         <HBox AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="ldh-window-control">
@@ -41,5 +41,5 @@
                 <Button text="Sign in" MigPane.cc="growx,wrap" styleClass="btn, btn-primary"/>
             </children>
         </MigPane >
-    </children>
+    </contentPane>
 </fx:root>

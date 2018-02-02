@@ -1,5 +1,6 @@
 package chart;
 
+import javafx.animation.ScaleTransition;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -7,6 +8,8 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import ldh.fxanimations.FadeInDownBigTransition;
 
 
 public class LineChartSample extends Application {
@@ -40,6 +43,8 @@ public class LineChartSample extends Application {
         series.getData().add(new XYChart.Data(11, 29));
         series.getData().add(new XYChart.Data(12, 25));
 
+        lineChart.setAnimated(true);
+
         Scene scene  = new Scene(lineChart,800,600);
         lineChart.getData().add(series);
 
@@ -48,6 +53,16 @@ public class LineChartSample extends Application {
 
         stage.setScene(scene);
         stage.show();
+
+//        ScaleTransition scaleTransition = new ScaleTransition(Duration.seconds(2), line);
+//        scaleTransition.setFromX(0.2);
+//        scaleTransition.setFromY(0.2);
+//        scaleTransition.setToX(1);
+//        scaleTransition.setToY(1);
+//        scaleTransition.play();
+
+//        FadeInDownBigTransition fadeInDownBigTransition = new FadeInDownBigTransition(line);
+//        fadeInDownBigTransition.play();
     }
 
     public static void main(String[] args)     {

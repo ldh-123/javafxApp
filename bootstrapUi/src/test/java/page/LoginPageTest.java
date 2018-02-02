@@ -22,6 +22,7 @@ public class LoginPageTest extends Application {
         loginPage.setStage(primaryStage);
         Scene scene = new Scene(loginPage);
         scene.getStylesheets().addAll("bootstrapfx.css");
+        scene.getStylesheets().addAll("component/LDialog.css");
         primaryStage.setScene(scene);
         primaryStage.initStyle(StageStyle.UNDECORATED);
         primaryStage.centerOnScreen();
