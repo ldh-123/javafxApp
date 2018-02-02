@@ -1,10 +1,7 @@
 package ldh.fx.component;
 
-import javafx.beans.InvalidationListener;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -16,7 +13,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -24,7 +20,7 @@ import ldh.fx.StageUtil;
 
 import java.io.IOException;
 
-public class LdhDialog extends LdhResizeWindow {
+public class LdhDialog extends LxWindow {
 
     @FXML private Label title;
     @FXML private HBox headPane;
@@ -53,7 +49,7 @@ public class LdhDialog extends LdhResizeWindow {
         Scene scene = new Scene(this, width, height);
         scene.setFill(null);
         dialogStage.setScene(scene);
-        this.setStage(dialogStage);
+//        this.setStage(dialogStage);
         buildMovable(headPane);
         if (isResize) {
             buildResizable(this);
@@ -134,7 +130,7 @@ public class LdhDialog extends LdhResizeWindow {
     }
 
     public Stage getNewStage() {
-        return this.newStage;
+        return this.dialogStage;
     }
 
     public boolean isShowing() {

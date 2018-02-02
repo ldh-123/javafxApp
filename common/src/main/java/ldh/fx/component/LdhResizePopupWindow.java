@@ -1,15 +1,11 @@
 package ldh.fx.component;
 
-import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
-import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
 
-public class LdhResizePopupWindow extends LdhWindow {
+public class LdhResizePopupWindow extends LxWindowBase {
 
     private static int RESIZE_PADDING = 3;
     private static int SHADOW_WIDTH = 0;

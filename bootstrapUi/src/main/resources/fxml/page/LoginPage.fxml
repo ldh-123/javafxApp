@@ -45,7 +45,4 @@
             </columnConstraints>
         </GridPane >
     </children>
-    <effect>
-        <DropShadow/>
-    </effect>
 </fx:root>

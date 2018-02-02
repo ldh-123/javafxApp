@@ -5,14 +5,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
-import ldh.fx.component.LdhWindow;
+import ldh.fx.component.LxWindowBase;
 
 import java.io.IOException;
 
-public class LoginPage extends LdhWindow {
+public class LoginPage extends LxWindowBase {
 
     @FXML private Region topRectangle;
     @FXML private Region buttomRectangle;

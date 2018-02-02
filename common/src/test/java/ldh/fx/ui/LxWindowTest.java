@@ -6,9 +6,12 @@
 package ldh.fx.ui;
 
 import javafx.application.Application;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import ldh.fx.ui.window.LxWindow;
+import javafx.stage.StageStyle;
+import ldh.fx.component.DialogModel;
+import ldh.fx.component.LxWindow;
 
 /**
  *
@@ -18,8 +21,15 @@ public class LxWindowTest extends Application{
 
     @Override
     public void start(Stage stage) throws Exception {
-        LxWindow window = new LxWindow(stage, "sadadfa", new Label("sadfafdasfasdfasfasdfsadfasfsafdas"));
-        window.show();
+        LxWindow window = new LxWindow();
+        window.buildResizable(window);
+//        window.buildMovable(window);
+        window.setStyle("-fx-background-color:grey;");
+        window.setDialogModel(DialogModel.Normal);
+        Scene scene = new Scene(window, 300, 400);
+        stage.setScene(scene);
+        stage.initStyle(StageStyle.TRANSPARENT);
+        stage.show();
     }
 
     /**

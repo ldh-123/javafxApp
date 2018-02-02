@@ -1,18 +1,21 @@
 package ldh.fx.component;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Window;
 
-import java.util.logging.Level;
+import java.io.IOException;
 import java.util.logging.Logger;
 
-public class LdhWindow extends AnchorPane {
+public class LxWindowBase extends AnchorPane {
 
-    private Logger logger = Logger.getLogger(LdhWindow.class.getName());
+    private Logger logger = Logger.getLogger(LxWindowBase.class.getName());
+
+    @FXML private BorderPane contentContainer;
 
     private double startMoveX = -1;
     private double startMoveY = -1;
@@ -23,13 +26,12 @@ public class LdhWindow extends AnchorPane {
 
     protected Double layoutX = 0d, layoutY = 0d;
 
-    public LdhWindow() {
-//        buildMovable(this);
+    public LxWindowBase() {
+        loadFx("/component/LxWindow.fxml");
     }
 
-    public void setContentPane(Node node) {
-        this.getChildren().clear();
-        this.getChildren().add(node);
+    protected BorderPane getContentContainer() {
+        return contentContainer;
     }
 
     public void startMoveWindow(MouseEvent evt) {
@@ -67,9 +69,20 @@ public class LdhWindow extends AnchorPane {
         layoutY = this.getScene().getWindow().getY();
     }
 
-    protected void buildMovable(Region node) {
+    public void buildMovable(Region node) {
         node.setOnDragDetected(e->startMoveWindow(e));
         node.setOnMouseDragged(e->moveWindow(e));
         node.setOnMouseReleased(e->endMoveWindow(e));
+    }
+
+    protected void loadFx(String fxmlPath) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+        fxmlLoader.setRoot(this);
+        fxmlLoader.setController(this);
+        try {
+            fxmlLoader.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
     }
 }
