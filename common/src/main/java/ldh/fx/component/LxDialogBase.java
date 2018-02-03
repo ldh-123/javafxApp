@@ -2,6 +2,7 @@ package ldh.fx.component;
 
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -10,10 +11,10 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.stage.Screen;
+import javafx.stage.Stage;
 import javafx.stage.Window;
-import ldh.fx.StageUtil;
 import ldh.fx.ui.util.NodeUtil;
 
 /**
@@ -35,6 +36,30 @@ public class LxDialogBase extends LxWindow {
         loadFx("/component/LxDialog.fxml");
     }
 
+    public void initDialogModel(Stage stage, DialogModel dialogModel) {
+        super.initDialogModel(stage, dialogModel);
+        if (!isModel()) {
+            popup.showingProperty().addListener((l, o, n)->{
+                if (n) {
+                    if (layoutX < 0.1 || layoutY < 0.1) {
+                        if (parentStage != null) {
+                            Window window = parentStage.getScene().getWindow();
+                            Rectangle2D rectangle2D = Screen.getPrimary().getVisualBounds();
+                            ObservableList<Screen> screens = Screen.getScreensForRectangle(window.getX(), window.getY(), window.getWidth(), window.getHeight());
+                            if (screens != null && screens.size() > 0) {
+                                Screen screen = screens.get(0);
+                                rectangle2D = screen.getVisualBounds();
+                            }
+                            layoutX = rectangle2D.getMinX() + (rectangle2D.getWidth() - this.getWidth())/2;
+                            layoutY = rectangle2D.getMinY() + (rectangle2D.getHeight() - this.getHeight())/2;
+                            popup.show(parentStage, layoutX, layoutY);
+                        }
+                    }
+                }
+            });
+        }
+    }
+
     public void setTitle(String title) {
         titleLabel.setText(title);
     }
@@ -49,6 +74,7 @@ public class LxDialogBase extends LxWindow {
             if (isFirstShow) {
                 dialogStage.show();
                 isFirstShow = false;
+                return;
             }
             if (dialogStage.isIconified()) {
                 dialogStage.setIconified(false);
@@ -60,7 +86,7 @@ public class LxDialogBase extends LxWindow {
                 popup.hide();
                 return;
             }
-            popup.show(parentStage);
+            popup.show(parentStage, layoutX, layoutY);
         }
     }
 
@@ -83,8 +109,8 @@ public class LxDialogBase extends LxWindow {
             return;
         }
         Rectangle2D rectangle2D = NodeUtil.getVisualBound(this);
-        layoutX = rectangle2D.getMinX();
-        layoutY = rectangle2D.getMinY();
+        layoutX = rectangle2D.getMinX() + this.getScene().getWindow().getX();
+        layoutY = rectangle2D.getMinY() + this.getScene().getWindow().getY();
         popup.hide();
     }
 
@@ -106,14 +132,14 @@ public class LxDialogBase extends LxWindow {
         if (Math.abs(window.getWidth() - rectangle2D.getWidth()) < 0.001) {
             this.setPrefSize(windowWidth, windowHeight);
             popup.hide();
-            popup.show(StageUtil.STAGE, layoutX, layoutY);
+            popup.show(parentStage, layoutX, layoutY);
         } else {
             windowWidth = window.getWidth();
             windowHeight = window.getHeight();
             layoutX = window.getX();
             layoutY = window.getY();
             this.setPrefSize(rectangle2D.getWidth(), rectangle2D.getHeight());
-            popup.show(StageUtil.STAGE, rectangle2D.getMinX(), rectangle2D.getMinY());
+            popup.show(parentStage, rectangle2D.getMinX(), rectangle2D.getMinY());
         }
     }
 

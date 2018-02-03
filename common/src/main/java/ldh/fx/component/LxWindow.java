@@ -7,10 +7,7 @@ import javafx.scene.Cursor;
 import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
-import javafx.stage.Popup;
-import javafx.stage.Screen;
-import javafx.stage.Stage;
-import javafx.stage.StageStyle;
+import javafx.stage.*;
 
 public class LxWindow extends LxWindowBase {
 
@@ -56,8 +53,12 @@ public class LxWindow extends LxWindowBase {
     protected void buildWindow() {
         if (isModel()) {
             dialogStage = new Stage();
+            if (dialogModel == DialogModel.Application) {
+                dialogStage.initOwner(parentStage);
+            }
             if (dialogModel == DialogModel.Application_model) {
                 dialogStage.initOwner(parentStage);
+                dialogStage.initModality(Modality.APPLICATION_MODAL);
             }
             dialogStage.initStyle(StageStyle.TRANSPARENT);
             Scene scene = new Scene(this);
