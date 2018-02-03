@@ -4,17 +4,20 @@ import javafx.collections.ObservableList;
 import javafx.geometry.Bounds;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
+import javafx.scene.Scene;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Region;
+import javafx.stage.Popup;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 public class LxWindow extends LxWindowBase {
 
     private DialogModel dialogModel;
-
-    private static int RESIZE_PADDING = 5;
-    private static int SHADOW_WIDTH = 0;
+    protected Stage parentStage;
+    protected Stage dialogStage;
+    protected Popup popup;
 
     private double initX = -1;
     private double initY = -1;
@@ -26,15 +29,64 @@ public class LxWindow extends LxWindowBase {
 
     private static Double headHeight = 35d;
 
-    public void setDialogModel(DialogModel dialogModel) {
+    public void initDialogModel(Stage stage, DialogModel dialogModel) {
+        this.parentStage = stage;
         this.dialogModel = dialogModel;
+
+        buildWindow();
     }
 
-    public void buildResizable(Region node) {
-        node.setOnMouseMoved(e->nodeMove(e));
-        node.setOnMousePressed(e->nodeClick(e));
-        node.setOnMouseDragged(e->nodeDrage(e));
-        node.setOnMouseReleased(e->nodeRelease(e));
+    public void show() {
+        if (isModel()) {
+            if(dialogStage.isShowing()) {
+                dialogStage.hide();
+                return;
+            }
+            dialogStage.show();
+        } else {
+//            popup.hide();
+            if (popup.isShowing()) {
+                popup.hide();
+                return;
+            }
+            popup.show(parentStage);
+        }
+    }
+
+    protected void buildWindow() {
+        if (isModel()) {
+            dialogStage = new Stage();
+            if (dialogModel == DialogModel.Application_model) {
+                dialogStage.initOwner(parentStage);
+            }
+            dialogStage.initStyle(StageStyle.TRANSPARENT);
+            Scene scene = new Scene(this);
+            dialogStage.setScene(scene);
+        } else {
+            popup = new Popup();
+            popup.getContent().clear();
+            popup.getContent().add(this);
+            popup.setAutoHide(false);
+        }
+    }
+
+    public void setResizable() {
+        buildResizable(this);
+    }
+
+    public void setMovable() {
+        buildMovable(this);
+    }
+
+    protected void buildResizable(Region node) {
+//        node.setOnMouseMoved(e->nodeMove(e));
+//        node.setOnMousePressed(e->nodeClick(e));
+//        node.setOnMouseDragged(e->nodeDrage(e));
+//        node.setOnMouseReleased(e->nodeRelease(e));
+        node.addEventFilter(MouseEvent.MOUSE_MOVED, e->nodeMove(e));
+        node.addEventFilter(MouseEvent.MOUSE_PRESSED, e->nodeClick(e));
+        node.addEventFilter(MouseEvent.MOUSE_DRAGGED, e->nodeDrage(e));
+        node.addEventFilter(MouseEvent.MOUSE_RELEASED, e->nodeRelease(e));
     }
 
     protected boolean isModel() {
@@ -51,8 +103,8 @@ public class LxWindow extends LxWindowBase {
         if (isModel()) {
             initWidth = this.getScene().getWindow().getWidth();
             initHeight = this.getScene().getWindow().getHeight();
-            initStageX = this.getScene().getX();
-            initStageY = this.getScene().getY();
+            initStageX = this.getScene().getWindow().getX();
+            initStageY = this.getScene().getWindow().getY();
         } else {
             initWidth = this.getWidth();
             initHeight = this.getHeight();
@@ -60,7 +112,7 @@ public class LxWindow extends LxWindowBase {
             initStageY = this.getLayoutY();
         }
         isDragable = true;
-        mouseEvent.consume();
+//        mouseEvent.consume();
     }
 
     private void nodeDrage(MouseEvent mouseEvent) {
@@ -76,31 +128,26 @@ public class LxWindow extends LxWindowBase {
         Cursor cursor = this.getCursor();
         if (Cursor.E_RESIZE.equals(cursor)) {
             setStageWidth(initWidth + deltax);
-            mouseEvent.consume();
         } else if (Cursor.NE_RESIZE.equals(cursor)) {
             if (setStageHeight(initHeight - deltay)) {
-                setStageY(initStageX + deltay);
+                setStageY(initStageY + deltay);
             }
             setStageWidth(initWidth + deltax);
-            mouseEvent.consume();
         } else if (Cursor.SE_RESIZE.equals(cursor)) {
             setStageWidth(initWidth + deltax);
             setStageHeight(initHeight + deltay);
             mouseEvent.consume();
         } else if (Cursor.S_RESIZE.equals(cursor)) {
             setStageHeight(initHeight + deltay);
-            mouseEvent.consume();
         } else if (Cursor.W_RESIZE.equals(cursor)) {
             if (setStageWidth(initWidth - deltax)) {
                 setStageX(initStageX + deltax);
             }
-            mouseEvent.consume();
         } else if (Cursor.SW_RESIZE.equals(cursor)) {
             if (setStageWidth(initWidth - deltax)) {
                 setStageX(initStageX + deltax);
             }
             setStageHeight(initHeight + deltay);
-            mouseEvent.consume();
         } else if (Cursor.NW_RESIZE.equals(cursor)) {
             if (setStageWidth(initWidth - deltax)) {
                 setStageX(initStageX + deltax);
@@ -108,13 +155,12 @@ public class LxWindow extends LxWindowBase {
             if (setStageHeight(initHeight - deltay)) {
                 setStageY(initStageY + deltay);
             }
-            mouseEvent.consume();
         } else if (Cursor.N_RESIZE.equals(cursor)) {
             if (setStageHeight(initHeight - deltay)) {
                 setStageY(initStageY + deltay);
             }
-            mouseEvent.consume();
         }
+//        mouseEvent.consume();
     }
 
     private void nodeMove(MouseEvent mouseEvent) {
@@ -152,7 +198,7 @@ public class LxWindow extends LxWindowBase {
     boolean setStageWidth(double width) {
         if (isModel()) {
             this.getScene().getWindow().setWidth(width);
-            this.setPrefWidth(width);
+//            this.setPrefWidth(width);
             return true;
         } else {
             this.setWidth(width);
@@ -164,8 +210,8 @@ public class LxWindow extends LxWindowBase {
     boolean setStageHeight(double height) {
         if (isModel()) {
             this.getScene().getWindow().setHeight(height);
-            this.setPrefHeight(height);
-            return false;
+//            this.setPrefHeight(height);
+            return true;
         } else {
             this.setHeight(height);
             setPrefHeight(height);
@@ -195,33 +241,4 @@ public class LxWindow extends LxWindowBase {
         }
         this.setLayoutX(x);
     }
-
-    private boolean isRightEdge(double x, double y, Bounds boundsInParent) {
-        if (x < boundsInParent.getWidth() && x > boundsInParent.getWidth() - RESIZE_PADDING - SHADOW_WIDTH &&  y > headHeight + this.getPadding().getLeft()) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isTopEdge(double x, double y, Bounds boundsInParent) {
-        if (y >= 0 && y < RESIZE_PADDING + SHADOW_WIDTH && x < boundsInParent.getWidth() - 100 && x > 50) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isBottomEdge(double x, double y, Bounds boundsInParent) {
-        if (y < boundsInParent.getHeight() && y > boundsInParent.getHeight() - RESIZE_PADDING - SHADOW_WIDTH) {
-            return true;
-        }
-        return false;
-    }
-
-    private boolean isLeftEdge(double x, double y, Bounds boundsInParent) {
-        if (x >= 0 && x < RESIZE_PADDING + SHADOW_WIDTH && y > headHeight + this.getPadding().getLeft()) {
-            return true;
-        }
-        return false;
-    }
-
 }

@@ -38,6 +38,7 @@ public class WinMainApp extends AbstractMainApp {
 
         Scene scene = new Scene(desktop, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
+        scene.getStylesheets().add("/component/LxDialog.css");
         stage.setScene(scene);
         stage.setTitle("Win10桌面");
         stage.show();

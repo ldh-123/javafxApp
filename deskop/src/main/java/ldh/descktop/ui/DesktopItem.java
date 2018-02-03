@@ -11,8 +11,10 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ldh.fx.StageUtil;
+import ldh.fx.component.DialogModel;
 import ldh.fx.component.LdhDialog;
 import ldh.fx.component.LdhPopupDialog;
+import ldh.fx.component.LxDialog;
 import ldh.fx.util.DialogUtil;
 import org.apache.commons.lang3.StringUtils;
 
@@ -93,10 +95,10 @@ public class DesktopItem extends StackPane {
         Object obj = desktopNodeFactory.create();
         if (desktopNodeFactory.isNode(obj)) {
 
-
-            LdhPopupDialog ldhDialog = new LdhPopupDialog(getLabel().getTooltip().getText(), 800d, 500d);
+            LxDialog ldhDialog = new LxDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), DialogModel.Normal, 800d, 500d);
 //            LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
 //            ldhDialog.setIsHide(true);
+            ldhDialog.setResizable();
             ldhDialog.show();
 
             ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));

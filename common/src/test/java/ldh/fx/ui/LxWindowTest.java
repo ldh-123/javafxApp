@@ -7,6 +7,7 @@ package ldh.fx.ui;
 
 import javafx.application.Application;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -22,13 +23,16 @@ public class LxWindowTest extends Application{
     @Override
     public void start(Stage stage) throws Exception {
         LxWindow window = new LxWindow();
-        window.buildResizable(window);
-//        window.buildMovable(window);
         window.setStyle("-fx-background-color:grey;");
-        window.setDialogModel(DialogModel.Normal);
-        Scene scene = new Scene(window, 300, 400);
+        window.initDialogModel(stage, DialogModel.Normal);
+        window.setPrefSize(300, 400);
+        window.setMovable();
+        window.setResizable();
+        Button b = new Button("open");
+        b.setOnAction(e->window.show());
+        Scene scene = new Scene(b, 300, 400);
         stage.setScene(scene);
-        stage.initStyle(StageStyle.TRANSPARENT);
+//        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
 

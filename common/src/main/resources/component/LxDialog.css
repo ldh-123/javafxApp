@@ -1,0 +1,58 @@
+.lx-window {
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-border-radius: 4;
+    -fx-background-color: #007d71;
+    -fx-background-radius: 4;
+}
+
+.lx-window>ScrollPane {
+    -fx-background-color: transparent;
+}
+
+.lx-window .lx-head-pane {
+    -fx-background-color: #007d71;
+    -fx-background-radius: 4;
+    -fx-border-radius: 4;
+}
+
+.lx-window .lx-head-pane Label {
+    -fx-padding: 5 0 0 5;
+    -fx-text-fill: white;
+}
+
+.lx-window .lx-head-pane Button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-content-display: graphic-only;
+}
+
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    /*-glyph-size: 25px;*/
+}
+
+.lx-window .window-graphic {
+    -glyph-name: "WINDOWS";
+    -icons-color: white;
+    -glyph-size: 20px;
+}
+
+.lx-window .window-max-graphic {
+    -glyph-name: "WINDOW_MAXIMIZE";
+    -icons-color: white;
+    -glyph-size: 20px;
+}
+
+.lx-window .window-min-graphic {
+    -glyph-name: "WINDOW_MINIMIZE";
+    -icons-color: white;
+    -glyph-size: 20px;
+}
+
+.lx-window .window-close-graphic {
+    -glyph-name: "WINDOW_CLOSE";
+    -icons-color: white;
+    -glyph-size: 20px;
+}

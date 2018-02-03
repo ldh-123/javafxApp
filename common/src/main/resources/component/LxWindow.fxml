@@ -4,5 +4,5 @@
 
 <fx:root type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx"
          xmlns:fx="http://javafx.com/fxml" styleClass="lx-window">
-    <BorderPane fx:id="contentContainer" styleClass="content-container"></BorderPane>
+    <!--<BorderPane fx:id="contentContainer" styleClass="content-container"></BorderPane>-->
 </fx:root>

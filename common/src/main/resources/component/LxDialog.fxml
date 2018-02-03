@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<fx:root type="ldh.fx.component.LxWindow" xmlns="http://javafx.com/javafx"
+         xmlns:fx="http://javafx.com/fxml">
+    <HBox fx:id="headPane" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" prefHeight="30" styleClass="lx-head-pane" mouseTransparent="false">
+        <children>
+            <Label fx:id="titleLabel">
+                <graphic><MaterialDesignIconView styleClass="window-graphic"/></graphic>
+            </Label>
+            <Pane HBox.hgrow="ALWAYS" mouseTransparent="true"></Pane>
+            <Button text="min" fx:id="windowMinBtn" onAction="#min">
+                <graphic><MaterialDesignIconView styleClass="window-min-graphic"/></graphic>
+            </Button>
+            <Button fx:id="windowMaxBtn" text="max" onAction="#max">
+                <graphic><MaterialDesignIconView styleClass="window-max-graphic"/></graphic>
+            </Button>
+            <Button text="close" onAction="#close">
+                <graphic><MaterialDesignIconView styleClass="window-close-graphic"/></graphic>
+            </Button>
+        </children>
+    </HBox>
+    <ScrollPane fx:id="contentPane" fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
+                AnchorPane.bottomAnchor="0">
+        <!--<AnchorPane  styleClass="content-pane"></AnchorPane>-->
+    </ScrollPane>
+
+</fx:root>

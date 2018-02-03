@@ -165,28 +165,28 @@ public class LdhResizePopupWindow extends LxWindowBase {
         this.setLayoutY(y);
     }
 
-    private boolean isRightEdge(double x, double y, Bounds boundsInParent) {
+    protected boolean isRightEdge(double x, double y, Bounds boundsInParent) {
         if (x < boundsInParent.getWidth() && x > boundsInParent.getWidth() - RESIZE_PADDING - SHADOW_WIDTH &&  y > headHeight + this.getPadding().getLeft()) {
             return true;
         }
         return false;
     }
 
-    private boolean isTopEdge(double x, double y, Bounds boundsInParent) {
+    protected boolean isTopEdge(double x, double y, Bounds boundsInParent) {
         if (y >= 0 && y < RESIZE_PADDING + SHADOW_WIDTH && x < boundsInParent.getWidth() - 100 && x > 50) {
             return true;
         }
         return false;
     }
 
-    private boolean isBottomEdge(double x, double y, Bounds boundsInParent) {
+    protected boolean isBottomEdge(double x, double y, Bounds boundsInParent) {
         if (y < boundsInParent.getHeight() && y > boundsInParent.getHeight() - RESIZE_PADDING - SHADOW_WIDTH) {
             return true;
         }
         return false;
     }
 
-    private boolean isLeftEdge(double x, double y, Bounds boundsInParent) {
+    protected boolean isLeftEdge(double x, double y, Bounds boundsInParent) {
         if (x >= 0 && x < RESIZE_PADDING + SHADOW_WIDTH && y > headHeight + this.getPadding().getTop()) {
             return true;
         }
