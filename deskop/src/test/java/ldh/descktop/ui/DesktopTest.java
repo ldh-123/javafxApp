@@ -55,6 +55,7 @@ public class DesktopTest extends Application {
 
         Scene scene = new Scene(desktop, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("/component/LxDialog.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.setTitle("demo");
         primaryStage.setOnCloseRequest(e->{
