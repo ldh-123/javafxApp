@@ -24,7 +24,6 @@ public class WinMainApp extends AbstractMainApp {
     public void start() throws Exception {
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
-        DesktopToolbar toolbar = new WinDesktopToolbar();
 
         DesktopPane desktopPane = new DesktopPane();
 //        desktop.setPadding(new Insets(20));

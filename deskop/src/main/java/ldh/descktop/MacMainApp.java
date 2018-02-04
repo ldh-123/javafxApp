@@ -31,7 +31,6 @@ public class MacMainApp extends AbstractMainApp {
         Image image = new Image(WinMainApp.class.getResource("/images/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
 
-
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
 //        desktop.setPadding(new Insets(20));

@@ -16,7 +16,6 @@ import ldh.fx.component.LDialog;
 import ldh.fx.component.LDialogBase;
 import ldh.fx.component.DialogModel;
 import ldh.fx.component.LdhDialog;
-import ldh.fx.component.LdhPopupDialog;
 import ldh.fx.component.LxDialog;
 import ldh.fx.util.DialogUtil;
 import org.apache.commons.lang3.StringUtils;
@@ -97,8 +96,8 @@ public class DesktopItem extends StackPane {
 
         Object obj = desktopNodeFactory.create();
         if (desktopNodeFactory.isNode(obj)) {
-
-            LDialog ldhDialog = new LDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), 800d, 500d);
+            LxDialog ldhDialog = new LxDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), 800d, 500d);
+            ldhDialog.setResizable();
 //            LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
 //            ldhDialog.setIsHide(true);
             ldhDialog.show();

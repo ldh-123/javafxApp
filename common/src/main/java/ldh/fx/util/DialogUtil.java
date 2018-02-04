@@ -33,12 +33,12 @@ public class DialogUtil {
     }
 
     public static void modelInfo(String title, String info, double width, double height) {
-        LDialog window = new LDialog(StageUtil.STAGE, title, width, height, DialogModel.Application_model);
-        window.getScene().getStylesheets().add("component/LDialog.css");
+        LxDialog window = new LxDialog(StageUtil.STAGE, title, DialogModel.Application_model, width, height);
+        window.getScene().getStylesheets().add("/component/LxDialog.css");
         window.setContentPane(new Label(info));
         window.setPrefSize(width, height);
-//        window.setWindowMin(false);
-//        window.setWindowMax(false);
+        window.isShowingMinButton(false);
+        window.isShowingMaxButton(false);
 //        window.setModel(true);
         window.show();
     }

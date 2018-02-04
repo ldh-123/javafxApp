@@ -62,6 +62,7 @@ public class LxWindow extends LxWindowBase {
             }
             dialogStage.initStyle(StageStyle.TRANSPARENT);
             Scene scene = new Scene(this);
+            scene.setFill(null);
             dialogStage.setScene(scene);
         } else {
             popup = new Popup();

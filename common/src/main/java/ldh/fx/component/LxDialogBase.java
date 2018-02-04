@@ -69,6 +69,13 @@ public class LxDialogBase extends LxWindow {
 //        contentPane.getChildren().add(node);
     }
 
+    public boolean isShowing() {
+        if (isModel()) {
+            return dialogStage.isShowing();
+        }
+        return popup.isShowing();
+    }
+
     public void show() {
         if (isModel()) {
             if (isFirstShow) {
@@ -90,11 +97,11 @@ public class LxDialogBase extends LxWindow {
         }
     }
 
-    public void isShowingMaxBtn(boolean isShowing) {
+    public void isShowingMaxButton(boolean isShowing) {
         windowMaxBtn.setVisible(isShowing);
     }
 
-    public void isShowingMinBtn(boolean isShowing) {
+    public void isShowingMinButton(boolean isShowing) {
         windowMinBtn.setVisible(isShowing);
     }
 

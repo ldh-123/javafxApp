@@ -8,6 +8,7 @@
 
 .lx-window>ScrollPane {
     -fx-background-color: transparent;
+    /*-fx-padding: 5;*/
 }
 
 .lx-window .lx-head-pane {

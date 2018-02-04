@@ -16,6 +16,7 @@ import ldh.fx.StageUtil;
 import ldh.fx.component.DialogModel;
 import ldh.fx.component.LDialog;
 import ldh.fx.component.LPopupButton;
+import ldh.fx.component.LxDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -83,7 +84,7 @@ public class MacDesktopToolbar extends DesktopToolbar {
 
     private void addBrowserDialog() {
         ToolbarButton toolbarButton = new ToolbarButton(new Button("百度搜索"));
-        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "百度搜索", 1000d, 600d, DialogModel.Stand_alone);
+        LxDialog ldhDialog = new LxDialog(StageUtil.STAGE, "百度搜索", DialogModel.Stand_alone, 1000d, 600d);
         ldhDialog.getScene().getStylesheets().add("component/LDialog.css");
 //        ldhDialog.setModel(false);
 //        ldhDialog.setIsHide(true);
