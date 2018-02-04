@@ -2,7 +2,6 @@ package ldh.fx;
 
 import javafx.stage.Stage;
 import javafx.util.Callback;
-import sun.plugin2.jvm.RemoteJVMLauncher;
 
 import java.util.Iterator;
 import java.util.Map;

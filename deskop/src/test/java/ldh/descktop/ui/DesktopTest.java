@@ -22,7 +22,7 @@ public class DesktopTest extends Application {
         StageUtil.STAGE = primaryStage;
         Image image = new Image(DesktopTest.class.getResource("/img/win10.png").toExternalForm());
         DesktopNodeFactory nodeFactory = () -> {WebView webView = new WebView(); webView.getEngine().load("http://www.baidu.com"); return webView;};
-        DesktopToolbar toolbar = new WinDesktopToolbar();
+
 
         DesktopPane desktopPane = new DesktopPane();
         desktopPane.getStyleClass().add("desktop");
@@ -50,6 +50,7 @@ public class DesktopTest extends Application {
         label.setGraphic(icon);
         desktopPane.getChildren().add(new DesktopItem(label, ()->new AnimationPane()));
 
+        DesktopToolbar toolbar = new WinDesktopToolbar(desktopPane);
         WinDesktop desktop = new WinDesktop(desktopPane, toolbar);
 
         Scene scene = new Scene(desktop, 1200, 700);

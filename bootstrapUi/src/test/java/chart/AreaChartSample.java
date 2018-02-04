@@ -13,6 +13,7 @@ public class AreaChartSample extends Application {
     @Override public void start(Stage stage) {
         stage.setTitle("Area Chart Sample");
         final NumberAxis xAxis = new NumberAxis(1, 31, 1);
+        xAxis.setAnimated(true);
         final NumberAxis yAxis = new NumberAxis();
         final AreaChart<Number,Number> ac =
                 new AreaChart<Number,Number>(xAxis,yAxis);

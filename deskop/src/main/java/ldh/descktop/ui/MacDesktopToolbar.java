@@ -12,8 +12,10 @@ import javafx.scene.layout.VBox;
 import javafx.scene.web.WebView;
 import javafx.stage.WindowEvent;
 import ldh.descktop.util.ThreadToolUtil;
+import ldh.fx.StageUtil;
+import ldh.fx.component.DialogModel;
+import ldh.fx.component.LDialog;
 import ldh.fx.component.LPopupButton;
-import ldh.fx.component.LdhDialog;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -26,8 +28,8 @@ public class MacDesktopToolbar extends DesktopToolbar {
 
     private LPopupButton macButton = null;
 
-    public MacDesktopToolbar() {
-        super();
+    public MacDesktopToolbar(DesktopPane desktopPane) {
+        super(desktopPane);
     }
 
     protected void initItem() {
@@ -37,6 +39,9 @@ public class MacDesktopToolbar extends DesktopToolbar {
         macButton.setGraphic(macGraphic);
         macButton.getStyleClass().add("toolbar-item");
         macButton.setPopupContentPane(new Label("asdfaffdadfasdfasfasdfasfsa"));
+        macButton.getPopup().showingProperty().addListener((l, o, n)->{
+            animation(n);
+        });
 
         this.getLeftPane().getChildren().add(0, macButton);
 
@@ -70,14 +75,18 @@ public class MacDesktopToolbar extends DesktopToolbar {
         }
         box.getChildren().add(messageButton);
         messageButton.setPopupContentPane(new Label("asdfasfasfdasfa"));
+        messageButton.getPopup().showingProperty().addListener((l, o, n)->{
+            animation(n);
+        });
         return messageButton;
     }
 
     private void addBrowserDialog() {
         ToolbarButton toolbarButton = new ToolbarButton(new Button("百度搜索"));
-        LdhDialog ldhDialog = new LdhDialog("百度搜索", 1000d, 600d);
-        ldhDialog.setModel(false);
-        ldhDialog.setIsHide(true);
+        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "百度搜索", 1000d, 600d, DialogModel.Stand_alone);
+        ldhDialog.getScene().getStylesheets().add("component/LDialog.css");
+//        ldhDialog.setModel(false);
+//        ldhDialog.setIsHide(true);
         WebView webView = new WebView();
         ldhDialog.setContentPane(webView);
         ldhDialog.show();
@@ -93,4 +102,6 @@ public class MacDesktopToolbar extends DesktopToolbar {
         toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
         Platform.runLater(()->webView.getEngine().load("http://www.baidu.com"));
     }
+
+
 }

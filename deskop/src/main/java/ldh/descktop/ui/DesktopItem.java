@@ -6,11 +6,14 @@ import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ldh.fx.StageUtil;
+import ldh.fx.component.LDialog;
+import ldh.fx.component.LDialogBase;
 import ldh.fx.component.DialogModel;
 import ldh.fx.component.LdhDialog;
 import ldh.fx.component.LdhPopupDialog;
@@ -95,10 +98,9 @@ public class DesktopItem extends StackPane {
         Object obj = desktopNodeFactory.create();
         if (desktopNodeFactory.isNode(obj)) {
 
-            LxDialog ldhDialog = new LxDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), DialogModel.Normal, 800d, 500d);
+            LDialog ldhDialog = new LDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), 800d, 500d);
 //            LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
 //            ldhDialog.setIsHide(true);
-            ldhDialog.setResizable();
             ldhDialog.show();
 
             ldhDialog.setOnCloseRequestHandler(e->desktopToolbar.getContentPane().getChildren().remove(toolbarButton));
@@ -106,7 +108,10 @@ public class DesktopItem extends StackPane {
                 ldhDialog.show();
             });
 
-            toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{ldhDialog.close();e.consume();});
+            toolbarButton.getButton().addEventHandler(WindowEvent.WINDOW_CLOSE_REQUEST, e->{
+                desktopToolbar.getContentPane().getChildren().remove(toolbarButton);
+                ldhDialog.close();e.consume();
+            });
 
             ldhDialog.setContentPane((Node) obj);
         } else if (desktopNodeFactory.isStage(obj)) {

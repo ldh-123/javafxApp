@@ -1,37 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.shape.Rectangle?>
 
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
-<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
-<fx:root type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx"
-         xmlns:fx="http://javafx.com/fxml"
-         prefHeight="400.0" prefWidth="600.0" styleClass="ldh-window" stylesheets="@/component/LdhDialog.css">
-    <HBox fx:id="headPane" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" styleClass="ldh-window-control" mouseTransparent="false">
-        <children>
-            <Label fx:id="title">
-                <graphic><MaterialDesignIconView styleClass="window-icon"/></graphic>
-            </Label>
-            <Pane HBox.hgrow="ALWAYS" mouseTransparent="true"></Pane>
-            <Button text="min" fx:id="windowMinBtn" onAction="#min">
-                <graphic><MaterialDesignIconView styleClass="window-min-icon"/></graphic>
-            </Button>
-            <Button fx:id="windowMaxBtn" text="max" onAction="#max">
-                <graphic><MaterialDesignIconView styleClass="window-max-icon"/></graphic>
-            </Button>
-            <Button text="close" onAction="#close">
-                <graphic><MaterialDesignIconView styleClass="window-close-icon"/></graphic>
-            </Button>
-        </children>
-    </HBox>
-    <ScrollPane fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="36" AnchorPane.leftAnchor="3" AnchorPane.rightAnchor="2"
-                AnchorPane.bottomAnchor="3">
-        <AnchorPane fx:id="contentPane" styleClass="content-pane"></AnchorPane>
-    </ScrollPane>
+<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
+    <top>
+        <HBox fx:id="headPane" styleClass="title-bar">
+            <children>
+                <StackPane HBox.hgrow="ALWAYS">
+                    <children>
+                        <HBox alignment="CENTER">
+                            <children>
+                                <Label styleClass="title" text="Flat Win" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_RIGHT" prefHeight="20.0" prefWidth="20.0" spacing="8.0">
+                            <children>
+                                <HBox fx:id="btnMaximize" alignment="CENTER" onMouseClicked="#max" styleClass="max-button" prefWidth="15">
+                                    <children>
+                                        <ImageView pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@../../../ldh.fx.img/window_max_icon.png" />
+                                            </image>
+                                        </ImageView>
+                                    </children>
+                                </HBox>
+                                <Label onMouseClicked="#min" styleClass="min-button" text="_" prefWidth="15" alignment="CENTER"/>
+                                <Label onMouseClicked="#close" styleClass="close-button" text="X" prefWidth="15" alignment="CENTER" />
+                            </children>
+                        </HBox>
+                    </children>
+                </StackPane>
+            </children>
+        </HBox>
+    </top>
+    <bottom>
+        <HBox alignment="BOTTOM_CENTER" >
+            <children>
+                <Rectangle fx:id="nEPane" height="5" width="5" styleClass="bottomPane"
+                           onDragDetected="#startChangeNESize" onMouseDragged="#changeNESize" onMouseEntered="#nEChangeSize" onMouseReleased="#endChangeNESize" />
 
+                <Rectangle fx:id="bottomPane" height="2" styleClass="bottomPane" HBox.hgrow="ALWAYS"
+                           onDragDetected="#startChangeBottomSize" onMouseDragged="#changeBottomSize" onMouseEntered="#bottomChangeSize" onMouseReleased="#endChangeBottomSize" />
+
+                <Rectangle fx:id="nWPane" height="5" width="5" styleClass="bottomPane"
+                           onDragDetected="#startChangeNWSize" onMouseDragged="#changeNWSize" onMouseEntered="#nWChangeSize" onMouseReleased="#endChangeNWSize" />
+
+            </children>
+        </HBox>
+    </bottom>
+    <center>
+    </center>
+    <left>
+        <VBox fx:id="leftPane" styleClass="leftPane" prefWidth="2"
+              onDragDetected="#startChangeLeftSize" onMouseDragged="#changeLeftSize" onMouseEntered="#leftChangeSize" onMouseReleased="#endChangeLeftSize"  />
+    </left>
+    <right>
+        <VBox fx:id="rightPane" styleClass="rightPane" prefWidth="2"
+              onDragDetected="#startChangeRightSize" onMouseDragged="#changeRightSize" onMouseEntered="#rightChangeSize" onMouseReleased="#endChangeRightSize"  />
+    </right>
+    <effect>
+        <javafx.scene.effect.DropShadow />
+    </effect>
+    <background>
+    </background>
 </fx:root>

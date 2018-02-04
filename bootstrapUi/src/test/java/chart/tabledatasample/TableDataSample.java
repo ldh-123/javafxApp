@@ -20,7 +20,7 @@ public class TableDataSample extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Main.fxml"));
         
-        Scene scene = new Scene(root);
+        Scene scene = new Scene(root, 1100, 600);
         stage.setTitle("Lista de Vacantes en TI");
         stage.setScene(scene);
         stage.show();

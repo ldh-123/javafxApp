@@ -34,10 +34,12 @@ public class WinMainApp extends AbstractMainApp {
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Form表单样式", new FontAwesomeIconView(), "form-graphic"), ()->new FormContent()));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("动画面板", new FontAwesomeIconView(), "plan-pane-graphic"), ()->new AnimationPane()));
 
+        DesktopToolbar toolbar = new WinDesktopToolbar(desktopPane);
         WinDesktop desktop = new WinDesktop(desktopPane, toolbar);
 
         Scene scene = new Scene(desktop, 1200, 700);
         scene.getStylesheets().add(this.getClass().getResource("/css/win10.css").toExternalForm());
+        scene.getStylesheets().add("component/LDialog.css");
         scene.getStylesheets().add("/component/LxDialog.css");
         stage.setScene(scene);
         stage.setTitle("Win10桌面");

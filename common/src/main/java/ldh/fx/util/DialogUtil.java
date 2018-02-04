@@ -4,6 +4,9 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import ldh.fx.StageUtil;
 import ldh.fx.component.DialogModel;
+import ldh.fx.component.LDialog;
+import ldh.fx.StageUtil;
+import ldh.fx.component.DialogModel;
 import ldh.fx.component.LdhDialog;
 import ldh.fx.component.LxDialog;
 
@@ -21,18 +24,22 @@ public class DialogUtil {
     }
 
     public static void info(String title, String info, double width, double height) {
-        LdhDialog window = new LdhDialog(title, width, height, false);
+        LDialog window = new LDialog(StageUtil.STAGE, title, width, height, DialogModel.Normal);
+        window.getScene().getStylesheets().add("component/LDialog.css");
         window.setContentPane(new Label(info));
-        window.setWindowMin(false);
-        window.setWindowMax(false);
+        window.isShowingMinButton(false);
+        window.isShowingMaxButton(false);
         window.show();
     }
 
     public static void modelInfo(String title, String info, double width, double height) {
-        LxDialog window = new LxDialog(StageUtil.STAGE, title, DialogModel.Application_model, width, height);
+        LDialog window = new LDialog(StageUtil.STAGE, title, width, height, DialogModel.Application_model);
+        window.getScene().getStylesheets().add("component/LDialog.css");
         window.setContentPane(new Label(info));
-        window.isShowingMaxBtn(false);
-        window.isShowingMinBtn(false);
+        window.setPrefSize(width, height);
+//        window.setWindowMin(false);
+//        window.setWindowMax(false);
+//        window.setModel(true);
         window.show();
     }
 }
