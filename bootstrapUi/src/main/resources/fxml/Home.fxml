@@ -78,9 +78,9 @@
                                                 <graphic><FontAwesomeIconView styleClass="circle-graphic"/></graphic></Button>
                                             <Button text="Custom Components" onAction="#leftNaveClick" userData="form2">
                                                 <graphic><FontAwesomeIconView styleClass="circle-graphic"/></graphic></Button>
-                                            <Button text="Form Samples">
+                                            <Button text="Form Samples" onAction="#leftNaveClick">
                                                 <graphic><FontAwesomeIconView styleClass="circle-graphic"/></graphic></Button>
-                                            <Button text="Form Notifications">
+                                            <Button text="Form Notifications" onAction="#leftNaveClick">
                                                 <graphic><FontAwesomeIconView styleClass="circle-graphic"/></graphic></Button>
                                         </VBox>
                                     </content>

@@ -12,6 +12,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.stage.Screen;
 import javafx.stage.Stage;
 import javafx.stage.Window;
@@ -57,6 +58,8 @@ public class LxDialogBase extends LxWindow {
                     }
                 }
             });
+            this.widthProperty().addListener((l, o, n)->changeSize());
+            this.heightProperty().addListener((l, o, n)->changeSize());
         }
     }
 
@@ -66,7 +69,6 @@ public class LxDialogBase extends LxWindow {
 
     public void setContentPane(Node node) {
         contentPane.setContent(node);
-//        contentPane.getChildren().add(node);
     }
 
     public boolean isShowing() {
@@ -146,6 +148,8 @@ public class LxDialogBase extends LxWindow {
             layoutX = window.getX();
             layoutY = window.getY();
             this.setPrefSize(rectangle2D.getWidth(), rectangle2D.getHeight());
+
+            popup.hide();
             popup.show(parentStage, rectangle2D.getMinX(), rectangle2D.getMinY());
         }
     }
@@ -163,5 +167,13 @@ public class LxDialogBase extends LxWindow {
 
     public  void setMovable() {
         buildMovable(headPane);
+    }
+
+    private void changeSize() {
+        Region node = (Region) contentPane.getContent();
+        if (node == null) return;
+        node.setPrefHeight(this.getScene().getWindow().getHeight()-32);
+        node.setPrefWidth(this.getScene().getWindow().getWidth()-2);
+        System.out.println("w:" + node.getPrefWidth() + ", h:" + node.getPrefHeight());
     }
 }

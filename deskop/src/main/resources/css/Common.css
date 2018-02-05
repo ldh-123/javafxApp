@@ -49,7 +49,7 @@
 .glyph-icon{
     -fx-text-fill: -icons-color;
     -fx-fill: -icons-color;
-    -glyph-size: 15px;
+    /*-glyph-size: 15px;*/
 }
 
 .popup-nav .nav-circle {
