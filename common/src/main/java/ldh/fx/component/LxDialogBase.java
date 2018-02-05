@@ -128,11 +128,11 @@ public class LxDialogBase extends LxWindow {
             if (dialogStage.isFullScreen()) {
                 dialogStage.setFullScreen(false);
                 windowMaxBtn.getGraphic().getStyleClass().clear();
-                windowMaxBtn.getGraphic().getStyleClass().add("window-max-icon");
+                windowMaxBtn.getGraphic().getStyleClass().add("window-max-graphic");
             } else {
                 dialogStage.setFullScreen(true);
                 windowMaxBtn.getGraphic().getStyleClass().clear();
-                windowMaxBtn.getGraphic().getStyleClass().add("window-restore");
+                windowMaxBtn.getGraphic().getStyleClass().add("window-restore-graphic");
             }
             return;
         }

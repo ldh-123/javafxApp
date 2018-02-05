@@ -2,7 +2,7 @@
     -fx-border-width: 0;
     -fx-border-color: transparent;
     -fx-border-radius: 4;
-    -fx-background-color: #007d71;
+    -fx-background-color: #5b7d56;
     -fx-background-radius: 4;
 }
 
@@ -44,12 +44,20 @@
     -glyph-name: "WINDOW_MAXIMIZE";
     -icons-color: white;
     -glyph-size: 20px;
+    -fx-fill: white;
 }
 
 .lx-window .window-min-graphic {
     -glyph-name: "WINDOW_MINIMIZE";
     -icons-color: white;
     -glyph-size: 20px;
+}
+
+.lx-window .window-restore-graphic {
+    -glyph-name: "WINDOW_RESTORE";
+    -icons-color: white;
+    -glyph-size: 20px;
+    -fx-fill: white;
 }
 
 .lx-window .window-close-graphic {

@@ -4,35 +4,39 @@
 
 .pageable-pane .first-btn-icon {
     -glyph-name: "STEP_BACKWARD";
-    -icons-color: white;
+    -icons-color: cornflowerblue;
     -glyph-size: 18px;
-    -fx-fill: white;
+    -fx-fill: cornflowerblue;
 }
 
 .pageable-pane .before-btn-icon {
     -glyph-name: "CARET_LEFT";
-    -icons-color: white;
+    -icons-color: cornflowerblue;
     -glyph-size: 18px;
-    -fx-fill: white;
+    -fx-fill: cornflowerblue;
 }
 
 .pageable-pane .next-btn-icon {
     -glyph-name: "CARET_RIGHT";
-    -icons-color: white;
+    -icons-color: cornflowerblue;
     -glyph-size: 18px;
-    -fx-fill: white;
+    -fx-fill: cornflowerblue;
 }
 
 .pageable-pane .last-btn-icon {
     -glyph-name: "STEP_FORWARD";
-    -icons-color: white;
+    -icons-color: cornflowerblue;
     -glyph-size: 18px;
-    -fx-fill: white;
+    -fx-fill: cornflowerblue;
 }
 
 .pageable-pane .refresh-btn-icon {
     -glyph-name: "REFRESH";
-    -icons-color: white;
+    -icons-color: cornflowerblue;
     -glyph-size: 18px;
-    -fx-fill: white;
+    -fx-fill: cornflowerblue;
+}
+
+.pageable-pane .button:hover {
+    -fx-background-color: grey;
 }

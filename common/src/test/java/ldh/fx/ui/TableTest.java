@@ -18,11 +18,10 @@ public class TableTest  extends Application {
         GridTableModel gridTableModel = JsonParse.parseTableModel(TableTest.class.getResourceAsStream("/data/StudentTable.json"));
         CrudGridTable crudGridTable = new CrudGridTable(gridTableModel);
 
-        ListView l = new ListView();
-
         VBox vbox = new VBox(crudGridTable);
         vbox.setPadding(new Insets(20));
         Scene scene = new Scene(vbox, 1200, 600);
+        scene.getStylesheets().add("/component/GridTable.css");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
