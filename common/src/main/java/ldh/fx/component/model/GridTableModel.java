@@ -64,7 +64,7 @@ public class GridTableModel implements IPath {
             throw new RuntimeException("请初始化路径");
         }
         if (!pathModels.containsKey(key)) {
-            throw new IllegalArgumentException(key);
+            throw new IllegalArgumentException(key + "不存在");
         }
         return pathModels.get(key);
     }

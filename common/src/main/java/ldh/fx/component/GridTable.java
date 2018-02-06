@@ -22,6 +22,7 @@ import ldh.fx.component.function.LoadData;
 import ldh.fx.component.function.Searchable;
 import ldh.fx.component.model.ColumnModel;
 import ldh.fx.component.model.GridTableModel;
+import ldh.fx.util.DialogUtil;
 import ldh.fx.util.JsonHttpUtil;
 import org.controlsfx.control.MaskerPane;
 import org.controlsfx.control.MasterDetailPane;
@@ -145,20 +146,16 @@ public class GridTable<D> extends StackPane implements LoadData {
                 if (searchable != null) paramMap = searchable.buildParams();
                 if (paramMap == null) paramMap = new HashMap();
                 initPageable(paramMap, searchPagination);
-                try {
-                    Class clazz = Class.forName(gridTableModel.getClazz());
-                    Type type = ParameterizedTypeUtil.type(PageResult.class, clazz);
-                    PageResult pageResult = JsonHttpUtil.get(JsonViewFactory.create(), gridTableModel.getPath("loadDataUrl").getUrl(), paramMap, type);
-                    done();
-                    Platform.runLater(()->setData(pageResult));
-                } catch (Exception e) {
-                    done();
-                }
+                Class clazz = Class.forName(gridTableModel.getClazz());
+                Type type = ParameterizedTypeUtil.type(PageResult.class, clazz);
+                PageResult pageResult = JsonHttpUtil.get(JsonViewFactory.create(), gridTableModel.getPath("loadDataUrl").getUrl(), paramMap, type);
+                done();
+                Platform.runLater(()->setData(pageResult));
                 return null;
             }
         };
-        task.setOnSucceeded(event -> {loadingEnd();});
-        task.setOnFailed(event->{loadingEnd();});
+        task.setOnSucceeded(event -> {loadingEnd(task);});
+        task.setOnFailed(event->{loadingEnd(task);});
         new Thread(task).start();
     }
 
@@ -168,10 +165,14 @@ public class GridTable<D> extends StackPane implements LoadData {
         paramMap.put("pageNo", searchPagination.getPageNo());
     }
 
-    private void loadingEnd() {
+    private void loadingEnd(Task task) {
         maskerPane.textProperty().unbind();
         maskerPane.progressProperty().unbind();
         maskerPane.setVisible(false);
+        if (task.getException() != null) {
+            task.getException().printStackTrace();
+            DialogUtil.show(Alert.AlertType.CONFIRMATION, "错误", task.getException().getMessage());
+        }
     }
 
     public void setData(PageResult pageResult) {

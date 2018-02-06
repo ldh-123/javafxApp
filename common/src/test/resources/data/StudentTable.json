@@ -1,5 +1,5 @@
 {
-  "clazz": "ldh.school.Student",
+  "clazz": "ldh.fx.ui.Student",
   "columnModels": [
       {"property":"name",  "text":"名称"}
   ],

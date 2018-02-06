@@ -37,6 +37,10 @@
     -fx-fill: cornflowerblue;
 }
 
+.pageable-pane .button {
+    -fx-background-color: transparent;
+}
+
 .pageable-pane .button:hover {
     -fx-background-color: grey;
 }

@@ -8,27 +8,28 @@
 
 .grid-table .table{
     -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 .grid-table .table:focused{
     -fx-background-color: transparent;
 }
 
-.grid-table .table .table-row{
-    line-height: 50px;
+.grid-table .table .table-row-cell{
+    -fx-cell-size: 30px;
 }
 
 .grid-table .table .column-header {
-    -fx-text-fill: red;
+    -fx-text-fill: white;
     -fx-border-width: 0, 0;
     -fx-font-size: 18px;
-    -fx-padding: 5;
+    -fx-padding: 3;
 }
 
-.grid-table .table .column-header-background .label {
-    -fx-padding: 5;
-    /*-fx-background-color: linear-gradient(#131313 0%, #424141 100%);*/
-}
+/*.grid-table .table .column-header-background {*/
+    /*-fx-padding: 5;*/
+    /*!*-fx-background-color: linear-gradient(#131313 0%, #424141 100%);*!*/
+/*}*/
 
 
 .grid-table .pageable-pane {
