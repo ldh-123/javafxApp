@@ -600,7 +600,7 @@ public class Dialogs {
         // Defines max dialog width.
         final static int DIALOG_WIDTH = 516;
 
-        // According to the UI spec, the width of the main message text in the upper
+        // According to the UI spec, the width of the fxml message text in the upper
         // panel should be 426 pixels.
         private static int MAIN_TEXT_WIDTH = 400;
 

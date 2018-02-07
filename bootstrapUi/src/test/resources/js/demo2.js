@@ -61,7 +61,7 @@ function setup(primaryStage) {
           new Stop(1,   Color.web("#f2660f"))));
      colors.blendMode = BlendMode.OVERLAY;
  
-     // create main content
+     // create fxml content
      var group = new Group(new Rectangle(WIDTH, HEIGHT, Color.BLACK),
             layer1,
             layer2,

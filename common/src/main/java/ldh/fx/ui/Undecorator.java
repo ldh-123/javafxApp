@@ -82,7 +82,7 @@ import ldh.fx.controller.UndecoratorController;
 
 /**
  * This class, with the UndecoratorController, is the central class for the decoration of Transparent Stages. The Stage
- * Undecorator TODO: Themes, manage Quit (main stage)
+ * Undecorator TODO: Themes, manage Quit (fxml stage)
  *
  * Bugs (Mac only?): Accelerators + Fullscreen crashes JVM KeyCombination does not respect keyboard's locale. Multi
  * screen: On second screen JFX returns wrong value for MinY (300)

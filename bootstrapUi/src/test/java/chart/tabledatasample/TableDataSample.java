@@ -27,10 +27,10 @@ public class TableDataSample extends Application {
     }
 
     /**
-     * The main() method is ignored in correctly deployed JavaFX application.
-     * main() serves only as fallback in case the application can not be
+     * The fxml() method is ignored in correctly deployed JavaFX application.
+     * fxml() serves only as fallback in case the application can not be
      * launched through deployment artifacts, e.g., in IDEs with limited FX
-     * support. NetBeans ignores main().
+     * support. NetBeans ignores fxml().
      *
      * @param args the command line arguments
      */

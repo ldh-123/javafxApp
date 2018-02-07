@@ -29,7 +29,7 @@ public class SearchBoxApp extends Application {
     }
 
     /**
-     * Java main for when running without JavaFX launcher
+     * Java fxml for when running without JavaFX launcher
      */
     public static void main(String[] args) {
         launch(args);

@@ -20,6 +20,7 @@
         <module>deskop</module>
         <module>springfx</module>
         <module>fxanimations</module>
+        <module>felix</module>
     </modules>
 
     <properties>
