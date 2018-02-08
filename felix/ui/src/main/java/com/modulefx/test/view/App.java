@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import ldh.felix.FelixMain;
 
 
 public class App extends Application {
@@ -18,6 +19,18 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
+        App.stage.setOnCloseRequest(e->{
+            try {
+                System.out.println("stop!!!!!!!!!!!!00000!!!!!!!!!!!!!!!!!!!!");
+                FelixMain.m_fwk.stop();
+                System.out.println("stop!!!!!!!!!!!!!!!11111!!!!!!!!!!!!!!!!!");
+                FelixMain.m_fwk.waitForStop(0L);
+                System.out.println("stop!!!!!!!!!!!!!!!!!!2222!!!!!!!!!!!!!!");
+            } catch (Exception e1) {
+                e1.printStackTrace();
+            }
+        });
+
         BorderPane borderPane = new BorderPane();
 
         String fxmlUri = "/fxml/Main.fxml";
@@ -30,14 +43,12 @@ public class App extends Application {
         scene.getStylesheets().add(App.class.getResource("/css/test.css").toString());
 
         primaryStage.setScene(scene);
-        //TODO change to a properties value
         primaryStage.setTitle("ModuleFX");
         primaryStage.show();
     }
 
     private Parent loadFxml(String fxmlUri) {
         try {
-            
             //set the osgi ClassLoader to the FXMLLoader.
             FXMLLoader.setDefaultClassLoader(Activator.class.getClassLoader());
 //            return FXMLLoader.load(getClass().getClassLoader().getResource(fxmlUri));
