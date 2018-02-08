@@ -204,9 +204,9 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.apache.felix</groupId>
-            <artifactId>org.apache.felix.main</artifactId>
-            <version>5.6.10</version>
+            <groupId>ldh.javafxapp</groupId>
+            <artifactId>base</artifactId>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 

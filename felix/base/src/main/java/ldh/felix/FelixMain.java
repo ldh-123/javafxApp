@@ -29,7 +29,7 @@ public class FelixMain {
     public static final String CONFIG_PROPERTIES_PROP = "felix.config.properties";
     public static final String CONFIG_PROPERTIES_FILE_VALUE = "config.properties";
     public static final String CONFIG_DIRECTORY = "conf";
-    private static Framework m_fwk = null;
+    public static Framework m_fwk = null;
 
     public FelixMain() {
     }

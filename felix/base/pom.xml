@@ -3,18 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>javafxApp</artifactId>
+        <artifactId>felix</artifactId>
         <groupId>ldh.javafxapp</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>felix</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>launch</module>
-        <module>ui</module>
-        <module>base</module>
-    </modules>
+    <artifactId>base</artifactId>
 
+
+    <dependencies>
+        <dependency>
+            <groupId>org.apache.felix</groupId>
+            <artifactId>org.apache.felix.main</artifactId>
+            <version>5.6.10</version>
+        </dependency>
+    </dependencies>
 </project>

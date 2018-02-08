@@ -59,7 +59,11 @@
     </build>
 
     <dependencies>
-
+        <dependency>
+            <groupId>ldh.javafxapp</groupId>
+            <artifactId>launch</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.osgi</groupId>
             <artifactId>org.osgi.core</artifactId>
