@@ -13,10 +13,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.WindowEvent;
 import ldh.descktop.util.ThreadToolUtil;
 import ldh.fx.StageUtil;
-import ldh.fx.component.DialogModel;
-import ldh.fx.component.LDialog;
-import ldh.fx.component.LPopupButton;
-import ldh.fx.component.LxDialog;
+import ldh.fx.component.*;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,7 +31,7 @@ public class MacDesktopToolbar extends DesktopToolbar {
     }
 
     protected void initItem() {
-        macButton = new LPopupButton(LPopupButton.PopupPos.down_west);
+        macButton = new LPopupButton(PopupPos.down_west);
         MaterialDesignIconView macGraphic = new MaterialDesignIconView();
         macGraphic.getStyleClass().add("mac-graphic");
         macButton.setGraphic(macGraphic);
@@ -68,7 +65,7 @@ public class MacDesktopToolbar extends DesktopToolbar {
     }
 
     private Button addMessageButton(GlyphIcon glyphIcon, String icon, Pane box) {
-        LPopupButton messageButton = new LPopupButton(LPopupButton.PopupPos.down_east);
+        LPopupButton messageButton = new LPopupButton(PopupPos.down_east);
         messageButton.getStyleClass().add("toolbar-item");
         if (glyphIcon != null) {
             glyphIcon.getStyleClass().add(icon);

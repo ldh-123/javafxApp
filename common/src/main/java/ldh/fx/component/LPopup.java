@@ -1,25 +1,26 @@
 package ldh.fx.component;
 
-import javafx.animation.*;
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.geometry.*;
+import javafx.geometry.HPos;
+import javafx.geometry.Point2D;
+import javafx.geometry.Pos;
+import javafx.geometry.VPos;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Popup;
 import javafx.util.Duration;
 import ldh.fx.ui.util.RegionUtil;
-import ldh.fxanimations.BounceInLeftTransition;
-import ldh.fxanimations.BounceInRightTransition;
-import ldh.fxanimations.BounceInTransition;
 
 /**
- * Created by ldh on 2018/1/11.
+ * Created by ldh on 2018/2/8.
  */
-public class LPopupButton extends Button {
+public class LPopup {
 
     protected static final Interpolator WEB_EASE = Interpolator.SPLINE(0.25, 0.1, 0.25, 1);
 
@@ -27,21 +28,12 @@ public class LPopupButton extends Button {
     private Popup popup = new Popup();
     private PopupPos popupPos;
     private StackPane popupContentPane = new StackPane();
+    private Region region;
 
-    public LPopupButton(PopupPos popupPos) {
-        this("", popupPos);
-    }
 
-    public LPopupButton(String text, PopupPos popupPos) {
-        super(text);
-        this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
-        this.popupPos = popupPos;
-        initEvent();
-    }
-
-    public LPopupButton(String text, Region graphic, PopupPos popupPos) {
-        super(text, graphic);
-        this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
+    public LPopup(Region region, PopupPos popupPos) {
+        this.region = region;
+        region.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
         this.popupPos = popupPos;
         initEvent();
     }
@@ -70,23 +62,28 @@ public class LPopupButton extends Button {
         });
         popupContentPane.heightProperty().addListener(l->show());
         popupContentPane.widthProperty().addListener(l->show());
-        this.setOnAction(e->{
-            show();
-        });
     }
 
     public Popup getPopup() {
         return popup;
     }
 
-    private void show() {
+    public void show() {
         sizePopup();
         Point2D p = getPrefPopupPosition();
-        double anchorX = RegionUtil.calcAnchorX(this, popupPos, popupContentPane);
-        double anchorY = RegionUtil.calcAnchorY(this, popupPos, popupContentPane);
-        popup.show(this.getScene().getWindow(), anchorX, anchorY);
+        double anchorX = RegionUtil.calcAnchorX(region, popupPos, popupContentPane);
+        double anchorY = RegionUtil.calcAnchorY(region, popupPos, popupContentPane);
+        popup.show(region.getScene().getWindow(), anchorX, anchorY);
         animation();
         popup.requestFocus();
+    }
+
+    public boolean isShowing() {
+        return popup.isShowing();
+    }
+
+    public void hide() {
+        popup.hide();
     }
 
     private void animation() {
@@ -113,15 +110,15 @@ public class LPopupButton extends Button {
         if (popupContent instanceof Region) {
             final Region r = (Region) popupContent;
 
-            double prefHeight = snapSize(r.prefHeight(0));
-            double minHeight = snapSize(r.minHeight(0));
-            double maxHeight = snapSize(r.maxHeight(0));
-            double h = snapSize(Math.min(Math.max(prefHeight, minHeight), Math.max(minHeight, maxHeight)));
+            double prefHeight = RegionUtil.snapSize(region, r.prefHeight(0));
+            double minHeight = RegionUtil.snapSize(region, r.minHeight(0));
+            double maxHeight = RegionUtil.snapSize(region, r.maxHeight(0));
+            double h = RegionUtil.snapSize(region, Math.min(Math.max(prefHeight, minHeight), Math.max(minHeight, maxHeight)));
 
-            double prefWidth = snapSize(r.prefWidth(h));
-            double minWidth = snapSize(r.minWidth(h));
-            double maxWidth = snapSize(r.maxWidth(h));
-            double w = snapSize(Math.min(Math.max(prefWidth, minWidth), Math.max(minWidth, maxWidth)));
+            double prefWidth = RegionUtil.snapSize(region, r.prefWidth(h));
+            double minWidth = RegionUtil.snapSize(region, r.minWidth(h));
+            double maxWidth = RegionUtil.snapSize(region, r.maxWidth(h));
+            double w = RegionUtil.snapSize(region, Math.min(Math.max(prefWidth, minWidth), Math.max(minWidth, maxWidth)));
 
             popupContent.resize(w, h);
         } else {
@@ -130,11 +127,7 @@ public class LPopupButton extends Button {
     }
 
     private Point2D getPrefPopupPosition() {
-        return com.sun.javafx.util.Utils.pointRelativeTo(this, popupContentPane, HPos.CENTER, VPos.BOTTOM, 0, 0, true);
-    }
-
-    protected double snapPosition(double value) {
-        return this.isSnapToPixel() ? Math.round(value) : value;
+        return com.sun.javafx.util.Utils.pointRelativeTo(region, popupContentPane, HPos.CENTER, VPos.BOTTOM, 0, 0, true);
     }
 
 }

@@ -29,8 +29,8 @@
         </children>
     </HBox>
     <ScrollPane fx:id="contentPane" fitToHeight="true" fitToWidth="true" AnchorPane.topAnchor="30" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0"
-                AnchorPane.bottomAnchor="0">
-        <!--<AnchorPane  styleClass="content-pane"></AnchorPane>-->
+                AnchorPane.bottomAnchor="0" styleClass="content-pane">
+        <!--<AnchorPane  styleClass="content-pane" ></AnchorPane>-->
     </ScrollPane>
 
 </fx:root>

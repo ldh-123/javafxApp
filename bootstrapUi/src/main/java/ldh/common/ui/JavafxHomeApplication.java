@@ -21,6 +21,7 @@ public class JavafxHomeApplication extends Application {
         Scene scene = new Scene(node, 1200, 700);
         RegionUtil.sizeRegionWhenSceneChange(node, scene);
         scene.getStylesheets().add(this.getClass().getResource("/css/Common.css").toExternalForm());
+        scene.getStylesheets().add(this.getClass().getResource("/component/LxDialog.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
     }

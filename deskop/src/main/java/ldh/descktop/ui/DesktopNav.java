@@ -8,6 +8,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.HBox;
 import javafx.stage.Popup;
 import ldh.fx.ui.util.NodeUtil;
+import ldh.fx.ui.util.RegionUtil;
 
 /**
  * Created by ldh on 2018/1/18.
@@ -69,8 +70,8 @@ public class DesktopNav extends HBox {
                                 Button nextButton = getNextButton(button);
                                 animationButton(preButton ,1.1d,1.1d, -10d);
                                 animationButton(nextButton ,1.1d,1.1d, -10d);
-                                double anchorX = NodeUtil.anchorX(button) + button.getWidth()/2 - label.getWidth()/2 -1;
-                                double anchorY = NodeUtil.anchorY(button) - 5;
+                                double anchorX = RegionUtil.anchorX(button) + button.getWidth()/2 - label.getWidth()/2 -1;
+                                double anchorY = RegionUtil.anchorY(button) - 5;
                                 popup.show(button.getScene().getWindow(), anchorX, anchorY);
                             });
                         }

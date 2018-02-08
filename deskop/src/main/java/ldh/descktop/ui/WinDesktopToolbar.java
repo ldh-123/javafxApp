@@ -17,6 +17,7 @@ import ldh.fx.StageUtil;
 import ldh.fx.component.DialogModel;
 import ldh.fx.component.LDialog;
 import ldh.fx.component.LPopupButton;
+import ldh.fx.component.PopupPos;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -34,7 +35,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
     }
 
     protected void initItem() {
-        windowButton = new LPopupButton(LPopupButton.PopupPos.up_west);
+        windowButton = new LPopupButton(PopupPos.up_west);
         FontAwesomeIconView windowGraphic = new FontAwesomeIconView();
         windowGraphic.getStyleClass().add("window-graphic");
         windowButton.setGraphic(windowGraphic);
@@ -78,7 +79,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
     }
 
     private Button addMessageButton(GlyphIcon glyphIcon, String icon, Pane box) {
-        LPopupButton messageButton = new LPopupButton(LPopupButton.PopupPos.up_east);
+        LPopupButton messageButton = new LPopupButton(PopupPos.up_east);
         messageButton.getStyleClass().add("toolbar-item");
         if (glyphIcon != null) {
             glyphIcon.getStyleClass().add(icon);

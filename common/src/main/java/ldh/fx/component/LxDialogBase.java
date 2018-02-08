@@ -60,6 +60,7 @@ public class LxDialogBase extends LxWindow {
             });
             this.widthProperty().addListener((l, o, n)->changeSize());
             this.heightProperty().addListener((l, o, n)->changeSize());
+            this.isShowingMinButton(false);
         }
     }
 
@@ -165,7 +166,7 @@ public class LxDialogBase extends LxWindow {
         popup.hide();
     }
 
-    public  void setMovable() {
+    public void setMovable() {
         buildMovable(headPane);
     }
 
@@ -174,6 +175,5 @@ public class LxDialogBase extends LxWindow {
         if (node == null) return;
         node.setPrefHeight(this.getScene().getWindow().getHeight()-32);
         node.setPrefWidth(this.getScene().getWindow().getWidth()-2);
-        System.out.println("w:" + node.getPrefWidth() + ", h:" + node.getPrefHeight());
     }
 }

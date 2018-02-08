@@ -29,8 +29,8 @@ public class HiddenPaneTest extends Application {
         LHiddenPane hiddenPane = new LHiddenPane(borderPane, borderPane2);
 //        LHiddenPane hiddenPane = new LHiddenPane();
 //        hiddenPane.getChildren().addAll(borderPane, borderPane2);
-        hiddenPane.getChildren().add(borderPane);
-        hiddenPane.getChildren().add(borderPane2);
+//        hiddenPane.getChildren().add(borderPane);
+//        hiddenPane.getChildren().add(borderPane2);
         Scene scene = new Scene(hiddenPane, 1200, 600);
         primaryStage.setScene(scene);
         primaryStage.show();

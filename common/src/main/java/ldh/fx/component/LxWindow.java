@@ -70,6 +70,7 @@ public class LxWindow extends LxWindowBase {
             popup.getContent().add(this);
             popup.setAutoHide(false);
         }
+        setResizable();
     }
 
     public void setResizable() {
