@@ -66,7 +66,6 @@ public class CubicCurveManipulator extends Application {
         }
     }
 
-    // a draggable anchor displayed around a point.
     class Anchor extends Circle {
         Anchor(Color color, DoubleProperty x, DoubleProperty y) {
             super(x.get(), y.get(), 10);
@@ -80,7 +79,6 @@ public class CubicCurveManipulator extends Application {
             enableDrag();
         }
 
-        // make a node movable by dragging it around with the mouse.
         private void enableDrag() {
             final Delta dragDelta = new Delta();
             setOnMousePressed(new EventHandler<MouseEvent>() {
