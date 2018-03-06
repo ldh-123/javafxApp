@@ -10,23 +10,25 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>bootstrapUi</artifactId>
-    <packaging>bundle</packaging>
+    <packaging>jar</packaging>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.felix</groupId>
-                <artifactId>maven-bundle-plugin</artifactId>
-                <version>2.3.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <instructions>
-                        <Import-Package>*</Import-Package>
-                        <Bundle-Activator>ldh.common.ui.HomeActivator</Bundle-Activator>
-                        <Export-Package>*</Export-Package>
-                    </instructions>
-                </configuration>
-            </plugin>
+            <!--<plugin>-->
+                <!--<groupId>org.apache.felix</groupId>-->
+                <!--<artifactId>maven-bundle-plugin</artifactId>-->
+                <!--<version>2.3.7</version>-->
+                <!--<extensions>true</extensions>-->
+                <!--<configuration>-->
+                    <!--<instructions>-->
+                        <!--<Import-Package>*</Import-Package>-->
+                        <!--<Bundle-Activator>ldh.common.ui.HomeActivator</Bundle-Activator>-->
+                        <!--<Export-Package>*</Export-Package>-->
+                    <!--</instructions>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+
+
         </plugins>
     </build>
 
