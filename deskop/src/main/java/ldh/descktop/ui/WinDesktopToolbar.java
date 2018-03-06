@@ -35,7 +35,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
     }
 
     protected void initItem() {
-        windowButton = new LPopupButton(PopupPos.up_west);
+        windowButton = new LPopupButton(PopupPos.up_east);
         FontAwesomeIconView windowGraphic = new FontAwesomeIconView();
         windowGraphic.getStyleClass().add("window-graphic");
         windowButton.setGraphic(windowGraphic);
@@ -59,7 +59,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
         dateBox.setAlignment(Pos.CENTER);
         dateBox.getChildren().addAll(timeLabel, dayLabel);
         dateBox.setSpacing(2);
-        dateBox.getStyleClass().add("toolbar-item");
+        dateBox.getStyleClass().addAll("toolbar-item", "win-date");
         getRightPane().getChildren().add(dateBox);
     }
 
@@ -79,7 +79,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
     }
 
     private Button addMessageButton(GlyphIcon glyphIcon, String icon, Pane box) {
-        LPopupButton messageButton = new LPopupButton(PopupPos.up_east);
+        LPopupButton messageButton = new LPopupButton(PopupPos.up_west);
         messageButton.getStyleClass().add("toolbar-item");
         if (glyphIcon != null) {
             glyphIcon.getStyleClass().add(icon);

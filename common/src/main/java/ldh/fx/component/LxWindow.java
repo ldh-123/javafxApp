@@ -24,8 +24,6 @@ public class LxWindow extends LxWindowBase {
     private double initHeight = 0;
     private boolean isDragable = false;
 
-    private static Double headHeight = 35d;
-
     public void initDialogModel(Stage stage, DialogModel dialogModel) {
         this.parentStage = stage;
         this.dialogModel = dialogModel;

@@ -60,7 +60,7 @@ public class LxDialogBase extends LxWindow {
             });
             this.widthProperty().addListener((l, o, n)->changeSize());
             this.heightProperty().addListener((l, o, n)->changeSize());
-            this.isShowingMinButton(false);
+            this.isShowingMinButton(true);
         }
     }
 
@@ -171,9 +171,12 @@ public class LxDialogBase extends LxWindow {
     }
 
     private void changeSize() {
-        Region node = (Region) contentPane.getContent();
+        Node node = contentPane.getContent();
         if (node == null) return;
-        node.setPrefHeight(this.getScene().getWindow().getHeight()-32);
-        node.setPrefWidth(this.getScene().getWindow().getWidth()-2);
+        if (node instanceof Region) {
+            Region region = (Region) node;
+            region.setPrefHeight(this.getScene().getWindow().getHeight()-32);
+            region.setPrefWidth(this.getScene().getWindow().getWidth()-2);
+        }
     }
 }

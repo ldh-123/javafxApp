@@ -1,5 +1,6 @@
 package ldh.fx.util;
 
+import javafx.geometry.Insets;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import ldh.fx.StageUtil;
@@ -26,7 +27,8 @@ public class DialogUtil {
     public static void info(String title, String info, double width, double height) {
         LDialog window = new LDialog(StageUtil.STAGE, title, width, height, DialogModel.Normal);
         window.getScene().getStylesheets().add("component/LDialog.css");
-        window.setContentPane(new Label(info));
+        Label label = new Label(info);
+        label.setPadding(new Insets(5));
         window.isShowingMinButton(false);
         window.isShowingMaxButton(false);
         window.show();
@@ -35,7 +37,9 @@ public class DialogUtil {
     public static void modelInfo(String title, String info, double width, double height) {
         LxDialog window = new LxDialog(StageUtil.STAGE, title, DialogModel.Application_model, width, height);
         window.getScene().getStylesheets().add("/component/LxDialog.css");
-        window.setContentPane(new Label(info));
+        Label label = new Label(info);
+        label.setPadding(new Insets(5));
+        window.setContentPane(label);
         window.setPrefSize(width, height);
         window.isShowingMinButton(false);
         window.isShowingMaxButton(false);

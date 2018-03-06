@@ -79,15 +79,16 @@ public class RegionUtil {
     }
 
     public static double calcAnchorX(Region region, PopupPos popupPos, Node contentPane) {
-        double anchorX = region.getScene().getWindow().getX() + region.localToScene(0, 0).getX() + region.getScene().getX() - 1;
+        double anchorX = region.getScene().getWindow().getX() + region.localToScene(0, 0).getX() + region.getScene().getX();
+        double width = popupContentWidth(contentPane);
         if (popupPos == PopupPos.down_east) {
-            anchorX = anchorX + region.getWidth() - popupContentWidth(contentPane);
+//            anchorX = anchorX + region.getWidth() - popupContentWidth(contentPane);
         } else if (popupPos == PopupPos.down_west) {
-            // nothing
+            anchorX = anchorX + region.getWidth() - width;
         } else if (popupPos == PopupPos.up_east) {
-            anchorX = anchorX - popupContentWidth(contentPane);
+//            anchorX = anchorX - popupContentWidth(contentPane);
         } else if (popupPos == PopupPos.up_west) {
-//            anchorX = anchorX - this.popupContentWidth();
+            anchorX = anchorX - width;
         }
         return anchorX;
     }

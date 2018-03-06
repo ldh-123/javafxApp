@@ -50,7 +50,7 @@ public class HomeHeadController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         initPopup();
-        userPopupPane = new LPopup(userBtn, PopupPos.down_east);
+        userPopupPane = new LPopup(userBtn, PopupPos.down_west);
         userPopupPane.setPopupContentPane(userContent);
     }
 

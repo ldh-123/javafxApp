@@ -31,7 +31,7 @@ public class MacDesktopToolbar extends DesktopToolbar {
     }
 
     protected void initItem() {
-        macButton = new LPopupButton(PopupPos.down_west);
+        macButton = new LPopupButton(PopupPos.down_east);
         MaterialDesignIconView macGraphic = new MaterialDesignIconView();
         macGraphic.getStyleClass().add("mac-graphic");
         macButton.setGraphic(macGraphic);
@@ -65,7 +65,7 @@ public class MacDesktopToolbar extends DesktopToolbar {
     }
 
     private Button addMessageButton(GlyphIcon glyphIcon, String icon, Pane box) {
-        LPopupButton messageButton = new LPopupButton(PopupPos.down_east);
+        LPopupButton messageButton = new LPopupButton(PopupPos.down_west);
         messageButton.getStyleClass().add("toolbar-item");
         if (glyphIcon != null) {
             glyphIcon.getStyleClass().add(icon);
