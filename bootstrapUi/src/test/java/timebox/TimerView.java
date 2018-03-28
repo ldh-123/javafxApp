@@ -244,13 +244,12 @@ public class TimerView extends StackPane {
 
     private Properties loadAppProperties() {
         Properties props = new Properties();
-        try {
-            props.load(getClass().
-                    getResourceAsStream(PROPERTIES_FILE));
-        } catch (IOException ex) {
-            Logger.getLogger(Main.class.getName()).
-                    log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            props.load(getClass().getResourceAsStream(PROPERTIES_FILE));
+//        } catch (IOException ex) {
+//            Logger.getLogger(Main.class.getName()).
+//                    log(Level.SEVERE, null, ex);
+//        }
         return props;
     }
 
