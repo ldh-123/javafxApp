@@ -27,16 +27,21 @@
 
 package control;
 
+import com.google.gson.Gson;
 import javafx.application.Application;
 import javafx.collections.FXCollections;
 import javafx.scene.Scene;
-import javafx.scene.control.ListView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
-public class Test extends Application {
+import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+public class ParallaxListViewTest extends Application {
 
     @Override
     public void start(Stage primaryStage) {
@@ -49,7 +54,7 @@ public class Test extends Application {
                 "Brazil", "Uruguai", "South Korea", "England", "Ireland", "Scotland", "Wales", "Australia", "Peru", "Palestine", "Portugal", "Spain", "United States",
                 "Israel", "South Africa", "New Zealand", "Turkey", "Denmark", "Sweden", "Angola", "Canada", "Argentina",
                 "Brazil", "Uruguai", "South Korea", "England"));
-        ImageView image = new ImageView(new Image(Test.class.getResource("/image/bay-landscape-wallpaper-725x483.jpg").toExternalForm()));
+        ImageView image = new ImageView(new Image(ParallaxListViewTest.class.getResource("/image/bay-landscape-wallpaper-725x483.jpg").toExternalForm()));
         parallaxListView.setBackgroundNode(image);
 
         parallaxListView.setPrefWidth(993);
@@ -59,9 +64,38 @@ public class Test extends Application {
         Scene scene = new Scene(rootNode);
 
 //        ScenicView.show(scene);
-
+        StageSizer stageSizer = createOrRestoreStageSizerFromConfig(primaryStage);
+        
         primaryStage.setScene(scene);
         primaryStage.show();
+
+
+    }
+
+    private StageSizer createOrRestoreStageSizerFromConfig(Stage primaryStage) {
+        URL url = StageSizer.class.getResource("/data/window.txt");
+        Gson gson = new Gson();
+        StageSizer stageSizer = null;
+        try {
+            String jsonn = new String(Files.readAllBytes(Paths.get(url.toURI())), "utf-8");
+            stageSizer = gson.fromJson(jsonn, StageSizer.class);
+            stageSizer.setStage(primaryStage);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        primaryStage.setOnCloseRequest(e->{
+            try {
+                StageSizer ss = new StageSizer();
+                ss.setStage(primaryStage);
+                String json = gson.toJson(ss);
+                Files.write(Paths.get(url.toURI()), json.getBytes("utf-8"), StandardOpenOption.TRUNCATE_EXISTING);
+            } catch (Exception ee) {
+                ee.printStackTrace();
+            }
+
+        });
+        return stageSizer;
     }
 
     public static void main(String[] args) {

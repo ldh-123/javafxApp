@@ -153,7 +153,7 @@ public class EffectTest extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
 
-        primaryStage.setTitle("Drawing Operations Test");
+        primaryStage.setTitle("Drawing Operations ParallaxListViewTest");
 
         root = new StackPane();
         root.getChildren().add(createContent());
