@@ -29,7 +29,7 @@ public class LxDialogTest extends Application {
 //        window.show();
         Button b = new Button("show");
         b.setOnAction(e->{
-            LxDialog window = new LxDialog(stage, "demo", DialogModel.Application, 400d, 200d);
+            LxDialog window = new LxDialog(stage, "demo", DialogModel.Stand_alone, 400d, 200d);
             window.isShowingMinButton(false);
             Label label = new Label("error");
             label.setStyle("-fx-padding: 10");
@@ -39,7 +39,7 @@ public class LxDialogTest extends Application {
             window.show();
         });
         Scene scene = new Scene(b, 200, 300);
-
+        scene.getStylesheets().add("/component/LxDialog.css");
         stage.setScene(scene);
         stage.show();
     }
