@@ -82,7 +82,8 @@ public class MacDesktopToolbar extends DesktopToolbar {
     private void addBrowserDialog() {
         ToolbarButton toolbarButton = new ToolbarButton(new Button("百度搜索"));
         LxDialog ldhDialog = new LxDialog(StageUtil.STAGE, "百度搜索", DialogModel.Stand_alone, 1000d, 600d);
-        ldhDialog.getScene().getStylesheets().add("component/LDialog.css");
+        ldhDialog.getScene().getStylesheets().add("/component/LDialog.css");
+        ldhDialog.getScene().getStylesheets().add("/component/LxDialog.css");
 //        ldhDialog.setModel(false);
 //        ldhDialog.setIsHide(true);
         WebView webView = new WebView();

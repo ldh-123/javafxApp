@@ -20,6 +20,7 @@
         <module>springfx</module>
         <module>fxanimations</module>
         <module>felix</module>
+        <module>springbootfx</module>
     </modules>
 
     <properties>
