@@ -1,0 +1,98 @@
+.icon-pane .icon-nav {
+    /*-fx-padding: 5;*/
+    -fx-spacing: 10;
+    -fx-background-color: #e2e2e2;
+    -fx-border-width: 0 1 0 0;
+    -fx-border-color: #e2e2e2;
+}
+
+.icon-pane .icon-nav .button{
+    -fx-pref-height: 35px;
+    -fx-min-height: 35px;
+    -fx-pref-width: 200px;
+    -fx-min-width: 200px;
+    -fx-border-color: transparent;
+    -fx-border-width: 0;
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+}
+
+.icon-pane .icon-nav .button:focused{
+    -fx-background-color: #1b5e20;
+    -fx-text-fill: white;
+}
+
+.icon-pane .icon-nav .actived{
+    -fx-background-color: #1b5e20;
+    -fx-text-fill: white;
+}
+
+
+.icon-pane .icon-nav .button:pressed{
+    -fx-background-color: #1b5e20;
+    -fx-text-fill: white;
+}
+
+.icon-pane .scroll-pane {
+    -fx-border-color: transparent;
+    -fx-background-color: transparent;
+}
+
+.icon-pane .scroll-pane:focused {
+    -fx-background-color: transparent;
+}
+
+.icon-pane .icon-container .search-pane {
+    -fx-padding: 5;
+    -fx-spacing: 10;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 0 0 1 0;
+}
+
+.icon-pane .icon-container .search-pane Label, .text-field, Button{
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+    -fx-font-size: 18px;
+}
+
+.icon-pane .icon-container FlowPane{
+    /*-fx-hgap: 20;*/
+    /*-fx-vgap: 20;*/
+    -fx-padding: 5;
+}
+
+.icon-pane .icon-flow-pane .label{
+    -fx-padding: 10;
+}
+
+.icon-pane .icon-flow-pane>.label:hover{
+    -fx-background-color: #1b5e20;
+}
+
+.icon-pane .icon-container .code-text-area {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-pref-height: 100;
+    -fx-min-height: 100;
+    -fx-font-size: 16;
+}
+
+.icon-pane .icon-container .code-text-area:focused {
+    -fx-background-color: transparent;
+}
+
+.icon-pane .icon-container .icon-box {
+    -fx-padding: 5;
+    -fx-spacing: 10;
+    -fx-border-color: #e2e2e2;
+    -fx-border-width: 0 0 1 0;
+    -fx-pref-height: 50;
+    -fx-min-height: 50;
+    -fx-alignment: center-left;
+}
+
+.icon-pane .icon-container .icon-box Label, .slider, .color-picker{
+    -fx-pref-height: 30px;
+    -fx-min-height: 30px;
+    -fx-font-size: 18px;
+}

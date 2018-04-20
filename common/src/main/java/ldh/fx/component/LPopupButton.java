@@ -33,15 +33,13 @@ public class LPopupButton extends Button {
     }
 
     public LPopupButton(String text, PopupPos popupPos) {
-        super(text);
-        this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
-        this.popupPos = popupPos;
-        initEvent();
+        this(text, null, popupPos);
     }
 
     public LPopupButton(String text, Region graphic, PopupPos popupPos) {
         super(text, graphic);
         this.getStylesheets().add(LPopupButton.class.getResource("/ldh.fx.css/LPopupButton.css").toExternalForm());
+        popupContentPane.setStyle("-fx-background-color: whitesmoke");
         this.popupPos = popupPos;
         initEvent();
     }
@@ -63,6 +61,7 @@ public class LPopupButton extends Button {
         popupContentPane.getStyleClass().add("popup-pane");
 
         popup.setAutoHide(true);
+
         popupNodeProperty.addListener((l, o, n)->{
             popup.getContent().clear();
             popupContentPane.getChildren().add(n);
@@ -81,7 +80,6 @@ public class LPopupButton extends Button {
 
     private void show() {
         sizePopup();
-        Point2D p = getPrefPopupPosition();
         double anchorX = RegionUtil.calcAnchorX(this, popupPos, popupContentPane);
         double anchorY = RegionUtil.calcAnchorY(this, popupPos, popupContentPane);
         popup.show(this.getScene().getWindow(), anchorX, anchorY);
