@@ -220,7 +220,6 @@ public class LIconPane extends BorderPane {
         }
 
         public void showData() {
-            System.out.println("labelObservableList:" + glyphIconClass + "," + labelObservableList.size() + "," + filteredData.size());
             if (labelObservableList.size() > 0) return;
             List<Label> iconLables = labelMap.get(glyphIconClass.getSimpleName());
             labelObservableList.addAll(iconLables);

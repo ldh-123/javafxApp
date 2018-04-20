@@ -13,6 +13,7 @@ import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import ldh.descktop.page.AnimationPane;
 import ldh.descktop.page.FormContent;
+import ldh.descktop.page.JsonPane;
 import ldh.descktop.ui.*;
 import ldh.fx.ui.util.NodeUtil;
 import ldh.fx.ui.util.PageUtil;
@@ -49,6 +50,7 @@ public class MacMainApp extends AbstractMainApp {
         desktopPane.getChildren().add(new DesktopItem(image, "百度搜索", nodeFactory));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Form表单样式", new FontAwesomeIconView(), "form-graphic"), ()->new FormContent()));
         desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("动画面板", new FontAwesomeIconView(), "plan-pane-graphic"), ()->new AnimationPane()));
+        desktopPane.getChildren().add(new DesktopItem(RegionUtil.createLabel("Json格式化", new FontAwesomeIconView(), "json-pane-graphic"), ()->new JsonPane()));
 
         DesktopNav desktopNav = buildDesktopDav();
 
