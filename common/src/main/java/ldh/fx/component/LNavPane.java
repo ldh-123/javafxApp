@@ -4,10 +4,7 @@ import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
-import javafx.scene.control.Button;
-import javafx.scene.control.Control;
-import javafx.scene.control.TitledPane;
-import javafx.scene.control.Tooltip;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -21,38 +18,29 @@ import java.util.Map;
 /**
  * Created by ldh123 on 2018/4/22.
  */
-public class LNavPane extends StackPane {
+public class LNavPane extends ScrollPane {
 
     private VBox smallPane = new VBox();
+    private StackPane stackPane = new StackPane();
 
     public LNavPane() {
+        this.getStyleClass().add("leftPane");
+        this.setFitToWidth(true);
+        this.setFitToHeight(true);
+        this.setHbarPolicy(ScrollBarPolicy.NEVER);
+        this.setVbarPolicy(ScrollBarPolicy.NEVER);
         smallPane.setVisible(false);
         smallPane.getStyleClass().add("nav-small-pane");
-        this.getChildren().addListener((ListChangeListener<? super Node>) c-> {
-            while (c.next()) {
-                if (c.wasPermutated()) {
-                    for (int i = c.getFrom(); i < c.getTo(); ++i) {
-                        //permutate
-                    }
-                } else {
-                    if (c.wasUpdated()) {
-                        //update item
-                    } else {
-                        for (Node remitem : c.getRemoved()) {
-                            removeNode(remitem);
-                        }
-                        for (Node additem : c.getAddedSubList()) {
-                            addNode(additem);
-                        }
-                    }
-                }
-            }
+        stackPane.getChildren().add(smallPane);
+        this.contentProperty().addListener((b, o, n)->{
+            addNode(n);
         });
-        this.getChildren().add(smallPane);
     }
 
     private void addNode(Node node) {
         if (!(node instanceof VBox)) return;
+        this.getChildren().remove(node);
+        stackPane.getChildren().add(node);
         ObservableList<Node> nodeList = ((VBox)node).getChildren();
         for (Node nodet : nodeList) {
             if (nodet instanceof Button) {
@@ -74,14 +62,11 @@ public class LNavPane extends StackPane {
                 buildPopup(newBtn, titledPane);
             }
         }
-    }
-
-    private void removeNode(Node remitem) {
-
+        this.setContent(stackPane);
     }
 
     public void tongleLeftPane() {
-        Region bigLeftPane = (Region) this.getChildren().get(1);
+        Region bigLeftPane = (Region) stackPane.getChildren().get(1);
         if (!smallPane.isVisible()) {
             bigLeftPane.setVisible(false);
             smallPane.setVisible(true);

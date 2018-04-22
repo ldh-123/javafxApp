@@ -23,10 +23,10 @@
         </HBox>
     </bottom>
     <left>
-        <ScrollPane  styleClass="leftPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="220" vbarPolicy="NEVER" >
-            <content>
+        <!--<ScrollPane  styleClass="leftPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" prefWidth="220" vbarPolicy="NEVER" >-->
+            <!--<content>-->
                 <LNavPane fx:id="leftPane" styleClass="leftBackPane">
-                    <children>
+                    <content>
                         <VBox fx:id="bigLeftPane"  mouseTransparent="false" >
                             <children>
                                 <Button text="John Doe Frontend Developer" styleClass="nav-title">
@@ -123,10 +123,10 @@
                                 </TitledPane >
                             </children>
                         </VBox>
-                    </children>
+                    </content>
                 </LNavPane>
-            </content>
-        </ScrollPane>
+            <!--</content>-->
+        <!--</ScrollPane>-->
     </left>
     <center>
         <ScrollPane fitToWidth="true" fitToHeight="true" style="-fx-background-color: white">
