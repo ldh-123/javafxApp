@@ -3,11 +3,8 @@
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
-<?import org.kordamp.ikonli.javafx.FontIcon?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 
-<?import javafx.scene.chart.LineChart?>
-<?import javafx.scene.chart.NumberAxis?>
 <?import org.tbee.javafx.scene.layout.fxml.MigPane?>
 <fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" alignment="TOP_LEFT" stylesheets="@/css/Common.css,@/css/FormContent.css">
     <children>

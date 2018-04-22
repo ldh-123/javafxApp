@@ -37,7 +37,7 @@ public class HomeController implements Initializable {
     @FXML private VBox smallLeftPane;
     @FXML private ScrollPane leftPane;
     @FXML private StackPane contentPane;
-    @FXML private WebView webView;
+//    @FXML private WebView webView;
 
     private Map<Button, Popup> popupMap = new HashMap<>();
 
@@ -87,7 +87,7 @@ public class HomeController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         headController.setHomeController(this);
         leftPane.setPrefWidth(220);
-        webView.getEngine().load("http://www.baidu.com");
+//        webView.getEngine().load("http://www.baidu.com");
 
         buildPopup();
 

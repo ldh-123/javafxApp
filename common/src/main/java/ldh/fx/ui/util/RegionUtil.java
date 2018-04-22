@@ -1,6 +1,8 @@
 package ldh.fx.ui.util;
 
 import de.jensd.fx.glyphs.GlyphIcon;
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -109,6 +111,31 @@ public class RegionUtil {
 
     public static double snapSize(Region region, double value) {
         return snapSize(value, region.isSnapToPixel());
+    }
+
+    public static Node copyGraphic(Node node) {
+        if (node == null) return null;
+        if (node instanceof FontAwesomeIconView) {
+            FontAwesomeIconView fontAwesomeIconView = (FontAwesomeIconView) node;
+            FontAwesomeIconView newNode = new FontAwesomeIconView();
+            newNode.getStyleClass().addAll(fontAwesomeIconView.getStyleClass());
+            copy(fontAwesomeIconView, newNode);
+            return newNode;
+        } else if (node instanceof MaterialDesignIconView) {
+            MaterialDesignIconView materialDesignIconView = (MaterialDesignIconView) node;
+            MaterialDesignIconView newNode = new MaterialDesignIconView();
+            newNode.getStyleClass().addAll(materialDesignIconView.getStyleClass());
+            copy(materialDesignIconView, newNode);
+            return newNode;
+        }
+        return null;
+    }
+
+    private static void copy(GlyphIcon from, GlyphIcon to) {
+        to.setGlyphSize(from.getGlyphSize());
+        to.setGlyphName(from.getGlyphName());
+        to.setFill(from.getFill());
+
     }
 
     private static double popupContentWidth(Node contentPane) {

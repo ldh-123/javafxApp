@@ -19,3 +19,14 @@
 .triangle:hover {
     -fx-stroke: red;
 }
+
+.tonggle {
+    -fx-graphic: url("/image/bugIcon.png");
+}
+
+.pencil-graphic{
+    -glyph-name: "PENCIL_SQUARE_ALT";
+    -icons-color: white;
+    -glyph-size: 18px;
+    -fx-fill: white;
+}

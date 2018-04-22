@@ -92,7 +92,7 @@
     -fx-padding: 5 5 5 10;
 }
 
-#smallLeftPane Button {
+.nav-small-pane Button {
     -fx-min-width: 50px;
     -fx-pref-width: 50px;
     -fx-max-width: 50px;
@@ -103,7 +103,7 @@
     -fx-padding: 11 0 11 10;
 }
 
-#smallLeftPane Button:hover {
+.nav-small-pane Button:hover {
     -fx-min-width: 50px;
     -fx-pref-width: 50px;
     -fx-max-width: 50px;
@@ -112,28 +112,10 @@
     -fx-border-width: 0 0 0 5;
 }
 
-#contentPane {
-    -fx-background-color: #E5E5E5;
-}
-
-.test {
-    -fx-background-image: url('/img/rr.png');
-}
-
-.nav-title {
-    -fx-padding: 20 0 20 0;
-    -fx-graphic: url('/img/48.jpg');
-}
-
 .nav-title:hover {
     -fx-padding: 20 0 20 0;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-}
-
-.nav-title-small {
-    -fx-padding: 20 0 20 -10;
-    -fx-graphic: url('/img/48.jpg');
 }
 
 .dashboard-graphic{
@@ -164,13 +146,6 @@
     -fx-fill: #007d71;
 }
 
-.pencil-graphic{
-    -glyph-name: "PENCIL_SQUARE_ALT";
-    -icons-color: white;
-    -glyph-size: 18px;
-    -fx-fill: white;
-}
-
 .table-graphic{
     -glyph-name: "TABLE";
     -icons-color: white;
@@ -190,4 +165,49 @@
     -icons-color: white;
     -glyph-size: 18px;
     -fx-fill: white;
+}
+
+.popup-nav{
+    -fx-background-color: #212529;
+    -fx-min-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+}
+
+.popup-nav Button{
+    -fx-text-fill: white;
+    -fx-min-width: 250px;
+    -fx-pref-width: 250px;
+    -fx-max-width: 250px;
+    -fx-font-size: 20px;
+    -fx-padding: 5px 0px 5px 5px;
+    -fx-alignment: center-left;
+    -fx-background-color: transparent;
+}
+
+.popup-nav Button:hover{
+    -fx-text-fill: white;
+    -fx-background-color: darkgreen;
+}
+
+.popup-nav .first-nav {
+    -fx-padding: 8px;
+    -fx-background-color: black;
+}
+
+.popup-nav .child-nav {
+    -fx-padding: 8px 8px 8px 15px;
+}
+
+.glyph-icon{
+    -fx-text-fill: -icons-color;
+    -fx-fill: -icons-color;
+    -glyph-size: 15px;
+}
+
+.popup-nav .nav-circle {
+    -glyph-name: "CIRCLE_THIN";
+    -icons-color: white;
+    -glyph-size: 15px;
+    -fx-fill: #007d71;
 }
