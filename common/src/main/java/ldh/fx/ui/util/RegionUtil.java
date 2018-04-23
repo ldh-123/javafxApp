@@ -3,6 +3,9 @@ package ldh.fx.ui.util;
 import de.jensd.fx.glyphs.GlyphIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView;
+import de.jensd.fx.glyphs.octicons.OctIconView;
+import de.jensd.fx.glyphs.weathericons.WeatherIcon;
+import de.jensd.fx.glyphs.weathericons.WeatherIconView;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -126,6 +129,18 @@ public class RegionUtil {
             MaterialDesignIconView newNode = new MaterialDesignIconView();
             newNode.getStyleClass().addAll(materialDesignIconView.getStyleClass());
             copy(materialDesignIconView, newNode);
+            return newNode;
+        } else if (node instanceof OctIconView) {
+            OctIconView octIconView = (OctIconView) node;
+            OctIconView newNode = new OctIconView();
+            newNode.getStyleClass().addAll(octIconView.getStyleClass());
+            copy(octIconView, newNode);
+            return newNode;
+        } else if (node instanceof WeatherIconView) {
+            WeatherIconView weatherIconView = (WeatherIconView) node;
+            WeatherIconView newNode = new WeatherIconView();
+            newNode.getStyleClass().addAll(weatherIconView.getStyleClass());
+            copy(weatherIconView, newNode);
             return newNode;
         }
         return null;

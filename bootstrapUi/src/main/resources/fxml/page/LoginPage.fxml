@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
 
-<?import org.tbee.javafx.scene.layout.fxml.MigPane?>
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import javafx.scene.effect.DropShadow?>
 <fx:root type="javafx.scene.layout.AnchorPane" xmlns:fx="http://javafx.com/fxml" prefHeight="380.0" prefWidth="400.0" styleClass="ldh-window" stylesheets="@/css/page/login.css">
@@ -45,4 +41,7 @@
             </columnConstraints>
         </GridPane >
     </children>
+    <effect>
+        <DropShadow/>
+    </effect>
 </fx:root>

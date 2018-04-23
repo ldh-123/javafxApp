@@ -39,7 +39,7 @@ public class DialogUtil {
         window.getScene().getStylesheets().add("/component/LDialog.css");
         Label label = new Label(info);
         label.setPadding(new Insets(5));
-        window.setContentPane(label);
+        window.setCenter(label);
         window.setPrefSize(width, height);
         window.isShowingMinButton(false);
         window.isShowingMaxButton(false);

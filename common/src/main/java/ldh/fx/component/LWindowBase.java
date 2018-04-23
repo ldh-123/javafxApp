@@ -40,12 +40,12 @@ public class LWindowBase extends AnchorPane {
     private Resizable resizable;
     private StageMovable stageMovable;
 
-    private ObjectProperty<Node> contentPaneProperty = new SimpleObjectProperty<>();
+    private ObjectProperty<Node> centerProperty = new SimpleObjectProperty<>();
     private ObjectProperty<Node> topProperty = new SimpleObjectProperty<>();
 
     public LWindowBase() {
         loadFx("/component/LWindow.fxml");
-        contentPaneProperty.addListener((l, o, n)->{
+        centerProperty.addListener((l, o, n)->{
             contentContainer.setContent(n);
         });
         topProperty.addListener((l, o, n)->{
@@ -67,6 +67,22 @@ public class LWindowBase extends AnchorPane {
         }
     }
 
+    public Node getCenter() {
+        return centerProperty.get();
+    }
+
+    public ObjectProperty<Node> getCenterProperty() {
+        return centerProperty;
+    }
+
+    public void setCenter(Node node) {
+        centerProperty.set(node);
+    }
+
+    public void setContentPane(Node node) {
+        centerProperty.set(node);
+    }
+
     public Node getTop() {
         return topProperty.get();
     }
@@ -78,6 +94,7 @@ public class LWindowBase extends AnchorPane {
     public void setTop(Node node) {
         topProperty.set(node);
     }
+
 
     protected void buildResizable(Object obj) {
         if (obj instanceof Stage) {
@@ -122,18 +139,6 @@ public class LWindowBase extends AnchorPane {
     }
     public void buildSwBugleResizable() {
         resizable.buildSwBugleResizable();
-    }
-
-    public ObjectProperty<Node> contentPaneProperty() {
-        return contentPaneProperty;
-    }
-
-    public void setContentPane(Node node) {
-        contentPaneProperty.set(node);
-    }
-
-    public Node getContentPane() {
-        return contentPaneProperty.get();
     }
 
     protected void loadFx(String fxmlPath) {

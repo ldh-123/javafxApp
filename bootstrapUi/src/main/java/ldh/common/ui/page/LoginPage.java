@@ -6,11 +6,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import ldh.fx.component.LWindowBase;
 import ldh.fx.component.LxWindowBase;
 
 import java.io.IOException;
 
-public class LoginPage extends LxWindowBase {
+public class LoginPage extends LWindowBase {
 
     @FXML private Region topRectangle;
     @FXML private Region buttomRectangle;

@@ -51,6 +51,7 @@ public class LDialogBase extends LWindow implements Initializable {
         if(isModel() && dialogModel == DialogModel.Application_model) {
             isShowingMinButton(false);
             this.addDropShadow();
+            this.getScene().getStylesheets().add("/component/LDialog.css");
         }
     }
 

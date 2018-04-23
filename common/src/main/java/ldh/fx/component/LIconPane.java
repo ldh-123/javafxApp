@@ -9,6 +9,8 @@ import de.jensd.fx.glyphs.weathericons.WeatherIcon;
 import javafx.animation.SequentialTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
@@ -19,6 +21,7 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.util.Duration;
+import ldh.fx.ui.util.RegionUtil;
 
 import java.lang.reflect.Constructor;
 import java.util.ArrayList;
@@ -40,6 +43,7 @@ public class LIconPane extends BorderPane {
     private Slider slider = new Slider(10, 100, 30);
     private ColorPicker iconColor = new ColorPicker(Color.LIGHTBLUE);
     private TextArea codeTextArea;
+    private ObjectProperty<Node> selectedNodeProperty = new SimpleObjectProperty<>();
 
     public LIconPane() {
         this(FontAwesomeIcon.class, MaterialDesignIcon.class, OctIcon.class, WeatherIcon.class);
@@ -55,6 +59,10 @@ public class LIconPane extends BorderPane {
         iconColor.setValue(Color.BLUEVIOLET);
     }
 
+    public ObjectProperty<Node> getSelectedNodeProperty() {
+        return selectedNodeProperty;
+    }
+
     private void initCenterPane() {
         VBox centerPane = new VBox();
         centerPane.getStyleClass().add("icon-container");
@@ -64,7 +72,7 @@ public class LIconPane extends BorderPane {
         int i = 0;
         for (Class clazz : glyphIconClasses) {
             if (clazz.isEnum()) {
-                IconNode iconNode = new IconNode(clazz);
+                IconNode iconNode = new IconNode(clazz, i==0);
                 iconNode.setUserData(i);
                 glyphIconNodeMap.put(clazz.getSimpleName(), iconNode);
                 contentPane.getChildren().add(iconNode);
@@ -201,9 +209,11 @@ public class LIconPane extends BorderPane {
         private FilteredList<Label> filteredData = new FilteredList<>(labelObservableList, p -> true);
         private Constructor constructor = null;
         private FlowPane flowPane = new FlowPane();
+        private boolean isShowing = false;
 
-        public IconNode(Class glyphIconClass) {
+        public IconNode(Class glyphIconClass, boolean isShowing) {
             this.glyphIconClass = glyphIconClass;
+            this.isShowing = isShowing;
             this.setFitToWidth(true);
             this.setFitToHeight(true);
 
@@ -242,6 +252,9 @@ public class LIconPane extends BorderPane {
                 }
                 labelMap.put(glyphIconClass.getSimpleName(), iconLables);
             }
+            if (isShowing) {
+                Platform.runLater(()->this.showData());
+            }
         }
 
         private void clickLabel(GlyphIcon icon) {
@@ -249,10 +262,12 @@ public class LIconPane extends BorderPane {
             String code = name + " " + icon.getGlyphName().toLowerCase() + "Icon = new " + name + "(" + glyphIconClass.getSimpleName() + "." + icon.getGlyphName() + ")";
             codeTextArea.setText(code);
 
-            GlyphIcon newIcon = copyGlyphIcon(icon);
+            GlyphIcon newIcon = (GlyphIcon) RegionUtil.copyGraphic(icon);
             newIcon.setGlyphSize(slider.getValue());
             newIcon.setFill(iconColor.getValue());
             iconLabel.setGraphic(newIcon);
+
+            selectedNodeProperty.set(RegionUtil.copyGraphic(newIcon));
         }
 
         private GlyphIcon copyGlyphIcon(GlyphIcon icon) {
