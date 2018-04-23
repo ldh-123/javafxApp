@@ -50,6 +50,7 @@ public class LDialogBase extends LWindow implements Initializable {
         super.initDialogModel(stage, dialogModel);
         if(isModel() && dialogModel == DialogModel.Application_model) {
             isShowingMinButton(false);
+            this.addDropShadow();
         }
     }
 

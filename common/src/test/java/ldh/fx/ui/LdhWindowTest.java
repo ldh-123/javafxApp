@@ -16,7 +16,7 @@ public class LdhWindowTest extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         ldh.fx.component.LWindow lWindow = new ldh.fx.component.LWindow();
-        lWindow.initDialogModel(primaryStage, DialogModel.Stand_alone);
+        lWindow.initDialogModel(primaryStage, DialogModel.Application);
 //        lWindow.buildResizable(primaryStage);
         lWindow.setContentPane(new Label("sadfasdfasdfas"));
 //        Scene scene = new Scene(lWindow, 1200, 600);

@@ -14,8 +14,8 @@ public class LDialogTest extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         LDialogBase lWindow = new LDialogBase();
-        lWindow.initDialogModel(primaryStage, DialogModel.Stand_alone);
-//        lWindow.buildResizable(primaryStage);
+        lWindow.initDialogModel(primaryStage, DialogModel.Application);
+        lWindow.buildResizable();
         lWindow.setContentPane(new Label("sadfasdfasdfas"));
 //        Scene scene = new Scene(lWindow, 1200, 600);
 //        primaryStage.setScene(scene);

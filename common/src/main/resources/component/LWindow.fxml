@@ -1,32 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
+<?import javafx.scene.control.ScrollPane?>
 
-<?import javafx.scene.control.Button?>
-<?import de.jensd.fx.glyphs.materialicons.MaterialIconView?>
-<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
-<fx:root type="javafx.scene.layout.BorderPane" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
-    <top>
-    </top>
-    <center>
-    </center>
-    <left>
-        <VBox fx:id="eastEdgePane" styleClass="east-edge-pane" prefWidth="3" minWidth="3" maxWidth="3"/>
-    </left>
-    <right>
-        <VBox fx:id="westEdgePane" styleClass="west-edge-pane" prefWidth="3"  minWidth="3" maxWidth="3"/>
-    </right>
-    <bottom>
-        <HBox alignment="BOTTOM_CENTER" styleClass="south-edge-container">
-            <children>
-                <Button fx:id="seBuglePane" prefWidth="3" minWidth="3" maxWidth="3" prefHeight="3" minHeight="3" maxHeight="3" styleClass="se-bugle-pane"/>
-                <HBox fx:id="southEdgePane" prefHeight="3" minHeight="3" maxHeight="3" styleClass="south-edge-pane" HBox.hgrow="ALWAYS"/>
-                <Button fx:id="swBuglePane" prefWidth="3" minWidth="3" maxWidth="3" prefHeight="3" minHeight="3" maxHeight="3" styleClass="sw-bugle-pane"/>
-            </children>
-        </HBox>
-    </bottom>
-    <!--<effect>-->
-        <!--<javafx.scene.effect.DropShadow />-->
-    <!--</effect>-->
+<fx:root type="javafx.scene.layout.AnchorPane" prefHeight="600" prefWidth="800" xmlns:fx="http://javafx.com/fxml/1" styleClass="lwindow">
+    <children>
+        <BorderPane fx:id="dialogContainer" styleClass="lwindow-container" AnchorPane.topAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0">
+            <center>
+                <ScrollPane fx:id="contentContainer" styleClass="content-container" fitToWidth="true" fitToHeight="true"/>
+            </center>
+        </BorderPane>
+
+        <Region fx:id="northEdgePane" styleClass="north-edge-pane" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" prefHeight="4" minHeight="4"></Region>
+        <Region fx:id="eastEdgePane" styleClass="east-edge-pane" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="10" prefWidth="4" minWidth="4" minHeight="100"></Region>
+        <Region fx:id="westEdgePane" styleClass="west-edge-pane" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="10" prefWidth="4"></Region>
+        <Region fx:id="seBuglePane"  styleClass="se-bugle-pane" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0" prefHeight="8" prefWidth="8"></Region>
+        <Region fx:id="southEdgePane" styleClass="south-edge-pane" AnchorPane.leftAnchor="10" AnchorPane.rightAnchor="10" AnchorPane.bottomAnchor="0" prefHeight="4"></Region>
+        <Region fx:id="swBuglePane" styleClass="sw-bugle-pane" AnchorPane.rightAnchor="0" AnchorPane.bottomAnchor="0" prefHeight="8" prefWidth="8"></Region>
+
+    </children>
 </fx:root>

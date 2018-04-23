@@ -13,6 +13,7 @@ public abstract class Resizable {
     protected Region eastEdgePane;
     protected Region westEdgePane;
     protected Region southEdgePane;
+    protected Region northEdgePane;
     protected Region seBuglePane;
     protected Region swBuglePane;
 
@@ -24,12 +25,13 @@ public abstract class Resizable {
     protected double lastWidth = 0.0d;
     protected double lastHeight = 0.0d;
 
-    public Resizable(Region eastEdgePane, Region seBuglePane, Region southEdgePane, Region swBuglePane, Region westEdgePane) {
+    public Resizable(Region eastEdgePane, Region seBuglePane, Region southEdgePane, Region swBuglePane, Region westEdgePane, Region northEdgePane) {
         this.eastEdgePane = eastEdgePane;
         this.seBuglePane = seBuglePane;
         this.southEdgePane = southEdgePane;
         this.swBuglePane = swBuglePane;
         this.westEdgePane = westEdgePane;
+        this.northEdgePane = northEdgePane;
     }
 
     public void buildEastEdgeResizable() {
@@ -72,6 +74,14 @@ public abstract class Resizable {
         swBuglePane.setOnMouseEntered(e->swBugleChangeSize(e));
     }
 
+    public void buildNorthEdgeResizable() {
+        if (northEdgePane == null) return;
+        northEdgePane.setOnMouseDragged(e->changeNorthEdgeSize(e));
+        northEdgePane.setOnMouseReleased(e->endChangeNorthEdgeSize(e));
+        northEdgePane.setOnDragDetected(e->startChangeNorthEdgeSize(e));
+        northEdgePane.setOnMouseEntered(e->northEdgeChangeSize(e));
+    }
+
     public abstract void eastEdgeChangeSize(MouseEvent evt);
 
     public abstract void startChangeEastEdgeSize(MouseEvent evt);
@@ -110,6 +120,14 @@ public abstract class Resizable {
     public abstract void changeSwBugleSize(MouseEvent evt);
 
     public abstract void endChangeSwBugleSize(MouseEvent evt);
+
+    public abstract void northEdgeChangeSize(MouseEvent evt);
+
+    public abstract void startChangeNorthEdgeSize(MouseEvent evt);
+
+    public abstract void changeNorthEdgeSize(MouseEvent evt);
+
+    public abstract void endChangeNorthEdgeSize(MouseEvent evt);
 
     public abstract void startChangeSize(MouseEvent evt, Region region);
 

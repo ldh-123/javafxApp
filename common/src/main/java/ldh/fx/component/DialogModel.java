@@ -6,7 +6,6 @@ package ldh.fx.component;
 public enum DialogModel {
     Application,
     Application_model,
-    Stand_alone,
     Normal,
     ;
 }

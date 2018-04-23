@@ -12,8 +12,8 @@ public class RegionResizable extends Resizable{
 
     private Region region;
 
-    public RegionResizable(Region region, Region eastEdgePane, Region seBuglePane, Region southEdgePane, Region swBuglePane, Region westEdgePane) {
-        super(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
+    public RegionResizable(Region region, Region eastEdgePane, Region seBuglePane, Region southEdgePane, Region swBuglePane, Region westEdgePane, Region northEdgePane) {
+        super(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane, northEdgePane);
         this.region = region;
     }
 
@@ -33,7 +33,7 @@ public class RegionResizable extends Resizable{
             double changeW = endMoveX - this.startMoveX;
             double changeH = endMoveY - this.startMoveY;
 
-            region.setLayoutX(lastX + changeW);
+            region.getScene().getWindow().setX(lastX + changeW);
             region.setPrefWidth(lastWidth - changeW);
         }
     }
@@ -101,7 +101,7 @@ public class RegionResizable extends Resizable{
 
             double changeW = endMoveX - this.startMoveX;
             double changeH = endMoveY - this.startMoveY;
-            region.setLayoutX(lastX + changeW);
+            region.getScene().getWindow().setX(lastX + changeW);
             region.setPrefWidth(lastWidth - changeW);
             region.setPrefHeight(lastHeight + changeH);
         }
@@ -137,14 +137,37 @@ public class RegionResizable extends Resizable{
         }
     }
 
+    public void northEdgeChangeSize(MouseEvent evt) {
+        northEdgePane.setCursor(Cursor.V_RESIZE);
+    }
+
+    public void startChangeNorthEdgeSize(MouseEvent evt) {
+        this.startChangeSize(evt, northEdgePane);
+    }
+
+    public void changeNorthEdgeSize(MouseEvent evt) {
+        if (dragging) {
+            double endMoveX = evt.getScreenX();
+            double endMoveY = evt.getScreenY();
+            double changeH = endMoveY - this.startMoveY;
+            region.getScene().getWindow().setY(lastY + changeH);
+            region.setPrefHeight(lastHeight - changeH);
+        }
+    }
+
+    public void endChangeNorthEdgeSize(MouseEvent evt) {
+        this.endChangeSize(evt);
+    }
+
+
     public void startChangeSize(MouseEvent evt, Region region2) {
         startMoveX = evt.getScreenX();
         startMoveY = evt.getScreenY();
         dragging = true;
         lastHeight = region.getHeight();
-        lastWidth = region.getWidth();
-        lastX = region.getLayoutX();
-        lastY = region.getLayoutY();
+        lastWidth = region.getPrefWidth();
+        lastX = region.getScene().getWindow().getX();
+        lastY = region.getScene().getWindow().getY();
         evt.consume();
     }
 

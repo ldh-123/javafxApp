@@ -95,7 +95,7 @@ public class WinDesktopToolbar extends DesktopToolbar {
 
     private void addBrowserDialog() {
         ToolbarButton toolbarButton = new ToolbarButton(new Button("百度搜索"));
-        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "百度搜索", 1000d, 600d, DialogModel.Stand_alone);
+        LDialog ldhDialog = new LDialog(StageUtil.STAGE, "百度搜索", 1000d, 600d, DialogModel.Application);
 //        ldhDialog.setModel(false);
 //        ldhDialog.setIsHide(true);
         ldhDialog.getScene().getStylesheets().add("/component/LxDialog.css");

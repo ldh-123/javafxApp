@@ -8,10 +8,9 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
+import javafx.scene.effect.DropShadow;
+import javafx.scene.effect.Effect;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import ldh.fx.ui.util.RegionResizable;
 import ldh.fx.ui.util.Resizable;
@@ -19,58 +18,86 @@ import ldh.fx.ui.util.StageMovable;
 import ldh.fx.ui.util.StageResizable;
 
 import java.io.IOException;
+import java.util.Stack;
 import java.util.logging.Logger;
 
 /**
  * Created by ldh on 2018/1/30.
  */
-public class LWindowBase extends BorderPane {
+public class LWindowBase extends AnchorPane {
 
     private Logger logger = Logger.getLogger(LWindowBase.class.getName());
 
-    @FXML
-    protected VBox eastEdgePane;
-    @FXML protected VBox westEdgePane;
-    @FXML protected Button seBuglePane;
-    @FXML protected HBox southEdgePane;
-    @FXML protected Button swBuglePane;
+    @FXML protected Region eastEdgePane;
+    @FXML protected Region westEdgePane;
+    @FXML protected Region seBuglePane;
+    @FXML protected Region southEdgePane;
+    @FXML protected Region northEdgePane;
+    @FXML protected Region swBuglePane;
+    @FXML protected BorderPane dialogContainer;
+    @FXML protected ScrollPane contentContainer;
 
     private Resizable resizable;
     private StageMovable stageMovable;
-    private ScrollPane scrollPane = new ScrollPane();
 
     private ObjectProperty<Node> contentPaneProperty = new SimpleObjectProperty<>();
+    private ObjectProperty<Node> topProperty = new SimpleObjectProperty<>();
 
     public LWindowBase() {
         loadFx("/component/LWindow.fxml");
-        this.setCenter(scrollPane);
-        scrollPane.setFitToHeight(true);
-        scrollPane.setFitToWidth(true);
-        scrollPane.getStyleClass().add("content-container");
         contentPaneProperty.addListener((l, o, n)->{
-            scrollPane.setContent(n);
+            contentContainer.setContent(n);
+        });
+        topProperty.addListener((l, o, n)->{
+            dialogContainer.setTop(n);
         });
     }
 
-    public void buildResizable(Object obj) {
+    public void addDropShadow() {
+        Effect effect = this.getEffect();
+        if (effect != null && effect instanceof DropShadow) return;
+        DropShadow dropShadow = new DropShadow();
+        this.setEffect(dropShadow);
+    }
+
+    public void removeDropShadow() {
+        Effect effect = this.getEffect();
+        if (effect instanceof DropShadow) {
+            this.setEffect(null);
+        }
+    }
+
+    public Node getTop() {
+        return topProperty.get();
+    }
+
+    public ObjectProperty<Node> getTopProperty() {
+        return topProperty;
+    }
+
+    public void setTop(Node node) {
+        topProperty.set(node);
+    }
+
+    protected void buildResizable(Object obj) {
         if (obj instanceof Stage) {
-            resizable = new StageResizable(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
+            resizable = new StageResizable(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane, northEdgePane);
 
             buildEastEdgeResizable();
             buildSouthEdgeResizable();
             buildWestEdgeResizable();
+            buildNorthEdgeResizable();
             buildSeBugleResizable();
             buildSwBugleResizable();
         } else if (obj instanceof Region) {
-            resizable = new RegionResizable((Region)obj, eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
+            resizable = new RegionResizable((Region)obj, eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane, northEdgePane);
 
 //            buildEastEdgeResizable();
             buildSouthEdgeResizable();
             buildWestEdgeResizable();
+//            buildNorthEdgeResizable();
 //            buildSeBugleResizable();
             buildSwBugleResizable();
-//            eastEdgePane.setVisible(false);
-            seBuglePane.setVisible(false);
         }
     }
 
@@ -86,6 +113,9 @@ public class LWindowBase extends BorderPane {
     }
     public void buildWestEdgeResizable() {
         resizable.buildWestEdgeResizable();
+    }
+    public void buildNorthEdgeResizable() {
+        resizable.buildNorthEdgeResizable();
     }
     public void buildSeBugleResizable() {
         resizable.buildSeBugleResizable();

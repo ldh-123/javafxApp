@@ -21,7 +21,7 @@ public class LDialogTest2 extends Application {
         button.setOnAction(e-> {
             LDialogBase lWindow = new LDialogBase();
             lWindow.initDialogModel(primaryStage, DialogModel.Application_model);
-//        lWindow.buildResizable(primaryStage);
+            lWindow.buildResizable();
             lWindow.setPrefSize(600, 400);
             lWindow.getStylesheets().add(LdhWindowTest2.class.getResource("/component/LDialog.css").toExternalForm());
 //        lWindow.setContentPane(RegionUtil.createButton("drag", new MaterialDesignIconView(), "sw-bugle-graphic"));

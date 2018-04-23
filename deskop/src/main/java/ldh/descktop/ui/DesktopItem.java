@@ -96,8 +96,8 @@ public class DesktopItem extends StackPane {
 
         Object obj = desktopNodeFactory.create();
         if (desktopNodeFactory.isNode(obj)) {
-            LxDialog ldhDialog = new LxDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), 800d, 500d);
-            ldhDialog.setResizable();
+            LDialog ldhDialog = new LDialog(StageUtil.STAGE, getLabel().getTooltip().getText(), 800d, 500d);
+            ldhDialog.buildResizable();
 //            LdhDialog ldhDialog = new LdhDialog(getLabel().getTooltip().getText(), 800d, 500d);
 //            ldhDialog.setIsHide(true);
             ldhDialog.show();

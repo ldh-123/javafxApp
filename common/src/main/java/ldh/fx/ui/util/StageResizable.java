@@ -12,8 +12,8 @@ import sun.misc.Resource;
  */
 public class StageResizable extends Resizable{
 
-    public StageResizable(Region eastEdgePane, Region seBuglePane, Region southEdgePane, Region swBuglePane, Region westEdgePane) {
-        super(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane);
+    public StageResizable(Region eastEdgePane, Region seBuglePane, Region southEdgePane, Region swBuglePane, Region westEdgePane, Region northEdgePane) {
+        super(eastEdgePane, seBuglePane, southEdgePane, swBuglePane, westEdgePane, northEdgePane);
     }
 
     public void eastEdgeChangeSize(MouseEvent evt) {
@@ -140,6 +140,30 @@ public class StageResizable extends Resizable{
             dragging = false;
         }
     }
+
+    public void northEdgeChangeSize(MouseEvent evt) {
+        northEdgePane.setCursor(Cursor.V_RESIZE);
+    }
+
+    public void startChangeNorthEdgeSize(MouseEvent evt) {
+        this.startChangeSize(evt, northEdgePane);
+    }
+
+    public void changeNorthEdgeSize(MouseEvent evt) {
+        if (dragging) {
+            double endMoveX = evt.getScreenX();
+            double endMoveY = evt.getScreenY();
+            Window w = northEdgePane.getScene().getWindow();
+            double changeH = endMoveY - this.startMoveY;
+            w.setY(lastY + changeH);
+            w.setHeight(lastHeight - changeH);
+        }
+    }
+
+    public void endChangeNorthEdgeSize(MouseEvent evt) {
+        endChangeSize(evt);
+    }
+
 
     public void startChangeSize(MouseEvent evt, Region region) {
         startMoveX = evt.getScreenX();

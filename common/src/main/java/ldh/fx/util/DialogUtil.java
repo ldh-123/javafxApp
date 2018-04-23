@@ -35,8 +35,8 @@ public class DialogUtil {
     }
 
     public static void modelInfo(String title, String info, double width, double height) {
-        LxDialog window = new LxDialog(StageUtil.STAGE, title, DialogModel.Application_model, width, height);
-        window.getScene().getStylesheets().add("/component/LxDialog.css");
+        LDialog window = new LDialog(StageUtil.STAGE, title, width, height, DialogModel.Application_model);
+        window.getScene().getStylesheets().add("/component/LDialog.css");
         Label label = new Label(info);
         label.setPadding(new Insets(5));
         window.setContentPane(label);
