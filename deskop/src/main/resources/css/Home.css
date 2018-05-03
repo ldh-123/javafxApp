@@ -20,7 +20,7 @@
     -fx-padding: 11 20 11 11;
     -fx-border-color: #212529;
     -fx-border-width: 0 0 0 5px;
-    -fx-background-image: url('/images/icon-back-arrow.png');
+    -fx-background-image: url('/images/down.png');
     -fx-background-size: 12;
     -fx-background-repeat: no-repeat;
     -fx-background-position: 200;
@@ -33,10 +33,10 @@
 }
 
 .leftPane TitledPane:expanded>.title {
-    -fx-background-image: url('/images/down.png');
-    -fx-background-size: 30;
+    -fx-background-image: url('/images/up.png');
+    -fx-background-size: 12;
     -fx-background-repeat: no-repeat;
-    -fx-background-position: 185;
+    -fx-background-position: 200;
 }
 
 .leftPane TitledPane .title .arrow-button {
