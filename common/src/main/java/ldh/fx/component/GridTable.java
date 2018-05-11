@@ -65,7 +65,7 @@ public class GridTable<D> extends StackPane implements LoadData {
         
         VBox vbox = new VBox();
         vbox.getChildren().addAll(tableView, pageablePane);
-        searchContainer = buildSearchContainer();
+        searchContainer = buildSearchContainer(masterDetailPane);
         masterDetailPane.setShowDetailNode(false);
         masterDetailPane.setDetailNode(searchContainer);
         masterDetailPane.setMasterNode(vbox);
@@ -184,7 +184,7 @@ public class GridTable<D> extends StackPane implements LoadData {
         }
     }
 
-    private Region buildSearchContainer() {
+    private Region buildSearchContainer(MasterDetailPane masterDetailPane) {
         HBox hbox = new HBox();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(this.gridTableModel.getPath("searchEditPath").getUrl()));
         try {
@@ -201,7 +201,12 @@ public class GridTable<D> extends StackPane implements LoadData {
             parent.setPadding(new Insets(5));
             hbox.getChildren().add(parent);
             parent.prefWidthProperty().bind(hbox.widthProperty());
-            hbox.setPrefHeight(parent.prefHeight(-1) <= 0 ? 130 : parent.prefHeight(-1));
+            hbox.setPrefHeight(parent.getPrefHeight() <= 0 ? 130 : parent.prefHeight(-1));
+            hbox.widthProperty().addListener(b->{
+                System.out.println(tableView.getPrefWidth() + ":" + tableView.getWidth());
+                masterDetailPane.setDividerPosition(parent.getPrefHeight()/tableView.getHeight());
+            });
+            masterDetailPane.setDividerPosition(0.4);
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }

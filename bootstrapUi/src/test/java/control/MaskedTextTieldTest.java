@@ -16,8 +16,8 @@ public class MaskedTextTieldTest extends Application {
 
         text.setPlaceholder("-");
 
-        text.setMask("((AAA))");
-
+//        text.setMask("((***))");
+        text.setPlainText("232adfasfafafdafasfdasfa");
         Scene scene = new Scene(text);
         primaryStage.setScene(scene);
         primaryStage.show();

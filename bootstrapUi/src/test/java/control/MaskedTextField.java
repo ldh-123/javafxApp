@@ -136,6 +136,7 @@ public class MaskedTextField extends TextField{
      */
     private void buildSemanticMask(){
         String newMask = getMask();
+        semanticMask.clear();
         for (int i = 0; i < maskLength; i++){
             char c = newMask.charAt(i);
 

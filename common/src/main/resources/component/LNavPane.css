@@ -1,5 +1,5 @@
 .leftPane{
-    -fx-background-color: #333333;
+    -fx-background-color: #595959;
 }
 
 .leftPane TitledPane {
@@ -16,9 +16,9 @@
 }
 
 .leftPane TitledPane .title {
-    -fx-background-color: #212529;
+    -fx-background-color: #595959;
     -fx-padding: 11 20 11 11;
-    -fx-border-color: #212529;
+    -fx-border-color: #595959;
     -fx-border-width: 0 0 0 5px;
     -fx-background-image: url('/img/down.png');
     -fx-background-size: 12;
@@ -56,7 +56,7 @@
 }
 
 .leftPane VBox{
-    -fx-background-color: #212529;
+    -fx-background-color: #595959;
 }
 
 .leftItem{
